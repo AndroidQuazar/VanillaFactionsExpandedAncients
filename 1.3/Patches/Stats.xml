@@ -1,0 +1,19 @@
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="WorkTableWorkSpeedFactor"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="WorkTableWorkSpeedFactor"]</xpath>
+            <value>
+                <parts>
+                    <li Class="VFEAncients.StatPart_SolarPowerUp" />
+                </parts>
+            </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="WorkTableWorkSpeedFactor"]/parts</xpath>
+            <value>
+                <li Class="VFEAncients.StatPart_SolarPowerUp" />
+            </value>
+        </match>
+    </Operation>
+</Patch>
