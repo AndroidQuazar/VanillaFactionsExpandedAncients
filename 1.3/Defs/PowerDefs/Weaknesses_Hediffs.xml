@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>Blind</defName>
+        <label>blind</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Blind</texPath>
+        <hediffs><li>Power_Blind</li></hediffs>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Deaf</defName>
+        <label>deaf</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Deaf</texPath>
+        <hediffs><li>Power_Deaf</li></hediffs>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Mute</defName>
+        <label>mute</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Mute</texPath>
+        <hediffs><li>Power_Mute</li></hediffs>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PsychologicalParalysis</defName>
+        <label>psychological paralysis</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_PsychologicalParalysis</texPath>
+        <hediffs><li>Power_Paralysis</li></hediffs>
+    </VFEAncients.PowerDef>
+</Defs>

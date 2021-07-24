@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>SuperLearning</defName>
+        <label>super learning</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SuperLearning</texPath>
+        <statFactors><GlobalLearningFactor>3</GlobalLearningFactor></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ToxicResistance</defName>
+        <label>toxic resistance</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_ToxicResistance</texPath>
+        <statFactors><ToxicSensitivity>0</ToxicSensitivity></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PsychicResistance</defName>
+        <label>psychic resistance</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PsychicResistance</texPath>
+        <statFactors><PsychicSensitivity>0</PsychicSensitivity></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Regeneration</defName>
+        <label>regeneration</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Regeneration</texPath>
+        <statFactors><InjuryHealingFactor>10</InjuryHealingFactor></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SuperSpeed</defName>
+        <label>super speed</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SuperSpeed</texPath>
+        <statFactors><MoveSpeed>1.5</MoveSpeed></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>GeniusIntellect</defName>
+        <label>genius intellect</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_GeniusIntellect</texPath>
+        <statFactors><ResearchSpeed>3</ResearchSpeed></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>WeaponExpert</defName>
+        <label>weaon expert</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_WeaponExpert</texPath>
+        <statFactors>
+            <AimingDelayFactor>0.5</AimingDelayFactor>
+            <!-- TODO: Cooldown-->
+        </statFactors>
+    </VFEAncients.PowerDef>
+</Defs>

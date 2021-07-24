@@ -48,6 +48,8 @@ namespace VFEAncients
         public void DoPowerIcon(Rect inRect, PowerDef power)
         {
             GUI.DrawTexture(inRect, power.Icon);
+            TooltipHandler.TipRegion(inRect, new TipSignal($"{power.LabelCap}\n\n{power.description}\n{power.Worker.EffectString()}"));
+            Widgets.DrawHighlightIfMouseover(inRect);
         }
     }
 }

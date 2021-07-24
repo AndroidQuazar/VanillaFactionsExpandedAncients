@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -72,6 +73,24 @@ namespace VFEAncients
             if (def.hediffs != null)
                 foreach (var hediff in parent.Pawn.health.hediffSet.hediffs.Where(hd => hd.Part == null && def.hediffs.Contains(hd.def)).ToList())
                     parent.Pawn.health.RemoveHediff(hediff);
+        }
+
+        public virtual string EffectString()
+        {
+            var builder = new StringBuilder();
+            if (def.abilities != null)
+                foreach (var ability in def.abilities)
+                    builder.AppendLine("VFEAncients.Effect.AddAbility".Translate(ability.label));
+            if (def.hediffs != null)
+                foreach (var hediff in def.hediffs)
+                    builder.AppendLine("VFEAncients.Effect.AddHediff".Translate(hediff.label));
+            if (def.statFactors != null)
+                foreach (var factor in def.statFactors)
+                    builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ToStringAsFactor}");
+            if (def.statOffsets != null)
+                foreach (var factor in def.statOffsets)
+                    builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
+            return builder.ToString();
         }
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef Name="WeaknessHediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(1.0, 0.35, 0)</defaultLabelColor>
+        <initialSeverity>1</initialSeverity>
+        <isBad>true</isBad>
+    </HediffDef>
+    <HediffDef ParentName="WeaknessHediffBase">
+        <defName>Power_Blind</defName>
+        <label>blind</label>
+        <description>todo</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    <HediffDef ParentName="WeaknessHediffBase">
+        <defName>Power_Deaf</defName>
+        <label>deaf</label>
+        <description>todo</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    <HediffDef ParentName="WeaknessHediffBase">
+        <defName>Power_Mute</defName>
+        <label>mute</label>
+        <description>todo</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    <HediffDef ParentName="WeaknessHediffBase">
+        <defName>Power_Paralysis</defName>
+        <label>psychological paralysis</label>
+        <description>todo</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>
