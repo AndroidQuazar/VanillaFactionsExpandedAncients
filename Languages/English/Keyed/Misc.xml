@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <VFEAncients.SolarPowerUp>Solar flare power up</VFEAncients.SolarPowerUp>
+    <VFEAncients.TabPowers>Powers</VFEAncients.TabPowers>
+    <VFEAncients.Superpowers>Superpowers</VFEAncients.Superpowers>
+    <VFEAncients.Weaknesses>Weaknesses</VFEAncients.Weaknesses>
 </LanguageData>

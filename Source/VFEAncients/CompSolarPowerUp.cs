@@ -22,11 +22,10 @@ namespace VFEAncients
             if (parent.Map.GameConditionManager.ElectricityDisabled)
             {
                 powerComp.PowerOn = true;
-                var newPower = Props.PowerOutputSolarFlare == 0 ? powerComp.PowerOutput * 2f : Props.PowerOutputSolarFlare;
-                if (powerComp.PowerOutput != newPower)
+                if (powerComp.PowerOutput != Props.PowerOutputSolarFlare)
                 {
                     oldPowerOutput = powerComp.PowerOutput;
-                    powerComp.PowerOutput = newPower;
+                    powerComp.PowerOutput = Props.PowerOutputSolarFlare;
                 }
             }
             else if (powerComp.PowerOutput == Props.PowerOutputSolarFlare)

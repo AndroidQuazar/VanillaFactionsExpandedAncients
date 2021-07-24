@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>Unstable</defName>
+        <label>unstable</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Unstable</texPath>
+        <statOffsets><PsychicSensitivity>1</PsychicSensitivity></statOffsets>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ExtremelyFlammable</defName>
+        <label>extremely flammable</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_ExtremelyFlammable</texPath>
+        <statFactors><Flammability>4</Flammability></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ToxinIntolerance</defName>
+        <label>toxin intolerance</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_ToxinIntolerance</texPath>
+        <statOffsets><ToxicSensitivity>1</ToxicSensitivity></statOffsets>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>HeatIntolerance</defName>
+        <label>heat intolerance</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_HeatIntolerance</texPath>
+        <statOffsets><ComfyTemperatureMax>-10</ComfyTemperatureMax></statOffsets>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ColdIntolerance</defName>
+        <label>cold intolerance</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_ColdIntolerance</texPath>
+        <statOffsets><ComfyTemperatureMin>10</ComfyTemperatureMin></statOffsets>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ImmunologicalDisorder</defName>
+        <label>immunological disorder</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_ImmunologicalDisorder</texPath>
+        <statFactors><ImmunityGainSpeed>0.75</ImmunityGainSpeed></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Hypermetabolism</defName>
+        <label>hypermetabolism</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Hypermetabolism</texPath>
+        <statFactors><HungerRateMultiplier>2</HungerRateMultiplier></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Finicky</defName>
+        <label>finicky</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Finicky</texPath>
+        <statFactors><WorkSpeedGlobal>0.3</WorkSpeedGlobal></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Unsure</defName>
+        <label>unsure</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Unsure</texPath>
+        <statFactors><AimingDelayFactor>2</AimingDelayFactor></statFactors>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>AlwaysKnowsBetter</defName>
+        <label>always knows better</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_AlwaysKnowsBetter</texPath>
+        <statFactors><GlobalLearningFactor>0</GlobalLearningFactor></statFactors>
+    </VFEAncients.PowerDef>
+</Defs>
