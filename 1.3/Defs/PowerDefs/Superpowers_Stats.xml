@@ -3,7 +3,7 @@
     <VFEAncients.PowerDef>
         <defName>SuperLearning</defName>
         <label>super learning</label>
-        <description>todo</description>
+        <description>Super-nanites alter the structure of the brain so that neurons are formed several times faster than usual. Greatly enhances one's learning ability.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SuperLearning</texPath>
         <statFactors><GlobalLearningFactor>3</GlobalLearningFactor></statFactors>
@@ -11,7 +11,7 @@
     <VFEAncients.PowerDef>
         <defName>ToxicResistance</defName>
         <label>toxic resistance</label>
-        <description>todo</description>
+        <description>Super-nanites modify the cells of the body so that they fight toxins of any kind, making one immune to them.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_ToxicResistance</texPath>
         <statFactors><ToxicSensitivity>0</ToxicSensitivity></statFactors>
@@ -19,7 +19,7 @@
     <VFEAncients.PowerDef>
         <defName>PsychicResistance</defName>
         <label>psychic resistance</label>
-        <description>todo</description>
+        <description>Super-nanites alter several centers of the brain. Such mutations make the user completely immune to psychic effects of any sort.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_PsychicResistance</texPath>
         <statFactors><PsychicSensitivity>0</PsychicSensitivity></statFactors>
@@ -27,7 +27,7 @@
     <VFEAncients.PowerDef>
         <defName>Regeneration</defName>
         <label>regeneration</label>
-        <description>todo</description>
+        <description>Super-nanites alter several genes to significantly speed up the regeneration of one's tissues. Such changes are not enough to regrow lost limbs.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Regeneration</texPath>
         <statFactors><InjuryHealingFactor>10</InjuryHealingFactor></statFactors>
@@ -35,7 +35,7 @@
     <VFEAncients.PowerDef>
         <defName>SuperSpeed</defName>
         <label>super speed</label>
-        <description>todo</description>
+        <description>Super-nanites strengthen the musculoskeletal system to inhuman limits. Such changes allow one to move at a great speed.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SuperSpeed</texPath>
         <statFactors><MoveSpeed>1.5</MoveSpeed></statFactors>
@@ -43,15 +43,15 @@
     <VFEAncients.PowerDef>
         <defName>GeniusIntellect</defName>
         <label>genius intellect</label>
-        <description>todo</description>
+        <description>Super-nanites form billions of new synaptic connections. Such changes increase the performance of one's brain several times.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_GeniusIntellect</texPath>
         <statFactors><ResearchSpeed>3</ResearchSpeed></statFactors>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>WeaponExpert</defName>
-        <label>weaon expert</label>
-        <description>todo</description>
+        <label>weapons expert</label>
+        <description>Super-nanites alter several centers of the brain. Such changes significantly enhance fine motor skills, which allows the user to reload weapons twice as fast.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_WeaponExpert</texPath>
         <statFactors>
