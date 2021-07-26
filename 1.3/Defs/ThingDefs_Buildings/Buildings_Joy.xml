@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="FurnitureWithQualityBase">
+    <defName>VFEA_AncientEducator</defName>
+    <label>ancient educator</label>
+    <description>A very old interactive machine that’s commonly used in the vaults to pass the time. Interested participants sit in front of it and get fed knowledge in random subjects, and then are required to pass a test. Successfully passing a test gives them a token to claim an extra portion of nutrient jelly.</description>
+    <graphicData>
+      <texPath>Things/Building/Joy/AncientEducator/AncientEducator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shadowData>
+        <volume>(0.65, 0.25, 0.6)</volume>
+        <offset>(0, 0, -0.15)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.09375,0.296875,0.796875,0.703125)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>true</rotatable>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <fillPercent>0.40</fillPercent>
+    <building>
+      <joyKind>Gaming_Cerebral</joyKind>
+    </building>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>8</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>4</Beauty>
+      <JoyGainFactor>1</JoyGainFactor>
+    </statBases>
+    <costList>
+	    <Steel>30</Steel>
+		<ComponentIndustrial></ComponentIndustrial>
+	</costList>
+    <pathCost>30</pathCost>
+    <passability>PassThroughOnly</passability>
+    <designationCategory>Joy</designationCategory>
+  </ThingDef>
+  
+</Defs>
