@@ -53,6 +53,7 @@
     <Compile Include="Pawn_PowerTracker.cs" />
     <Compile Include="PowerDef.cs" />
     <Compile Include="PowerWorker_ForceHit.cs" />
+    <Compile Include="PowerWorker_VitalHits.cs" />
     <Compile Include="PowerWorker_WeaponRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatParts.cs" />

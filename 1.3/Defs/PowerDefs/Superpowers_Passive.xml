@@ -21,4 +21,13 @@
         <workerClass>VFEAncients.PowerWorker_ForceHit</workerClass>
         <effectDescription>All ranged weapon shots will hit</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Assassin</defName>
+        <label>assassin</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Assassin</texPath>
+        <workerClass>VFEAncients.PowerWorker_VitalHits</workerClass>
+        <effectDescription>All attacks will hit vital organs</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
