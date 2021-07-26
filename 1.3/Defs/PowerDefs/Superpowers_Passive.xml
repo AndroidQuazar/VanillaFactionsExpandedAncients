@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>EagleEye</defName>
+        <label>eagle eye</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_EagleEye</texPath>
+        <workerClass>VFEAncients.PowerWorker_WeaponRange</workerClass>
+        <workerData Class="VFEAncients.WorkerData_WeaponRange">
+            <rangeFactor>2</rangeFactor>
+        </workerData>
+        <effectDescription>Range of all ranged weapons doubled</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Marksmanship</defName>
+        <label>marksmanship</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Marksmanship</texPath>
+        <workerClass>VFEAncients.PowerWorker_ForceHit</workerClass>
+        <effectDescription>All ranged weapon shots will hit</effectDescription>
+    </VFEAncients.PowerDef>
+</Defs>

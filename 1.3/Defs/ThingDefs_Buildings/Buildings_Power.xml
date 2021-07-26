@@ -47,9 +47,12 @@
     </thingCategories>
     <comps>
       <li Class="CompProperties_Power">
-        <compClass>CompPowerPlantSolar</compClass>
-        <basePowerConsumption>-1</basePowerConsumption>
+        <compClass>VFEAncients.CompAncientSolar</compClass>
+        <basePowerConsumption>-300</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="VFEAncients.CompProperties_SolarPowerUp">
+        <PowerOutputSolarFlare>3000</PowerOutputSolarFlare>
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>

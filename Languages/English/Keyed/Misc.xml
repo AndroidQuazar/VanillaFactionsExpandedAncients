@@ -4,6 +4,8 @@
     <VFEAncients.TabPowers>Powers</VFEAncients.TabPowers>
     <VFEAncients.Superpowers>Superpowers</VFEAncients.Superpowers>
     <VFEAncients.Weaknesses>Weaknesses</VFEAncients.Weaknesses>
-    <VFEAncients.Effect.AddAbility>Give ability {0}</VFEAncients.Effect.AddAbility>
-    <VFEAncients.Effect.AddHediff>Add health condition {0}</VFEAncients.Effect.AddHediff>
+    <VFEAncients.Effects>Effects:</VFEAncients.Effects>
+    <VFEAncients.Effect.AddAbility>Give ability: {0}</VFEAncients.Effect.AddAbility>
+    <VFEAncients.Effect.AddHediff>Add health condition: {0}</VFEAncients.Effect.AddHediff>
+    <VFEAncients.MarksmanshipTooltip>100% (Marksmanship)</VFEAncients.MarksmanshipTooltip>
 </LanguageData>
