@@ -14,5 +14,20 @@
       <li>Manipulation</li>
     </requiredCapacities>
   </JoyGiverDef>
+  
+  <JoyGiverDef>
+    <defName>VFEA_Play_AncientFoosballTable</defName>
+    <giverClass>JoyGiver_PlayBilliards</giverClass>
+    <baseChance>4</baseChance>
+    <thingDefs>
+      <li>VFEA_AncientFoosballTable</li>
+    </thingDefs>
+    <jobDef>VFEA_Play_AncientFoosballTable</jobDef>
+    <joyKind>Gaming_Dexterity</joyKind>
+    <requiredCapacities>
+      <li>Sight</li>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </JoyGiverDef>
 
 </Defs>
