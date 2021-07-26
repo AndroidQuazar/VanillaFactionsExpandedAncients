@@ -43,6 +43,7 @@
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -116,6 +117,7 @@
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>80.0</fuelConsumptionRate>
@@ -184,6 +186,7 @@
       <MaxHitPoints>180</MaxHitPoints>
       <Flammability>0.5</Flammability>
       <Cleanliness>-3</Cleanliness>
+	  <Mass>50</Mass>
     </statBases>
     <size>(3,3)</size>
     <costList>
@@ -199,6 +202,10 @@
       </buildingTags>
     </building>
     <tickerType>Rare</tickerType>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsProduction</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Power">
@@ -265,6 +272,7 @@
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -338,6 +346,7 @@
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
