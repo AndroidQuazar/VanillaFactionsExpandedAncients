@@ -65,5 +65,67 @@
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <uiIconScale>0.85</uiIconScale>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_AncientCryptosleepSarcophagus</defName>
+    <label>ancient cryptosleep sarcophagus</label>
+    <description>Ancient super-soldiers sleep in the ancient cryptosleep sarcophagi until they are awakened when their watch begins. These devices are a different variant to normal cryptosleep caskets - the process of hibernating is instant, but waking up from the sleep takes a long time.</description>
+    <thingClass>Building_AncientCryptosleepCasket</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/Misc/AncientCryptosleepSarcophagusClosed/AncientCryptosleepSarcophagusClosed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,2)</drawSize>
+      <shadowData>
+        <volume>(0.83, 0.3, 1.7)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(1,2)</size>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1,0,0)</interactionCellOffset>
+    <costList>
+      <Steel>180</Steel>
+      <Uranium>5</Uranium>
+    </costList>
+    <killedLeavings>
+      <ChunkSlagSteel>1</ChunkSlagSteel>
+      <Steel>25</Steel>
+      <Uranium>3</Uranium>
+    </killedLeavings>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+      </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Misc/AncientCryptosleepSarcophagusOpen/AncientCryptosleepSarcophagusOpen</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>(1, 2)</drawSize>
+        </graphicData>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	<designationCategory>Misc</designationCategory>
+  </ThingDef>
 
 </Defs>
