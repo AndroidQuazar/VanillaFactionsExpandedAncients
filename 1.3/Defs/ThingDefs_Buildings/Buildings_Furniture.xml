@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BedWithQualityBase">
+    <defName>VFEA_AncientBed</defName>
+    <label>ancient bed</label>
+    <description>An old-fashioned metal bed frame with a hard mattress and uncomfortable duvet.</description>
+    <graphicData>
+      <texPath>Things/Building/Furniture/AncientSingleBed/AncientSingleBed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0,0.05,1,1.95)</rect>
+      </damageData>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>EndTable</li>
+          <li>Dresser</li>
+          <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <statBases>
+      <MaxHitPoints>140</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>1</Beauty>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>30</Mass>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.7</Comfort>
+      <ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+    </statBases>
+    <size>(1,2)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>45</costStuffCount>
+    <building>
+      <bed_showSleeperBody>False</bed_showSleeperBody>
+      <bed_healPerDay>3</bed_healPerDay>
+    </building>
+    <fillPercent>0.4</fillPercent>
+    <pathCost>42</pathCost>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <techLevel>Industrial</techLevel>
+    <uiIconScale>0.90</uiIconScale>
+  </ThingDef>
+
+</Defs>
