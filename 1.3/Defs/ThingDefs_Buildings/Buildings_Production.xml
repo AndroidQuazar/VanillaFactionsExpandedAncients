@@ -7,7 +7,7 @@
     <description>An electric station with various apparatus used to fix weapons, armor and apparel. It’s a long process. Such stations are a must-have in the vaults to prevent the equipment, such as guns and tools, from needing replacement.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/TableMendingElectric</texPath>
+      <texPath>Things/Building/Production/TableMendingElectric/TableMendingElectric</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3.5,1.5)</drawSize>
       <damageData>
@@ -80,7 +80,7 @@
     <description>A wood-fueled station with various apparatus used to fix weapons, armor and apparel. It’s a long process. Such stations are a must-have in the vaults to prevent the equipment, such as guns and tools, from needing replacement.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/TableMendingFueled</texPath>
+      <texPath>Things/Building/Production/TableMendingFueled/TableMendingFueled</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3.5,1.5)</drawSize>
       <damageData>
