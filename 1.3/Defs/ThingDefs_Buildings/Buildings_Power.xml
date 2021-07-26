@@ -30,6 +30,7 @@
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>3800</WorkToBuild>
       <Flammability>0.7</Flammability>
+	  <Mass>50</Mass>
     </statBases>
     <tickerType>Normal</tickerType>
     <size>(4,4)</size>
@@ -40,6 +41,10 @@
       <Steel>150</Steel>
       <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerPlantSolar</compClass>
@@ -78,6 +83,7 @@
       <WorkToBuild>4000</WorkToBuild>
       <Flammability>1.0</Flammability>
       <Beauty>-20</Beauty>
+	  <Mass>35</Mass>
     </statBases>
     <tickerType>Normal</tickerType>
     <canOverlapZones>false</canOverlapZones>
@@ -89,6 +95,10 @@
       <Steel>150</Steel>
       <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerPlant</compClass>
@@ -192,6 +202,64 @@
     </building>
     <constructEffect>ConstructMetal</constructEffect>
     <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_AncientBattery</defName>
+    <label>ancient battery</label>
+    <description>An old, large battery commonly found in vaults, capable of sustaining the entire compound for a nearly infinite amount of time.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <thingClass>Building_Battery</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Power/AncientBattery/AncientBattery</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-15</Beauty>
+    </statBases>
+    <size>(1,2)</size>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>4000</storedEnergyMax>
+        <efficiency>0.2</efficiency>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
   </ThingDef>
   
 </Defs>
