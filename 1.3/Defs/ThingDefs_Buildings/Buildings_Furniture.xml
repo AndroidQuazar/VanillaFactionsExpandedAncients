@@ -50,5 +50,34 @@
     <techLevel>Industrial</techLevel>
     <uiIconScale>0.90</uiIconScale>
   </ThingDef>
+  
+  <ThingDef ParentName="StandingLampBase" >
+    <defName>VFEA_WallLamp</defName>
+    <label>wall lamp</label>
+    <description>An electrical wall lamp, ideal to light up corridors in a vault.</description>
+    <graphicData>
+      <texPath>Things/Building/Furniture/VFEWallLamp/VFEWallLamp</texPath>
+	  <graphicClass>Graphic_Multi</graphicClass>
+    </graphicData>
+	<uiIconPath>Things/Building/Furniture/VFEWallLamp/VFEWallLamp_MenuIcon</uiIconPath>
+	<rotatable>true</rotatable>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>12</glowRadius>
+        <glowColor>(217,217,208,0)</glowColor>
+      </li>
+	  <li Class="VanillaFurnitureExpanded.CompProperties_MountableOnWall"/>
+    </comps>
+    <building>
+	  <isInert>true</isInert>
+	  <isEdifice>false</isEdifice>
+	  <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+	<altitudeLayer>BuildingOnTop</altitudeLayer>
+    <placeWorkers>
+	  <li>VanillaFurnitureExpanded.PlaceWorker_OnWall</li>
+    </placeWorkers>
+	<defaultPlacingRot>South</defaultPlacingRot>
+  </ThingDef>
 
 </Defs>

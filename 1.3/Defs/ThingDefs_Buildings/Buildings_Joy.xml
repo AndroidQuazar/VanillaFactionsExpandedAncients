@@ -52,7 +52,7 @@
     <graphicData>
       <texPath>Things/Building/Joy/AncientFoosballTable/AncientFoosballTable</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2,4)</drawSize>
+      <drawSize>(2,3)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
