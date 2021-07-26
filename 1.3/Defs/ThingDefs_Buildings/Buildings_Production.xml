@@ -230,7 +230,7 @@
     <graphicData>
       <texPath>Things/Building/Production/AncientCookingStation/AncientCookingStation</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3.5,2.5)</drawSize>
+      <drawSize>(7,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -290,6 +290,80 @@
         <inheritRecipesFrom>
           <li>ElectricStove</li>
 		  <li>TableButcher</li>
+        </inheritRecipesFrom>
+    </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef ParentName="BenchBase">
+    <defName>VFEA_AncientWorkshop</defName>
+    <label>ancient workshop</label>
+    <description>A large workshop containing machining systems with a simple furnace and smithy station.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/AncientWorkshop/AncientWorkshop</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4.5,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>5000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>-2</Cleanliness>
+	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+    </statBases>
+    <size>(3,2)</size>
+    <designationCategory>Production</designationCategory>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <constructEffect>ConstructMetal</constructEffect>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <modExtensions>
+    <li Class="RecipeInheritance.ThingDefExtension">
+        <inheritRecipesFrom>
+          <li>TableMachining</li>
+		  <li>ElectricSmithy</li>
         </inheritRecipesFrom>
     </li>
     </modExtensions>
