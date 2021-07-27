@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>PlasteelClaws</defName>
+        <label>plasteel claws</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PlasteelClaws</texPath>
+        <workerClass>VFEAncients.PowerWorker_Claws</workerClass>
+        <effectDescription>Adds plasteel claws to both hands</effectDescription>
+    </VFEAncients.PowerDef>
+</Defs>

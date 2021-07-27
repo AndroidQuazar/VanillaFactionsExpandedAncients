@@ -154,7 +154,7 @@ namespace VFEAncients
 
         public static PowerDef NullifyingPower(ThoughtDef def, Pawn pawn)
         {
-            return pawn.GetPowerTracker()?.AllPowers.FirstOrDefault(power => power.nullifiedThoughts.Contains(def));
+            return pawn.GetPowerTracker()?.AllPowers.FirstOrDefault(power => power.nullifiedThoughts?.Contains(def) ?? false);
         }
 
         public virtual string AdditionalEffects()
