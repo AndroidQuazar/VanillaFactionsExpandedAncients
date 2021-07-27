@@ -57,4 +57,13 @@
         <workerClass>VFEAncients.PowerWorker_Blunt</workerClass>
         <effectDescription>All incoming damage becomes Blunt</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PlasteelSkeleton</defName>
+        <label>plasteel skeleton</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PlasteelSkeleton</texPath>
+        <workerClass>VFEAncients.PowerWorker_Bones</workerClass>
+        <effectDescription>Immune to cracks and broken bones</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
