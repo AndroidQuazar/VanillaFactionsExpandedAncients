@@ -226,7 +226,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BenchBase">
@@ -262,7 +262,7 @@
 	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
     </statBases>
     <size>(3,2)</size>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <hasInteractionCell>True</hasInteractionCell>
@@ -336,7 +336,7 @@
 	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
     </statBases>
     <size>(3,2)</size>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <hasInteractionCell>True</hasInteractionCell>

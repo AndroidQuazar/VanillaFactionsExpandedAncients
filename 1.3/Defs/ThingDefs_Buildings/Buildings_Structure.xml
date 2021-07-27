@@ -50,7 +50,7 @@
     <neverMultiSelect>true</neverMultiSelect>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <holdsRoof>true</holdsRoof>
-    <designationCategory>Structure</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <blockLight>true</blockLight>
     <canOverlapZones>false</canOverlapZones>
@@ -100,6 +100,7 @@
       </li>
     </comps>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
 
 </Defs>

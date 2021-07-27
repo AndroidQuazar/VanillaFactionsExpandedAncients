@@ -49,6 +49,7 @@
     <castEdgeShadows>True</castEdgeShadows>
     <techLevel>Industrial</techLevel>
     <uiIconScale>0.90</uiIconScale>
+	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="StandingLampBase" >

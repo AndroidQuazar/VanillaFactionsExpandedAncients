@@ -37,7 +37,7 @@
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <designationCategory>Misc</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -125,7 +125,7 @@
     </placeWorkers>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-	<designationCategory>Misc</designationCategory>
+	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
 
 </Defs>

@@ -41,7 +41,7 @@
 	</costList>
     <pathCost>30</pathCost>
     <passability>PassThroughOnly</passability>
-    <designationCategory>Joy</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
   
@@ -83,7 +83,7 @@
     </costList>
     <pathCost>42</pathCost>
     <passability>PassThroughOnly</passability>
-    <designationCategory>Joy</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <canOverlapZones>false</canOverlapZones>
     <placeWorkers>
       <li>PlaceWorker_NeverAdjacentUnstandable</li>

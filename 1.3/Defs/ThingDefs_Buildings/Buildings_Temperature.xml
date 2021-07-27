@@ -64,9 +64,8 @@
         <glowRadius>3</glowRadius>
         <glowColor>(255,150,100,0)</glowColor>
       </li>
-      <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
   </ThingDef>
   
@@ -124,9 +123,8 @@
       <li Class="CompProperties_TempControl">
         <energyPerSecond>-42</energyPerSecond>
       </li>
-      <li Class="CompProperties_Breakdownable"/>
     </comps>
-    <designationCategory>Temperature</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
   </ThingDef>
   

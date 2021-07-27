@@ -53,7 +53,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
   </ThingDef>
   
@@ -137,7 +137,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
     <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
   </ThingDef>
@@ -191,7 +191,7 @@
     </comps>
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <placeWorkers>
       <li>PlaceWorker_OnSteamGeyser</li>
     </placeWorkers>
@@ -256,7 +256,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
+    <designationCategory>VFEA_Ancients</designationCategory>
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>
