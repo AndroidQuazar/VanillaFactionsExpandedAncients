@@ -20,5 +20,11 @@ namespace VFEAncients
                     truthy.Add(t);
                 else falsy.Add(t);
         }
+
+        public static bool TryGetComp<T>(this Thing t, out T comp) where T : ThingComp
+        {
+            comp = t.TryGetComp<T>();
+            return comp != null;
+        }
     }
 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VFECore.Abilities;
+using AbilityDef = VFECore.Abilities.AbilityDef;
 
 // ReSharper disable InconsistentNaming
 
@@ -12,13 +15,16 @@ namespace VFEAncients
 {
     public class PowerDef : Def
     {
+        private static readonly List<Type> appliedPatches = new List<Type>();
         public List<AbilityDef> abilities;
+        public string effectDescription;
         public List<HediffDef> hediffs;
         public PowerType powerType;
         public List<StatModifier> statFactors = new List<StatModifier>();
         public List<StatModifier> statOffsets = new List<StatModifier>();
         public string texPath;
         public Type workerClass = typeof(PowerWorker);
+        public WorkerData workerData;
 
         public Texture2D Icon { get; private set; }
 
@@ -36,8 +42,18 @@ namespace VFEAncients
         {
             base.PostLoad();
             Worker = (PowerWorker) Activator.CreateInstance(workerClass, this);
+            if (!appliedPatches.Contains(workerClass))
+            {
+                Worker.DoPatches(VFEAncientsMod.Harm);
+                appliedPatches.Add(workerClass);
+            }
+
             LongEventHandler.ExecuteWhenFinished(() => Icon = ContentFinder<Texture2D>.Get(texPath));
         }
+    }
+
+    public class WorkerData
+    {
     }
 
     public enum PowerType
@@ -55,11 +71,16 @@ namespace VFEAncients
             this.def = def;
         }
 
+        protected T GetData<T>() where T : WorkerData
+        {
+            return def.workerData as T;
+        }
+
         public virtual void Notify_Added(Pawn_PowerTracker parent)
         {
-            if (def.abilities != null)
+            if (def.abilities != null && parent.Pawn.TryGetComp<CompAbilities>(out var comp))
                 foreach (var ability in def.abilities)
-                    parent.Pawn.abilities.GainAbility(ability);
+                    comp.GiveAbility(ability);
             if (def.hediffs != null)
                 foreach (var hediff in def.hediffs)
                     parent.Pawn.health.AddHediff(hediff);
@@ -67,15 +88,15 @@ namespace VFEAncients
 
         public virtual void Notify_Removed(Pawn_PowerTracker parent)
         {
-            if (def.abilities != null)
+            if (def.abilities != null && parent.Pawn.TryGetComp<CompAbilities>(out var comp))
                 foreach (var ability in def.abilities)
-                    parent.Pawn.abilities.RemoveAbility(ability);
+                    comp.LearnedAbilities.RemoveAll(ab => ab.def == ability);
             if (def.hediffs != null)
                 foreach (var hediff in parent.Pawn.health.hediffSet.hediffs.Where(hd => hd.Part == null && def.hediffs.Contains(hd.def)).ToList())
                     parent.Pawn.health.RemoveHediff(hediff);
         }
 
-        public virtual string EffectString()
+        public string EffectString()
         {
             var builder = new StringBuilder();
             if (def.abilities != null)
@@ -90,7 +111,24 @@ namespace VFEAncients
             if (def.statOffsets != null)
                 foreach (var factor in def.statOffsets)
                     builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
+            if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
+            if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
+            if (builder.Length > 0) builder.Insert(0, "VFEAncients.Effects".Translate() + "\n");
             return builder.ToString();
+        }
+
+        public virtual void DoPatches(Harmony harm)
+        {
+        }
+
+        public virtual string AdditionalEffects()
+        {
+            return "";
+        }
+
+        public static bool HasPower<T>(Thing caster) where T : PowerWorker
+        {
+            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is T) ?? false);
         }
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>EagleEye</defName>
+        <label>eagle eye</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_EagleEye</texPath>
+        <workerClass>VFEAncients.PowerWorker_WeaponRange</workerClass>
+        <workerData Class="VFEAncients.WorkerData_WeaponRange">
+            <rangeFactor>2</rangeFactor>
+        </workerData>
+        <effectDescription>Ranged weapon range: x200%</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Marksmanship</defName>
+        <label>marksmanship</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Marksmanship</texPath>
+        <workerClass>VFEAncients.PowerWorker_ForceHit</workerClass>
+        <effectDescription>All ranged weapon shots will hit</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Assassin</defName>
+        <label>assassin</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Assassin</texPath>
+        <workerClass>VFEAncients.PowerWorker_VitalHits</workerClass>
+        <effectDescription>All attacks will hit vital organs</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SuperStrength</defName>
+        <label>super strength</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SuperStrength</texPath>
+        <workerClass>VFEAncients.PowerWorker_Strong</workerClass>
+        <effectDescription>Melee attack damage: x200%\nCarrying capacity: x200%</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>MartialArtist</defName>
+        <label>martial artist</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_MartialArtist</texPath>
+        <workerClass>VFEAncients.PowerWorker_MeleeSkill</workerClass>
+        <effectDescription>All melee attacks hit\nDodges all incoming melee attacks</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>BulletproofSkin</defName>
+        <label>bulletproof skin</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_BulletproofSkin</texPath>
+        <workerClass>VFEAncients.PowerWorker_Blunt</workerClass>
+        <effectDescription>All incoming damage becomes Blunt</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PlasteelSkeleton</defName>
+        <label>plasteel skeleton</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PlasteelSkeleton</texPath>
+        <workerClass>VFEAncients.PowerWorker_Bones</workerClass>
+        <effectDescription>Immune to cracks and broken bones</effectDescription>
+    </VFEAncients.PowerDef>
+</Defs>

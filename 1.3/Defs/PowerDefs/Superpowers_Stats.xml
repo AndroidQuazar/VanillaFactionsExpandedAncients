@@ -56,7 +56,7 @@
         <texPath>Powers/Superpowers/Power_WeaponExpert</texPath>
         <statFactors>
             <AimingDelayFactor>0.5</AimingDelayFactor>
-            <!-- TODO: Cooldown-->
+            <VFEAncients_RangedCooldownFactor>0.5</VFEAncients_RangedCooldownFactor>
         </statFactors>
     </VFEAncients.PowerDef>
 </Defs>
