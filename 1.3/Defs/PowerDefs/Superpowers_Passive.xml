@@ -66,4 +66,14 @@
         <workerClass>VFEAncients.PowerWorker_Bones</workerClass>
         <effectDescription>Immune to cracks and broken bones</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SelfResurrection</defName>
+        <label>self resurrection</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SelfResurrection</texPath>
+        <workerClass>VFEAncients.PowerWorker_Resurrect</workerClass>
+        <effectDescription>Will come back to life 3 days after dying as long as body is still intact</effectDescription>
+        <tickerType>Normal</tickerType>
+    </VFEAncients.PowerDef>
 </Defs>

@@ -23,6 +23,7 @@ namespace VFEAncients
         public List<StatModifier> statFactors = new List<StatModifier>();
         public List<StatModifier> statOffsets = new List<StatModifier>();
         public string texPath;
+        public TickerType tickerType = TickerType.Never;
         public Type workerClass = typeof(PowerWorker);
         public WorkerData workerData;
 
@@ -84,6 +85,7 @@ namespace VFEAncients
             if (def.hediffs != null)
                 foreach (var hediff in def.hediffs)
                     parent.Pawn.health.AddHediff(hediff);
+            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Powers>().TickLists[def.tickerType].Add((parent, def));
         }
 
         public virtual void Notify_Removed(Pawn_PowerTracker parent)
@@ -94,6 +96,7 @@ namespace VFEAncients
             if (def.hediffs != null)
                 foreach (var hediff in parent.Pawn.health.hediffSet.hediffs.Where(hd => hd.Part == null && def.hediffs.Contains(hd.def)).ToList())
                     parent.Pawn.health.RemoveHediff(hediff);
+            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Powers>().TickLists[def.tickerType].Remove((parent, def));
         }
 
         public string EffectString()
@@ -129,6 +132,18 @@ namespace VFEAncients
         public static bool HasPower<T>(Thing caster) where T : PowerWorker
         {
             return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is T) ?? false);
+        }
+
+        public virtual void Tick(Pawn_PowerTracker parent)
+        {
+        }
+
+        public virtual void TickRare(Pawn_PowerTracker parent)
+        {
+        }
+
+        public virtual void TickLong(Pawn_PowerTracker parent)
+        {
         }
     }
 }
