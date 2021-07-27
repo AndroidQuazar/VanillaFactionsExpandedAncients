@@ -39,4 +39,13 @@
         <workerClass>VFEAncients.PowerWorker_Strong</workerClass>
         <effectDescription>Melee attack damage: x200%\nCarrying capacity: x200%</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>MartialArtist</defName>
+        <label>martial artist</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_MartialArtist</texPath>
+        <workerClass>VFEAncients.PowerWorker_MeleeSkill</workerClass>
+        <effectDescription>All melee attacks hit\nDodges all incoming melee attacks</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

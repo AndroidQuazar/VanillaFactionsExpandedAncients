@@ -50,6 +50,7 @@
     <Compile Include="Pawn_PowerTracker.cs" />
     <Compile Include="PowerDef.cs" />
     <Compile Include="PowerWorker_ForceHit.cs" />
+    <Compile Include="PowerWorker_MeleeSkill.cs" />
     <Compile Include="PowerWorker_Strong.cs" />
     <Compile Include="PowerWorker_VitalHits.cs" />
     <Compile Include="PowerWorker_WeaponRange.cs" />
