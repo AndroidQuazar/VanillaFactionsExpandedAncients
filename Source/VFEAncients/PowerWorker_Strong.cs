@@ -1,0 +1,48 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using HarmonyLib;
+using RimWorld;
+using Verse;
+
+namespace VFEAncients
+{
+    public class PowerWorker_Strong : PowerWorker
+    {
+        public PowerWorker_Strong(PowerDef def) : base(def)
+        {
+        }
+
+        public override void DoPatches(Harmony harm)
+        {
+            base.DoPatches(harm);
+            harm.Patch(AccessTools.Method(typeof(MassUtility), nameof(MassUtility.Capacity)),
+                postfix: new HarmonyMethod(GetType(), nameof(AddCapacity)) {priority = Priority.Last});
+            harm.Patch(AccessTools.Method(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply"), postfix: new HarmonyMethod(GetType(), nameof(AddDamage)));
+        }
+
+        public static void AddCapacity(Pawn p, ref float __result, StringBuilder explanation = null)
+        {
+            if (IsStrong(p))
+            {
+                __result *= 2;
+                explanation?.Append($"{p.GetPowerTracker().AllPowers.First(power => power.Worker is PowerWorker_Strong).label.CapitalizeFirst()}: x{2f.ToStringPercent()}");
+            }
+        }
+
+        public static IEnumerable<DamageInfo> AddDamage(IEnumerable<DamageInfo> dinfos, Verb_MeleeAttackDamage __instance)
+        {
+            var isStrong = IsStrong(__instance.Caster);
+            foreach (var dinfo in dinfos)
+            {
+                if (isStrong) dinfo.SetAmount(dinfo.Amount * 2);
+                yield return dinfo;
+            }
+        }
+
+        public static bool IsStrong(Thing caster)
+        {
+            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is PowerWorker_Strong) ?? false);
+        }
+    }
+}
