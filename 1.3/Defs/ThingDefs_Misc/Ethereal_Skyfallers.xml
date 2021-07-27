@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>VFEA_SupplyCrateIncoming</defName>
+    <label>supply crate (incoming)</label>
+    <size>(2, 2)</size>
+    <graphicData>
+      <texPath>Things/Building/Misc/AncientSupplyCrate/AncientSupplyCrateSkyfaller</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <shadowSize>(3.0, 3.0)</shadowSize>
+    </skyfaller>
+  </ThingDef>
+
+</Defs>
