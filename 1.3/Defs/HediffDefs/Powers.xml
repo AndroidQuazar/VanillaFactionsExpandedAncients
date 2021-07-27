@@ -66,4 +66,38 @@
             </li>
         </stages>
     </HediffDef>
+  
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>VFEA_PlasteelClaw</defName>
+    <label>plasteel claw</label>
+    <labelNoun>a plasteel claw</labelNoun>
+    <description>A combat-oriented hand mutation created by super-nanites. It cuts deep, and it is strong enough to crush a skull like a hand crushes an egg. The claws can be retracted.</description>
+    <stages>
+      <li>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>plasteel claw</label>
+            <capacities>
+              <li>Scratch</li>
+            </capacities>
+            <power>32</power>
+            <cooldownTime>2</cooldownTime>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            <soundMeleeHit>Pawn_Melee_PowerClaw_Hit</soundMeleeHit>
+            <soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isGoodWeapon>true</isGoodWeapon>
+      <solid>true</solid>
+      <partEfficiency>1.00</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
 </Defs>
