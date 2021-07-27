@@ -19,6 +19,7 @@ namespace VFEAncients
         public List<AbilityDef> abilities;
         public string effectDescription;
         public List<HediffDef> hediffs;
+        public List<ThoughtDef> nullifiedThoughts;
         public PowerType powerType;
         public List<StatModifier> statFactors = new List<StatModifier>();
         public List<StatModifier> statOffsets = new List<StatModifier>();
@@ -67,6 +68,8 @@ namespace VFEAncients
     {
         public PowerDef def;
 
+        private bool donePatches;
+
         public PowerWorker(PowerDef def)
         {
             this.def = def;
@@ -114,6 +117,9 @@ namespace VFEAncients
             if (def.statOffsets != null)
                 foreach (var factor in def.statOffsets)
                     builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
+            if (def.nullifiedThoughts != null)
+                foreach (var thoughtDef in def.nullifiedThoughts)
+                    builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label));
             if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
             if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
             if (builder.Length > 0) builder.Insert(0, "VFEAncients.Effects".Translate() + "\n");
@@ -122,6 +128,33 @@ namespace VFEAncients
 
         public virtual void DoPatches(Harmony harm)
         {
+            if (!donePatches)
+            {
+                harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullified)),
+                    postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullified_Postfix)));
+                harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullifiedMessage)),
+                    postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullifiedMessage_Postfix)));
+                donePatches = true;
+            }
+        }
+
+        public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
+        {
+            if (!__result && NullifyingPower(def, pawn) != null) __result = true;
+        }
+
+        public static void ThoughtNullifiedMessage_Postfix(Pawn pawn, ThoughtDef def, ref string __result)
+        {
+            if (__result.NullOrEmpty() && !ThoughtUtility.NeverNullified(def, pawn))
+            {
+                var power = NullifyingPower(def, pawn);
+                if (power != null) __result = "ThoughtNullifiedBy".Translate().CapitalizeFirst() + ": " + power.LabelCap;
+            }
+        }
+
+        public static PowerDef NullifyingPower(ThoughtDef def, Pawn pawn)
+        {
+            return pawn.GetPowerTracker()?.AllPowers.FirstOrDefault(power => power.nullifiedThoughts.Contains(def));
         }
 
         public virtual string AdditionalEffects()

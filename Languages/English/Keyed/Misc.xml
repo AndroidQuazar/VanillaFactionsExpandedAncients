@@ -7,5 +7,6 @@
     <VFEAncients.Effects>Effects:</VFEAncients.Effects>
     <VFEAncients.Effect.AddAbility>Give ability: {0}</VFEAncients.Effect.AddAbility>
     <VFEAncients.Effect.AddHediff>Add health condition: {0}</VFEAncients.Effect.AddHediff>
+    <VFEAncients.Effect.NullThought>Nullify thought: {0}</VFEAncients.Effect.NullThought>
     <VFEAncients.MarksmanshipTooltip>100% (Marksmanship)</VFEAncients.MarksmanshipTooltip>
 </LanguageData>

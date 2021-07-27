@@ -59,4 +59,23 @@
             <VFEAncients_RangedCooldownFactor>0.5</VFEAncients_RangedCooldownFactor>
         </statFactors>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ColdResistance</defName>
+        <label>cold resistance</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_ColdResistance</texPath>
+        <statOffsets><ComfyTemperatureMin>-1000</ComfyTemperatureMin></statOffsets>
+        <nullifiedThoughts><li>SleptInCold</li></nullifiedThoughts>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>HeatResistance</defName>
+        <label>heat resistance</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_HeatResistance</texPath>
+        <statOffsets><ComfyTemperatureMax>1000</ComfyTemperatureMax></statOffsets>
+        <statFactors><Flammability>0</Flammability></statFactors>
+        <nullifiedThoughts><li>SleptInHeat</li></nullifiedThoughts>
+    </VFEAncients.PowerDef>
 </Defs>
