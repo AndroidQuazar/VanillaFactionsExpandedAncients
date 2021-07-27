@@ -33,7 +33,7 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldloc_2),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Verb), "caster")),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker_ForceHit), nameof(ShouldForceHit))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
                 new CodeInstruction(OpCodes.Brfalse, label1),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldstr, "VFEAncients.MarksmanshipTooltip"),
@@ -69,14 +69,9 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker_ForceHit), nameof(ShouldForceHit))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
                 new CodeInstruction(OpCodes.Brtrue, label)
             });
-        }
-
-        public static bool ShouldForceHit(Thing caster)
-        {
-            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is PowerWorker_ForceHit) ?? false);
         }
     }
 }

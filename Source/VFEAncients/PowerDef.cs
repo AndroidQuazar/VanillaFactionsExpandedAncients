@@ -125,5 +125,10 @@ namespace VFEAncients
         {
             return "";
         }
+
+        public static bool HasPower<T>(Thing caster) where T : PowerWorker
+        {
+            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is T) ?? false);
+        }
     }
 }

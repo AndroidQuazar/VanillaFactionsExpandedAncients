@@ -20,7 +20,7 @@ namespace VFEAncients
 
         public static bool ChooseHitPart_Prefix(DamageInfo dinfo, Pawn pawn, ref BodyPartRecord __result)
         {
-            if (ShouldVitalsHit(dinfo.Instigator))
+            if (HasPower<PowerWorker_VitalHits>(dinfo.Instigator))
             {
                 var vitalParts = pawn.health.hediffSet.GetNotMissingParts(dinfo.Height, BodyPartDepth.Inside).Where(part => part.def.tags.Any(tag => tag.vital)).ToList();
                 if (vitalParts.TryRandomElementByWeight(x => x.coverageAbs * x.def.GetHitChanceFactorFor(dinfo.Def), out __result)) return false;
@@ -28,11 +28,6 @@ namespace VFEAncients
             }
 
             return true;
-        }
-
-        public static bool ShouldVitalsHit(Thing caster)
-        {
-            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is PowerWorker_VitalHits) ?? false);
         }
     }
 }

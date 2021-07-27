@@ -23,7 +23,7 @@ namespace VFEAncients
 
         public static void AddCapacity(Pawn p, ref float __result, StringBuilder explanation = null)
         {
-            if (IsStrong(p))
+            if (HasPower<PowerWorker_Strong>(p))
             {
                 __result *= 2;
                 explanation?.Append($"{p.GetPowerTracker().AllPowers.First(power => power.Worker is PowerWorker_Strong).label.CapitalizeFirst()}: x{2f.ToStringPercent()}");
@@ -32,17 +32,12 @@ namespace VFEAncients
 
         public static IEnumerable<DamageInfo> AddDamage(IEnumerable<DamageInfo> dinfos, Verb_MeleeAttackDamage __instance)
         {
-            var isStrong = IsStrong(__instance.Caster);
+            var isStrong = HasPower<PowerWorker_Strong>(__instance.Caster);
             foreach (var dinfo in dinfos)
             {
                 if (isStrong) dinfo.SetAmount(dinfo.Amount * 2);
                 yield return dinfo;
             }
-        }
-
-        public static bool IsStrong(Thing caster)
-        {
-            return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is PowerWorker_Strong) ?? false);
         }
     }
 }

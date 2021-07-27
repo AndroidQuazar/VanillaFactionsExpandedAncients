@@ -48,4 +48,13 @@
         <workerClass>VFEAncients.PowerWorker_MeleeSkill</workerClass>
         <effectDescription>All melee attacks hit\nDodges all incoming melee attacks</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>BulletproofSkin</defName>
+        <label>bulletproof skin</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_BulletproofSkin</texPath>
+        <workerClass>VFEAncients.PowerWorker_Blunt</workerClass>
+        <effectDescription>All incoming damage becomes Blunt</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
