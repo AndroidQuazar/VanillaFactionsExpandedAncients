@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_GeneTailoringPod</defName>
+    <label>gene-tailoring pod</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/AncientGeneTailoringPod/AncientGeneTailoringPod</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shadowData>
+        <volume>(2.9,0.6,1.9)</volume>
+      </shadowData>
+      <drawSize>(4, 3)</drawSize>
+    </graphicData>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>28000</WorkToBuild>
+      <Mass>150</Mass>
+      <Flammability>0.5</Flammability>
+      <Beauty>-5</Beauty>
+    </statBases>
+    <size>(3,2)</size>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <costList>
+      <Steel>300</Steel>
+	  <Plasteel>125</Plasteel>
+      <ComponentIndustrial>16</ComponentIndustrial>
+	  <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+      <haulToContainerDuration>120</haulToContainerDuration>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowPlantFood</li>
+          </specialFiltersToDisallow>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+          </categories>
+          <disallowedCategories>
+            <li>EggsFertilized</li>
+          </disallowedCategories>
+          <disallowedThingDefs>
+            <li>InsectJelly</li>
+            <li>MealLavish</li>
+            <li>MealLavish_Veg</li>
+            <li>MealLavish_Meat</li>
+          </disallowedThingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <designationCategory>VFEA_Ancients</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <neverMultiSelect>true</neverMultiSelect>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <tickerType>Normal</tickerType>
+    <inspectorTabs>
+      <li>ITab_BiosculpterNutritionStorage</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
 
 </Defs>
