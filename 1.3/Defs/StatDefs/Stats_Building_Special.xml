@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StatDef>
+    <defName>VFEA_FailChance</defName>
+    <label>fail chance</label>
+    <description>The chance that a nanite injecting operation will fail .</description>
+    <category>Building</category>
+    <defaultBaseValue>0.5</defaultBaseValue>
+    <minValue>0</minValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <displayPriorityInCategory>5000</displayPriorityInCategory>
+  </StatDef>
+  
+</Defs>
