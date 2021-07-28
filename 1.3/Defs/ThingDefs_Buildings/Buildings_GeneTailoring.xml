@@ -252,7 +252,7 @@
     <description>todo</description>
     <graphicData>
       <texPath>Things/Building/Production/AncientSimulationDrive/AncientSimulationDrive</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <shadowData>
         <volume>(0.9,0.2,0.9)</volume>
       </shadowData>
@@ -283,6 +283,7 @@
         <maxSimultaneous>10</maxSimultaneous>
       </li>
     </comps>
+	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
   
   <ThingDef ParentName="GeneTailoringLinkableBase">
@@ -298,7 +299,7 @@
       <drawSize>(3, 3)</drawSize>
     </graphicData>
     <statBases>
-      <MaxHitPoints>150</MaxHitPoints>
+      <MaxHitPoints>250</MaxHitPoints>
       <Mass>30</Mass>
     </statBases>
     <size>(3,3)</size>
@@ -322,6 +323,40 @@
         <maxSimultaneous>2</maxSimultaneous>
       </li>
     </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase"> <!-- needs some C# -->
+    <defName>VFEA_SuperNaniteContainment</defName>
+    <label>super-nanite containment</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/SuperNaniteContainment/SuperNaniteContainment</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shadowData>
+        <volume>(0.9,0.2,0.9)</volume>
+      </shadowData>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>10</Mass>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+	  <Plasteel>20</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+	  <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+    </comps>
+	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
 
 </Defs>
