@@ -88,6 +88,10 @@
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>VFEA_SuperNaniteInjectorPump</li>
+		  <li>VFEA_SuperNaniteDialyzer</li>
+		  <li>VFEA_SuperNaniteCentrifuge</li>
+		  <li>VFEA_SimulationDrive</li>
+		  <li>VFEA_GenomeStabilizer</li>
         </linkableFacilities>
       </li>
     </comps>
