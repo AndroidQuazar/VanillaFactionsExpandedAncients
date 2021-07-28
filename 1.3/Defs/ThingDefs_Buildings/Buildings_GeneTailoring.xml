@@ -149,7 +149,7 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Facility">
         <statOffsets>
-          <VFEA_FailChance>-0.05</VFEA_FailChance> <!-- to be changed -->
+          <VFEA_InjectingTimeFactor>-0.065</VFEA_InjectingTimeFactor>
         </statOffsets>
         <maxSimultaneous>10</maxSimultaneous>
       </li>
