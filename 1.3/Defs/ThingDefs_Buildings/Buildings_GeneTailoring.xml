@@ -92,6 +92,9 @@
 		  <li>VFEA_SuperNaniteCentrifuge</li>
 		  <li>VFEA_SimulationDrive</li>
 		  <li>VFEA_GenomeStabilizer</li>
+		  <li>VFEA_GenomeMacrothermometer</li>
+		  <li>VFEA_StabilisedMucusInducer</li>
+		  <li>VFEA_NanotechRetractor</li>
         </linkableFacilities>
       </li>
     </comps>
