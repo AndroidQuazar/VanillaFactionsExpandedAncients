@@ -76,4 +76,13 @@
         <effectDescription>Will come back to life 3 days after dying as long as body is still intact</effectDescription>
         <tickerType>Normal</tickerType>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>RedundantStomach</defName>
+        <label>redundant stomach</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_RedundantStomach</texPath>
+        <workerClass>VFEAncients.PowerWorker_Hunger</workerClass>
+        <effectDescription>Regains hunger passivly, negating the need to eat</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
