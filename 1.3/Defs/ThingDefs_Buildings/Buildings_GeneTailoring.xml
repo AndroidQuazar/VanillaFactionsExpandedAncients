@@ -211,9 +211,9 @@
       <texPath>Things/Building/Production/AncientSuperNaniteDialyzer/AncientSuperNaniteDialyzer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shadowData>
-        <volume>(2.9,0.4,2.9)</volume>
+        <volume>(2.9,0.4,0.9)</volume>
       </shadowData>
-      <drawSize>(3, 1)</drawSize>
+      <drawSize>(3.5, 1.5)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
@@ -243,6 +243,7 @@
         <maxSimultaneous>2</maxSimultaneous>
       </li>
     </comps>
+	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
 
 </Defs>
