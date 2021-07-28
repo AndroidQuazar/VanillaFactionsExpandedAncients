@@ -83,7 +83,7 @@
       <ChunkSlagSteel>4</ChunkSlagSteel>
       <ComponentIndustrial>6</ComponentIndustrial>
     </killedLeavings>
-    <rotatable>true</rotatable>
+    <rotatable>false</rotatable>
     <selectable>true</selectable>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
@@ -98,12 +98,64 @@
     </building>
     <comps>
       <li Class="CompProperties_Hackable">
-        <defence>7500</defence>  <!-- ~ 3 hour for 10 intellect hacker -->
+        <defence>7500</defence>  <!-- ~ 3 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
+	<uiIconScale>0.8</uiIconScale>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_PipelineJunction</defName>
+    <label>pipeline junction</label>
+    <description>A large underground chemfuel pipeline connects to an exterior port in this place. When hacked, it yields large quantities of chemfuel, but hacking itself can take a while and even summon infestations.</description>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <passability>Impassable</passability>
+    <canOverlapZones>true</canOverlapZones>
+    <fillPercent>1.0</fillPercent>
+    <size>(5,5)</size>
+    <graphicData>
+      <texPath>Things/Building/Misc/PipelineJunction/PipelineJunction</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,5)</drawSize>
+      <shadowData>
+        <volume>(5.0, 1.0, 5.0)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <killedLeavings>
+      <Steel>100</Steel>
+      <ChunkSlagSteel>4</ChunkSlagSteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </killedLeavings>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <drawerType>MapMeshOnly</drawerType>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-3)</interactionCellOffset>
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>12500</defence>  <!-- ~ 5 hours for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
+    </comps>
+	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
 
