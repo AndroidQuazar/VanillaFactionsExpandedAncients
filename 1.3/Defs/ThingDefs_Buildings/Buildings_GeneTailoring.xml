@@ -96,7 +96,30 @@
     </placeWorkers>
   </ThingDef>
   
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="BuildingBase" Name="GeneTailoringLinkableBase" Abstract="True">
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>22</pathCost>
+    <blockWind>false</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>VFEA_Ancients</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <neverMultiSelect>false</neverMultiSelect>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SupernaniteInjectorPump</defName>
     <label>super-nanite injector pump</label>
     <description>todo</description>
@@ -108,14 +131,6 @@
       </shadowData>
       <drawSize>(1, 1)</drawSize>
     </graphicData>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <drawGUIOverlay>true</drawGUIOverlay>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <pathCost>22</pathCost>
-    <blockWind>false</blockWind>
-    <fillPercent>0.5</fillPercent>
-    <canOverlapZones>false</canOverlapZones>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>2000</WorkToBuild>
@@ -132,21 +147,11 @@
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <designationCategory>VFEA_Ancients</designationCategory>
-    <minifiedDef>MinifiedThing</minifiedDef>
-    <neverMultiSelect>false</neverMultiSelect>
-    <thingCategories>
-      <li>BuildingsMisc</li>
-    </thingCategories>
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Facility">
         <statOffsets>
           <VFEA_InjectingTimeFactor>-0.065</VFEA_InjectingTimeFactor>
