@@ -97,6 +97,11 @@
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase" Name="GeneTailoringLinkableBase" Abstract="True">
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
     <drawerType>MapMeshAndRealTime</drawerType>
     <drawGUIOverlay>true</drawGUIOverlay>
     <altitudeLayer>Building</altitudeLayer>
@@ -132,53 +137,8 @@
       <drawSize>(1, 1)</drawSize>
     </graphicData>
     <statBases>
-      <MaxHitPoints>250</MaxHitPoints>
-      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>50</MaxHitPoints>
       <Mass>10</Mass>
-      <Flammability>0.5</Flammability>
-      <Beauty>-5</Beauty>
-    </statBases>
-    <size>(1,1)</size>
-    <costList>
-	  <Plasteel>25</Plasteel>
-      <ComponentIndustrial>4</ComponentIndustrial>
-	  <ComponentSpacer>1</ComponentSpacer>
-    </costList>
-    <building>
-      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
-    </building>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>50</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Facility">
-        <statOffsets>
-          <VFEA_InjectingTimeFactor>-0.065</VFEA_InjectingTimeFactor>
-        </statOffsets>
-        <maxSimultaneous>10</maxSimultaneous>
-      </li>
-    </comps>
-  </ThingDef>
-  
-  <ThingDef ParentName="GeneTailoringLinkableBase">
-    <defName>VFEA_SuperNaniteInjectorPump</defName>
-    <label>super-nanite injector pump</label>
-    <description>todo</description>
-    <graphicData>
-      <texPath>Things/Building/Production/SuperNaniteInjectorPump/SuperNaniteInjectorPump</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shadowData>
-        <volume>(0.9,0.2,0.9)</volume>
-      </shadowData>
-      <drawSize>(1, 1)</drawSize>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>250</MaxHitPoints>
-      <WorkToBuild>2000</WorkToBuild>
-      <Mass>10</Mass>
-      <Flammability>0.5</Flammability>
-      <Beauty>-5</Beauty>
     </statBases>
     <size>(1,1)</size>
     <costList>
@@ -216,11 +176,8 @@
       <drawSize>(3.5, 1.5)</drawSize>
     </graphicData>
     <statBases>
-      <MaxHitPoints>250</MaxHitPoints>
-      <WorkToBuild>2000</WorkToBuild>
-      <Mass>10</Mass>
-      <Flammability>0.5</Flammability>
-      <Beauty>-5</Beauty>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>25</Mass>
     </statBases>
     <size>(3,1)</size>
     <costList>
@@ -244,6 +201,45 @@
       </li>
     </comps>
 	<defaultPlacingRot>South</defaultPlacingRot>
+  </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase">
+    <defName>VFEA_SuperNaniteCentrifuge</defName>
+    <label>super-nanite centrifuge</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/AncientSuperNaniteCentrifuge/AncientSuperNaniteCentrifuge</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(1.9,0.3,1.9)</volume>
+      </shadowData>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>30</Mass>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+	  <Plasteel>30</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+	  <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <VFEA_FailChance>-0.05</VFEA_FailChance>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+    </comps>
   </ThingDef>
 
 </Defs>
