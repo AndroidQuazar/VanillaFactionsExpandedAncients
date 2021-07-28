@@ -87,7 +87,7 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
-          <li>VFEA_SupernaniteInjectorPump</li>
+          <li>VFEA_SuperNaniteInjectorPump</li>
         </linkableFacilities>
       </li>
     </comps>
@@ -125,7 +125,7 @@
   </ThingDef>
   
   <ThingDef ParentName="GeneTailoringLinkableBase">
-    <defName>VFEA_SupernaniteInjectorPump</defName>
+    <defName>VFEA_SuperNaniteInjectorPump</defName>
     <label>super-nanite injector pump</label>
     <description>todo</description>
     <graphicData>
@@ -236,6 +236,84 @@
       <li Class="CompProperties_Facility">
         <statOffsets>
           <VFEA_FailChance>-0.05</VFEA_FailChance>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase">
+    <defName>VFEA_SimulationDrive</defName>
+    <label>simulation drive</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/AncientSimulationDrive/AncientSimulationDrive</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.9,0.2,0.9)</volume>
+      </shadowData>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>10</Mass>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+	  <Plasteel>25</Plasteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+	  <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>75</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <VFEA_FailChance>-0.001</VFEA_FailChance>
+        </statOffsets>
+        <maxSimultaneous>10</maxSimultaneous>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase">
+    <defName>VFEA_GenomeStabilizer</defName>
+    <label>genome stabilizer</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/AncientGenomeStabilizer/AncientGenomeStabilizer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(2.9,0.3,2.9)</volume>
+      </shadowData>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>30</Mass>
+    </statBases>
+    <size>(3,3)</size>
+    <costList>
+	  <Plasteel>50</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+	  <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <VFEA_FailChance>-0.1</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>2</maxSimultaneous>
       </li>
