@@ -158,5 +158,57 @@
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_LargeLockedDoor</defName>
+    <label>large locked door</label>
+    <description>A large Vault door, often found in the entrance room. Due to self-preservation mechanism, the door is permanently locked and requires some degree of hacking to open.</description>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <passability>Impassable</passability>
+    <canOverlapZones>true</canOverlapZones>
+    <fillPercent>1.0</fillPercent>
+    <size>(3,1)</size>
+    <graphicData>
+      <texPath>Things/Building/Door/LargeLockedDoor/LargeLockedDoor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <shadowData>
+        <volume>(3.0, 0.2, 1.0)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>3000</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <killedLeavings>
+      <Steel>150</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </killedLeavings>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <drawerType>MapMeshOnly</drawerType>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>25000</defence>  <!-- ~ 10 hours for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
+    </comps>
+	<designationCategory>VFEA_Ancients</designationCategory>
+	<uiIconScale>0.8</uiIconScale>
+	<defaultPlacingRot>South</defaultPlacingRot>
+  </ThingDef>
 
 </Defs>
