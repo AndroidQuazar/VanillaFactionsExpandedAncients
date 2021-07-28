@@ -66,7 +66,7 @@
     <fillPercent>1.0</fillPercent>
     <size>(5,5)</size>
     <graphicData>
-      <texPath>Things/Building/Misc/LargeSupplyCrate/LargeSupplyCrate</texPath> <!-- couldn't find the textures for it -->
+      <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStation</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(5,5)</drawSize>
       <shadowData>
