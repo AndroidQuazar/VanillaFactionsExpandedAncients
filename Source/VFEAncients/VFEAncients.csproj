@@ -55,6 +55,7 @@
     <Compile Include="PowerWorker_Claws.cs" />
     <Compile Include="PowerWorker_ForceHit.cs" />
     <Compile Include="PowerWorker_Hunger.cs" />
+    <Compile Include="PowerWorker_LimbRegen.cs" />
     <Compile Include="PowerWorker_MeleeSkill.cs" />
     <Compile Include="PowerWorker_PrefersDarkness.cs" />
     <Compile Include="PowerWorker_Resurrect.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="StatParts.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VFEAncientsMod.cs" />
+    <Compile Include="VFEA_DefOf.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">

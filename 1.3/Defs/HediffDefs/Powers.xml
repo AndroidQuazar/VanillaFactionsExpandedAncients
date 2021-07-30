@@ -6,6 +6,12 @@
         <initialSeverity>1</initialSeverity>
         <isBad>true</isBad>
     </HediffDef>
+    <HediffDef Name="SuperpowerHediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.0, 1.0, 0.35)</defaultLabelColor>
+        <initialSeverity>1</initialSeverity>
+        <isBad>false</isBad>
+    </HediffDef>
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_Blind</defName>
         <label>blind</label>
@@ -66,6 +72,17 @@
             </li>
         </stages>
     </HediffDef>
+    
+    <HediffDef ParentName="SuperpowerHediffBase">
+        <defName>Power_Unstoppable</defName>
+        <label>unstoppable</label>
+        <description>todo</description>
+        <stages>
+          <li>
+            <painFactor>0</painFactor>
+          </li>
+        </stages>
+      </HediffDef>
   
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>VFEA_PlasteelClaw</defName>
@@ -99,5 +116,65 @@
       <partEfficiency>1.00</partEfficiency>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>VFEA_RegrowingPart</defName>
+    <defaultLabelColor>(0.15, 0.6, 0.2)</defaultLabelColor>
+    <description>This body part is regenerating.</description>
+    <isBad>false</isBad>
+    <label>regenerating</label>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <label>bones</label>
+        <becomeVisible>true</becomeVisible>
+        <partEfficiencyOffset>-1.0</partEfficiencyOffset>
+        <painOffset>0.2</painOffset>
+        <statOffsets>
+          <PawnBeauty>-2</PawnBeauty>
+        </statOffsets>
+      </li>
+      <li>
+        <label>muscles</label>
+        <becomeVisible>true</becomeVisible>
+        <partEfficiencyOffset>-1.0</partEfficiencyOffset>
+        <minSeverity>0.1</minSeverity>
+        <painOffset>0.2</painOffset>
+        <statOffsets>
+          <PawnBeauty>-2</PawnBeauty>
+        </statOffsets>
+      </li>
+      <li>
+        <label>nerves</label>
+        <becomeVisible>true</becomeVisible>
+        <partEfficiencyOffset>-0.75</partEfficiencyOffset>
+        <minSeverity>0.5</minSeverity>
+        <painOffset>0.5</painOffset>
+        <statOffsets>
+          <PawnBeauty>-2</PawnBeauty>
+        </statOffsets>
+      </li>
+      <li>
+        <label>skin</label>
+        <becomeVisible>true</becomeVisible>
+        <partEfficiencyOffset>-0.5</partEfficiencyOffset>
+        <minSeverity>0.75</minSeverity>
+        <painOffset>0.1</painOffset>
+        <statOffsets>
+          <PawnBeauty>-1</PawnBeauty>
+        </statOffsets>
+      </li>
+      <li>
+        <label>finishing</label>
+        <becomeVisible>true</becomeVisible>
+        <partEfficiencyOffset>0</partEfficiencyOffset>
+        <minSeverity>1</minSeverity>
+        <painOffset>0.05</painOffset>
+        <statOffsets>
+          <PawnBeauty>-1</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
   </HediffDef>
 </Defs>

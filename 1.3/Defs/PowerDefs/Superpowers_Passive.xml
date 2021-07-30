@@ -93,5 +93,16 @@
         <texPath>Powers/Superpowers/Power_Darkvision</texPath>
         <workerClass>VFEAncients.PowerWorker_PrefersDarkness</workerClass>
         <nullifiedThoughts><li>EnvironmentDark</li></nullifiedThoughts>
+        <effectDescription>Suffers no penalties for being in the dark</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>RegeneratingLimbs</defName>
+        <label>regenerating limbs</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_RegeneratingLimbs</texPath>
+        <workerClass>VFEAncients.PowerWorker_LimbRegen</workerClass>
+        <effectDescription>Missing limbs will slowly repair themselves over time</effectDescription>
+        <tickerType>Normal</tickerType>
     </VFEAncients.PowerDef>
 </Defs>

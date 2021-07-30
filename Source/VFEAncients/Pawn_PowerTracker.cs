@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace VFEAncients
@@ -19,6 +20,12 @@ namespace VFEAncients
         public void ExposeData()
         {
             Scribe_Collections.Look(ref powers, "powers", LookMode.Def);
+            if (!powers.EnumerableNullOrEmpty() && Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                var tempPowers = powers.ToArray();
+                powers.Clear();
+                foreach (var power in tempPowers) AddPower(power);
+            }
         }
 
         public bool HasPower(PowerDef power)
