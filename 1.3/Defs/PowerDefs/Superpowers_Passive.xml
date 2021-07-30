@@ -85,4 +85,13 @@
         <workerClass>VFEAncients.PowerWorker_Hunger</workerClass>
         <effectDescription>Regains hunger passivly, negating the need to eat</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Darkvision</defName>
+        <label>darkvision</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Darkvision</texPath>
+        <workerClass>VFEAncients.PowerWorker_PrefersDarkness</workerClass>
+        <nullifiedThoughts><li>EnvironmentDark</li></nullifiedThoughts>
+    </VFEAncients.PowerDef>
 </Defs>
