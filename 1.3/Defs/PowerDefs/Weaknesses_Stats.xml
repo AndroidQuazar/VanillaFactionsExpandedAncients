@@ -11,7 +11,7 @@
     <VFEAncients.PowerDef>
         <defName>ExtremelyFlammable</defName>
         <label>extremely flammable</label>
-        <description>Faulty super-nanites alter the cells of the body. Such changes make one very flammable.</description>
+        <description>In order for the super-nanites to work in this particular case, the body has to secrete sebum abundantly. Such changes make the subject very flammable.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ExtremelyFlammable</texPath>
         <statFactors><Flammability>4</Flammability></statFactors>
@@ -19,7 +19,7 @@
     <VFEAncients.PowerDef>
         <defName>ToxinIntolerance</defName>
         <label>toxin intolerance</label>
-        <description>Faulty super-nanites alter the cells of the body. Such changes make one completely intolerant of any toxins.</description>
+        <description>In order for the super-nanites to work in this particular case, the working mechanism of some cells had to be changed. Such mutations make one completely intolerant of any toxins.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ToxinIntolerance</texPath>
         <statOffsets><ToxicSensitivity>1</ToxicSensitivity></statOffsets>
