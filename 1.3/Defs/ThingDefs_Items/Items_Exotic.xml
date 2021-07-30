@@ -19,6 +19,7 @@
       <MaxHitPoints>60</MaxHitPoints>
       <Mass>1</Mass>
       <Flammability>0.2</Flammability>
+	  <DeteriorationRate>20</DeteriorationRate>
     </statBases>
     <thingCategories>
       <li>Items</li>
