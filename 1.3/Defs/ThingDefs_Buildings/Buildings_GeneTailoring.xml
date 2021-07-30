@@ -328,7 +328,7 @@
     </comps>
   </ThingDef>
   
-  <ThingDef ParentName="GeneTailoringLinkableBase"> <!-- needs some C# -->
+  <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteContainment</defName>
     <label>super-nanite containment</label>
     <description>todo</description>
@@ -352,7 +352,27 @@
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+      <fixedStorageSettings>
+        <filter>
+          <thingDefs>
+            <li>VFEA_SuperNanites</li>
+          </thingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <thingDefs>
+            <li>VFEA_SuperNanites</li>
+          </thingDefs>
+        </filter>
+      </defaultStorageSettings>
     </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
