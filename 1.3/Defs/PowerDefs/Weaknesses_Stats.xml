@@ -11,7 +11,7 @@
     <VFEAncients.PowerDef>
         <defName>ExtremelyFlammable</defName>
         <label>extremely flammable</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter the cells of the body. Such changes make one very flammable.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ExtremelyFlammable</texPath>
         <statFactors><Flammability>4</Flammability></statFactors>
@@ -19,7 +19,7 @@
     <VFEAncients.PowerDef>
         <defName>ToxinIntolerance</defName>
         <label>toxin intolerance</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter the cells of the body. Such changes make one completely intolerant of any toxins.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ToxinIntolerance</texPath>
         <statOffsets><ToxicSensitivity>1</ToxicSensitivity></statOffsets>
@@ -27,7 +27,7 @@
     <VFEAncients.PowerDef>
         <defName>HeatIntolerance</defName>
         <label>heat intolerance</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter the hypothalamus's structure. Such mutations make one vulnerable to hot temperatures.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_HeatIntolerance</texPath>
         <statOffsets><ComfyTemperatureMax>-10</ComfyTemperatureMax></statOffsets>
@@ -35,7 +35,7 @@
     <VFEAncients.PowerDef>
         <defName>ColdIntolerance</defName>
         <label>cold intolerance</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter the hypothalamus's structure. Such mutations make one vulnerable to cold temperatures.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ColdIntolerance</texPath>
         <statOffsets><ComfyTemperatureMin>10</ComfyTemperatureMin></statOffsets>
@@ -43,7 +43,7 @@
     <VFEAncients.PowerDef>
         <defName>ImmunologicalDisorder</defName>
         <label>immunological disorder</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter some organs' structure. Such mutations make one vulnerable to various diseases.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ImmunologicalDisorder</texPath>
         <statFactors><ImmunityGainSpeed>0.75</ImmunityGainSpeed></statFactors>
@@ -51,7 +51,7 @@
     <VFEAncients.PowerDef>
         <defName>Hypermetabolism</defName>
         <label>hypermetabolism</label>
-        <description>todo</description>
+        <description>Faulty super-nanites speed up one's metabolism processes. Such changes cause one to eat more often.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Hypermetabolism</texPath>
         <statFactors><HungerRateMultiplier>2</HungerRateMultiplier></statFactors>
@@ -59,7 +59,7 @@
     <VFEAncients.PowerDef>
         <defName>Finicky</defName>
         <label>finicky</label>
-        <description>todo</description>
+        <description>Faulty super-nanites alter the structure of the brain. Such changes make one very lazy and finicky, they will work much slower than usual.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Finicky</texPath>
         <statFactors><WorkSpeedGlobal>0.3</WorkSpeedGlobal></statFactors>
