@@ -175,7 +175,12 @@
       <WorkToBuild>16000</WorkToBuild>
       <Flammability>0.5</Flammability>
       <Beauty>-30</Beauty>
+	  <Mass>150</Mass>
     </statBases>
+	<minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
     <tickerType>Normal</tickerType>
     <size>(6,6)</size>
     <costList>
