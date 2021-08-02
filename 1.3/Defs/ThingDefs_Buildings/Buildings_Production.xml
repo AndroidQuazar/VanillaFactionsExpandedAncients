@@ -67,7 +67,7 @@
     </building>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>Machining</li>
+      <li>VFEA_Mending</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -148,7 +148,7 @@
     </building>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>Machining</li>
+      <li>VFEA_Mending</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -312,7 +312,7 @@
     <graphicData>
       <texPath>Things/Building/Production/AncientWorkshop/AncientWorkshop</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(4.5,4)</drawSize>
+      <drawSize>(7,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -336,7 +336,7 @@
       <Cleanliness>-2</Cleanliness>
 	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
     </statBases>
-    <size>(3,2)</size>
+    <size>(5,2)</size>
     <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
