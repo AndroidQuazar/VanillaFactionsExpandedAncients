@@ -105,4 +105,17 @@
         <effectDescription>Missing limbs will slowly repair themselves over time</effectDescription>
         <tickerType>Normal</tickerType>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>EfficientBuilder</defName>
+        <label>efficient builder</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_EfficientBuilder</texPath>
+        <workerClass>VFEAncients.PowerWorker_Construct</workerClass>
+        <effectDescription>Has a 50% chance that building something will refund 25% resources used to build it.</effectDescription>
+        <workerData Class="VFEAncients.WorkerData_Construct">
+            <RefundChance>0.5</RefundChance>
+            <RefundAmount>0.25</RefundAmount>
+        </workerData>
+    </VFEAncients.PowerDef>
 </Defs>

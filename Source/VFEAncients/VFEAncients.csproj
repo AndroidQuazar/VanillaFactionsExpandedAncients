@@ -53,6 +53,7 @@
     <Compile Include="PowerDef.cs" />
     <Compile Include="PowerWorker_Blunt.cs" />
     <Compile Include="PowerWorker_Claws.cs" />
+    <Compile Include="PowerWorker_Construct.cs" />
     <Compile Include="PowerWorker_ForceHit.cs" />
     <Compile Include="PowerWorker_Hunger.cs" />
     <Compile Include="PowerWorker_LimbRegen.cs" />
