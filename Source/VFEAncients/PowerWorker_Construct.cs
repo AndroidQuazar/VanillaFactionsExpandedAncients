@@ -21,7 +21,7 @@ namespace VFEAncients
         public static void Refund(Frame __instance, Pawn worker)
         {
             if (HasPower<PowerWorker_Construct>(worker) &&
-                worker.GetPowerTracker().AllPowers.First(p => p.Worker is PowerWorker_Construct).workerData is WorkerData_Construct data && Rand.Chance(data.RefundChance))
+                GetData<WorkerData_Construct>(worker) is WorkerData_Construct data && Rand.Chance(data.RefundChance))
                 if (data.RefundAmount >= 1f)
                     __instance.resourceContainer.TryDropAll(__instance.Position, __instance.Map, ThingPlaceMode.Near);
                 else

@@ -118,4 +118,16 @@
             <RefundAmount>0.25</RefundAmount>
         </workerData>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>MasterfulCraft</defName>
+        <label>masterful craft</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_MasterfulCraft</texPath>
+        <workerClass>VFEAncients.PowerWorker_Craft</workerClass>
+        <effectDescription>All crafted things will be 2 qualities better.</effectDescription>
+        <workerData Class="VFEAncients.WorkerData_Craft">
+            <LevelBonus>2</LevelBonus>
+        </workerData>
+    </VFEAncients.PowerDef>
 </Defs>
