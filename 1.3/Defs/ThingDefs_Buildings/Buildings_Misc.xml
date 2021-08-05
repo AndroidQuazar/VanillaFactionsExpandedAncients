@@ -127,5 +127,42 @@
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEA_AncientSupplySlingshot</defName>
+    <label>ancient supply slingshot</label>
+    <description>Often found in ancient vaults, supply slingshot is a complex mechanism that catapults a supply crate across huge distances. It's programmed to send the crates to the nearby occupied vaults. These slingshots are often used by ancient soldiers to share resources they don't need with other complexes.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/AncientSupplySlingshot/AncientSupplySlingshot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <size>(3,3)</size>
+    <rotatable>false</rotatable>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <designationCategory>VFEA_Ancients</designationCategory>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1600</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <inspectorTabs>
+      <li>ITab_ContentsTransporter</li>
+    </inspectorTabs>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+    </placeWorkers>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <uiIconScale>0.65</uiIconScale>
+  </ThingDef>
 
 </Defs>
