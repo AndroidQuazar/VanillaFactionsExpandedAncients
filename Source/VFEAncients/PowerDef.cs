@@ -167,7 +167,7 @@ namespace VFEAncients
             return caster is Pawn pawn && (pawn.GetPowerTracker()?.AllPowers.Any(power => power?.Worker is T) ?? false);
         }
 
-        public static WorkerData GetData<T>(Thing caster) where T : WorkerData
+        public static T GetData<T>(Thing caster) where T : WorkerData
         {
             return (caster as Pawn)?.GetPowerTracker()?.AllPowers.FirstOrDefault(p => p.workerData is T)?.Worker.GetData<T>();
         }

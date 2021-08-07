@@ -52,6 +52,7 @@
     <Compile Include="Pawn_PowerTracker.cs" />
     <Compile Include="PowerDef.cs" />
     <Compile Include="PowerWorker_Blunt.cs" />
+    <Compile Include="PowerWorker_BreakOnReject.cs" />
     <Compile Include="PowerWorker_Celebrity.cs" />
     <Compile Include="PowerWorker_Claws.cs" />
     <Compile Include="PowerWorker_Construct.cs" />
