@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>VFEA_OutsideHomeArea</defName>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>outside of home area</label>
+        <description>I'm outside of my home area. Enemies are everywhere, I want to go back.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>  
+
+</Defs>
