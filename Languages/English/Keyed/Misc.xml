@@ -9,4 +9,7 @@
     <VFEAncients.Effect.AddHediff>Add health condition: {0}</VFEAncients.Effect.AddHediff>
     <VFEAncients.Effect.NullThought>Nullify thought: {0}</VFEAncients.Effect.NullThought>
     <VFEAncients.MarksmanshipTooltip>100% (Marksmanship)</VFEAncients.MarksmanshipTooltip>
+    <VFEAncients.Reason.KilledSomeone>Reason: Killed someone</VFEAncients.Reason.KilledSomeone>
+    <VFEAncients.Reason.Rejected>Reason: Rebuffed by {0}</VFEAncients.Reason.Rejected>
+    <VFEAncients.CannotPrioritizeAudacious>Cannot prioritize: {0} is audacious</VFEAncients.CannotPrioritizeAudacious>
 </LanguageData>

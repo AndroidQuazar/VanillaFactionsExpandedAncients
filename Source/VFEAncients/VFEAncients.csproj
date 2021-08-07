@@ -64,6 +64,7 @@
     <Compile Include="PowerWorker_LimbRegen.cs" />
     <Compile Include="PowerWorker_Loner.cs" />
     <Compile Include="PowerWorker_MeleeSkill.cs" />
+    <Compile Include="PowerWorker_NoPrioritize.cs" />
     <Compile Include="PowerWorker_PrefersDarkness.cs" />
     <Compile Include="PowerWorker_Resurrect.cs" />
     <Compile Include="PowerWorker_Strong.cs" />

@@ -34,4 +34,13 @@
         <texPath>Powers/Weaknesses/Weakness_Paranoid</texPath>
         <effectDescription>Sufers -5 mood while outside home area.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Audacious</defName>
+        <label>audacious</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Audacious</texPath>
+        <workerClass>VFEAncients.PowerWorker_NoPrioritize</workerClass>
+        <effectDescription>Cannot prioritize work.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

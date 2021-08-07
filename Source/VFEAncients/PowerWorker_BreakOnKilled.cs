@@ -38,7 +38,7 @@ namespace VFEAncients
             if (HasPower<PowerWorker_BreakOnKilled>(killer))
             {
                 var data = GetData<WorkerData_Break>(killer);
-                if (data != null && Rand.Chance(data.BreakChance)) data.Break.Worker.TryStart(killer, ThoughtDefOf.KilledHumanlikeBloodlust.stages[0].LabelCap, false);
+                if (data != null && Rand.Chance(data.BreakChance)) data.Break.Worker.TryStart(killer, "VFEAncients.Reason.KilledSomeone".Translate(), false);
             }
         }
     }

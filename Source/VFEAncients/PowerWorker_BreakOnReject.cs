@@ -30,7 +30,7 @@ namespace VFEAncients
                 if (data != null && Rand.Chance(data.BreakChance))
                 {
                     forcedTargets[__instance.pawn] = otherPawn;
-                    data.Break.Worker.TryStart(__instance.pawn, ThoughtDefOf.RebuffedMyRomanceAttempt.stages[0].label.CapitalizeFirst(), false);
+                    data.Break.Worker.TryStart(__instance.pawn, "VFEAncients.Reason.Rejected".Translate(otherPawn.LabelNoCountColored), false);
                 }
             }
         }
