@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>Prideful</defName>
+        <label>prideful</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Prideful</texPath>
+        <workerClass>VFEAncients.PowerWorker_BreakOnReject</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Break">
+            <BreakChance>0.5</BreakChance>
+            <Break>MurderousRage</Break>
+        </workerData>
+        <effectDescription>Has a 10% to begin a murderous rage against people who reject romance attempts.</effectDescription>
+    </VFEAncients.PowerDef>
+</Defs>

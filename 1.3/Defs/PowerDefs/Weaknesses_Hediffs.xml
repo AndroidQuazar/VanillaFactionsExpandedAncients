@@ -32,4 +32,12 @@
         <texPath>Powers/Weaknesses/Weakness_PsychologicalParalysis</texPath>
         <hediffs><li>Power_Paralysis</li></hediffs>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PainHypersensitivity</defName>
+        <label>pain hypersensitivity</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_PainHypersensitivity</texPath>
+        <hediffs><li>Power_PainHypersensitivity</li></hediffs>
+    </VFEAncients.PowerDef>
 </Defs>
