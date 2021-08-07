@@ -90,4 +90,13 @@
         <workerData Class="VFEAncients.WorkerData_Trait"><Trait>Psychopath</Trait></workerData>
         <effectDescription>Will not bond with animals.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Immature</defName>
+        <label>immature</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Immature</texPath>
+        <workerClass>VFEAncients.PowerWorker_Tantrum</workerClass>
+        <effectDescription>Most mental breaks are tantrums.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

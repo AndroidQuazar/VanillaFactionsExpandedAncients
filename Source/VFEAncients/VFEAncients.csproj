@@ -69,6 +69,7 @@
     <Compile Include="PowerWorker_PretendTrait.cs" />
     <Compile Include="PowerWorker_Resurrect.cs" />
     <Compile Include="PowerWorker_Strong.cs" />
+    <Compile Include="PowerWorker_Tantrum.cs" />
     <Compile Include="PowerWorker_VitalHits.cs" />
     <Compile Include="PowerWorker_WeaponRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
