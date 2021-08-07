@@ -8,9 +8,22 @@
         <texPath>Powers/Weaknesses/Weakness_Prideful</texPath>
         <workerClass>VFEAncients.PowerWorker_BreakOnReject</workerClass>
         <workerData Class="VFEAncients.WorkerData_Break">
-            <BreakChance>0.5</BreakChance>
+            <BreakChance>0.1</BreakChance>
             <Break>MurderousRage</Break>
         </workerData>
         <effectDescription>Has a 10% to begin a murderous rage against people who reject romance attempts.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Bloodlust</defName>
+        <label>bloodlust</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Bloodlust</texPath>
+        <workerClass>VFEAncients.PowerWorker_BreakOnKilled</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Break">
+            <BreakChance>0.5</BreakChance>
+            <Break>Berserk</Break>
+        </workerData>
+        <effectDescription>Has a 50% to begin a berserker rage upon killing someone.</effectDescription>
     </VFEAncients.PowerDef>
 </Defs>
