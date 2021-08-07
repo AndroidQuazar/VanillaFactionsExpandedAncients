@@ -67,6 +67,7 @@
     <Compile Include="PowerWorker_NoPrioritize.cs" />
     <Compile Include="PowerWorker_PrefersDarkness.cs" />
     <Compile Include="PowerWorker_PretendTrait.cs" />
+    <Compile Include="PowerWorker_RecreationDrop.cs" />
     <Compile Include="PowerWorker_Resurrect.cs" />
     <Compile Include="PowerWorker_Strong.cs" />
     <Compile Include="PowerWorker_Tantrum.cs" />

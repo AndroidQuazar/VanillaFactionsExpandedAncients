@@ -99,4 +99,13 @@
         <workerClass>VFEAncients.PowerWorker_Tantrum</workerClass>
         <effectDescription>Most mental breaks are tantrums.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>EasilyBored</defName>
+        <label>easily bored</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_EasilyBored</texPath>
+        <workerClass>VFEAncients.PowerWorker_RecreationDrop</workerClass>
+        <effectDescription>Recreation falls at 2x the rate.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
