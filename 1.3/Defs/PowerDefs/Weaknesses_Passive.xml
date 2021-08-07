@@ -108,4 +108,13 @@
         <workerClass>VFEAncients.PowerWorker_RecreationDrop</workerClass>
         <effectDescription>Recreation falls at 2x the rate.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>EasilyEnraged</defName>
+        <label>easily enraged</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_EasilyEnraged</texPath>
+        <workerClass>VFEAncients.PowerWorker_AlwaysSocialFight</workerClass>
+        <effectDescription>Will always start a fight when insulted or slighted.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

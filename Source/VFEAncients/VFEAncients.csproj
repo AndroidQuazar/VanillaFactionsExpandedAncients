@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CompSolarPowerUp.cs" />
     <Compile Include="GameComponent_Powers.cs" />
+    <Compile Include="PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
     <Compile Include="HarmonyPatches\ElectricPatches.cs" />
