@@ -57,6 +57,7 @@
     <Compile Include="PowerWorker_Construct.cs" />
     <Compile Include="PowerWorker_Craft.cs" />
     <Compile Include="PowerWorker_ForceHit.cs" />
+    <Compile Include="PowerWorker_Hack.cs" />
     <Compile Include="PowerWorker_Hunger.cs" />
     <Compile Include="PowerWorker_LimbRegen.cs" />
     <Compile Include="PowerWorker_MeleeSkill.cs" />
