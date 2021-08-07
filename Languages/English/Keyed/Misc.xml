@@ -12,4 +12,5 @@
     <VFEAncients.Reason.KilledSomeone>Reason: Killed someone</VFEAncients.Reason.KilledSomeone>
     <VFEAncients.Reason.Rejected>Reason: Rebuffed by {0}</VFEAncients.Reason.Rejected>
     <VFEAncients.CannotPrioritizeAudacious>Cannot prioritize: {0} is audacious</VFEAncients.CannotPrioritizeAudacious>
+    <VFEAncients.IncapableOfTooltipPower>Caused by power: {0}</VFEAncients.IncapableOfTooltipPower>
 </LanguageData>

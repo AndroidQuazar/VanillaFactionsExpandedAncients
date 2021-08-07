@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>Bigot</defName>
+        <label>bigot</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Bigot</texPath>
+        <effectDescription>Cannot Warden.</effectDescription>
+        <disabledWorkTags><li>Social</li></disabledWorkTags>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ConscientiousObjector</defName>
+        <label>conscientious objector</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_ConscientiousObjector</texPath>
+        <effectDescription>Refuses to do anything violent.</effectDescription>
+        <disabledWorkTags><li>Violent</li></disabledWorkTags>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Egotistical</defName>
+        <label>egotistical</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Egotistical</texPath>
+        <effectDescription>Will not do any work.</effectDescription>
+        <disabledWorkTags><li>AllWork</li></disabledWorkTags>
+    </VFEAncients.PowerDef>
+</Defs>
