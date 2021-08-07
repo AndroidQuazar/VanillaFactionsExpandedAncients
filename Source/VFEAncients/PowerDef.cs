@@ -120,7 +120,7 @@ namespace VFEAncients
                     builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
             if (def.nullifiedThoughts != null)
                 foreach (var thoughtDef in def.nullifiedThoughts)
-                    builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label));
+                    builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label.Formatted("")));
             if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
             if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
             if (builder.Length > 0) builder.Insert(0, "\n" + "VFEAncients.Effects".Translate() + "\n");

@@ -43,4 +43,51 @@
         <workerClass>VFEAncients.PowerWorker_NoPrioritize</workerClass>
         <effectDescription>Cannot prioritize work.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Callous</defName>
+        <label>callous</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Callous</texPath>
+        <nullifiedThoughts>
+            <li>KnowGuestExecuted</li>
+            <li>KnowColonistExecuted</li>
+            <li>KnowPrisonerDiedInnocent</li>
+            <li>KnowColonistDied</li>
+            <li>BondedAnimalDied</li>
+            <li>PawnWithGoodOpinionDied</li>
+            <li>ColonistLost</li>
+            <li>BondedAnimalReleased</li>
+            <li>BondedAnimalLost</li>
+            <li>PawnWithGoodOpinionLost</li>
+            <li>KnowPrisonerSold</li>
+            <li>ReleasedHealthyPrisoner</li>
+            <li>KnowGuestOrganHarvested</li>
+            <li>KnowColonistOrganHarvested</li>
+            <li>Nuzzled</li>
+            <li>ButcheredHumanlikeCorpse</li>
+            <li>KnowButcheredHumanlikeCorpse</li>
+            <li>ButcheredHumanlikeCorpseOpinion</li>
+            <li>ObservedLayingCorpse</li>
+            <li>WitnessedDeathAlly</li>
+            <li>WitnessedDeathNonAlly</li>
+            <li>WitnessedDeathFamily</li>
+            <li>DeniedJoining</li>
+            <li>ColonistBanished</li>
+            <li>ColonistBanishedToDie</li>
+            <li>PrisonerBanishedToDie</li>
+            <li>ColonyPrisonerEscaped</li>
+            <li>BondedAnimalBanished</li>
+            <li>Chitchat</li>
+            <li>DeepTalk</li>
+            <li>HumanLeatherApparelSad</li>
+            <li>SoldPrisoner</li>
+            <li>BondedAnimalMaster</li>
+            <li>NotBondedAnimalMaster</li>
+            <li>ColonistLeftUnburied</li>
+        </nullifiedThoughts>
+        <workerClass>VFEAncients.PowerWorker_PretendTrait</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Trait"><Trait>Psychopath</Trait></workerData>
+        <effectDescription>Will not bond with animals.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>
