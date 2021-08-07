@@ -26,4 +26,12 @@
         </workerData>
         <effectDescription>Has a 50% to begin a berserker rage upon killing someone.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Paranoid</defName>
+        <label>paranoid</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Paranoid</texPath>
+        <effectDescription>Sufers -5 mood while outside home area.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

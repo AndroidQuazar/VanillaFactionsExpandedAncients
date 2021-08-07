@@ -5,6 +5,7 @@
     <defName>VFEA_OutsideHomeArea</defName>
     <validWhileDespawned>true</validWhileDespawned>
     <stackLimit>1</stackLimit>
+    <workerClass>VFEAncients.ThoughtWorker_OutsideParanoid</workerClass>
     <stages>
       <li>
         <label>outside of home area</label>
