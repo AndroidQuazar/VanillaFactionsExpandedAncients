@@ -60,6 +60,7 @@
     <Compile Include="PowerWorker_Hack.cs" />
     <Compile Include="PowerWorker_Hunger.cs" />
     <Compile Include="PowerWorker_LimbRegen.cs" />
+    <Compile Include="PowerWorker_Loner.cs" />
     <Compile Include="PowerWorker_MeleeSkill.cs" />
     <Compile Include="PowerWorker_PrefersDarkness.cs" />
     <Compile Include="PowerWorker_Resurrect.cs" />

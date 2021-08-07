@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace VFEAncients
@@ -20,15 +21,37 @@ namespace VFEAncients
         {
             base.GameComponentTick();
 
-            foreach (var (tracker, power) in TickLists[TickerType.Normal]) power.Worker.Tick(tracker);
+            if (Find.TickManager.TicksGame % 2000 == 0)
+                foreach (var (tracker, power) in TickLists[TickerType.Long])
+                    try
+                    {
+                        power.Worker.TickLong(tracker);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Exception ticking power {power}: {e}");
+                    }
 
             if (Find.TickManager.TicksGame % 250 == 0)
                 foreach (var (tracker, power) in TickLists[TickerType.Rare])
-                    power.Worker.TickRare(tracker);
+                    try
+                    {
+                        power.Worker.TickRare(tracker);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error($"Exception ticking power {power}: {e}");
+                    }
 
-            if (Find.TickManager.TicksGame % 2000 == 0)
-                foreach (var (tracker, power) in TickLists[TickerType.Long])
-                    power.Worker.TickLong(tracker);
+            foreach (var (tracker, power) in TickLists[TickerType.Normal])
+                try
+                {
+                    power.Worker.Tick(tracker);
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Exception ticking power {power}: {e}");
+                }
         }
     }
 }

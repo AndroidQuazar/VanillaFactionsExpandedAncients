@@ -138,7 +138,6 @@
         <texPath>Powers/Superpowers/Power_Celebrity</texPath>
         <workerClass>VFEAncients.PowerWorker_Celebrity</workerClass>
         <effectDescription>All social interactions are kind words.\nPeople will like celebrities 2x as much.</effectDescription>
-        <tickerType>Normal</tickerType>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>MasterHacker</defName>
@@ -148,6 +147,15 @@
         <texPath>Powers/Superpowers/Power_MasterHacker</texPath>
         <workerClass>VFEAncients.PowerWorker_Hack</workerClass>
         <effectDescription>All hacking is completed instantly.</effectDescription>
-        <tickerType>Normal</tickerType>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Loner</defName>
+        <label>loner</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Loner</texPath>
+        <workerClass>VFEAncients.PowerWorker_Loner</workerClass>
+        <effectDescription>Gains recreation when alone in the room.</effectDescription>
+        <tickerType>Rare</tickerType>
     </VFEAncients.PowerDef>
 </Defs>

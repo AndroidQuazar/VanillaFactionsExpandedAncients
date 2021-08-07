@@ -122,7 +122,7 @@ namespace VFEAncients
                     builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label));
             if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
             if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
-            if (builder.Length > 0) builder.Insert(0, "VFEAncients.Effects".Translate() + "\n");
+            if (builder.Length > 0) builder.Insert(0, "\n" + "VFEAncients.Effects".Translate() + "\n");
             return builder.ToString();
         }
 
