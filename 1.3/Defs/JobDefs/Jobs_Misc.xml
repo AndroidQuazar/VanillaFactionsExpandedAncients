@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <JobDef>
+    <defName>VFEA_ZealotExecution</defName>
+    <driverClass>JobDriver_AttackMelee</driverClass>
+    <reportString>executing TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+  </JobDef>
+  
+</Defs>
