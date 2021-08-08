@@ -158,4 +158,13 @@
         <effectDescription>Gains recreation when alone in the room.</effectDescription>
         <tickerType>Rare</tickerType>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>BlastResistance</defName>
+        <label>blast resistance</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_BlastResistance</texPath>
+        <workerClass>VFEAncients.PowerWorker_NoExplode</workerClass>
+        <effectDescription>Immune to explosions.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

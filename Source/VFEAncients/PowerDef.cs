@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
@@ -17,6 +18,7 @@ namespace VFEAncients
     {
         private static readonly List<Type> appliedPatches = new List<Type>();
         public List<AbilityDef> abilities;
+        public WorkTags disabledWorkTags;
         public string effectDescription;
         public List<HediffDef> hediffs;
         public List<ThoughtDef> nullifiedThoughts;
@@ -66,9 +68,8 @@ namespace VFEAncients
 
     public class PowerWorker
     {
+        private static bool donePatches;
         public PowerDef def;
-
-        private bool donePatches;
 
         public PowerWorker(PowerDef def)
         {
@@ -119,7 +120,7 @@ namespace VFEAncients
                     builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
             if (def.nullifiedThoughts != null)
                 foreach (var thoughtDef in def.nullifiedThoughts)
-                    builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label));
+                    builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label.Formatted("")));
             if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
             if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
             if (builder.Length > 0) builder.Insert(0, "\n" + "VFEAncients.Effects".Translate() + "\n");
@@ -128,14 +129,53 @@ namespace VFEAncients
 
         public virtual void DoPatches(Harmony harm)
         {
-            if (!donePatches)
+            if (donePatches) return;
+            harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullified)),
+                postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullified_Postfix)));
+            harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullifiedMessage)),
+                postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullifiedMessage_Postfix)));
+            harm.Patch(AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.CombinedDisabledWorkTags)), postfix: new HarmonyMethod(GetType(), nameof(DisableWork)));
+            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisableCauses"), postfix: new HarmonyMethod(GetType(), nameof(AddCauseDisable)));
+            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisabledCausedBy"),
+                transpiler: new HarmonyMethod(GetType(), nameof(AddCauseDisableExplain)));
+            donePatches = true;
+        }
+
+        public static IEnumerable<CodeInstruction> AddCauseDisableExplain(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var list = instructions.ToList();
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Ldloca_S);
+            var idx2 = list.FindIndex(idx1 + 1, ins => ins.opcode == OpCodes.Ldloca_S);
+            var idx3 = list.FindLastIndex(ins => ins.opcode == OpCodes.Brfalse_S);
+            var label1 = generator.DefineLabel();
+            var label2 = list[idx3].operand;
+            list[idx3].operand = label1;
+            list.InsertRange(idx2, new[]
             {
-                harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullified)),
-                    postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullified_Postfix)));
-                harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullifiedMessage)),
-                    postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullifiedMessage_Postfix)));
-                donePatches = true;
-            }
+                new CodeInstruction(OpCodes.Br, label2),
+                new CodeInstruction(OpCodes.Ldloc_2).WithLabels(label1),
+                new CodeInstruction(OpCodes.Isinst, typeof(PowerDef)),
+                new CodeInstruction(OpCodes.Brfalse, label2),
+                new CodeInstruction(OpCodes.Ldloc_0),
+                new CodeInstruction(OpCodes.Ldloc_2),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(AddPowerExplain)))
+            });
+            return list;
+        }
+
+        public static void AddPowerExplain(StringBuilder builder, object power)
+        {
+            builder.AppendLine("VFEAncients.IncapableOfTooltipPower".Translate(((PowerDef) power).label));
+        }
+
+        public static void AddCauseDisable(Pawn pawn, WorkTags workTag, ref List<object> __result)
+        {
+            if (pawn.GetPowerTracker() is Pawn_PowerTracker tracker) __result.AddRange(tracker.AllPowers.Where(power => (power.disabledWorkTags & workTag) != WorkTags.None));
+        }
+
+        public static void DisableWork(Pawn __instance, ref WorkTags __result)
+        {
+            if (__instance.GetPowerTracker() is Pawn_PowerTracker tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
         }
 
         public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)

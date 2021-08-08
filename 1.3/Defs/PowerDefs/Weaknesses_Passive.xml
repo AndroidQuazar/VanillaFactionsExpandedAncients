@@ -8,9 +8,132 @@
         <texPath>Powers/Weaknesses/Weakness_Prideful</texPath>
         <workerClass>VFEAncients.PowerWorker_BreakOnReject</workerClass>
         <workerData Class="VFEAncients.WorkerData_Break">
-            <BreakChance>0.5</BreakChance>
+            <BreakChance>0.1</BreakChance>
             <Break>MurderousRage</Break>
         </workerData>
         <effectDescription>Has a 10% to begin a murderous rage against people who reject romance attempts.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Bloodlust</defName>
+        <label>bloodlust</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Bloodlust</texPath>
+        <workerClass>VFEAncients.PowerWorker_BreakOnKilled</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Break">
+            <BreakChance>0.5</BreakChance>
+            <Break>Berserk</Break>
+        </workerData>
+        <effectDescription>Has a 50% to begin a berserker rage upon killing someone.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Paranoid</defName>
+        <label>paranoid</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Paranoid</texPath>
+        <effectDescription>Sufers -5 mood while outside home area.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Audacious</defName>
+        <label>audacious</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Audacious</texPath>
+        <workerClass>VFEAncients.PowerWorker_NoPrioritize</workerClass>
+        <effectDescription>Cannot prioritize work.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Callous</defName>
+        <label>callous</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Callous</texPath>
+        <nullifiedThoughts>
+            <li>KnowGuestExecuted</li>
+            <li>KnowColonistExecuted</li>
+            <li>KnowPrisonerDiedInnocent</li>
+            <li>KnowColonistDied</li>
+            <li>BondedAnimalDied</li>
+            <li>PawnWithGoodOpinionDied</li>
+            <li>ColonistLost</li>
+            <li>BondedAnimalReleased</li>
+            <li>BondedAnimalLost</li>
+            <li>PawnWithGoodOpinionLost</li>
+            <li>KnowPrisonerSold</li>
+            <li>ReleasedHealthyPrisoner</li>
+            <li>KnowGuestOrganHarvested</li>
+            <li>KnowColonistOrganHarvested</li>
+            <li>Nuzzled</li>
+            <li>ButcheredHumanlikeCorpse</li>
+            <li>KnowButcheredHumanlikeCorpse</li>
+            <li>ButcheredHumanlikeCorpseOpinion</li>
+            <li>ObservedLayingCorpse</li>
+            <li>WitnessedDeathAlly</li>
+            <li>WitnessedDeathNonAlly</li>
+            <li>WitnessedDeathFamily</li>
+            <li>DeniedJoining</li>
+            <li>ColonistBanished</li>
+            <li>ColonistBanishedToDie</li>
+            <li>PrisonerBanishedToDie</li>
+            <li>ColonyPrisonerEscaped</li>
+            <li>BondedAnimalBanished</li>
+            <li>Chitchat</li>
+            <li>DeepTalk</li>
+            <li>HumanLeatherApparelSad</li>
+            <li>SoldPrisoner</li>
+            <li>BondedAnimalMaster</li>
+            <li>NotBondedAnimalMaster</li>
+            <li>ColonistLeftUnburied</li>
+        </nullifiedThoughts>
+        <workerClass>VFEAncients.PowerWorker_PretendTrait</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Trait"><Trait>Psychopath</Trait></workerData>
+        <effectDescription>Will not bond with animals.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Immature</defName>
+        <label>immature</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Immature</texPath>
+        <workerClass>VFEAncients.PowerWorker_Tantrum</workerClass>
+        <effectDescription>Most mental breaks are tantrums.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>EasilyBored</defName>
+        <label>easily bored</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_EasilyBored</texPath>
+        <workerClass>VFEAncients.PowerWorker_RecreationDrop</workerClass>
+        <effectDescription>Recreation falls at 2x the rate.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>EasilyEnraged</defName>
+        <label>easily enraged</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_EasilyEnraged</texPath>
+        <workerClass>VFEAncients.PowerWorker_AlwaysSocialFight</workerClass>
+        <effectDescription>Will always start a fight when insulted or slighted.</effectDescription>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Sickly</defName>
+        <label>sickly</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Sickly</texPath>
+        <workerClass>VFEAncients.PowerWorker_Sick</workerClass>
+        <effectDescription>Will get sick very frequently.</effectDescription>
+        <tickerType>Long</tickerType>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Zealot</defName>
+        <label>zealot</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Zealot</texPath>
+        <effectDescription>Will always attempt to kill prisoners.</effectDescription>
+        <nullifiedThoughts><li>ExecutedPrisoner</li></nullifiedThoughts>
     </VFEAncients.PowerDef>
 </Defs>

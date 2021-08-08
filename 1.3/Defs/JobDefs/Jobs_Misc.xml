@@ -3,7 +3,7 @@
   
   <JobDef>
     <defName>VFEA_ZealotExecution</defName>
-    <driverClass>JobDriver_AttackMelee</driverClass>
+    <driverClass>VFEAncients.JobDriver_ZealotExecution</driverClass>
     <reportString>executing TargetA.</reportString>
     <casualInterruptible>false</casualInterruptible>
     <alwaysShowWeapon>true</alwaysShowWeapon>
