@@ -127,4 +127,13 @@
         <effectDescription>Will get sick very frequently.</effectDescription>
         <tickerType>Long</tickerType>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Zealot</defName>
+        <label>zealot</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Zealot</texPath>
+        <effectDescription>Will always attempt to kill prisoners.</effectDescription>
+        <nullifiedThoughts><li>ExecutedPrisoner</li></nullifiedThoughts>
+    </VFEAncients.PowerDef>
 </Defs>
