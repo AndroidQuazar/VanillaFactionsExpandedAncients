@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MentalBreakDef>
+    <defName>VFEA_Hallucinations</defName>
+    <mentalState>VFEA_Hallucinations</mentalState>
+    <baseCommonality>0</baseCommonality>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>VFEA_Hallucinations</defName>
+    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <label>seeing things</label>
+    <category>Misc</category>
+    <!-- <moodRecoveryThought>Catharsis</moodRecoveryThought> -->
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <minTicksBeforeRecovery>2000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>4000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer seeing things.</recoveryMessage>
+    <!-- <beginLetterLabel>hallucinations</beginLetterLabel>
+    <beginLetter>{0} is wandering around and seeing things.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef> -->
+    <baseInspectLine>Mental state: Seeing things</baseInspectLine>
+    <tale>MentalStateGaveUp</tale>
+    <unspawnedCanDo>true</unspawnedCanDo>
+  </MentalStateDef>
+
+</Defs>
