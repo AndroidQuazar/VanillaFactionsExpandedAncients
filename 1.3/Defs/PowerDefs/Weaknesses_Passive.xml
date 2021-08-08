@@ -117,4 +117,14 @@
         <workerClass>VFEAncients.PowerWorker_AlwaysSocialFight</workerClass>
         <effectDescription>Will always start a fight when insulted or slighted.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Sickly</defName>
+        <label>sickly</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Sickly</texPath>
+        <workerClass>VFEAncients.PowerWorker_Sick</workerClass>
+        <effectDescription>Will get sick very frequently.</effectDescription>
+        <tickerType>Long</tickerType>
+    </VFEAncients.PowerDef>
 </Defs>
