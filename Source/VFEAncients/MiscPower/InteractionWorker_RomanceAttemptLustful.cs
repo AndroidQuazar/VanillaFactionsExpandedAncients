@@ -9,7 +9,7 @@ namespace VFEAncients
         public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
         {
             Log.Message($"Random selection weight of {initiator} talking to {recipient}");
-            return initiator.GetPowerTracker()?.HasPower(LustfulDefOf.Lustful) ?? false ? 100f : 0f;
+            return initiator.GetPowerTracker()?.HasPower(VFEA_DefOf.Lustful) ?? false ? 100f : 0f;
         }
 
         public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks, out string letterText, out string letterLabel,
@@ -28,12 +28,5 @@ namespace VFEAncients
             letterDef = null;
             lookTargets = null;
         }
-    }
-
-    [DefOf]
-    public class LustfulDefOf
-    {
-        public static PowerDef Lustful;
-        public static InteractionDef VFEA_RomanceAttempt_Lustful;
     }
 }

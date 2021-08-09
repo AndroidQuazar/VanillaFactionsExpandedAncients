@@ -43,17 +43,17 @@ namespace VFEAncients.HarmonyPatches
             {
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
-                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(LustfulDefOf), nameof(LustfulDefOf.Lustful))),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.Lustful))),
                 new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
                 new CodeInstruction(OpCodes.Brfalse, label2),
-                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(LustfulDefOf), nameof(LustfulDefOf.VFEA_RomanceAttempt_Lustful))),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.VFEA_RomanceAttempt_Lustful))),
                 new CodeInstruction(OpCodes.Stloc, 4),
                 new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label2),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
-                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(CelebrityDefOf), nameof(CelebrityDefOf.Celebrity))),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.Celebrity))),
                 new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
                 new CodeInstruction(OpCodes.Brfalse, label1),
-                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(CelebrityDefOf), nameof(CelebrityDefOf.KindWords))),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.KindWords))),
                 new CodeInstruction(OpCodes.Stloc, 4)
             });
             return list;

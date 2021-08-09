@@ -21,11 +21,4 @@ namespace VFEAncients
             if (HasPower<PowerWorker_Celebrity>(otherPawn)) __result *= 2;
         }
     }
-
-    [DefOf]
-    public static class CelebrityDefOf
-    {
-        public static InteractionDef KindWords;
-        public static PowerDef Celebrity;
-    }
 }
