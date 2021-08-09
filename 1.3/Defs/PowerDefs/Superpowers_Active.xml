@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <VFEAncients.PowerDef>
+        <defName>SuperJump</defName>
+        <label>super jump</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SuperJump</texPath>
+        <abilities><li>VFEA_SuperJump</li></abilities>
+    </VFEAncients.PowerDef>
+</Defs>

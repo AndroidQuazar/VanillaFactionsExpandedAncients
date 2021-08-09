@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ability_Jump.cs" />
     <Compile Include="Comps\CompSolarPowerUp.cs" />
     <Compile Include="GameComponent_Powers.cs" />
     <Compile Include="MiscPower\InteractionWorker_RomanceAttemptLustful.cs" />
