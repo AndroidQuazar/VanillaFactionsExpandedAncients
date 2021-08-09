@@ -16,4 +16,20 @@
         <texPath>Powers/Superpowers/Power_Telepathy</texPath>
         <abilities><li>VFEA_Berserk</li><li>VFEA_Calm</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PsychicShock</defName>
+        <label>psychic shock</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PsychicShock</texPath>
+        <abilities><li>VFEA_PsychicShock</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Invisibility</defName>
+        <label>invisibility</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Invisibility</texPath>
+        <abilities><li>VFEA_Invisibility</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

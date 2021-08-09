@@ -1,6 +1,5 @@
 ﻿using RimWorld;
 using Verse;
-using Ability = VFECore.Abilities.Ability;
 
 namespace VFEAncients
 {

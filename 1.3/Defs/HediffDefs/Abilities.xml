@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <HediffDef ParentName = "PsycastHediffBase">
+  <HediffDef ParentName="PsycastHediffBase">
     <defName>VFEA_Invisiblity</defName>
     <label>invisibility</label>
     <description>Light is bending around in order to disguise.</description>
     <isBad>false</isBad>
-    <comps>
+    <comps Inherit="False">
       <li Class="HediffCompProperties">
         <compClass>HediffComp_Invisibility</compClass>
       </li>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>True</showRemainingTime>
+        <disappearsAfterTicks>3600~3600</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>
   </HediffDef>
 </Defs>

@@ -8,7 +8,6 @@ namespace VFEAncients
     {
         public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
         {
-            Log.Message($"Random selection weight of {initiator} talking to {recipient}");
             return initiator.GetPowerTracker()?.HasPower(VFEA_DefOf.Lustful) ?? false ? 100f : 0f;
         }
 

@@ -1,5 +1,4 @@
 ﻿using Verse;
-using VFECore.Abilities;
 
 namespace VFEAncients
 {
