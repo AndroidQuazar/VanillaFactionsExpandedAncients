@@ -8,4 +8,12 @@
         <texPath>Powers/Superpowers/Power_SuperJump</texPath>
         <abilities><li>VFEA_SuperJump</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Telepathy</defName>
+        <label>telepathy</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Telepathy</texPath>
+        <abilities><li>VFEA_Berserk</li><li>VFEA_Calm</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>
