@@ -136,4 +136,12 @@
         <effectDescription>Will always attempt to kill prisoners.</effectDescription>
         <nullifiedThoughts><li>ExecutedPrisoner</li></nullifiedThoughts>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Lustful</defName>
+        <label>lustful</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Lustful</texPath>
+        <effectDescription>Will constantly flirt with others, but will always be rejected.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

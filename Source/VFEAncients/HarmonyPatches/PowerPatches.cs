@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine.Assertions;
 using Verse;
 
 namespace VFEAncients.HarmonyPatches
 {
+    public static class Helpers
+    {
+        public static bool HasPower(this Pawn pawn, PowerDef power)
+        {
+            return pawn.GetPowerTracker()?.HasPower(power) ?? false;
+        }
+    }
+
     public static class PowerPatches
     {
         public static void Do(Harmony harm)
@@ -18,6 +28,35 @@ namespace VFEAncients.HarmonyPatches
                 transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(StatGetValueTranspile)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationUnfinalized)),
                 transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(StatExplanationTranspile)));
+            harm.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractRandomly"), transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(ForceInteraction)));
+        }
+
+        public static IEnumerable<CodeInstruction> ForceInteraction(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var list = instructions.ToList();
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Call && ins.operand is MethodInfo mi && mi.Name == "TryRandomElementByWeight") + 2;
+            Assert.AreEqual(list[idx1].opcode, OpCodes.Ldarg_0);
+            var label1 = generator.DefineLabel();
+            var label2 = generator.DefineLabel();
+            list[idx1].labels.Add(label1);
+            list.InsertRange(idx1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(LustfulDefOf), nameof(LustfulDefOf.Lustful))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
+                new CodeInstruction(OpCodes.Brfalse, label2),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(LustfulDefOf), nameof(LustfulDefOf.VFEA_RomanceAttempt_Lustful))),
+                new CodeInstruction(OpCodes.Stloc, 4),
+                new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label2),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(CelebrityDefOf), nameof(CelebrityDefOf.Celebrity))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
+                new CodeInstruction(OpCodes.Brfalse, label1),
+                new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(CelebrityDefOf), nameof(CelebrityDefOf.KindWords))),
+                new CodeInstruction(OpCodes.Stloc, 4)
+            });
+            return list;
         }
 
         public static IEnumerable<CodeInstruction> StatGetValueTranspile(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
