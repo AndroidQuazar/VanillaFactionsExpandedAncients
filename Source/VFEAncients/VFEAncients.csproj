@@ -46,6 +46,8 @@
     <Compile Include="GameComponent_Powers.cs" />
     <Compile Include="InteractionWorker_RomanceAttemptLustful.cs" />
     <Compile Include="JobDriver_ZealotExecution.cs" />
+    <Compile Include="MentalBreakWorker_Hallucinations.cs" />
+    <Compile Include="JobGiver_Hallucinations.cs" />
     <Compile Include="PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Pawn_PowerTracker.cs" />
     <Compile Include="PowerDef.cs" />
     <Compile Include="PowerWorker_Blunt.cs" />
+    <Compile Include="PowerWorker_Break.cs" />
     <Compile Include="PowerWorker_BreakOnKilled.cs" />
     <Compile Include="PowerWorker_BreakOnReject.cs" />
     <Compile Include="PowerWorker_Celebrity.cs" />

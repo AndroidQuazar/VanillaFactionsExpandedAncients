@@ -144,4 +144,18 @@
         <texPath>Powers/Weaknesses/Weakness_Lustful</texPath>
         <effectDescription>Will constantly flirt with others, but will always be rejected.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Hallucinations</defName>
+        <label>hallucinations</label>
+        <description>todo</description>
+        <powerType>Weakness</powerType>
+        <texPath>Powers/Weaknesses/Weakness_Hallucinations</texPath>
+        <workerClass>VFEAncients.PowerWorker_Break</workerClass>
+        <workerData Class="VFEAncients.WorkerData_Break">
+            <BreakChance>0.05</BreakChance>
+            <Break>VFEA_Hallucinations</Break>
+        </workerData>
+        <effectDescription>Will occasionally start hallucinating, wandering around and firing a few shots at random objects.</effectDescription>
+        <tickerType>Long</tickerType>
+    </VFEAncients.PowerDef>
 </Defs>
