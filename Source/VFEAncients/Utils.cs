@@ -26,5 +26,11 @@ namespace VFEAncients
             comp = t.TryGetComp<T>();
             return comp != null;
         }
+
+        public static bool TryGetModExtension<T>(this Def def, out T ext) where T : DefModExtension
+        {
+            ext = def.HasModExtension<T>() ? def.GetModExtension<T>() : null;
+            return ext != null;
+        }
     }
 }

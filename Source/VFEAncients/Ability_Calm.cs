@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
 
 namespace VFEAncients
 {
@@ -12,7 +13,10 @@ namespace VFEAncients
 
         public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
         {
-            return base.ValidateTarget(target, showMessages) && target.HasThing && target.Thing is Pawn p && p.InMentalState;
+            if (!base.ValidateTarget(target, showMessages) || !target.HasThing || !(target.Thing is Pawn p)) return false;
+            if (p.InMentalState) return true;
+            if (showMessages) Messages.Message("VFEAncients.NotInMentalState".Translate(), MessageTypeDefOf.RejectInput);
+            return false;
         }
     }
 }

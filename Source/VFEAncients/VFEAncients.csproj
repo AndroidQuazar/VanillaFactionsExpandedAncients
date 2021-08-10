@@ -43,12 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ability.cs" />
+    <Compile Include="Ability_Animal.cs" />
     <Compile Include="Ability_Berserk.cs" />
     <Compile Include="Ability_Calm.cs" />
+    <Compile Include="Ability_CalmSelf.cs" />
     <Compile Include="Ability_Jump.cs" />
+    <Compile Include="Ability_Thought.cs" />
     <Compile Include="Command_AbilityCooldown.cs" />
     <Compile Include="Comps\CompSolarPowerUp.cs" />
     <Compile Include="GameComponent_Powers.cs" />
+    <Compile Include="HarmonyPatches\AbilityPatches.cs" />
+    <Compile Include="LightningSpot.cs" />
     <Compile Include="MiscPower\InteractionWorker_RomanceAttemptLustful.cs" />
     <Compile Include="MiscPower\JobDriver_ZealotExecution.cs" />
     <Compile Include="MiscPower\MentalBreakWorker_Hallucinations.cs" />

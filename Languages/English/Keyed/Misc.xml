@@ -13,4 +13,7 @@
     <VFEAncients.Reason.Rejected>Reason: Rebuffed by {0}</VFEAncients.Reason.Rejected>
     <VFEAncients.CannotPrioritizeAudacious>Cannot prioritize: {0} is audacious</VFEAncients.CannotPrioritizeAudacious>
     <VFEAncients.IncapableOfTooltipPower>Caused by power: {0}</VFEAncients.IncapableOfTooltipPower>
+    <VFEAncients.NotInMentalState>Not in mental state</VFEAncients.NotInMentalState>
+    <VFEAncients.NotAnimal>Not an animal</VFEAncients.NotAnimal>
+    <VFEAncients.Tame>Not applicable to tame animals</VFEAncients.Tame>
 </LanguageData>

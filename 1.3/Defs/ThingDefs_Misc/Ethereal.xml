@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VFEA_LightningSpot</defName>
+        <label>lightning spot</label>
+        <thingClass>VFEAncients.LightningSpot</thingClass>
+        <graphicData>
+            <texPath>Things/Mote/Transparent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>true</seeThroughFog>
+        <category>Building</category>
+        <comps>
+            <li><compClass>VFECore.Abilities.CompSpawnedBuilding</compClass></li>
+        </comps>
+    </ThingDef>
+</Defs>

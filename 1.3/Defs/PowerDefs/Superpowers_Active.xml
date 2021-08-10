@@ -32,4 +32,44 @@
         <texPath>Powers/Superpowers/Power_Invisibility</texPath>
         <abilities><li>VFEA_Invisibility</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SelfControl</defName>
+        <label>self-control</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SelfControl</texPath>
+        <abilities><li>VFEA_SelfControl</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Overshield</defName>
+        <label>overshield</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Overshield</texPath>
+        <abilities><li>VFEA_Overshield</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SummonLightning</defName>
+        <label>summon lightning</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SummonLightning</texPath>
+        <abilities><li>VFEA_SummonLightning</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>AnimalSpeech</defName>
+        <label>animal speech</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_AnimalSpeech</texPath>
+        <abilities><li>VFEA_AnimalSpeech</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Empathy</defName>
+        <label>empathy</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Empathy</texPath>
+        <abilities><li>VFEA_Empathy</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

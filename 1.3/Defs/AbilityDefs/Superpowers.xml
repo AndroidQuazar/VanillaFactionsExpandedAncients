@@ -59,11 +59,87 @@
     <description>todo</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Self</targetMode>
-    <range>19.9</range>
     <iconPath>Powers/Superpowers/Power_Invisibility</iconPath>
     <cooldownTime>7200</cooldownTime>
     <castTime>15</castTime>
     <chance>0</chance>
     <casterHediff>VFEA_Invisiblity</casterHediff>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_SelfControl</defName>
+    <label>self-control</label>
+    <description>todo</description>
+    <abilityClass>VFEAncients.Ability_CalmSelf</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_SelfControl</iconPath>
+    <cooldownTime>120000</cooldownTime>
+    <castTime>60</castTime>
+    <chance>0</chance>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_Overshield</defName>
+    <label>overshield</label>
+    <description>todo</description>
+    <abilityClass>VFECore.Abilities.Ability_Barrier</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_Overshield</iconPath>
+    <cooldownTime>10800</cooldownTime>
+    <castTime>60</castTime>
+    <chance>0</chance>
+    <power>10000000000000000</power>
+    <durationTime>3600</durationTime>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Shield">
+        <shieldTexPath>Other/ShieldBubble</shieldTexPath>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_SummonLightning</defName>
+    <label>summon lightning</label>
+    <description>todo</description>
+    <abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+    <targetMode>Location</targetMode>
+    <iconPath>Powers/Superpowers/Power_SummonLightning</iconPath>
+    <cooldownTime>7200</cooldownTime>
+    <castTime>30</castTime>
+    <durationTime>120</durationTime>
+    <chance>0</chance>
+    <radius>1.9</radius>
+    <range>39.9</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Building">
+        <building>VFEA_LightningSpot</building>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_AnimalSpeech</defName>
+    <label>animal speech</label>
+    <description>todo</description>
+    <abilityClass>VFEAncients.Ability_Animal</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_AnimalSpeech</iconPath>
+    <cooldownTime>60000</cooldownTime>
+    <castTime>120</castTime>
+    <chance>0</chance>
+    <range>29.9</range>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_Empathy</defName>
+    <label>empathy</label>
+    <description>todo</description>
+    <abilityClass>VFEAncients.Ability_Thought</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_Empathy</iconPath>
+    <cooldownTime>60000</cooldownTime>
+    <castTime>120</castTime>
+    <chance>0</chance>
+    <range>39.9</range>
+    <modExtensions>
+      <li Class="VFEAncients.AbilityExtension_Thought">
+        <targetThought>VFEA_EmpathyCast</targetThought>
+      </li>
+    </modExtensions>
   </VFECore.Abilities.AbilityDef>
 </Defs>

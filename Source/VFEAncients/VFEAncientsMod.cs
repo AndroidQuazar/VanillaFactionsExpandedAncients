@@ -14,6 +14,7 @@ namespace VFEAncients
             Harm = new Harmony("VanillaExpanded.VFEA");
             PowerPatches.Do(Harm);
             ElectricPatches.Do(Harm);
+            AbilityPatches.Do(Harm);
         }
     }
 }
