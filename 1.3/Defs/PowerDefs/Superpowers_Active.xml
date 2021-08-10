@@ -72,4 +72,12 @@
         <texPath>Powers/Superpowers/Power_Empathy</texPath>
         <abilities><li>VFEA_Empathy</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>HealOthers</defName>
+        <label>heal others</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_HealOthers</texPath>
+        <abilities><li>VFEA_Heal</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

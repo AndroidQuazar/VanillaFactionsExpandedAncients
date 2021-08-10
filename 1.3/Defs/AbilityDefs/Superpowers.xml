@@ -135,11 +135,23 @@
     <cooldownTime>60000</cooldownTime>
     <castTime>120</castTime>
     <chance>0</chance>
-    <range>39.9</range>
+    <range>14.9</range>
     <modExtensions>
       <li Class="VFEAncients.AbilityExtension_Thought">
         <targetThought>VFEA_EmpathyCast</targetThought>
       </li>
     </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_Heal</defName>
+    <label>heal others</label>
+    <description>Heal the target of all injuries</description>
+    <abilityClass>VFEAncients.Ability_Heal</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_HealOthers</iconPath>
+    <cooldownTime>60000</cooldownTime>
+    <castTime>120</castTime>
+    <chance>0</chance>
+    <range>14.9</range>
   </VFECore.Abilities.AbilityDef>
 </Defs>
