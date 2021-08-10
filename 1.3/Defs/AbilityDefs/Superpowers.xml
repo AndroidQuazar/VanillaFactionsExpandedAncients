@@ -15,7 +15,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Berserk</defName>
     <label>berserk (telepathy)</label>
-    <description>todo</description>
+    <description>Send target into a berserker rage</description>
     <abilityClass>VFEAncients.Ability_Berserk</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -27,7 +27,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Calm</defName>
     <label>calm (telepathy)</label>
-    <description>todo</description>
+    <description>Cleanse the target of a mental state</description>
     <abilityClass>VFEAncients.Ability_Calm</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -39,7 +39,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_PsychicShock</defName>
     <label>psychic shock</label>
-    <description>todo</description>
+    <description>Send a target into psychic shock, downing them for a few hours</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -56,7 +56,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Invisibility</defName>
     <label>invisibility</label>
-    <description>todo</description>
+    <description>Make yourself unable to be seen</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_Invisibility</iconPath>
@@ -68,7 +68,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SelfControl</defName>
     <label>self-control</label>
-    <description>todo</description>
+    <description>Focus your will inward and cleanse your own mental state</description>
     <abilityClass>VFEAncients.Ability_CalmSelf</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_SelfControl</iconPath>
@@ -79,7 +79,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Overshield</defName>
     <label>overshield</label>
-    <description>todo</description>
+    <description>Generate a impenetrable shield around yourself</description>
     <abilityClass>VFECore.Abilities.Ability_Barrier</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_Overshield</iconPath>
@@ -97,7 +97,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SummonLightning</defName>
     <label>summon lightning</label>
-    <description>todo</description>
+    <description>Summon several lightning bolts on target location</description>
     <abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
     <targetMode>Location</targetMode>
     <iconPath>Powers/Superpowers/Power_SummonLightning</iconPath>
@@ -116,7 +116,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_AnimalSpeech</defName>
     <label>animal speech</label>
-    <description>todo</description>
+    <description>Talk to animal, to cure manhunting if present, and otherwise tame them instantly</description>
     <abilityClass>VFEAncients.Ability_Animal</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_AnimalSpeech</iconPath>
@@ -128,7 +128,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Empathy</defName>
     <label>empathy</label>
-    <description>todo</description>
+    <description>Empathise with the target and cause them to feel better about their situation</description>
     <abilityClass>VFEAncients.Ability_Thought</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_Empathy</iconPath>
