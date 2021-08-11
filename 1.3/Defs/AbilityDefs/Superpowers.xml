@@ -183,4 +183,38 @@
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_FireBreath</defName>
+    <label>fire breath</label>
+    <description>Breath a large ploom of fire at a target</description>
+    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_Firebreath</iconPath>
+    <cooldownTime>7200</cooldownTime>
+    <castTime>15</castTime>
+    <chance>0</chance>
+    <range>12</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+        <projectile>VFEA_FireBreath</projectile>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_IceBreath</defName>
+    <label>ice breath</label>
+    <description>Breath a large ploom of ice at a target</description>
+    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_Icebreath</iconPath>
+    <cooldownTime>7200</cooldownTime>
+    <castTime>15</castTime>
+    <chance>0</chance>
+    <range>12</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+        <projectile>VFEA_IceBreath</projectile>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
 </Defs>

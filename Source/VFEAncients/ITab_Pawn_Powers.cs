@@ -23,7 +23,7 @@ namespace VFEAncients
         }
 
         private Pawn_PowerTracker SelPowerTracker => SelPawn?.GetPowerTracker();
-        public override bool IsVisible => SelPowerTracker?.AllPowers.Any() ?? false;
+        public override bool IsVisible => (SelPowerTracker?.AllPowers.Any() ?? false) || SelPawn != null && Pawn_PowerTracker.CanGetPowers(SelPawn) && Prefs.DevMode;
 
         protected override void FillTab()
         {

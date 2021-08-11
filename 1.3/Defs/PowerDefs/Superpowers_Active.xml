@@ -96,4 +96,20 @@
         <texPath>Powers/Superpowers/Power_ElectromagneticPulse</texPath>
         <abilities><li>VFEA_ElectromagneticPulse</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>FireBreath</defName>
+        <label>fire breath</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Firebreath</texPath>
+        <abilities><li>VFEA_FireBreath</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>IceBreath</defName>
+        <label>ice breath</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Icebreath</texPath>
+        <abilities><li>VFEA_IceBreath</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>
