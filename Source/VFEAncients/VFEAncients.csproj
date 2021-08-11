@@ -53,8 +53,10 @@
     <Compile Include="Ability_Jump.cs" />
     <Compile Include="Ability_Thought.cs" />
     <Compile Include="Comps\CompSolarPowerUp.cs" />
+    <Compile Include="ElectricityBlast.cs" />
     <Compile Include="GameComponent_Powers.cs" />
     <Compile Include="HarmonyPatches\AbilityPatches.cs" />
+    <Compile Include="Comps\HediffComp_Phasing.cs" />
     <Compile Include="IceProjectile.cs" />
     <Compile Include="LaserEyeBeam.cs" />
     <Compile Include="LightningSpot.cs" />

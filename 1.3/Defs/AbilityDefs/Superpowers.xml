@@ -246,4 +246,30 @@
     <chance>0</chance>
     <casterHediff>VFEA_Phasing</casterHediff>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_ElectricityBlast</defName>
+    <label>electricity blast</label>
+    <description>todo</description>
+    <abilityClass>VFEAncients.Ability_ElectricBlast</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_ElectricityBlast</iconPath>
+    <cooldownTime>3600</cooldownTime>
+    <castTime>30</castTime>
+    <chance>0</chance>
+    <range>24.9</range>
+    <power>30</power>
+    <modExtensions>
+      <li Class="VFEAncients.AbilityExtension_ElectricityBlast">
+        <allowRepeat>false</allowRepeat>
+        <bounceCount>10</bounceCount>
+        <bounceDelay>30</bounceDelay>
+        <bouncePriority>Near</bouncePriority>
+        <damageDef>Flame</damageDef>
+        <explosionDamageDef>EMP</explosionDamageDef>
+        <impactRadius>2.9</impactRadius>
+        <targetFriendly>false</targetFriendly>
+        <addFire>true</addFire>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
 </Defs>

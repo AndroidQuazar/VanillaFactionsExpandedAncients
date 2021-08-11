@@ -128,4 +128,12 @@
         <texPath>Powers/Superpowers/Power_MatterPhasing</texPath>
         <abilities><li>VFEA_MatterPhasing</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ElectricityBlast</defName>
+        <label>electricity blast</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_ElectricityBlast</texPath>
+        <abilities><li>VFEA_ElectricityBlast</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

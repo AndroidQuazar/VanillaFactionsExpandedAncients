@@ -16,5 +16,6 @@ namespace VFEAncients
         public static InteractionDef KindWords;
         public static PowerDef Celebrity;
         public static ThingDef VFEA_LaserEyeBeamDraw;
+        public static ThingDef VFEA_ElectricBlast;
     }
 }

@@ -19,7 +19,7 @@
   <HediffDef ParentName="PsycastHediffBase">
     <defName>VFEA_Phasing</defName>
     <label>phasing</label>
-    <description>By going out of phase with normal reality, this pawn can walk through walls and other structures.</description>
+    <description>Out of phase with normal reality, allowing walking through solid matter.</description>
     <isBad>false</isBad>
     <comps Inherit="False">
       <li Class="HediffCompProperties">
@@ -27,7 +27,7 @@
       </li>
       <li Class="HediffCompProperties_Disappears">
         <showRemainingTime>True</showRemainingTime>
-        <disappearsAfterTicks>600000~6000000</disappearsAfterTicks>
+        <disappearsAfterTicks>600~600</disappearsAfterTicks>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
     </comps>

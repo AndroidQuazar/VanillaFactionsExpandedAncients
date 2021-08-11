@@ -138,8 +138,4 @@ namespace VFEAncients.HarmonyPatches
             return p.health.hediffSet.GetAllComps().OfType<HediffComp_Phasing>().Any();
         }
     }
-
-    public class HediffComp_Phasing : HediffComp
-    {
-    }
 }

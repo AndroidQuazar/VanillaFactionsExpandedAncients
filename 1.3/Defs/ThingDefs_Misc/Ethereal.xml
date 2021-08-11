@@ -31,4 +31,15 @@
         <useHitPoints>False</useHitPoints>
         <neverMultiSelect>True</neverMultiSelect>
     </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+      <defName>VFEA_ElectricBlast</defName>
+      <label>electricity blase</label>
+      <thingClass>VFEAncients.ElectricBlast</thingClass>
+      <drawerType>RealtimeOnly</drawerType>
+      <tickerType>Normal</tickerType>
+      <graphicData>
+          <texPath>Projectile/Lightning</texPath>
+          <graphicClass>Graphic_Flicker</graphicClass>
+      </graphicData>
+    </ThingDef>
 </Defs>
