@@ -7,7 +7,7 @@ namespace VFEAncients
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
-            return (p.GetPowerTracker()?.HasPower(VFEA_DefOf.Paranoid) ?? false) && !p.Map.areaManager.Home[p.Position];
+            return (p.GetPowerTracker()?.HasPower(VFEA_DefOf.Paranoid) ?? false) && !(p.MapHeld?.areaManager.Home[p.Position] ?? false);
         }
     }
 }
