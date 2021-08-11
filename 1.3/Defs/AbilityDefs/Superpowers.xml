@@ -234,4 +234,16 @@
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_MatterPhasing</defName>
+    <label>matter phasing</label>
+    <description>Make yourself able to walk through solid matter</description>
+    <abilityClass>VFEAncients.Ability</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_MatterPhasing</iconPath>
+    <cooldownTime>3600</cooldownTime>
+    <castTime>0</castTime>
+    <chance>0</chance>
+    <casterHediff>VFEA_Phasing</casterHediff>
+  </VFECore.Abilities.AbilityDef>
 </Defs>

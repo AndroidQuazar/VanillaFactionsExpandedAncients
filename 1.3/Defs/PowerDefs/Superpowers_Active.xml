@@ -120,4 +120,12 @@
         <texPath>Powers/Superpowers/Power_LaserEyes</texPath>
         <abilities><li>VFEA_LaserEyes</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>MatterPhasing</defName>
+        <label>matter phasing</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_MatterPhasing</texPath>
+        <abilities><li>VFEA_MatterPhasing</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

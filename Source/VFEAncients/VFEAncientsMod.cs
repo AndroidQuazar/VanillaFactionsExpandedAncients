@@ -15,6 +15,7 @@ namespace VFEAncients
             PowerPatches.Do(Harm);
             ElectricPatches.Do(Harm);
             AbilityPatches.Do(Harm);
+            PhasingPatches.Do(Harm);
         }
     }
 }

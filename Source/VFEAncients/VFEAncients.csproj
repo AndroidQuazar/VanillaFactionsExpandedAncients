@@ -62,6 +62,7 @@
     <Compile Include="MiscPower\JobDriver_ZealotExecution.cs" />
     <Compile Include="MiscPower\MentalBreakWorker_Hallucinations.cs" />
     <Compile Include="MiscPower\JobGiver_Hallucinations.cs" />
+    <Compile Include="HarmonyPatches\PhasingPatches.cs" />
     <Compile Include="PowerWorkers\PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
