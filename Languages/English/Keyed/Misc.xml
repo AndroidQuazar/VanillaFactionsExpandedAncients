@@ -16,4 +16,5 @@
     <VFEAncients.NotInMentalState>Not in mental state</VFEAncients.NotInMentalState>
     <VFEAncients.NotAnimal>Not an animal</VFEAncients.NotAnimal>
     <VFEAncients.Tame>Not applicable to tame animals</VFEAncients.Tame>
+    <VFEAncients.NoTargets>No possible targets</VFEAncients.NoTargets>
 </LanguageData>

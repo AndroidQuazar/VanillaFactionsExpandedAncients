@@ -80,4 +80,12 @@
         <texPath>Powers/Superpowers/Power_HealOthers</texPath>
         <abilities><li>VFEA_Heal</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>GloryKill</defName>
+        <label>glory kill</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_GloryKill</texPath>
+        <abilities><li>VFEA_GloryKill</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

@@ -154,4 +154,15 @@
     <chance>0</chance>
     <range>14.9</range>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_GloryKill</defName>
+    <label>glory kill</label>
+    <description>Heal the target of all injuries</description>
+    <abilityClass>VFEAncients.Ability_GloryKill</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_GloryKill</iconPath>
+    <cooldownTime>300000</cooldownTime>
+    <castTime>0</castTime>
+    <chance>0</chance>
+  </VFECore.Abilities.AbilityDef>
 </Defs>
