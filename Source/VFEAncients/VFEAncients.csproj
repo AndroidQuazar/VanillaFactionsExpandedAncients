@@ -47,6 +47,7 @@
     <Compile Include="Ability_Berserk.cs" />
     <Compile Include="Ability_Calm.cs" />
     <Compile Include="Ability_CalmSelf.cs" />
+    <Compile Include="Ability_Explode.cs" />
     <Compile Include="Ability_GloryKill.cs" />
     <Compile Include="Ability_Heal.cs" />
     <Compile Include="Ability_Jump.cs" />

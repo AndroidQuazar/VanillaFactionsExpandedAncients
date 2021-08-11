@@ -88,4 +88,12 @@
         <texPath>Powers/Superpowers/Power_GloryKill</texPath>
         <abilities><li>VFEA_GloryKill</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>ElectromagneticPulse</defName>
+        <label>electro-magnetic pulse</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_ElectromagneticPulse</texPath>
+        <abilities><li>VFEA_ElectromagneticPulse</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>
