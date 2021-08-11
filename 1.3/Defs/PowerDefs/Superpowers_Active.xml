@@ -112,4 +112,12 @@
         <texPath>Powers/Superpowers/Power_Icebreath</texPath>
         <abilities><li>VFEA_IceBreath</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>LaserEyes</defName>
+        <label>laser eyes</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_LaserEyes</texPath>
+        <abilities><li>VFEA_LaserEyes</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

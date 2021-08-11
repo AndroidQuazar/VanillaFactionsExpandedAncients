@@ -15,7 +15,20 @@
         <seeThroughFog>true</seeThroughFog>
         <category>Building</category>
         <comps>
-            <li><compClass>VFECore.Abilities.CompSpawnedBuilding</compClass></li>
+            <li>
+                <compClass>VFECore.Abilities.CompSpawnedBuilding</compClass>
+            </li>
         </comps>
+    </ThingDef>
+    <ThingDef>
+        <defName>VFEA_LaserEyeBeamDraw</defName>
+        <thingClass>VFEAncients.LaserEyeBeamDraw</thingClass>
+        <drawOffscreen>true</drawOffscreen>
+        <label>laser beam</label>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
     </ThingDef>
 </Defs>

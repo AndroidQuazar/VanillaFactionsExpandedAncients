@@ -15,5 +15,6 @@ namespace VFEAncients
         public static PowerDef Paranoid;
         public static InteractionDef KindWords;
         public static PowerDef Celebrity;
+        public static ThingDef VFEA_LaserEyeBeamDraw;
     }
 }

@@ -54,4 +54,22 @@
 		<dealsDamageOnce>true</dealsDamageOnce>
 		<minDistanceToAffect>1</minDistanceToAffect>
 	</VFECore.ExpandableProjectileDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VFEA_LaserEyeBeam</defName>
+		<label>reaper beam</label>
+		<thingClass>VFEAncients.LaserEyeBeam</thingClass>
+		<graphicData>
+			<texPath>Projectile/LaserEyeBeam</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>500</damageAmountBase>
+			<explosionRadius>5.9</explosionRadius>
+			<armorPenetrationBase>5</armorPenetrationBase>
+			<speed>10000</speed>
+			<flyOverhead>true</flyOverhead>
+		</projectile>
+	</ThingDef>
 </Defs>

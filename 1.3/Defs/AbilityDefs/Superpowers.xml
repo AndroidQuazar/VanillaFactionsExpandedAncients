@@ -217,4 +217,21 @@
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_LaserEyes</defName>
+    <label>laser eyes</label>
+    <description>Fire an incredibly powerful beam of energy from your eyes</description>
+    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_LaserEyes</iconPath>
+    <cooldownTime>3600</cooldownTime>
+    <castTime>30</castTime>
+    <chance>0</chance>
+    <range>35</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+        <projectile>VFEA_LaserEyeBeam</projectile>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
 </Defs>
