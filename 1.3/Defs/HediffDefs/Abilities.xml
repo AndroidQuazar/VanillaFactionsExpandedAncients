@@ -47,7 +47,7 @@
         </statOffsets>
       </li>
     </stages>
-    <comps Inherit="False">
+    <comps>
       <li Class="HediffCompProperties_Disappears">
         <showRemainingTime>True</showRemainingTime>
         <disappearsAfterTicks>1800~1800</disappearsAfterTicks>
