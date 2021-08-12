@@ -29,6 +29,15 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationUnfinalized)),
                 transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(StatExplanationTranspile)));
             harm.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractRandomly"), transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(ForceInteraction)));
+            harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(Thing)}),
+                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
+            harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
+                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
+        }
+
+        public static void ApplyStat(ref float __result, Pawn attacker, VerbProperties __instance)
+        {
+            if (attacker != null && __instance.IsMeleeAttack) __result *= attacker.GetStatValue(VFEA_DefOf.VFEAncients_MeleeCooldownFactor);
         }
 
         public static IEnumerable<CodeInstruction> ForceInteraction(IEnumerable<CodeInstruction> instructions, ILGenerator generator)

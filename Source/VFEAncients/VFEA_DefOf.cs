@@ -17,5 +17,6 @@ namespace VFEAncients
         public static PowerDef Celebrity;
         public static ThingDef VFEA_LaserEyeBeamDraw;
         public static ThingDef VFEA_ElectricBlast;
+        public static StatDef VFEAncients_MeleeCooldownFactor;
     }
 }

@@ -35,19 +35,20 @@
     </comps>
   </HediffDef>
   
-  <HediffDef>
+  <HediffDef ParentName="PsycastHediffBase">
     <defName>VFEA_SpeedBurst</defName>
     <label>speed burst</label>
     <description>Muscle stimulation that greatly increases moving and melee combat speed.</description>
 	<hediffClass>HediffWithComps</hediffClass>
     <stages>
       <li>
-        <statOffsets>
-            <MoveSpeed>4</MoveSpeed>
-        </statOffsets>
+        <statFactors>
+          <MoveSpeed>4</MoveSpeed>
+          <VFEAncients_MeleeCooldownFactor>0.5</VFEAncients_MeleeCooldownFactor>
+        </statFactors>
       </li>
     </stages>
-    <comps>
+    <comps Inherit="False">
       <li Class="HediffCompProperties_Disappears">
         <showRemainingTime>True</showRemainingTime>
         <disappearsAfterTicks>1800~1800</disappearsAfterTicks>

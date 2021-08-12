@@ -136,4 +136,12 @@
         <texPath>Powers/Superpowers/Power_ElectricityBlast</texPath>
         <abilities><li>VFEA_ElectricityBlast</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>SpeedBurst</defName>
+        <label>speed burst</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_SpeedBurst</texPath>
+        <abilities><li>VFEA_SpeedBurst</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>
