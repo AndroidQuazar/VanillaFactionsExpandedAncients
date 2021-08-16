@@ -241,5 +241,56 @@
 	<uiIconScale>0.8</uiIconScale>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
+  
+  <ThingDef ParentName="CrateBase">
+    <defName>VFEA_AncientSupplyCrate</defName>
+    <label>ancient supply crate</label>
+    <description>An ancient crate with some building resources and components. Hacking it takes a short time and there is no risk of danger.</description>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <passability>Impassable</passability>
+    <canOverlapZones>true</canOverlapZones>
+    <fillPercent>1.0</fillPercent>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Things/Building/Misc/AncientSupplyCrate/AncientSupplyCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <shadowData>
+        <volume>(3.0, 1.0, 3.0)</volume>
+      </shadowData>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <killedLeavings>
+      <Steel>50</Steel>
+      <ChunkSlagSteel>4</ChunkSlagSteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </killedLeavings>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <drawerType>MapMeshOnly</drawerType>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Hackable">
+        <defence>15000</defence>  <!-- ~ 6 hours for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
+    </comps>
+	<designationCategory>VFEA_Ancients</designationCategory>
+	<uiIconScale>0.8</uiIconScale>
+  </ThingDef>
 
 </Defs>
