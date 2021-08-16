@@ -76,9 +76,6 @@
       <li>BuildingsMisc</li>
     </thingCategories>
     <tickerType>Normal</tickerType>
-    <inspectorTabs>
-      <li>ITab_BiosculpterNutritionStorage</li>
-    </inspectorTabs>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -96,6 +93,17 @@
 		  <li>VFEA_StabilisedMucusInducer</li>
 		  <li>VFEA_NanotechRetractor</li>
         </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>150.0</fuelConsumptionRate>
+        <fuelCapacity>50.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Meat_Human</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
     </comps>
     <placeWorkers>
