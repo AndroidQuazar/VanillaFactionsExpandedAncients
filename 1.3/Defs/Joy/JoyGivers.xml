@@ -3,7 +3,7 @@
 
   <JoyGiverDef>
     <defName>VFEA_Play_AncientEducator</defName>
-    <giverClass>JoyGiver_InteractBuildingSitAdjacent</giverClass>
+    <giverClass>JoyGiver_InteractBuildingInteractionCell</giverClass>
     <baseChance>2</baseChance>
     <thingDefs>
       <li>VFEA_AncientEducator</li>

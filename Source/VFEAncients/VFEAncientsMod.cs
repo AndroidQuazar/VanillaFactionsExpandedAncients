@@ -12,10 +12,12 @@ namespace VFEAncients
         public VFEAncientsMod(ModContentPack content) : base(content)
         {
             Harm = new Harmony("VanillaExpanded.VFEA");
+            Harmony.DEBUG = true;
             PowerPatches.Do(Harm);
             ElectricPatches.Do(Harm);
             AbilityPatches.Do(Harm);
             PhasingPatches.Do(Harm);
+            BuildingPatches.Do(Harm);
         }
     }
 }

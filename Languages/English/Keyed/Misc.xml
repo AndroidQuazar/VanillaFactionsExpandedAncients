@@ -17,4 +17,5 @@
     <VFEAncients.NotAnimal>Not an animal</VFEAncients.NotAnimal>
     <VFEAncients.Tame>Not applicable to tame animals</VFEAncients.Tame>
     <VFEAncients.NoTargets>No possible targets</VFEAncients.NoTargets>
+    <VFEAncients.RefillsIn>Refills in {0}</VFEAncients.RefillsIn>
 </LanguageData>

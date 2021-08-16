@@ -1,0 +1,203 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace VFEAncients.HarmonyPatches
+{
+    public static class BuildingPatches
+    {
+        public static void Do(Harmony harm)
+        {
+            harm.Patch(typeof(WorkGiver_DoBill).GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+                    .FirstOrDefault(cls => cls.Name.Contains("20_0"))?.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    .FirstOrDefault(method => method.GetParameters().Any(parm => parm.ParameterType == typeof(Thing))),
+                transpiler: new HarmonyMethod(typeof(BuildingPatches), nameof(ExtraValidation)));
+            harm.Patch(AccessTools.Method(typeof(WorkGiver_DoBill), "TryFindBestBillIngredientsInSet"),
+                postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(TryFindStuffIngredients)));
+            harm.Patch(AccessTools.Method(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts)), new HarmonyMethod(typeof(BuildingPatches), nameof(RepairItem)));
+            // harm.Patch(typeof(Toils_Recipe).GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).FirstOrDefault(cls => cls.Name.Contains("2_0"))
+            //         ?.GetMethods(
+            //             BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).FirstOrDefault(method => method.Name.Contains("<DoRecipeWork>b__0")),
+            //     transpiler: new HarmonyMethod(typeof(BuildingPatches), nameof(DynamicWorkAmount)));
+        }
+
+        // public static IEnumerable<CodeInstruction> DynamicWorkAmount(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        // {
+        //     var list = instructions.ToList();
+        //     var label1 = (Label) list.Find(ins => ins.opcode == OpCodes.Br_S).operand;
+        //     var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Stloc_2) + 1;
+        //     var label2 = generator.DefineLabel();
+        //     list[idx1].labels.Add(label2);
+        //     var thing = generator.DeclareLocal(typeof(Thing));
+        //     list.InsertRange(idx1, new[]
+        //     {
+        //         new CodeInstruction(OpCodes.Ldloc_1),
+        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Job), nameof(Job.bill))),
+        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+        //         new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
+        //         new CodeInstruction(OpCodes.Brfalse, label2),
+        //         new CodeInstruction(OpCodes.Ldloc_1),
+        //         new CodeInstruction(OpCodes.Ldflda, AccessTools.Field(typeof(Job), nameof(Job.targetB))),
+        //         new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(LocalTargetInfo), nameof(LocalTargetInfo.Thing))),
+        //         new CodeInstruction(OpCodes.Stloc, thing),
+        //         new CodeInstruction(OpCodes.Ldloc_2),
+        //         new CodeInstruction(OpCodes.Ldloc, thing),
+        //         new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
+        //         new CodeInstruction(OpCodes.Ldloc, thing),
+        //         new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.HitPoints))),
+        //         new CodeInstruction(OpCodes.Sub),
+        //         new CodeInstruction(OpCodes.Conv_R4),
+        //         new CodeInstruction(OpCodes.Ldloc_1),
+        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Job), nameof(Job.bill))),
+        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+        //         new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.GetModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
+        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeExtension_Mend), nameof(RecipeExtension_Mend.WorkPerHP))),
+        //         new CodeInstruction(OpCodes.Mul),
+        //         new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(JobDriver_DoBill), nameof(JobDriver_DoBill.workLeft))),
+        //         new CodeInstruction(OpCodes.Br, label1)
+        //     });
+        //     return list;
+        // }
+
+        public static IEnumerable<CodeInstruction> ExtraValidation(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var list = instructions.ToList();
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Bge_Un_S);
+            var label1 = generator.DefineLabel();
+            var label2 = generator.DefineLabel();
+            var label3 = (Label) list[idx1].operand;
+            var label4 = generator.DefineLabel();
+            var label5 = generator.DefineLabel();
+            idx1++;
+            var idx2 = list.FindIndex(idx1, ins => ins.opcode == OpCodes.Call) + 2;
+            list[idx1].labels.Add(label2);
+            list[idx2].labels.Add(label1);
+            var getBill = list[idx1 + 1];
+            list.InsertRange(idx1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldarg_0),
+                getBill.Clone(),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
+                new CodeInstruction(OpCodes.Brfalse, label2),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsWeapon))),
+                new CodeInstruction(OpCodes.Brtrue, label4),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsApparel))),
+                new CodeInstruction(OpCodes.Brtrue, label4),
+                new CodeInstruction(OpCodes.Br, label5),
+                new CodeInstruction(OpCodes.Ldarg_1).WithLabels(label4),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(ThingDef), nameof(ThingDef.useHitPoints))),
+                new CodeInstruction(OpCodes.Brfalse, label3),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.HitPoints))),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
+                new CodeInstruction(OpCodes.Bge, label3),
+                new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label5),
+                getBill.Clone(),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeDef), nameof(RecipeDef.ingredients))),
+                new CodeInstruction(OpCodes.Ldc_I4_0),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<IngredientCount>), "get_Item", new[] {typeof(int)})),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(IngredientCount), nameof(IngredientCount.filter))),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingFilter), nameof(ThingFilter.AllowedThingDefs))),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(IsStuffIngredient))),
+                new CodeInstruction(OpCodes.Call, typeof(Enumerable).GetMethods(BindingFlags.Public | BindingFlags.Static)
+                    .FirstOrDefault(meth => meth.Name == "Any" && meth.GetParameters().Length == 2)
+                    ?.MakeGenericMethod(typeof(ThingDef))),
+                new CodeInstruction(OpCodes.Brtrue, label1)
+            });
+            return list;
+        }
+
+        public static bool RepairItem(RecipeDef recipeDef, List<Thing> ingredients, ref IEnumerable<Thing> __result)
+        {
+            if (recipeDef.HasModExtension<RecipeExtension_Mend>())
+            {
+                var item = ingredients.FirstOrDefault(t => t.stackCount == 1 && (t.def.IsWeapon || t.def.IsApparel) && t.def.useHitPoints && t.HitPoints < t.MaxHitPoints);
+                if (item != null)
+                {
+                    item.HitPoints = item.MaxHitPoints;
+                    __result = Gen.YieldSingle(item);
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static Func<ThingDef, bool> IsStuffIngredient(Thing t)
+        {
+            return def => def.MadeFromStuff
+                ? t.def.stuffProps?.CanMake(def) ?? false
+                : NonStuffStuff(def) == t.def;
+        }
+
+        public static ThingDef NonStuffStuff(ThingDef def)
+        {
+            return def.CostList != null && def.CostList.Count > 0
+                ? def.CostListAdjusted(null).MaxBy(tdcc => tdcc.count).thingDef
+                : StuffFromTech(def.techLevel);
+        }
+
+        public static ThingDef StuffFromTech(TechLevel level)
+        {
+            switch (level)
+            {
+                case TechLevel.Animal:
+                case TechLevel.Neolithic:
+                case TechLevel.Medieval:
+                    return ThingDefOf.WoodLog;
+                case TechLevel.Undefined:
+                case TechLevel.Industrial:
+                    return ThingDefOf.Steel;
+                case TechLevel.Spacer:
+                case TechLevel.Ultra:
+                case TechLevel.Archotech:
+                    return ThingDefOf.Plasteel;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(level), level, null);
+            }
+        }
+
+        public static void TryFindStuffIngredients(List<Thing> availableThings, Bill bill, List<ThingCount> chosen, ref bool __result)
+        {
+            if (__result && bill.recipe.HasModExtension<RecipeExtension_Mend>())
+            {
+                var tc = chosen[0];
+                if (tc.Count == 1)
+                {
+                    var item = tc.Thing;
+                    var chosenDef = item.Stuff ?? NonStuffStuff(item.def);
+                    var countWanted = Mathf.RoundToInt((item.Stuff != null
+                                                           ? item.def.CostStuffCount
+                                                           : item.def.CostList != null && item.def.CostList.Any()
+                                                               ? item.CostListAdjusted().First(tdcc => tdcc.thingDef == chosenDef).count
+                                                               : item.MarketValue / 100) *
+                                                       bill.recipe.GetModExtension<RecipeExtension_Mend>().Fraction);
+                    Log.Message($"Want {countWanted}x {chosenDef.label}");
+                    foreach (var thing in availableThings.Where(thing => thing.def == chosenDef))
+                    {
+                        chosen.Add(new ThingCount(thing, countWanted));
+                        countWanted -= thing.stackCount;
+                        if (countWanted <= 0) return;
+                    }
+
+                    __result = false;
+                }
+            }
+        }
+    }
+}

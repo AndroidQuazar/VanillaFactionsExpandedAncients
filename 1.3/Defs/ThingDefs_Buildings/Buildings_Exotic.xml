@@ -97,7 +97,7 @@
     <selectable>true</selectable>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-    <drawerType>MapMeshOnly</drawerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <repairEffect>ConstructMetal</repairEffect>
     <forceDebugSpawnable>true</forceDebugSpawnable>
     <hasInteractionCell>true</hasInteractionCell>
@@ -131,6 +131,7 @@
     <defName>VFEA_PipelineJunction</defName>
     <label>pipeline junction</label>
     <description>A large underground chemfuel pipeline connects to an exterior port in this place. When hacked, it yields large quantities of chemfuel, but hacking itself can take a while and even summon infestations.</description>
+    <thingClass>VFEAncients.Building_PipelineJunction</thingClass>
     <altitudeLayer>Building</altitudeLayer>
     <pathCost>50</pathCost>
     <blockWind>true</blockWind>
@@ -160,7 +161,7 @@
     <selectable>true</selectable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-    <drawerType>MapMeshOnly</drawerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <repairEffect>ConstructMetal</repairEffect>
     <forceDebugSpawnable>true</forceDebugSpawnable>
     <hasInteractionCell>true</hasInteractionCell>
@@ -177,7 +178,7 @@
       <li Class="CompProperties_EmptyStateGraphic">
         <graphicData>
          <texPath>Things/Building/Misc/PipelineJunction/PipelineJunctionOpen</texPath>
-         <graphicClass>Graphic_Multi</graphicClass>
+         <graphicClass>Graphic_Single</graphicClass>
          <drawSize>(5,5)</drawSize>
          <shadowData>
            <volume>(5.0, 1.0, 5.0)</volume>

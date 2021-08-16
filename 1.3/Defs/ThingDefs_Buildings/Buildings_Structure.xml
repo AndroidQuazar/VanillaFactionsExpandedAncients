@@ -98,6 +98,11 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
       </li>
+      <li><compClass>VFEAncients.CompDisappearOnHacked</compClass></li>
+      <li Class="CompProperties_Hackable">
+        <defence>2500</defence>  <!-- ~ 1 hour for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
+      </li>
     </comps>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 	<designationCategory>VFEA_Ancients</designationCategory>

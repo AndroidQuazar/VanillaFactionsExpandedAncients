@@ -43,6 +43,8 @@
     <passability>PassThroughOnly</passability>
     <designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
+  <hasInteractionCell>true</hasInteractionCell>
+  <interactionCellOffset>(0,0,1)</interactionCellOffset>
   </ThingDef>
   
   <ThingDef ParentName="FurnitureWithQualityBase">
