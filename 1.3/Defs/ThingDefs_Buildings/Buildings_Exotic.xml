@@ -111,6 +111,16 @@
         <defence>7500</defence>  <!-- ~ 3 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+         <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStationOpen</texPath>
+         <graphicClass>Graphic_Multi</graphicClass>
+         <drawSize>(5,5)</drawSize>
+         <shadowData>
+           <volume>(5.0, 1.0, 5.0)</volume>
+          </shadowData>
+        </graphicData>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
@@ -163,6 +173,16 @@
       <li Class="CompProperties_Hackable">
         <defence>12500</defence>  <!-- ~ 5 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
+      </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+         <texPath>Things/Building/Misc/PipelineJunction/PipelineJunctionOpen</texPath>
+         <graphicClass>Graphic_Multi</graphicClass>
+         <drawSize>(5,5)</drawSize>
+         <shadowData>
+           <volume>(5.0, 1.0, 5.0)</volume>
+          </shadowData>
+        </graphicData>
       </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
