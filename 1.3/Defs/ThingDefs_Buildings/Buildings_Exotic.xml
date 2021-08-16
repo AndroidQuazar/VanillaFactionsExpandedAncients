@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="CrateBase">
     <defName>VFEA_LargeSupplyCrate</defName>
     <label>large supply crate</label>
     <description>A large crate with some building resources and components. Hacking it takes a short time and there is no risk of danger.</description>
@@ -47,6 +47,16 @@
       <li Class="CompProperties_Hackable">
         <defence>2500</defence>  <!-- ~ 1 hour for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
+      </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+         <texPath>Things/Building/Misc/LargeSupplyCrateOpen/LargeSupplyCrateOpen</texPath>
+         <graphicClass>Graphic_Multi</graphicClass>
+         <drawSize>(3,3)</drawSize>
+         <shadowData>
+           <volume>(3.0, 1.0, 3.0)</volume>
+          </shadowData>
+        </graphicData>
       </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
