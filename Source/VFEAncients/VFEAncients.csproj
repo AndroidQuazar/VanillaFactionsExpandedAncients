@@ -53,15 +53,15 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
-    <Compile Include="CompFacility_PowerUnlock.cs" />
+    <Compile Include="Comps\CompProperties_Facility_PowerUnlock.cs" />
     <Compile Include="Comps\CompDisappearOnHacked.cs" />
-    <Compile Include="CompGeneTailoringPod.cs" />
+    <Compile Include="Comps\CompGeneTailoringPod.cs" />
     <Compile Include="Comps\CompSolarPowerUp.cs" />
-    <Compile Include="Fail.cs" />
+    <Compile Include="Comps\Fail.cs" />
     <Compile Include="HarmonyPatches\BuildingPatches.cs" />
-    <Compile Include="JobDriver_CarryToGeneTailoringPod.cs" />
-    <Compile Include="JobDriver_EnterGeneTailoringPod.cs" />
-    <Compile Include="JobDriver_SitFacingBuilding_Learning.cs" />
+    <Compile Include="Jobs\JobDriver_CarryToGeneTailoringPod.cs" />
+    <Compile Include="Jobs\JobDriver_EnterGeneTailoringPod.cs" />
+    <Compile Include="Jobs\JobDriver_SitFacingBuilding_Learning.cs" />
     <Compile Include="MiscPower\ElectricityBlast.cs" />
     <Compile Include="GameComponent_Powers.cs" />
     <Compile Include="HarmonyPatches\AbilityPatches.cs" />
@@ -70,11 +70,11 @@
     <Compile Include="MiscPower\LaserEyeBeam.cs" />
     <Compile Include="MiscPower\LightningSpot.cs" />
     <Compile Include="MiscPower\InteractionWorker_RomanceAttemptLustful.cs" />
-    <Compile Include="MiscPower\JobDriver_ZealotExecution.cs" />
+    <Compile Include="Jobs\JobDriver_ZealotExecution.cs" />
     <Compile Include="MiscPower\MentalBreakWorker_Hallucinations.cs" />
-    <Compile Include="MiscPower\JobGiver_Hallucinations.cs" />
+    <Compile Include="Jobs\JobGiver_Hallucinations.cs" />
     <Compile Include="HarmonyPatches\PhasingPatches.cs" />
-    <Compile Include="Operation.cs" />
+    <Compile Include="Comps\Operation.cs" />
     <Compile Include="PowerWorkers\PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
@@ -114,14 +114,14 @@
     <Compile Include="StatParts.cs" />
     <Compile Include="MiscPower\ThinkNode_ConditionalPower.cs" />
     <Compile Include="MiscPower\ThoughtWorker_OutsideParanoid.cs" />
-    <Compile Include="ThingSetMaker_Minified.cs" />
-    <Compile Include="ThingSetMaker_SubNodes.cs" />
-    <Compile Include="ThingSetMaker_Fixed.cs" />
-    <Compile Include="ThingSetMaker_Some.cs" />
+    <Compile Include="ThingSetMakers\ThingSetMaker_Minified.cs" />
+    <Compile Include="ThingSetMakers\ThingSetMaker_SubNodes.cs" />
+    <Compile Include="ThingSetMakers\ThingSetMaker_Fixed.cs" />
+    <Compile Include="ThingSetMakers\ThingSetMaker_Some.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VFEAncientsMod.cs" />
     <Compile Include="VFEA_DefOf.cs" />
-    <Compile Include="MiscPower\JobGiver_ZealotExecution.cs" />
+    <Compile Include="Jobs\JobGiver_ZealotExecution.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
