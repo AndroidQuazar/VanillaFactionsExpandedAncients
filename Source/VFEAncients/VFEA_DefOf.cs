@@ -12,11 +12,19 @@ namespace VFEAncients
         public static InteractionDef VFEA_RomanceAttempt_Lustful;
         public static JobDef VFEA_ZealotExecution;
         public static PowerDef Zealot;
+        public static PowerDef PromisingCandidate;
         public static PowerDef Paranoid;
         public static InteractionDef KindWords;
         public static PowerDef Celebrity;
         public static ThingDef VFEA_LaserEyeBeamDraw;
         public static ThingDef VFEA_ElectricBlast;
         public static StatDef VFEAncients_MeleeCooldownFactor;
+        public static JobDef VFEA_EnterGeneTailoringPod;
+        public static JobDef VFEA_CarryToGeneTailoringPod;
+        public static StatDef VFEA_InjectingTimeFactor;
+        public static StatDef VFEA_FailChance;
+        public static MentalBreakDef Berserk;
+        public static HediffDef ChemicalBurn;
+        public static ThingDef VFEA_NanotechRetractor;
     }
 }

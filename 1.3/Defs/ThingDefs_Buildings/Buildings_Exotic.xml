@@ -236,6 +236,7 @@
         <defence>25000</defence>  <!-- ~ 10 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
+      <li><compClass>VFEAncients.CompDisappearOnHacked</compClass></li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>

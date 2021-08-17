@@ -18,4 +18,21 @@
     <VFEAncients.Tame>Not applicable to tame animals</VFEAncients.Tame>
     <VFEAncients.NoTargets>No possible targets</VFEAncients.NoTargets>
     <VFEAncients.RefillsIn>Refills in {0}</VFEAncients.RefillsIn>
+    <VFEAncients.EnterGeneTailoringPod>Enter gene-tailoring pod</VFEAncients.EnterGeneTailoringPod>
+    <VFEAncients.CarryToGeneTailoringPod>Carry {0} to gene-tailoring pod</VFEAncients.CarryToGeneTailoringPod>
+    <VFEAncients.Empower>Add superpower</VFEAncients.Empower>
+    <VFEAncients.RemoveWeakness>Remove weakness</VFEAncients.RemoveWeakness>
+    <VFEAncients.Empowered.Label>Experiment Success: {0}</VFEAncients.Empowered.Label>
+    <VFEAncients.Empowered.Text>The experiment in the gene-tailoring pod has been a success! {0} has gained the power {1}. However, they have also gained the weakness {2}.</VFEAncients.Empowered.Text>
+    <VFEAncients.RemoveWeakness.Label>Experiment Success: {0}</VFEAncients.RemoveWeakness.Label>
+    <VFEAncients.RemoveWeakness.Text>The experiment in the gene-tailoring pod has been a success! {0} has l0st the weakness {1}.</VFEAncients.RemoveWeakness.Text>
+    <VFEAncients.StartOperation>Start Operation</VFEAncients.StartOperation>
+    <VFEAncients.CurrentOperation>Current operation</VFEAncients.CurrentOperation>
+    <VFEAncients.ExperimentFailed>Experiment failed</VFEAncients.ExperimentFailed>
+    <VFEAncients.Death>Death</VFEAncients.Death>
+    <VFEAncients.ExperimentFailed.Death>Subject has died and the experiment failed. No new powers were granted.</VFEAncients.ExperimentFailed.Death>
+    <VFEAncients.Berserk>Berserk</VFEAncients.Berserk>
+    <VFEAncients.ExperimentFailed.Berserk>Subject has suffered severe brain damage and has gone mad. No new powers were granted.</VFEAncients.ExperimentFailed.Berserk>
+    <VFEAncients.BrainDeath>Brain death</VFEAncients.BrainDeath>
+    <VFEAncients.ExperimentFailed.BrainDeath>Subject has suffered complete failure of brain functions and is now brain dead. No new powers were granted.</VFEAncients.ExperimentFailed.BrainDeath>
 </LanguageData>

@@ -167,4 +167,12 @@
         <workerClass>VFEAncients.PowerWorker_NoExplode</workerClass>
         <effectDescription>Immune to explosions.</effectDescription>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>PromisingCandidate</defName>
+        <label>promising candidate</label>
+        <description>todo</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_PromisingCandidate</texPath>
+        <effectDescription>All gene-tailoring operations will succeed.</effectDescription>
+    </VFEAncients.PowerDef>
 </Defs>

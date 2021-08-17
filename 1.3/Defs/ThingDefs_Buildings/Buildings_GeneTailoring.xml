@@ -28,16 +28,16 @@
       <Mass>150</Mass>
       <Flammability>0.5</Flammability>
       <Beauty>-5</Beauty>
-	  <VFEA_FailChance>0.5</VFEA_FailChance>
+      <VFEA_FailChance>0.5</VFEA_FailChance>
     </statBases>
     <size>(3,2)</size>
     <interactionCellOffset>(0,0,2)</interactionCellOffset>
     <hasInteractionCell>true</hasInteractionCell>
     <costList>
       <Steel>300</Steel>
-	  <Plasteel>125</Plasteel>
+      <Plasteel>125</Plasteel>
       <ComponentIndustrial>16</ComponentIndustrial>
-	  <ComponentSpacer>8</ComponentSpacer>
+      <ComponentSpacer>8</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
@@ -81,36 +81,42 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>500</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>VFEA_SuperNaniteInjectorPump</li>
-		  <li>VFEA_SuperNaniteDialyzer</li>
-		  <li>VFEA_SuperNaniteCentrifuge</li>
-		  <li>VFEA_SimulationDrive</li>
-		  <li>VFEA_GenomeStabilizer</li>
-		  <li>VFEA_GenomeMacrothermometer</li>
-		  <li>VFEA_StabilisedMucusInducer</li>
-		  <li>VFEA_NanotechRetractor</li>
+          <li>VFEA_SuperNaniteDialyzer</li>
+          <li>VFEA_SuperNaniteCentrifuge</li>
+          <li>VFEA_SimulationDrive</li>
+          <li>VFEA_GenomeStabilizer</li>
+          <li>VFEA_GenomeMacrothermometer</li>
+          <li>VFEA_StabilisedMucusInducer</li>
+          <li>VFEA_NanotechRetractor</li>
         </linkableFacilities>
       </li>
       <li Class="CompProperties_Refuelable">
-        <fuelConsumptionRate>150.0</fuelConsumptionRate>
-        <fuelCapacity>50.0</fuelCapacity>
+        <fuelConsumptionRate>0.0</fuelConsumptionRate>
+        <fuelCapacity>5.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>Meat_Human</li>
+            <li>VFEA_SuperNanites</li>
           </thingDefs>
         </fuelFilter>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <minimumFueledThreshold>1.0</minimumFueledThreshold>
+        <autoRefuelPercent>1.0</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+      </li>
+      <li>
+        <compClass>VFEAncients.CompGeneTailoringPod</compClass>
       </li>
     </comps>
     <placeWorkers>
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>
     </placeWorkers>
   </ThingDef>
-  
+
   <ThingDef ParentName="BuildingBase" Name="GeneTailoringLinkableBase" Abstract="True">
     <statBases>
       <WorkToBuild>2000</WorkToBuild>
@@ -135,10 +141,10 @@
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
     <comps>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable" />
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteInjectorPump</defName>
     <label>super-nanite injector pump</label>
@@ -157,9 +163,9 @@
     </statBases>
     <size>(1,1)</size>
     <costList>
-	  <Plasteel>25</Plasteel>
+      <Plasteel>25</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-	  <ComponentSpacer>1</ComponentSpacer>
+      <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -177,7 +183,7 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteDialyzer</defName>
     <label>super-nanite dialyzer</label>
@@ -196,9 +202,9 @@
     </statBases>
     <size>(3,1)</size>
     <costList>
-	  <Plasteel>40</Plasteel>
+      <Plasteel>40</Plasteel>
       <ComponentIndustrial>6</ComponentIndustrial>
-	  <ComponentSpacer>2</ComponentSpacer>
+      <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -215,9 +221,9 @@
         <maxSimultaneous>2</maxSimultaneous>
       </li>
     </comps>
-	<defaultPlacingRot>South</defaultPlacingRot>
+    <defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteCentrifuge</defName>
     <label>super-nanite centrifuge</label>
@@ -236,9 +242,9 @@
     </statBases>
     <size>(2,2)</size>
     <costList>
-	  <Plasteel>30</Plasteel>
+      <Plasteel>30</Plasteel>
       <ComponentIndustrial>2</ComponentIndustrial>
-	  <ComponentSpacer>2</ComponentSpacer>
+      <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -256,7 +262,7 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SimulationDrive</defName>
     <label>simulation drive</label>
@@ -275,9 +281,9 @@
     </statBases>
     <size>(1,1)</size>
     <costList>
-	  <Plasteel>25</Plasteel>
+      <Plasteel>25</Plasteel>
       <ComponentIndustrial>6</ComponentIndustrial>
-	  <ComponentSpacer>3</ComponentSpacer>
+      <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -294,9 +300,9 @@
         <maxSimultaneous>10</maxSimultaneous>
       </li>
     </comps>
-	<defaultPlacingRot>South</defaultPlacingRot>
+    <defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_GenomeStabilizer</defName>
     <label>genome stabilizer</label>
@@ -315,9 +321,9 @@
     </statBases>
     <size>(3,3)</size>
     <costList>
-	  <Plasteel>50</Plasteel>
+      <Plasteel>50</Plasteel>
       <ComponentIndustrial>8</ComponentIndustrial>
-	  <ComponentSpacer>4</ComponentSpacer>
+      <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -335,7 +341,7 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteContainment</defName>
     <label>super-nanite containment</label>
@@ -354,9 +360,9 @@
     </statBases>
     <size>(1,1)</size>
     <costList>
-	  <Plasteel>20</Plasteel>
+      <Plasteel>20</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-	  <ComponentSpacer>2</ComponentSpacer>
+      <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -387,10 +393,10 @@
         <basePowerConsumption>300</basePowerConsumption>
       </li>
     </comps>
-	<defaultPlacingRot>South</defaultPlacingRot>
+    <defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
-  
-  <ThingDef ParentName="GeneTailoringLinkableBase"> <!-- needs some C# -->
+
+  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
     <defName>VFEA_GenomeMacrothermometer</defName>
     <label>genome macrothermometer</label>
     <description>todo</description>
@@ -408,9 +414,9 @@
     </statBases>
     <size>(2,2)</size>
     <costList>
-	  <Plasteel>40</Plasteel>
+      <Plasteel>40</Plasteel>
       <ComponentIndustrial>12</ComponentIndustrial>
-	  <ComponentSpacer>4</ComponentSpacer>
+      <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
@@ -420,10 +426,14 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>250</basePowerConsumption>
       </li>
+      <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
+        <unlockedLevel>4</unlockedLevel>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
     </comps>
   </ThingDef>
-  
-  <ThingDef ParentName="GeneTailoringLinkableBase"> <!-- needs some C# -->
+
+  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
     <defName>VFEA_StabilisedMucusInducer</defName>
     <label>stabilised mucus inducer</label>
     <description>todo</description>
@@ -441,9 +451,9 @@
     </statBases>
     <size>(2,2)</size>
     <costList>
-	  <Plasteel>50</Plasteel>
+      <Plasteel>50</Plasteel>
       <ComponentIndustrial>12</ComponentIndustrial>
-	  <ComponentSpacer>6</ComponentSpacer>
+      <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
@@ -453,10 +463,14 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
+      <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
+        <unlockedLevel>5</unlockedLevel>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
     </comps>
   </ThingDef>
-  
-  <ThingDef ParentName="GeneTailoringLinkableBase"> <!-- needs some C# -->
+
+  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
     <defName>VFEA_NanotechRetractor</defName>
     <label>nanotech retractor</label>
     <description>todo</description>
@@ -474,9 +488,9 @@
     </statBases>
     <size>(3,3)</size>
     <costList>
-	  <Plasteel>100</Plasteel>
+      <Plasteel>100</Plasteel>
       <ComponentIndustrial>16</ComponentIndustrial>
-	  <ComponentSpacer>8</ComponentSpacer>
+      <ComponentSpacer>8</ComponentSpacer>
     </costList>
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
@@ -485,6 +499,9 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>1</maxSimultaneous>
       </li>
     </comps>
   </ThingDef>

@@ -8,5 +8,19 @@
     <casualInterruptible>false</casualInterruptible>
     <alwaysShowWeapon>true</alwaysShowWeapon>
   </JobDef>
+
+  <JobDef>
+    <defName>VFEA_EnterGeneTailoringPod</defName>
+    <driverClass>VFEAncients.JobDriver_EnterGeneTailoringPod</driverClass>
+    <reportString>entering gene-tailoring pod.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>VFEA_CarryToGeneTailoringPod</defName>
+    <driverClass>VFEAncients.JobDriver_CarryToGeneTailoringPod</driverClass>
+    <reportString>carrying TargetA to gene-tailoring pod.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
   
 </Defs>

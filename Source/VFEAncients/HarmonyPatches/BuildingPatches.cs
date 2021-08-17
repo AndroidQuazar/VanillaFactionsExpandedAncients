@@ -21,49 +21,17 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(WorkGiver_DoBill), "TryFindBestBillIngredientsInSet"),
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(TryFindStuffIngredients)));
             harm.Patch(AccessTools.Method(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts)), new HarmonyMethod(typeof(BuildingPatches), nameof(RepairItem)));
-            // harm.Patch(typeof(Toils_Recipe).GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).FirstOrDefault(cls => cls.Name.Contains("2_0"))
-            //         ?.GetMethods(
-            //             BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).FirstOrDefault(method => method.Name.Contains("<DoRecipeWork>b__0")),
-            //     transpiler: new HarmonyMethod(typeof(BuildingPatches), nameof(DynamicWorkAmount)));
+            harm.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), "AddHumanlikeOrders"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddCarryToPodJobs)));
         }
 
-        // public static IEnumerable<CodeInstruction> DynamicWorkAmount(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
-        // {
-        //     var list = instructions.ToList();
-        //     var label1 = (Label) list.Find(ins => ins.opcode == OpCodes.Br_S).operand;
-        //     var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Stloc_2) + 1;
-        //     var label2 = generator.DefineLabel();
-        //     list[idx1].labels.Add(label2);
-        //     var thing = generator.DeclareLocal(typeof(Thing));
-        //     list.InsertRange(idx1, new[]
-        //     {
-        //         new CodeInstruction(OpCodes.Ldloc_1),
-        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Job), nameof(Job.bill))),
-        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
-        //         new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
-        //         new CodeInstruction(OpCodes.Brfalse, label2),
-        //         new CodeInstruction(OpCodes.Ldloc_1),
-        //         new CodeInstruction(OpCodes.Ldflda, AccessTools.Field(typeof(Job), nameof(Job.targetB))),
-        //         new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(LocalTargetInfo), nameof(LocalTargetInfo.Thing))),
-        //         new CodeInstruction(OpCodes.Stloc, thing),
-        //         new CodeInstruction(OpCodes.Ldloc_2),
-        //         new CodeInstruction(OpCodes.Ldloc, thing),
-        //         new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
-        //         new CodeInstruction(OpCodes.Ldloc, thing),
-        //         new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.HitPoints))),
-        //         new CodeInstruction(OpCodes.Sub),
-        //         new CodeInstruction(OpCodes.Conv_R4),
-        //         new CodeInstruction(OpCodes.Ldloc_1),
-        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Job), nameof(Job.bill))),
-        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
-        //         new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.GetModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
-        //         new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeExtension_Mend), nameof(RecipeExtension_Mend.WorkPerHP))),
-        //         new CodeInstruction(OpCodes.Mul),
-        //         new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(JobDriver_DoBill), nameof(JobDriver_DoBill.workLeft))),
-        //         new CodeInstruction(OpCodes.Br, label1)
-        //     });
-        //     return list;
-        // }
+        public static void AddCarryToPodJobs(List<FloatMenuOption> opts, Vector3 clickPos, Pawn pawn)
+        {
+            foreach (var localTargetInfo4 in GenUI.TargetsAt(clickPos, TargetingParameters.ForCarryToBiosculpterPod(pawn), true))
+            {
+                var target = localTargetInfo4.Pawn;
+                if (target.IsColonist && target.Downed || target.IsPrisonerOfColony) CompGeneTailoringPod.AddCarryToPodJobs(opts, pawn, target);
+            }
+        }
 
         public static IEnumerable<CodeInstruction> ExtraValidation(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {

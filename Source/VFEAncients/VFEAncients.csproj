@@ -53,10 +53,14 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
-    <Compile Include="CompDisappearOnHacked.cs" />
+    <Compile Include="CompFacility_PowerUnlock.cs" />
+    <Compile Include="Comps\CompDisappearOnHacked.cs" />
     <Compile Include="CompGeneTailoringPod.cs" />
     <Compile Include="Comps\CompSolarPowerUp.cs" />
+    <Compile Include="Fail.cs" />
     <Compile Include="HarmonyPatches\BuildingPatches.cs" />
+    <Compile Include="JobDriver_CarryToGeneTailoringPod.cs" />
+    <Compile Include="JobDriver_EnterGeneTailoringPod.cs" />
     <Compile Include="JobDriver_SitFacingBuilding_Learning.cs" />
     <Compile Include="MiscPower\ElectricityBlast.cs" />
     <Compile Include="GameComponent_Powers.cs" />
@@ -70,6 +74,7 @@
     <Compile Include="MiscPower\MentalBreakWorker_Hallucinations.cs" />
     <Compile Include="MiscPower\JobGiver_Hallucinations.cs" />
     <Compile Include="HarmonyPatches\PhasingPatches.cs" />
+    <Compile Include="Operation.cs" />
     <Compile Include="PowerWorkers\PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
