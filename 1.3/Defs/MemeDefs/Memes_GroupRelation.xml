@@ -17,13 +17,10 @@
     </exclusionTags>
     <requireOne>
       <li>
-        <li>Slavery_Acceptable</li>
-        <li>Slavery_Honorable</li>
+        <li>VFEA_Recruiting_Forbidden</li>
       </li>
       <li>
-        <li>Execution_Required</li>
-        <li>Execution_RespectedIfGuilty</li>
-        <li>Execution_DontCare</li>
+        <li>VFEA_BeingRecruited_Forbidden</li>
       </li>
     </requireOne>
     <generalRules>
