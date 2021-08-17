@@ -163,6 +163,15 @@
     </placeWorkers>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <uiIconScale>0.65</uiIconScale>
+    <comps>
+      <li Class="CompProperties_Transporter">
+        <massCapacity>5000</massCapacity>
+        <max1PerGroup>true</max1PerGroup>
+        <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+        <showOverallStats>false</showOverallStats>
+      </li>
+      <li><compClass>VFEAncients.CompSupplySlingshot</compClass></li>
+    </comps>
   </ThingDef>
 
 </Defs>

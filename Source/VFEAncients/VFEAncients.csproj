@@ -53,6 +53,7 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
+    <Compile Include="CompSupplySlingshot.cs" />
     <Compile Include="Comps\CompProperties_Facility_PowerUnlock.cs" />
     <Compile Include="Comps\CompDisappearOnHacked.cs" />
     <Compile Include="Comps\CompGeneTailoringPod.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Jobs\JobDriver_EnterGeneTailoringPod.cs" />
     <Compile Include="Jobs\JobDriver_SitFacingBuilding_Learning.cs" />
     <Compile Include="MiscPower\ElectricityBlast.cs" />
-    <Compile Include="GameComponent_Powers.cs" />
+    <Compile Include="GameComponent_Ancients.cs" />
     <Compile Include="HarmonyPatches\AbilityPatches.cs" />
     <Compile Include="Comps\HediffComp_Phasing.cs" />
     <Compile Include="MiscPower\IceProjectile.cs" />

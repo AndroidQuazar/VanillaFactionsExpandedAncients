@@ -89,7 +89,7 @@ namespace VFEAncients
             if (def.hediffs != null)
                 foreach (var hediff in def.hediffs)
                     parent.Pawn.health.AddHediff(hediff);
-            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Powers>().TickLists[def.tickerType].Add((parent, def));
+            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Ancients>().TickLists[def.tickerType].Add((parent, def));
         }
 
         public virtual void Notify_Removed(Pawn_PowerTracker parent)
@@ -100,7 +100,7 @@ namespace VFEAncients
             if (def.hediffs != null)
                 foreach (var hediff in parent.Pawn.health.hediffSet.hediffs.Where(hd => hd.Part == null && def.hediffs.Contains(hd.def)).ToList())
                     parent.Pawn.health.RemoveHediff(hediff);
-            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Powers>().TickLists[def.tickerType].Remove((parent, def));
+            if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Ancients>().TickLists[def.tickerType].Remove((parent, def));
         }
 
         public string EffectString()
