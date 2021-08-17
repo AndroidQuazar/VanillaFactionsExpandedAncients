@@ -1,8 +1,4 @@
-﻿// Operation.cs by Joshua Bennett
-// 
-// Created 2021-08-16
-
-using System;
+﻿using System;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -19,7 +15,7 @@ namespace VFEAncients
             Pod = pod;
         }
 
-        public virtual int TicksRequired => Mathf.RoundToInt(0.01f * 60000 * Pod.parent.GetStatValue(VFEA_DefOf.VFEA_InjectingTimeFactor));
+        public virtual int TicksRequired => Mathf.RoundToInt(7 * 60000 * Pod.parent.GetStatValue(VFEA_DefOf.VFEA_InjectingTimeFactor));
 
         public abstract string Label { get; }
 
