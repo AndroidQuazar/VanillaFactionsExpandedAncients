@@ -11,7 +11,6 @@ namespace VFEAncients
         public static PowerDef Lustful;
         public static InteractionDef VFEA_RomanceAttempt_Lustful;
         public static JobDef VFEA_ZealotExecution;
-        public static PowerDef Zealot;
         public static PowerDef PromisingCandidate;
         public static PowerDef Paranoid;
         public static InteractionDef KindWords;
@@ -26,5 +25,8 @@ namespace VFEAncients
         public static MentalBreakDef Berserk;
         public static HediffDef ChemicalBurn;
         public static ThingDef VFEA_NanotechRetractor;
+        public static ThingDef VFEA_SupplyCrateIncoming;
+        public static ThingDef VFEA_AncientSupplyCrate;
+        public static ThingSetMakerDef VFEA_Contents_SuuplyDrop;
     }
 }

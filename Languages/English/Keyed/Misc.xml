@@ -36,4 +36,5 @@
     <VFEAncients.BrainDeath>Brain death</VFEAncients.BrainDeath>
     <VFEAncients.ExperimentFailed.BrainDeath>Subject has suffered complete failure of brain functions and is now brain dead. No new powers were granted.</VFEAncients.ExperimentFailed.BrainDeath>
     <VFEAncients.LaunchSupplies>Launch Supplies</VFEAncients.LaunchSupplies>
+    <VFEAncients.ExpiryIn>Self-destructs in {0}</VFEAncients.ExpiryIn>
 </LanguageData>
