@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Issues -->
+
+  <IssueDef>
+    <defName>VFEA_Recruiting</defName>
+    <label>recruiting</label>
+    <iconPath>Ideology/Recruit</iconPath>
+  </IssueDef>
+  
+  <IssueDef>
+    <defName>VFEA_BeingRecruited</defName>
+    <label>being recruited</label>
+    <iconPath>Ideology/BeingRecruited</iconPath>
+  </IssueDef>
+
+  <!-- Precepts -->
+
+  <PreceptDef>
+    <defName>VFEA_Recruiting_Forbidden</defName>
+    <issue>VFEA_Recruiting</issue>
+    <label>forbidden</label>
+    <description>We do not need anyone’s help, and will not accept any outsiders into our ranks.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>0</displayOrderInIssue>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <requiredMemes>
+      <li>VFEA_Isolationist</li>
+    </requiredMemes>
+    <associatedMemes>
+      <li>VFEA_Isolationist</li>
+    </associatedMemes>
+  </PreceptDef>
+  
+  <PreceptDef>
+    <defName>VFEA_BeingRecruited_Forbidden</defName>
+    <issue>VFEA_BeingRecruited</issue>
+    <label>forbidden</label>
+    <description>We are a proud nation and will not join anyone, as it brings us great shame.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>10</displayOrderInIssue>
+    <displayOrderInImpact>100</displayOrderInImpact>
+    <requiredMemes>
+      <li>VFEA_Isolationist</li>
+    </requiredMemes>
+    <associatedMemes>
+      <li>VFEA_Isolationist</li>
+    </associatedMemes>
+  </PreceptDef>
+
+
+</Defs>
