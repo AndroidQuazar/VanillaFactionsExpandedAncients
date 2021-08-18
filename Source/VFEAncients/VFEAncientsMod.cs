@@ -18,6 +18,7 @@ namespace VFEAncients
             AbilityPatches.Do(Harm);
             PhasingPatches.Do(Harm);
             BuildingPatches.Do(Harm);
+            PreceptPatches.Do(Harm);
         }
     }
 }

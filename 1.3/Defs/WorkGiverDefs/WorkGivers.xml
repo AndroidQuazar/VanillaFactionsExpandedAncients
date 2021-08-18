@@ -52,4 +52,17 @@
         </requiredCapacities>
         <prioritizeSustains>true</prioritizeSustains>
     </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>VFEA_Interrogate</defName>
+        <label>interrogate prisoners</label>
+        <giverClass>VFEAncients.WorkGiver_Warden_Interrogate</giverClass>
+        <workType>Warden</workType>
+        <verb>interrogate</verb>
+        <gerund>interrogating</gerund>
+        <priorityInType>100</priorityInType>
+        <requiredCapacities>
+          <li>Talking</li>
+        </requiredCapacities>
+      </WorkGiverDef>
 </Defs>

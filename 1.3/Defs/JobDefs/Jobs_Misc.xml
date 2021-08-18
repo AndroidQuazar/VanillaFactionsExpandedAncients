@@ -23,4 +23,11 @@
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
   
+  <JobDef>
+    <defName>VFEA_PrisonerInterrogate</defName>
+    <driverClass>VFEAncients.JobDriver_InterrogatePrisoner</driverClass>
+    <reportString>interrogating TargetA.</reportString>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
 </Defs>
