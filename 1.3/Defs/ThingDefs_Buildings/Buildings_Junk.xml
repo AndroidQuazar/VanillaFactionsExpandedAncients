@@ -179,12 +179,12 @@
     <defName>VFEA_AncientMachinery</defName>
     <label>ancient machinery</label>
     <description>A set of old machine blocks. Their purpose, if they ever had any, has long been forgotten.</description>
-    <size>(3, 3)</size>
+    <size>(3,3)</size>
     <fillPercent>0.50</fillPercent>
     <graphicData>
       <texPath>Things/Building/Junk/AncientMachinery</texPath>
       <graphicClass>Graphic_Random</graphicClass>
-      <drawSize>(3, 3)</drawSize>
+      <drawSize>(3,3)</drawSize>
       <shadowData>
         <volume>(3, 0.35, 3)</volume>
       </shadowData>
