@@ -53,6 +53,7 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
+    <Compile Include="CompSupplyCrate.cs" />
     <Compile Include="CompSupplySlingshot.cs" />
     <Compile Include="Comps\CompProperties_Facility_PowerUnlock.cs" />
     <Compile Include="Comps\CompDisappearOnHacked.cs" />
@@ -60,6 +61,10 @@
     <Compile Include="Comps\CompSolarPowerUp.cs" />
     <Compile Include="Comps\Fail.cs" />
     <Compile Include="HarmonyPatches\BuildingPatches.cs" />
+    <Compile Include="HarmonyPatches\PreceptPatches.cs" />
+    <Compile Include="IncidentWorker_SupplyDrop.cs" />
+    <Compile Include="InteractionWorker_Interrogate.cs" />
+    <Compile Include="JobDriver_InterrogatePrisoner.cs" />
     <Compile Include="Jobs\JobDriver_CarryToGeneTailoringPod.cs" />
     <Compile Include="Jobs\JobDriver_EnterGeneTailoringPod.cs" />
     <Compile Include="Jobs\JobDriver_SitFacingBuilding_Learning.cs" />
@@ -109,13 +114,13 @@
     <Compile Include="PowerWorkers\PowerWorker_Tantrum.cs" />
     <Compile Include="PowerWorkers\PowerWorker_VitalHits.cs" />
     <Compile Include="PowerWorkers\PowerWorker_WeaponRange.cs" />
+    <Compile Include="PreceptStuff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeExtension_Mend.cs" />
     <Compile Include="RecipeWorker_Mend.cs" />
     <Compile Include="StatParts.cs" />
     <Compile Include="MiscPower\ThinkNode_ConditionalPower.cs" />
     <Compile Include="MiscPower\ThoughtWorker_OutsideParanoid.cs" />
-    <Compile Include="ThingSetMakers\ThingSetMaker_Minified.cs" />
     <Compile Include="ThingSetMakers\ThingSetMaker_SubNodes.cs" />
     <Compile Include="ThingSetMakers\ThingSetMaker_Fixed.cs" />
     <Compile Include="ThingSetMakers\ThingSetMaker_Some.cs" />
@@ -123,6 +128,7 @@
     <Compile Include="VFEAncientsMod.cs" />
     <Compile Include="VFEA_DefOf.cs" />
     <Compile Include="Jobs\JobGiver_ZealotExecution.cs" />
+    <Compile Include="WorkGiver_Warden_Interrogate.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">

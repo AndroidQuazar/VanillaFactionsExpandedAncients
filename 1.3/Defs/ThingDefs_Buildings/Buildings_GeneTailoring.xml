@@ -428,7 +428,7 @@
         <basePowerConsumption>250</basePowerConsumption>
       </li>
       <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
-        <unlockedLevel>4</unlockedLevel>
+        <unlockedLevels>1</unlockedLevels>
         <maxSimultaneous>1</maxSimultaneous>
       </li>
     </comps>
@@ -465,7 +465,7 @@
         <basePowerConsumption>300</basePowerConsumption>
       </li>
       <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
-        <unlockedLevel>5</unlockedLevel>
+        <unlockedLevels>1</unlockedLevels>
         <maxSimultaneous>1</maxSimultaneous>
       </li>
     </comps>

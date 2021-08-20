@@ -6,15 +6,15 @@ namespace VFEAncients
 {
     public class ThingSetMaker_Fixed : ThingSetMaker
     {
-        public int count;
-        public IntRange countRange;
+        public int count = 1;
+        public IntRange countRange = IntRange.zero;
 
         public ThingDef def;
 
         protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
         {
-            var t = ThingMaker.MakeThing(def);
-            t.stackCount = count == 0 ? countRange.RandomInRange : count;
+            var t = ThingMaker.MakeThing(def, GenStuff.RandomStuffByCommonalityFor(def));
+            t.stackCount = countRange.min != 0 && countRange.max != 0 ? countRange.RandomInRange : count;
             outThings.Add(t);
         }
 

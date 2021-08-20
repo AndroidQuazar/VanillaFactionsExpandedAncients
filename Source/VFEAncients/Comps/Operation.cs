@@ -61,9 +61,10 @@ namespace VFEAncients
         public override string Label => "VFEAncients.Empower".Translate();
 
         public virtual int MaxPowerLevel =>
-            Pod.parent.TryGetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.OfType<ThingWithComps>().SelectMany(t => t.AllComps).Select(comp => comp.props)
-                .OfType<CompProperties_Facility_PowerUnlock>().Append(new CompProperties_Facility_PowerUnlock {unlockedLevel = 3})
-                .Max(props => props.unlockedLevel);
+            Pod.parent.TryGetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.OfType<ThingWithComps>().SelectMany(t => t.AllComps)
+                .Select(comp => comp.props)
+                .OfType<CompProperties_Facility_PowerUnlock>().Append(new CompProperties_Facility_PowerUnlock {unlockedLevels = 3})
+                .Sum(props => props.unlockedLevels);
 
         public override bool CanRunOnPawn(Pawn pawn)
         {

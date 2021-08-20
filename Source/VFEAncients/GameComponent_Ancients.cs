@@ -62,7 +62,7 @@ namespace VFEAncients
                 info = SlingshotQueue.Dequeue();
                 if (info.Map == null || info.Map.Index < 0)
                 {
-                    info.Map = Find.Maps.Where(map => map.IsPlayerHome).RandomElement();
+                    info.Map = Find.AnyPlayerHomeMap;
                     info.Cell = DropCellFinder.TryFindSafeLandingSpotCloseToColony(info.Map, info.Map.Size.ToIntVec2, Faction.OfAncients);
                 }
 

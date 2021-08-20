@@ -31,6 +31,11 @@
     <associatedMemes>
       <li>VFEA_Isolationist</li>
     </associatedMemes>
+    <comps>
+      <li Class="PreceptComp_UnwillingToDo">
+        <eventDef>VFEA_RecruitAttempt</eventDef>
+      </li>
+    </comps>
   </PreceptDef>
   
   <PreceptDef>
@@ -47,7 +52,33 @@
     <associatedMemes>
       <li>VFEA_Isolationist</li>
     </associatedMemes>
+    <comps>
+      <li Class="VFEAncients.PreceptComp_UnwillingToBeDone">
+        <eventDef>VFEA_RecruitAttempt</eventDef>
+      </li>
+    </comps>
   </PreceptDef>
 
-
+  <!-- History Events -->
+  <HistoryEventDef>
+    <defName>VFEA_RecruitAttempt</defName>
+    <label>recruit attempt</label>
+    <modExtensions>
+      <li Class="VFEAncients.RelatedInteractionMode">
+        <related>AttemptRecruit</related>
+      </li>
+    </modExtensions>
+  </HistoryEventDef>
+  <HistoryEventDef>
+    <defName>VFEA_Interrogation</defName>
+    <label>interrogation</label>
+    <modExtensions>
+      <li Class="VFEAncients.RequirePrecept">
+        <precept>VFEA_Recruiting_Forbidden</precept>
+      </li>
+      <li Class="VFEAncients.RelatedInteractionMode">
+        <related>VFEA_Interrogate</related>
+      </li>
+    </modExtensions>
+  </HistoryEventDef>
 </Defs>
