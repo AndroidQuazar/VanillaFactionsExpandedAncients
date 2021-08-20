@@ -28,7 +28,7 @@
     </graphicData>
     <uiIconPath>Things/Building/Linked/VaultWall/VaultWall_MenuIcon</uiIconPath>
     <statBases>
-      <MaxHitPoints>900</MaxHitPoints>
+      <MaxHitPoints>12000</MaxHitPoints>
       <WorkToBuild>135</WorkToBuild>
       <Flammability>0.0</Flammability>
       <MeditationFocusStrength>0.22</MeditationFocusStrength>
@@ -76,7 +76,7 @@
     <description>A thick vault auto-door, which takes a very long time to open and close, but is nearly indestructible.</description>
     <statBases>
       <WorkToBuild>1100</WorkToBuild>
-	  <MaxHitPoints>1300</MaxHitPoints>
+	  <MaxHitPoints>10000</MaxHitPoints>
 	  <DoorOpenSpeed>0.2</DoorOpenSpeed>
     </statBases>
     <graphicData>
