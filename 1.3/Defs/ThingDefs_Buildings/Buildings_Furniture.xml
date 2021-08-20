@@ -35,10 +35,9 @@
       <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
     </statBases>
     <size>(1,2)</size>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <costStuffCount>45</costStuffCount>
+    <costList>
+      <Steel>45</Steel>
+    </costList>
     <building>
       <bed_showSleeperBody>False</bed_showSleeperBody>
       <bed_healPerDay>3</bed_healPerDay>
