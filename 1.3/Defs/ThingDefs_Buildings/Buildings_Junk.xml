@@ -200,6 +200,7 @@
       <Flammability>0.5</Flammability>
     </statBases>
     <passability>PassThroughOnly</passability>
+	<rotatable>false</rotatable>
     <pathCost>50</pathCost>
 	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
