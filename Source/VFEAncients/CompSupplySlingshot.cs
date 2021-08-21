@@ -11,7 +11,7 @@ namespace VFEAncients
 
         public CompTransporter Transporter => cachedCompTransporter ?? (cachedCompTransporter = parent.GetComp<CompTransporter>());
 
-        public virtual int TicksToReturn => 600 /* 00 * 7 */;
+        public virtual int TicksToReturn => 60000 * 7;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
@@ -57,22 +57,16 @@ namespace VFEAncients
             Transporter.TryRemoveLord(parent.Map);
             foreach (var compTransporter in transportersInGroup)
             {
-                var directlyHeldThings = compTransporter.GetDirectlyHeldThings();
                 Current.Game.GetComponent<GameComponent_Ancients>().SlingshotQueue.Enqueue(new GameComponent_Ancients.SlingshotInfo
                 {
                     Cell = parent.Position,
                     Map = parent.Map,
                     ReturnTick = Find.TickManager.TicksGame + TicksToReturn,
-                    Wealth = directlyHeldThings.Sum(item => item.MarketValue * item.stackCount)
+                    Wealth = compTransporter.innerContainer.Sum(item => item.MarketValue * item.stackCount)
                 });
-                var activeDropPod = (ActiveDropPod) ThingMaker.MakeThing(ThingDefOf.ActiveDropPod);
-                activeDropPod.Contents = new ActiveDropPodInfo();
-                activeDropPod.Contents.innerContainer.TryAddRangeOrTransfer(directlyHeldThings, true, true);
-                var flyShipLeaving = (FlyShipLeaving) SkyfallerMaker.MakeSkyfaller(ThingDefOf.DropPodLeaving, activeDropPod);
-                flyShipLeaving.groupID = Transporter.groupID;
-                flyShipLeaving.createWorldObject = false;
-                compTransporter.CleanUpLoadingVars(parent.Map);
-                GenSpawn.Spawn(flyShipLeaving, compTransporter.parent.Position, parent.Map);
+                compTransporter.innerContainer.ClearAndDestroyContents();
+                compTransporter.CancelLoad(parent.Map);
+                SkyfallerMaker.SpawnSkyfaller(VFEA_DefOf.VFEA_SupplyCrateLeaving, compTransporter.parent.Position, parent.Map);
             }
 
             CameraJumper.TryHideWorld();

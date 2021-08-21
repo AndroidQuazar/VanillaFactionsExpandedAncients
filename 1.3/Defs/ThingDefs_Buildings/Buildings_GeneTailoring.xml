@@ -388,6 +388,7 @@
     <inspectorTabs>
       <li>ITab_Storage</li>
     </inspectorTabs>
+    <placeWorkers Inherit="False" />
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>

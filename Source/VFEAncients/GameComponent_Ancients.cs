@@ -69,7 +69,7 @@ namespace VFEAncients
                 info.Cell = DropCellFinder.TryFindDropSpotNear(info.Cell, info.Map, out var cell, false, false, false) ? cell : DropCellFinder.TradeDropSpot(info.Map);
                 var things = ThingSetMakerDefOf.Reward_ItemsStandard.root.Generate(new ThingSetMakerParams
                     {podContentsType = PodContentsType.AncientFriendly, totalMarketValueRange = new FloatRange(info.Wealth, info.Wealth)});
-                DropPodUtility.DropThingsNear(info.Cell, info.Map, things);
+                SkyfallerMaker.SpawnSkyfaller(VFEA_DefOf.VFEA_SupplyCrateIncoming, things, info.Cell, info.Map);
             }
         }
 

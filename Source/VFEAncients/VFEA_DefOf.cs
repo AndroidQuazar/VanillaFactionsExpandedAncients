@@ -26,6 +26,7 @@ namespace VFEAncients
         public static HediffDef ChemicalBurn;
         public static ThingDef VFEA_NanotechRetractor;
         public static ThingDef VFEA_SupplyCrateIncoming;
+        public static ThingDef VFEA_SupplyCrateLeaving;
         public static ThingDef VFEA_AncientSupplyCrate;
         public static ThingSetMakerDef VFEA_Contents_SuuplyDrop;
         public static JobDef VFEA_PrisonerInterrogate;
