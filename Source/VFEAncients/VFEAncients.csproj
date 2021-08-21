@@ -54,6 +54,7 @@
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_Cooler.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
+    <Compile Include="CompNeedsContainment.cs" />
     <Compile Include="CompPowerPlantSteam.cs" />
     <Compile Include="CompSupplyCrate.cs" />
     <Compile Include="CompSupplySlingshot.cs" />

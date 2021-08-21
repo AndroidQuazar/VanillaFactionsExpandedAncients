@@ -346,6 +346,7 @@
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_SuperNaniteContainment</defName>
     <label>super-nanite containment</label>
+    <thingClass>Building_Storage</thingClass>
     <description>todo</description>
     <graphicData>
       <texPath>Things/Building/Production/SuperNaniteContainment/SuperNaniteContainment</texPath>
@@ -385,6 +386,9 @@
         </filter>
       </defaultStorageSettings>
     </building>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <surfaceType>Item</surfaceType>
+    <canOverlapZones>false</canOverlapZones>
     <inspectorTabs>
       <li>ITab_Storage</li>
     </inspectorTabs>

@@ -22,6 +22,18 @@ namespace VFEAncients.HarmonyPatches
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(TryFindStuffIngredients)));
             harm.Patch(AccessTools.Method(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts)), new HarmonyMethod(typeof(BuildingPatches), nameof(RepairItem)));
             harm.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), "AddHumanlikeOrders"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddCarryToPodJobs)));
+            harm.Patch(AccessTools.Method(typeof(SteadyEnvironmentEffects), nameof(SteadyEnvironmentEffects.FinalDeteriorationRate),
+                    new[] {typeof(Thing), typeof(bool), typeof(bool), typeof(bool), typeof(TerrainDef), typeof(List<string>)}),
+                postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddDeterioration)));
+        }
+
+        public static void AddDeterioration(Thing t, List<string> reasons, ref float __result)
+        {
+            if (t.TryGetComp<CompNeedsContainment>(out var comp) && comp.ShouldDeteriorate)
+            {
+                __result += t.GetStatValue(StatDefOf.DeteriorationRate);
+                if (reasons != null) reasons.Add("VFEAncients.DeterioratingUncontained".Translate());
+            }
         }
 
         public static void AddCarryToPodJobs(List<FloatMenuOption> opts, Vector3 clickPos, Pawn pawn)

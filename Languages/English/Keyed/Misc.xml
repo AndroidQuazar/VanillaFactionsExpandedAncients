@@ -41,5 +41,6 @@
     <VFEAncients.InterrogationSuccess>Interrogation Success</VFEAncients.InterrogationSuccess>
     <VFEAncients.InterrogationSuccessDetail>{0} has successfully interrogated {1}, who has revealed the location of {2}.</VFEAncients.InterrogationSuccessDetail>
     <VFEAncients.InterrogationFailure>Interrogation failed!</VFEAncients.InterrogationFailure>
+    <VFEAncients.DeterioratingUncontained>uncontained</VFEAncients.DeterioratingUncontained>
     <VFEAncients.ExperimentFailureWarning>Running this experiment has a {0} chance of failure. This could be reduced by building some of these buildings:\n{1}\n\nThe experiment will take {2} and cannot be stopped once started.</VFEAncients.ExperimentFailureWarning>
 </LanguageData>
