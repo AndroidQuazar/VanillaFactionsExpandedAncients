@@ -217,7 +217,7 @@
       <Steel>150</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </killedLeavings>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <selectable>true</selectable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
