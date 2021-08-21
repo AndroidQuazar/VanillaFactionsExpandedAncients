@@ -31,8 +31,6 @@ namespace VFEAncients
                 var energyLimit = compTempControl.Props.energyPerSecond * factor * 4.16666651f;
                 var room = pos.GetRoom(parent.Map);
                 var change = GenTemperature.ControlTemperatureTempChange(pos, parent.Map, energyLimit, compTempControl.targetTemperature);
-                Log.Message($"factor={factor},change={change},energyPerSecond={compTempControl.Props.energyPerSecond}," +
-                            $"energyLimit={energyLimit},targetTemperature={compTempControl.targetTemperature},AmbientTemperature={parent.AmbientTemperature},");
                 var flag = !Mathf.Approximately(change, 0f);
                 if (flag && room != null) room.Temperature += change;
 

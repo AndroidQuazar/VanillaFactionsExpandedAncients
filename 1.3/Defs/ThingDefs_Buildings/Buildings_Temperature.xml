@@ -73,7 +73,7 @@
     <defName>VFEA_AncientCooler</defName>
     <label>ancient cooler</label>
     <description>An ancient air-cooling machine. Cool air comes out one side, while not there is no need in removing hot exhaust. Can be used to cool down rooms during summer, or to create a walk-in freezer.</description>
-    <thingClass>Building_Cooler</thingClass>
+    <thingClass>VFEAncients.Building_Cooler</thingClass>
     <graphicData>
       <texPath>Things/Building/Misc/TempControl/AncientCooler/AncientCooler</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -108,7 +108,7 @@
     </costList>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <placeWorkers>
-      <li>PlaceWorker_Cooler</li>
+      <li>VFEAncients.PlaceWorker_Cooler</li>
     </placeWorkers>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <building>

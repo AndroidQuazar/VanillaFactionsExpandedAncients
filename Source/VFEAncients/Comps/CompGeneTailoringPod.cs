@@ -94,7 +94,13 @@ namespace VFEAncients
                 yield return new Command_Action
                 {
                     action = () => Find.WindowStack.Add(new FloatMenu(possibleOperations.Where(op => op.CanRunOnPawn(Occupant))
-                        .Select(op => new FloatMenuOption(op.Label, () => StartOperation(op))).ToList())),
+                        .Select(op => new FloatMenuOption(op.Label,
+                            () => Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("VFEAncients.ExperimentFailureWarning".Translate(
+                                    op.FailChanceOnPawn(Occupant).ToStringPercent().Colorize(ColoredText.ThreatColor),
+                                    parent.def.GetCompProperties<CompProperties_AffectedByFacilities>().linkableFacilities.Where(def =>
+                                            def.GetCompProperties<CompProperties_Facility>()?.statOffsets?.Any(statMod => statMod.stat == VFEA_DefOf.VFEA_FailChance) ?? false)
+                                        .Select(def => def.label).ToLineList("  - "), op.TicksRequired.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor)),
+                                () => StartOperation(op), true)))).ToList())),
                     defaultLabel = "VFEAncients.StartOperation".Translate(),
                     icon = Texture2D.normalTexture
                 };

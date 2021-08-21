@@ -52,6 +52,7 @@
     <Compile Include="Abilities\Ability_Heal.cs" />
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
+    <Compile Include="Building_Cooler.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
     <Compile Include="CompPowerPlantSteam.cs" />
     <Compile Include="CompSupplyCrate.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Jobs\JobGiver_Hallucinations.cs" />
     <Compile Include="HarmonyPatches\PhasingPatches.cs" />
     <Compile Include="Comps\Operation.cs" />
+    <Compile Include="PlaceWorker_Cooler.cs" />
     <Compile Include="PowerWorkers\PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Bones.cs" />
     <Compile Include="DebugActionsPowers.cs" />
