@@ -386,7 +386,6 @@
         </filter>
       </defaultStorageSettings>
     </building>
-    <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <surfaceType>Item</surfaceType>
     <canOverlapZones>false</canOverlapZones>
     <inspectorTabs>
