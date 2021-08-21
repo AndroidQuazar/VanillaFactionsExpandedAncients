@@ -74,13 +74,13 @@
     <passability>Impassable</passability>
     <canOverlapZones>true</canOverlapZones>
     <fillPercent>1.0</fillPercent>
-    <size>(5,5)</size>
+    <size>(3,3)</size>
     <graphicData>
       <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStation</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(5,5)</drawSize>
+      <drawSize>(3,3)</drawSize>
       <shadowData>
-        <volume>(5.0, 1.0, 5.0)</volume>
+        <volume>(3.0, 1.0, 3.0)</volume>
       </shadowData>
     </graphicData>
     <statBases>
@@ -101,7 +101,7 @@
     <repairEffect>ConstructMetal</repairEffect>
     <forceDebugSpawnable>true</forceDebugSpawnable>
     <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,3)</interactionCellOffset>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
     <building>
       <claimable>false</claimable>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
@@ -115,9 +115,9 @@
         <graphicData>
          <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStationOpen</texPath>
          <graphicClass>Graphic_Multi</graphicClass>
-         <drawSize>(5,5)</drawSize>
+         <drawSize>(3,3)</drawSize>
          <shadowData>
-           <volume>(5.0, 1.0, 5.0)</volume>
+           <volume>(3.0, 1.0, 3.0)</volume>
           </shadowData>
         </graphicData>
       </li>
