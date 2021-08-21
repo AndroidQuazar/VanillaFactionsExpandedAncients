@@ -93,7 +93,7 @@
       <ChunkSlagSteel>4</ChunkSlagSteel>
       <ComponentIndustrial>6</ComponentIndustrial>
     </killedLeavings>
-    <rotatable>false</rotatable>
+    <rotatable>true</rotatable>
     <selectable>true</selectable>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
