@@ -354,7 +354,7 @@
       <shadowData>
         <volume>(0.9,0.2,0.9)</volume>
       </shadowData>
-      <drawSize>(1, 1)</drawSize>
+      <drawSize>(1.5, 1.5)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
