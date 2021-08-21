@@ -33,7 +33,8 @@ namespace VFEAncients.HarmonyPatches
 
         public static void UnfogEnteredCells(Pawn_PathFollower __instance, Pawn ___pawn)
         {
-            if (__instance.nextCell.Fogged(___pawn.Map) && ___pawn.IsPhasing()) FloodUnfogAdjMI.Invoke(___pawn.Map.fogGrid, new object[] {__instance.nextCell, true});
+            if (___pawn.Spawned && __instance.nextCell.Fogged(___pawn.Map) && ___pawn.IsPhasing())
+                FloodUnfogAdjMI.Invoke(___pawn.Map.fogGrid, new object[] {__instance.nextCell, true});
         }
 
         public static bool AllReachable(TraverseParms traverseParams, ref bool __result)

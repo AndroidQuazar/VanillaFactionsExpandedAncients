@@ -181,7 +181,7 @@
     <thingCategories>
       <li>BuildingsPower</li>
     </thingCategories>
-    <tickerType>Normal</tickerType>
+    <tickerType>Rare</tickerType>
     <size>(6,6)</size>
     <costList>
       <Steel>500</Steel>
@@ -189,12 +189,12 @@
     </costList>
     <comps>
       <li Class="CompProperties_Power">
-        <compClass>CompPowerPlantSteam</compClass>
+        <compClass>VFEAncients.CompPowerPlantSteam</compClass>
         <basePowerConsumption>-6800</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="CompProperties_TempControl">
-        <energyPerSecond>-42</energyPerSecond>
+        <energyPerSecond>96</energyPerSecond>
       </li>
     </comps>
     <rotatable>false</rotatable>

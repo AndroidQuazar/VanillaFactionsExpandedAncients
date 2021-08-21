@@ -53,6 +53,7 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Building_PipelineJunction.cs" />
+    <Compile Include="CompPowerPlantSteam.cs" />
     <Compile Include="CompSupplyCrate.cs" />
     <Compile Include="CompSupplySlingshot.cs" />
     <Compile Include="Comps\CompProperties_Facility_PowerUnlock.cs" />
