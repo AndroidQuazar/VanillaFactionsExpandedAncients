@@ -84,6 +84,7 @@
     <Compile Include="Jobs\JobGiver_Hallucinations.cs" />
     <Compile Include="HarmonyPatches\PhasingPatches.cs" />
     <Compile Include="Comps\Operation.cs" />
+    <Compile Include="PawnKindExtension_Powers.cs" />
     <Compile Include="PlaceWorker_Cooler.cs" />
     <Compile Include="PowerWorkers\PowerWorker_AlwaysSocialFight.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Bones.cs" />

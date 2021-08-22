@@ -33,6 +33,25 @@ namespace VFEAncients.HarmonyPatches
                 postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
             harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
                 postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
+            harm.Patch(AccessTools.Method(typeof(PawnGenerator), "TryGenerateNewPawnInternal"), postfix: new HarmonyMethod(typeof(PowerPatches), nameof(AddPowers)));
+        }
+
+        public static void AddPowers(Pawn __result, PawnGenerationRequest request)
+        {
+            if (request.KindDef != null && request.KindDef.TryGetModExtension<PawnKindExtension_Powers>(out var ext) && __result?.GetPowerTracker() is Pawn_PowerTracker tracker)
+            {
+                if (ext.forcePowers != null)
+                    foreach (var power in ext.forcePowers)
+                        tracker.AddPower(power);
+
+                if (ext.numRandomSuperpowers > 0)
+                    for (var i = 0; i < ext.numRandomSuperpowers; i++)
+                        tracker.AddPower(DefDatabase<PowerDef>.AllDefs.Where(power => power.powerType == PowerType.Superpower).RandomElement());
+
+                if (ext.numRandomWeaknesses > 0)
+                    for (var i = 0; i < ext.numRandomWeaknesses; i++)
+                        tracker.AddPower(DefDatabase<PowerDef>.AllDefs.Where(power => power.powerType == PowerType.Weakness).RandomElement());
+            }
         }
 
         public static void ApplyStat(ref float __result, Pawn attacker, VerbProperties __instance)
