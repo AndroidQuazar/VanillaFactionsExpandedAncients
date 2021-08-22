@@ -13,4 +13,10 @@ namespace VFEAncients
                 base.ConsumeIngredient(ingredient, recipe, map);
         }
     }
+
+    public class RecipeExtension_Mend : DefModExtension
+    {
+        public float Fraction;
+        public float WorkPerHP; // TODO
+    }
 }
