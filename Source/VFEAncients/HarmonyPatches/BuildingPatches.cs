@@ -32,7 +32,7 @@ namespace VFEAncients.HarmonyPatches
             if (t.TryGetComp<CompNeedsContainment>(out var comp) && comp.ShouldDeteriorate)
             {
                 __result += t.GetStatValue(StatDefOf.DeteriorationRate);
-                if (reasons != null) reasons.Add("VFEAncients.DeterioratingUncontained".Translate());
+                reasons?.Add("VFEAncients.DeterioratingUncontained".Translate());
             }
         }
 

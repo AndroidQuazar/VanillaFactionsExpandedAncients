@@ -35,5 +35,6 @@ namespace VFEAncients
         public static InteractionDef VFEA_InterrogatePrisoner;
         public static RulePackDef VFEA_InterrogationRefused;
         public static RulePackDef VFEA_InterrogationSuccess;
+        public static ThingDef VFEA_Turret_AncientPointDefense;
     }
 }

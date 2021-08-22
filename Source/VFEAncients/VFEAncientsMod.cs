@@ -19,6 +19,7 @@ namespace VFEAncients
             PhasingPatches.Do(Harm);
             BuildingPatches.Do(Harm);
             PreceptPatches.Do(Harm);
+            PointDefensePatches.Do(Harm);
         }
     }
 }

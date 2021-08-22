@@ -64,6 +64,7 @@
     <Compile Include="Comps\CompSolarPowerUp.cs" />
     <Compile Include="Comps\Fail.cs" />
     <Compile Include="HarmonyPatches\BuildingPatches.cs" />
+    <Compile Include="HarmonyPatches\PointDefensePatches.cs" />
     <Compile Include="HarmonyPatches\PreceptPatches.cs" />
     <Compile Include="IncidentWorker_SupplyDrop.cs" />
     <Compile Include="InteractionWorker_Interrogate.cs" />
