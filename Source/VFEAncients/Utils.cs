@@ -32,5 +32,14 @@ namespace VFEAncients
             ext = def.HasModExtension<T>() ? def.GetModExtension<T>() : null;
             return ext != null;
         }
+
+        public static IEnumerable<T> DoPassThrough<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (var item in source)
+            {
+                action(item);
+                yield return item;
+            }
+        }
     }
 }

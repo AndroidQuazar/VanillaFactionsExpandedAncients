@@ -233,7 +233,6 @@
     </comps>
     <building>
       <turretGunDef>VFEA_Gun_AncientPointDefenseTurret</turretGunDef>
-      <turretBurstCooldownTime>3.5</turretBurstCooldownTime>
     </building>
   </ThingDef>
 
@@ -283,6 +282,24 @@
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
         <consumeFuelPerShot>1</consumeFuelPerShot>
+        <isPrimary>true</isPrimary>
+        <defaultCooldownTime>3.5</defaultCooldownTime>
+      </li>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>false</hasStandardCommand>
+        <label>point-defense</label>
+        <defaultProjectile>VFEA_Bullet_AncientPointDefenseTurret</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <range>30.9</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <defaultCooldownTime>0.2</defaultCooldownTime>
+        <isPrimary>false</isPrimary>
       </li>
     </verbs>
   </ThingDef>
