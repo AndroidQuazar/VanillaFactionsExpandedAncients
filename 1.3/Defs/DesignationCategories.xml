@@ -11,5 +11,15 @@
     </specialDesignatorClasses>
   </DesignationCategoryDef>
   
+  <DesignationCategoryDef>
+    <defName>VFEA_AncientsIdeology</defName>
+    <label>ancient junk</label>
+    <order>16</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  
   
 </Defs>
