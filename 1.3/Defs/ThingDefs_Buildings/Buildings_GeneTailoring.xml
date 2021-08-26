@@ -514,5 +514,41 @@
       </li>
     </comps>
   </ThingDef>
+  
+  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
+    <defName>VFEA_NaniteSampler</defName>
+    <label>nanite sampler</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Things/Building/Production/NanotechRetractor/NanotechRetractor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(3.9,0.5,3.9)</volume>
+      </shadowData>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Mass>75</Mass>
+    </statBases>
+    <size>(4,4)</size>
+    <costList>
+      <Plasteel>150</Plasteel>
+      <ComponentIndustrial>16</ComponentIndustrial>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>800</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+  </ThingDef>
 
 </Defs>
