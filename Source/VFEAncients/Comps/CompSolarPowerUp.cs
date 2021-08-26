@@ -14,7 +14,7 @@ namespace VFEAncients
 
         public static bool PowerUpActive(Thing parent)
         {
-            return parent.Map.GameConditionManager.ElectricityDisabled;
+            return parent.Spawned && parent.Map.GameConditionManager.ElectricityDisabled;
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
