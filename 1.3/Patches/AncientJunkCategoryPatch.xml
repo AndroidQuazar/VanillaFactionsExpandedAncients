@@ -4,14 +4,21 @@
     <Operation Class="PatchOperationAdd">
         <xpath>Defs/ThingDef[@Name="AncientSmallWalkableBuildingBase"]</xpath>
         <value>
-		    <designationCategory>VFEA_Ancients</designationCategory>
+		    <designationCategory>VFEA_AncientsIdeology</designationCategory>
 		</value>
     </Operation>
 	
     <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="AncientSystemRack" or defName="AncientEquipmentBlocks" or defName="AncientMachine" or defName="AncientStorageCylinder" or defName="AncientLamp" or defName="AncientBed" or defName="AncientDisplayBank" or defName="AncientLockerBank" or defName="AncientCrate" or defName="AncientBarrel" or defName="AncientGenerator" or defName="AncientOperatingTable"]</xpath>
+        <xpath>Defs/ThingDef[@Name="NonDeconstructibleAncientBuildingBase"]</xpath>
         <value>
-		    <designationCategory>VFEA_Ancients</designationCategory>
+		    <designationCategory>VFEA_AncientsIdeology</designationCategory>
+		</value>
+    </Operation>
+	
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="AncientSystemRack" or defName="AncientEquipmentBlocks" or defName="AncientMachine" or defName="AncientStorageCylinder" or defName="AncientLamp" or defName="AncientBed" or defName="AncientDisplayBank" or defName="AncientLockerBank" or defName="AncientCrate" or defName="AncientBarrel" or defName="AncientGenerator" or defName="AncientOperatingTable" or defName="AncientRazorWire" or defName="AncientPipes"]</xpath>
+        <value>
+		    <designationCategory>VFEA_AncientsIdeology</designationCategory>
 		</value>
     </Operation>
 	
