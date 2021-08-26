@@ -2,8 +2,8 @@
 <Defs>
 
   <FactionDef ParentName="FactionBase" Abstract="True" Name="AncientSoldiersBase">
-    <pawnSingular>ancient soldier</pawnSingular>
-    <pawnsPlural>ancient soldiers</pawnsPlural>
+    <pawnSingular>ancient super-soldier</pawnSingular>
+    <pawnsPlural>ancient super-soldiers</pawnsPlural>
     <categoryTag>Ancient</categoryTag>
     <requiredCountAtGameStart>1</requiredCountAtGameStart>
     <fixedName>Ancient soldiers</fixedName>
@@ -27,25 +27,31 @@
         <li>Plasteel</li>
       </thingDefs>
     </apparelStuffFilter>
-    <allowedMemes>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Structure_Archist</li>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
-      <li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
-	  <li MayRequire="Ludeon.RimWorld.Ideology">VFEA_Isolationist</li>
-    </allowedMemes>
+    <structureMemeWeights>
+      <Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistEmbodied>
+      <Structure_TheistAbstract MayRequire="Ludeon.RimWorld.Ideology">2</Structure_TheistAbstract>
+      <Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+      <Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">2</Structure_Archist>
+      <Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
+      <Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
+      <Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginHindu>
+      <Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginBuddhist>
+    </structureMemeWeights>
     <requiredMemes>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Structure_Archist</li>
       <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
       <li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
-      <li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
 	  <li MayRequire="Ludeon.RimWorld.Ideology">VFEA_Isolationist</li>
     </requiredMemes>
+    <disallowedMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Structure_Animist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+    </disallowedMemes>
   </FactionDef>
 
   <FactionDef ParentName="AncientSoldiersBase">
     <defName>VFEA_AncientSoldiers</defName>
-    <label>ancient soldiers</label>
+    <label>ancient super-soldiers</label>
   </FactionDef>
 
 </Defs>
