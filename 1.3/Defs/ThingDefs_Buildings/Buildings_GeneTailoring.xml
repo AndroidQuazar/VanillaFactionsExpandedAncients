@@ -135,6 +135,7 @@
     <designationCategory>VFEA_Ancients</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
     <neverMultiSelect>false</neverMultiSelect>
+	<rotatable>false</rotatable>
     <thingCategories>
       <li>BuildingsMisc</li>
     </thingCategories>
@@ -197,6 +198,7 @@
       </shadowData>
       <drawSize>(3.5, 1.5)</drawSize>
     </graphicData>
+	<rotatable>true</rotatable>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <Mass>25</Mass>
@@ -276,6 +278,7 @@
       </shadowData>
       <drawSize>(1, 1)</drawSize>
     </graphicData>
+	<rotatable>true</rotatable>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
       <Mass>10</Mass>
@@ -356,6 +359,7 @@
       </shadowData>
       <drawSize>(1.5, 1.5)</drawSize>
     </graphicData>
+	<rotatable>true</rotatable>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
       <Mass>10</Mass>
@@ -401,7 +405,7 @@
     <defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
 
-  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
+  <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_GenomeMacrothermometer</defName>
     <label>genome macrothermometer</label>
     <description>todo</description>
@@ -438,7 +442,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
+  <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_StabilisedMucusInducer</defName>
     <label>stabilised mucus inducer</label>
     <description>todo</description>
@@ -510,6 +514,5 @@
       </li>
     </comps>
   </ThingDef>
-
 
 </Defs>
