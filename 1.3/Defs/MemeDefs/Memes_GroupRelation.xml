@@ -12,8 +12,8 @@
       <li>SacrificialFlag</li>
     </consumableBuildings>
     <exclusionTags>
-      <li>GroupRelation</li>
       <li>SupremacistIndividualist</li>
+	  <li>IsolationistProselytizer</li>
     </exclusionTags>
     <requireOne>
       <li>
