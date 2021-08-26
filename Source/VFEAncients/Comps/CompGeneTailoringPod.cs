@@ -104,6 +104,17 @@ namespace VFEAncients
                     defaultLabel = "VFEAncients.StartOperation".Translate(),
                     icon = Texture2D.normalTexture
                 };
+            if (currentOperation != null)
+                yield return new Command_Action
+                {
+                    action = () =>
+                    {
+                        currentOperation.Success();
+                        currentOperation = null;
+                        ticksTillDone = -1;
+                    },
+                    defaultLabel = "DEV: Complete Instantly"
+                };
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
