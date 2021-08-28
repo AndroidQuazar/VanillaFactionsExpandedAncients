@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <ScenarioDef Name="VFEA_NewVault">
+    <defName>RE_NewVault</defName>
+    <label>New Vault</label>
+    <description>With each passing day you stare at your fellow companions hibernating in cryptosleep sarcophagi. One day, when your life is nearing its end, you will wake your successor, and his watch will begin. Every day for the last hundreds of years your outpost was awaiting orders from High Command which may no longer exist. Will today be the day you not only wake up, but also open your eyes?
+	
+Note: Since you start alone with random superpowers and weaknesses, this is a difficult scenario.</description>
+    <scenario>
+      <summary>A lone super-soldier guarding his post. A classic VFE - Ancients experience.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>VFEA_NewVault</factionDef>
+      </playerFaction>
+      <parts>
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>With each passing day you stare at your fellow companions hibernating in cryptosleep sarcophagi. One day, when your life is nearing its end, you will wake your successor, and his watch will begin. Every day for the last hundreds of years your outpost was awaiting orders from High Command which may no longer exist. Will today be the day you not only wake up, but also open your eyes?</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>1</pawnCount>
+          <pawnChoiceCount>8</pawnChoiceCount>
+        </li>
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+        <li Class="KCSG.ScenPart_AddStartingStructure">
+          <def>VFEC_AddStartingStructure</def>
+          <structureLabel>A sealed vault</structureLabel>
+          <nearMapCenter>True</nearMapCenter>
+          <chooseFrom>
+            <li>VFEA_SealedVault1</li>
+            <li>VFEA_SealedVault2</li>
+          </chooseFrom>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+</Defs>
