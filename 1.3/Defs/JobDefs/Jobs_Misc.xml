@@ -30,4 +30,11 @@
     <alwaysShowWeapon>true</alwaysShowWeapon>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
+  
+  <JobDef>
+    <defName>VFEA_CarryToBioBatteryTank</defName>
+    <driverClass>VFEAncients.JobDriver_CarryToGeneTailoringPod</driverClass>
+    <reportString>hauling TargetA to bio-battery tank.</reportString>
+	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
 </Defs>
