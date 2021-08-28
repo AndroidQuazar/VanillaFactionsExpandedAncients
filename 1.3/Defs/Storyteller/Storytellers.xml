@@ -5,8 +5,8 @@
     <defName>VFEA_AlfredAncient</defName>
     <label>Alfred Ancient</label>
     <description>Alfred creates story events on a steadily increasing curve of threat and reward. He forces you into a low population colony to help build up the characters, but rewards you with no skill loss what-so-ever.</description>
-    <portraitLarge>UI/HeroArt/Storytellers/CassandraClassic</portraitLarge>
-    <portraitTiny>UI/HeroArt/Storytellers/CassandraClassicTiny</portraitTiny>
+    <portraitLarge>UI/Hero/AlfredAncient</portraitLarge>
+    <portraitTiny>UI/Hero/AlfredAncientTiny</portraitTiny>
     <listOrder>50</listOrder>
     <comps>
       <!-- Intro -->
