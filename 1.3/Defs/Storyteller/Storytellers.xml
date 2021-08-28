@@ -8,6 +8,20 @@
     <portraitLarge>UI/Hero/AlfredAncient</portraitLarge>
     <portraitTiny>UI/Hero/AlfredAncientTiny</portraitTiny>
     <listOrder>50</listOrder>
+    <populationIntentFactorFromPopCurve>
+      <points>
+        <li>0,  8.0</li>
+        <li>1,  1.0</li>
+        <li>3,  0.0</li>
+        <li>5,  -1.0</li>
+      </points>
+    </populationIntentFactorFromPopCurve>
+    <populationIntentFactorFromPopAdaptDaysCurve>
+      <points>
+        <li>( 0, 0)</li>
+        <li>( 3, 1)</li>
+      </points>
+    </populationIntentFactorFromPopAdaptDaysCurve>
     <comps>
       <!-- Intro -->
       <li Class="StorytellerCompProperties_ClassicIntro"/>
