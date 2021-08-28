@@ -380,4 +380,34 @@
   <rotation>South</rotation>
 </KCSG.SymbolDef>
 
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientBroadcastStation_West</defName>
+  <thing>VFEA_AncientBroadcastStation</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_WallLamp_West</defName>
+  <thing>VFEA_WallLamp</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientWorkshop_East</defName>
+  <thing>VFEA_AncientWorkshop</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCookingStation_West</defName>
+  <thing>VFEA_AncientCookingStation</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCryptosleepSarcophagus_South</defName>
+  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <rotation>South</rotation>
+</KCSG.SymbolDef>
+
 </Defs>

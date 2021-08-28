@@ -35,6 +35,7 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
           <chooseFrom>
             <li>VFEA_SealedVault1</li>
             <li>VFEA_SealedVault2</li>
+			<li>VFEA_SealedVault3</li>
           </chooseFrom>
         </li>
       </parts>
