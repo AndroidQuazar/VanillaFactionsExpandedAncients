@@ -10,7 +10,7 @@
     <defaultFactionType>VFEA_AncientSoldiers</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <chemicalAddictionChance>0.08</chemicalAddictionChance>
-    <apparelMoney>0~3800</apparelMoney>
+    <apparelMoney>300~3800</apparelMoney>
     <apparelTags>
       <li>IndustrialBasic</li>
       <li>IndustrialAdvanced</li>

@@ -3,7 +3,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SuperJump</defName>
     <label>super jump</label>
-    <description>todo</description>
+    <description>Jump over a short distance (10 cells) within line of sight to close the distance to the enemy.</description>
     <abilityClass>VFEAncients.Ability_Jump</abilityClass>
     <targetMode>Location</targetMode>
     <range>10.9</range>
@@ -15,7 +15,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Berserk</defName>
     <label>berserk (telepathy)</label>
-    <description>Send target into a berserker rage</description>
+    <description>Cast on an enemy to turn them on their allies.</description>
     <abilityClass>VFEAncients.Ability_Berserk</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -27,7 +27,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Calm</defName>
     <label>calm (telepathy)</label>
-    <description>Cleanse the target of a mental state</description>
+    <description>Cast on a friend to instantly snap them out of a mental break.</description>
     <abilityClass>VFEAncients.Ability_Calm</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -39,7 +39,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_PsychicShock</defName>
     <label>psychic shock</label>
-    <description>Send a target into psychic shock, downing them for a few hours</description>
+    <description>Fire a psychic shock on the enemy, rendering them unconscious.</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
@@ -56,7 +56,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Invisibility</defName>
     <label>invisibility</label>
-    <description>Make yourself unable to be seen</description>
+    <description>Turns invisible for 60 seconds.</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_Invisibility</iconPath>
@@ -68,7 +68,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SelfControl</defName>
     <label>self-control</label>
-    <description>Focus your will inward and cleanse your own mental state</description>
+    <description>When activated, immediately stop any mental breaks this pawn is under effect of.</description>
     <abilityClass>VFEAncients.Ability_CalmSelf</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_SelfControl</iconPath>
@@ -79,7 +79,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Overshield</defName>
     <label>overshield</label>
-    <description>Generate a impenetrable shield around yourself</description>
+    <description>Generate an impenetrable shield around yourself that lasts 30 seconds.</description>
     <abilityClass>VFECore.Abilities.Ability_Barrier</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_Overshield</iconPath>
@@ -97,7 +97,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SummonLightning</defName>
     <label>summon lightning</label>
-    <description>Summon several lightning bolts on target location</description>
+    <description>Designate an area that will be blasted by lightning bolts.</description>
     <abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
     <targetMode>Location</targetMode>
     <iconPath>Powers/Superpowers/Power_SummonLightning</iconPath>
@@ -116,7 +116,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_AnimalSpeech</defName>
     <label>animal speech</label>
-    <description>Talk to animal, to cure manhunting if present, and otherwise tame them instantly</description>
+    <description>When cast on a man hunting animal, calms it. When cast on a wild animal, tame it.</description>
     <abilityClass>VFEAncients.Ability_Animal</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_AnimalSpeech</iconPath>
@@ -128,7 +128,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Empathy</defName>
     <label>empathy</label>
-    <description>Empathise with the target and cause them to feel better about their situation</description>
+    <description>Cast on an ally to give them a strong mood buff lasting 24 hours.</description>
     <abilityClass>VFEAncients.Ability_Thought</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_Empathy</iconPath>
@@ -145,7 +145,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Heal</defName>
     <label>heal others</label>
-    <description>Heal the target of all injuries</description>
+    <description>Cast on an ally to cure them of all their wounds.</description>
     <abilityClass>VFEAncients.Ability_Heal</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_HealOthers</iconPath>
@@ -157,7 +157,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_GloryKill</defName>
     <label>glory kill</label>
-    <description>Heal the target of all injuries</description>
+    <description>Kill a random enemy in 1 cell radius, spawning large amount of blood everywhere, and removing a random amount of their limbs.</description>
     <abilityClass>VFEAncients.Ability_GloryKill</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_GloryKill</iconPath>
@@ -168,7 +168,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_ElectromagneticPulse</defName>
     <label>electro-magnetic pulse</label>
-    <description>Cause a large EMP around yourself, shutting down electronics</description>
+    <description>Generate a large EMP explosion around yourself, disabling all electronics in radius.</description>
     <abilityClass>VFEAncients.Ability_Explode</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_ElectromagneticPulse</iconPath>
@@ -186,7 +186,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_FireBreath</defName>
     <label>fire breath</label>
-    <description>Breath a large ploom of fire at a target</description>
+    <description>Spew fire up to 12 cells range in front of you, burning enemies and sending them running.</description>
     <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_Firebreath</iconPath>
@@ -203,7 +203,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_IceBreath</defName>
     <label>ice breath</label>
-    <description>Breath a large ploom of ice at a target</description>
+    <description>Spew ice up to 12 cells range in front of you, slowing enemies and applying high hypothermia.</description>
     <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_Icebreath</iconPath>
@@ -220,7 +220,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_LaserEyes</defName>
     <label>laser eyes</label>
-    <description>Fire an incredibly powerful beam of energy from your eyes</description>
+    <description>Fire an incredibly powerful beam of energy from your eyes. Maximum range is 35.</description>
     <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_LaserEyes</iconPath>
@@ -237,7 +237,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_MatterPhasing</defName>
     <label>matter phasing</label>
-    <description>Make yourself able to walk through solid matter</description>
+    <description>Turn on to phase through walls for 10 seconds.</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_MatterPhasing</iconPath>
@@ -249,7 +249,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_ElectricityBlast</defName>
     <label>electricity blast</label>
-    <description>todo</description>
+    <description>Fire an arc of lightning that bounced between enemies, burning them and disabling any electronics.</description>
     <abilityClass>VFEAncients.Ability_ElectricBlast</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_ElectricityBlast</iconPath>
@@ -275,7 +275,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SpeedBurst</defName>
     <label>speed burst</label>
-    <description>Get an increase in move speed and a reduction in melee cooldown</description>
+    <description>4x Movement speed. Melee cooldown halved. Lasts 30 seconds.</description>
     <abilityClass>VFEAncients.Ability</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_SpeedBurst</iconPath>
