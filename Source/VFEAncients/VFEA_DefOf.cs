@@ -30,11 +30,12 @@ namespace VFEAncients
         public static ThingDef VFEA_AncientSupplyCrate;
         public static ThingSetMakerDef VFEA_Contents_SuuplyDrop;
         public static JobDef VFEA_PrisonerInterrogate;
+        public static JobDef VFEA_CarryToBioBatteryTank;
         public static PrisonerInteractionModeDef VFEA_Interrogate;
         public static InteractionDef VFEA_Intimidate;
         public static InteractionDef VFEA_InterrogatePrisoner;
         public static RulePackDef VFEA_InterrogationRefused;
         public static RulePackDef VFEA_InterrogationSuccess;
-        public static ThingDef VFEA_Turret_AncientPointDefense;
+        public static ThingDef VFEA_NaniteSampler;
     }
 }

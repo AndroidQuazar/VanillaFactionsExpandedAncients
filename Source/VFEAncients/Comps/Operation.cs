@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -10,10 +11,7 @@ namespace VFEAncients
     {
         public CompGeneTailoringPod Pod;
 
-        public Operation(CompGeneTailoringPod pod)
-        {
-            Pod = pod;
-        }
+        protected Operation(CompGeneTailoringPod pod) => Pod = pod;
 
         public virtual int TicksRequired => Mathf.RoundToInt(7 * 60000 * Pod.parent.GetStatValue(VFEA_DefOf.VFEA_InjectingTimeFactor));
 
@@ -23,15 +21,9 @@ namespace VFEAncients
         {
         }
 
-        public virtual bool CanRunOnPawn(Pawn pawn)
-        {
-            return true;
-        }
+        public virtual bool CanRunOnPawn(Pawn pawn) => true;
 
-        public virtual int StartOnPawnGetDuration()
-        {
-            return TicksRequired;
-        }
+        public virtual int StartOnPawnGetDuration() => TicksRequired;
 
         public virtual float FailChanceOnPawn(Pawn pawn)
         {
@@ -74,14 +66,24 @@ namespace VFEAncients
         public override void Success()
         {
             DefDatabase<PowerDef>.AllDefs.Split(out var superpowers, out var weaknessess, def => def.powerType == PowerType.Superpower);
-            var superpower = superpowers.RandomElement();
-            var weakness = weaknessess.RandomElement();
-            var tracker = Pod.Occupant.GetPowerTracker();
-            tracker.AddPower(superpower);
-            tracker.AddPower(weakness);
-            Pod.EjectContents();
-            Find.LetterStack.ReceiveLetter("VFEAncients.Empowered.Label".Translate(tracker.Pawn.LabelShortCap),
-                "VFEAncients.Empowered.Text".Translate(tracker.Pawn.LabelShortCap, superpower.LabelCap, weakness.LabelCap), LetterDefOf.PositiveEvent, tracker.Pawn);
+            Action<Tuple<PowerDef, PowerDef>> onPowers = powers =>
+            {
+                var tracker = Pod.Occupant.GetPowerTracker();
+                tracker.AddPower(powers.Item1);
+                tracker.AddPower(powers.Item2);
+                Pod.EjectContents();
+                Find.LetterStack.ReceiveLetter("VFEAncients.Empowered.Label".Translate(tracker.Pawn.LabelShortCap),
+                    "VFEAncients.Empowered.Text".Translate(tracker.Pawn.NameShortColored, powers.Item1.LabelCap, powers.Item2.LabelCap), LetterDefOf.PositiveEvent, tracker.Pawn);
+            };
+            GenDebug.LogList(Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading);
+            if (Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.Any(t => t.def == VFEA_DefOf.VFEA_NaniteSampler))
+                Find.WindowStack.Add(new Dialog_ChoosePowers(new List<Tuple<PowerDef, PowerDef>>
+                {
+                    new(superpowers.RandomElement(), weaknessess.RandomElement()),
+                    new(superpowers.RandomElement(), weaknessess.RandomElement())
+                }, Pod.Occupant, onPowers));
+            else
+                onPowers(new Tuple<PowerDef, PowerDef>(superpowers.RandomElement(), weaknessess.RandomElement()));
         }
     }
 
@@ -113,7 +115,7 @@ namespace VFEAncients
             tracker.RemovePower(weakness);
             Pod.EjectContents();
             Find.LetterStack.ReceiveLetter("VFEAncients.RemoveWeakness.Label".Translate(tracker.Pawn.LabelShortCap),
-                "VFEAncients.RemoveWeakness.Text".Translate(tracker.Pawn.LabelShortCap, weakness.LabelCap), LetterDefOf.PositiveEvent, tracker.Pawn);
+                "VFEAncients.RemoveWeakness.Text".Translate(tracker.Pawn.NameShortColored, weakness.LabelCap), LetterDefOf.PositiveEvent, tracker.Pawn);
         }
     }
 }

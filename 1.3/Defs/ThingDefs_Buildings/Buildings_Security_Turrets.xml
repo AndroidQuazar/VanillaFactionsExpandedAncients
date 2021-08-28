@@ -142,7 +142,7 @@
 <!-- Ancient Point Defense Turret -->
 
   <ThingDef ParentName="BuildingBase" Name="AncientPointDefenseTurretBase" Abstract="True"> 
-    <thingClass>Building_TurretGun</thingClass>
+    <thingClass>VFEAncients.Building_TurretPD</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Building/Security/AncientPointDefenseTurret/AncientPointDefenseTurret_Base</texPath>

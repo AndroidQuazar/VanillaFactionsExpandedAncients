@@ -12,7 +12,9 @@ namespace VFEAncients
     [StaticConstructorOnStartup]
     public class CompGeneTailoringPod : ThingComp, IThingHolder, ISuspendableThingHolder, IThingHolderWithDrawnPawn
     {
-        private static readonly Material BackgroundMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.082f, 0.078f, 0.063f));
+        public static Material BackgroundMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.082f, 0.078f, 0.063f));
+
+        public static Texture2D StartOperationTex = ContentFinder<Texture2D>.Get("UI/Gizmos/GeneTailoringInitiate");
         private readonly List<Operation> possibleOperations;
         private Operation currentOperation;
         private ThingOwner innerContainer;
@@ -30,6 +32,26 @@ namespace VFEAncients
 
         public Pawn Occupant => innerContainer.OfType<Pawn>().FirstOrDefault();
 
+        public string TimeExplain
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_InjectingTimeFactor, builder);
+                return builder.ToString();
+            }
+        }
+
+        public string FailChanceExplain
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_FailChance, builder);
+                return builder.ToString();
+            }
+        }
+
         public bool IsContentsSuspended => true;
 
         public void GetChildHolders(List<IThingHolder> outChildren)
@@ -37,10 +59,7 @@ namespace VFEAncients
             ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
         }
 
-        public ThingOwner GetDirectlyHeldThings()
-        {
-            return innerContainer;
-        }
+        public ThingOwner GetDirectlyHeldThings() => innerContainer;
 
         public float HeldPawnDrawPos_Y => parent.DrawPos.y - Altitudes.AltInc;
         public float HeldPawnBodyAngle => parent.Rotation.Opposite.AsAngle;
@@ -82,7 +101,7 @@ namespace VFEAncients
 
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
-            if (mode == DestroyMode.Deconstruct || mode == DestroyMode.KillFinalize) EjectContents(previousMap);
+            if (mode is DestroyMode.Deconstruct or DestroyMode.KillFinalize) EjectContents(previousMap);
 
             innerContainer.ClearAndDestroyContents();
             base.PostDestroy(mode, previousMap);
@@ -99,10 +118,11 @@ namespace VFEAncients
                                     op.FailChanceOnPawn(Occupant).ToStringPercent().Colorize(ColoredText.ThreatColor),
                                     parent.def.GetCompProperties<CompProperties_AffectedByFacilities>().linkableFacilities.Where(def =>
                                             def.GetCompProperties<CompProperties_Facility>()?.statOffsets?.Any(statMod => statMod.stat == VFEA_DefOf.VFEA_FailChance) ?? false)
-                                        .Select(def => def.label).ToLineList("  - "), op.TicksRequired.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor)),
+                                        .Select(def => def.label).ToLineList("  - "), op.TicksRequired.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor),
+                                    TimeExplain, FailChanceExplain),
                                 () => StartOperation(op), true)))).ToList())),
                     defaultLabel = "VFEAncients.StartOperation".Translate(),
-                    icon = Texture2D.normalTexture
+                    icon = StartOperationTex
                 };
             if (currentOperation != null)
                 yield return new Command_Action
@@ -146,14 +166,12 @@ namespace VFEAncients
                     opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
                 }
                 else if (thing.TryGetComp<CompGeneTailoringPod>().CanAccept(target))
-                {
                     opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, () =>
                     {
                         var job = JobMaker.MakeJob(VFEA_DefOf.VFEA_CarryToGeneTailoringPod, target, thing);
                         job.count = 1;
                         pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                    }), pawn, thing));
-                }
+                    }), pawn, target));
             }
         }
 
@@ -217,7 +235,7 @@ namespace VFEAncients
             base.PostExposeData();
             Scribe_Deep.Look(ref currentOperation, "currentOperation", this);
             Scribe_Values.Look(ref ticksTillDone, "ticksTillDone");
-            Scribe_Deep.Look(ref innerContainer, "innerContainer");
+            Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         }
 
         public override string CompInspectStringExtra()

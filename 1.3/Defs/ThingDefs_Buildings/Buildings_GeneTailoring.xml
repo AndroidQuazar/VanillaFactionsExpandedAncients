@@ -93,6 +93,7 @@
           <li>VFEA_GenomeMacrothermometer</li>
           <li>VFEA_StabilisedMucusInducer</li>
           <li>VFEA_NanotechRetractor</li>
+          <li>VFEA_NaniteSampler</li>
         </linkableFacilities>
       </li>
       <li Class="CompProperties_Refuelable">

@@ -6,11 +6,9 @@ using Verse;
 
 namespace VFEAncients
 {
-    [StaticConstructorOnStartup]
     public class ITab_Pawn_Powers : ITab
     {
-        [TweakValue("Vanilla Factions Expanded - Ancients", 1, 60)]
-        public static int MaxPowers = 5;
+        [TweakValue("Vanilla Expanded", 1)] public static int MaxPowers = 5;
 
         public bool EditMode;
 
@@ -49,11 +47,10 @@ namespace VFEAncients
 
         public void DoEmptyRect(Rect inRect, PowerType type, bool filled = false)
         {
-            var color = GUI.color;
-            if (type == PowerType.Weakness) GUI.color = new Color(0.6f, 0f, 0f);
-            GUI.DrawTexture(inRect, ColonistBar.BGTex);
-            GUI.color = color;
-            if (EditMode && !filled && Widgets.ButtonInvisible(inRect, false))
+            GUI.DrawTexture(inRect, type == PowerType.Superpower ? Dialog_ChoosePowers.SuperpowerBackgroundTex : Dialog_ChoosePowers.WeaknessBackgroundTex);
+            if (!EditMode || filled) return;
+            Widgets.DrawHighlightIfMouseover(inRect);
+            if (Widgets.ButtonInvisible(inRect))
                 Find.WindowStack.Add(new FloatMenu(DefDatabase<PowerDef>.AllDefs.Where(power => power.powerType == type)
                     .Select(power => new FloatMenuOption(power.LabelCap, () => SelPowerTracker.AddPower(power))).ToList()));
         }
@@ -64,7 +61,7 @@ namespace VFEAncients
             TooltipHandler.TipRegion(inRect, new TipSignal($"{power.LabelCap}\n\n{power.description}\n{power.Worker.EffectString()}"));
             Widgets.DrawHighlightIfMouseover(inRect);
             if (EditMode && Widgets.ButtonInvisible(inRect, false))
-                Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption> {new FloatMenuOption("Remove", () => SelPowerTracker.RemovePower(power))}));
+                Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption> {new("Remove", () => SelPowerTracker.RemovePower(power))}));
         }
     }
 }

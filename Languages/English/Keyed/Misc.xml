@@ -20,6 +20,7 @@
     <VFEAncients.RefillsIn>Refills in {0}</VFEAncients.RefillsIn>
     <VFEAncients.EnterGeneTailoringPod>Enter gene-tailoring pod</VFEAncients.EnterGeneTailoringPod>
     <VFEAncients.CarryToGeneTailoringPod>Carry {0} to gene-tailoring pod</VFEAncients.CarryToGeneTailoringPod>
+    <VFEAncients.CarryToBioBattery>Carry {0} to bio battery</VFEAncients.CarryToBioBattery>
     <VFEAncients.Empower>Add superpower</VFEAncients.Empower>
     <VFEAncients.RemoveWeakness>Remove weakness</VFEAncients.RemoveWeakness>
     <VFEAncients.Empowered.Label>Experiment Success: {0}</VFEAncients.Empowered.Label>
@@ -42,5 +43,11 @@
     <VFEAncients.InterrogationSuccessDetail>{0} has successfully interrogated {1}, who has revealed the location of {2}.</VFEAncients.InterrogationSuccessDetail>
     <VFEAncients.InterrogationFailure>Interrogation failed!</VFEAncients.InterrogationFailure>
     <VFEAncients.DeterioratingUncontained>uncontained</VFEAncients.DeterioratingUncontained>
-    <VFEAncients.ExperimentFailureWarning>Running this experiment has a {0} chance of failure. This could be reduced by building some of these buildings:\n{1}\n\nThe experiment will take {2} and cannot be stopped once started.</VFEAncients.ExperimentFailureWarning>
+    <VFEAncients.FireAtPods>Fire at drop pods</VFEAncients.FireAtPods>
+    <VFEAncients.FireAtPawns>Fire at enemies</VFEAncients.FireAtPawns>
+    <VFEAncients.FireAtProjectiles>Fire at explosive projectiles</VFEAncients.FireAtProjectiles>
+    <VFEAncients.PowerChoice>The process of injecting super-nanites has finished. Because your lab equipment includes a nanite sampler, you may now select between the two power and weakness pairs for {0} to obtain.</VFEAncients.PowerChoice>
+    <VFEAncients.Select>Select</VFEAncients.Select>
+    <VFEAncients.MassLeft>Mass Left: {0} / {1} ({2})</VFEAncients.MassLeft>
+    <VFEAncients.ExperimentFailureWarning>Running this experiment has a {0} chance of failure. This is due to:{4}\n\nThis could be reduced by finding and installing some of these buildings:\n{1}\n\nThe experiment will take {2} and cannot be stopped once started. This is affected by:{3}</VFEAncients.ExperimentFailureWarning>
 </LanguageData>

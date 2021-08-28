@@ -23,7 +23,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static bool OverrideAttackVerb(Building_TurretGun __instance, ref Verb __result)
         {
-            if (__instance.CurrentTarget.Thing is Projectile_Explosive || __instance.CurrentTarget.Thing is DropPodIncoming)
+            if (__instance.CurrentTarget.Thing is Projectile_Explosive or DropPodIncoming)
             {
                 __result = __instance.GunCompEq.AllVerbs.First(v => v.verbProps.label == "point-defense");
                 return false;
@@ -32,44 +32,46 @@ namespace VFEAncients.HarmonyPatches
             return true;
         }
 
-        private static bool TryFindPDTarget(Building_TurretGun searcher, out LocalTargetInfo target)
+        private static bool TryFindPDTarget(Building_TurretPD searcher, out LocalTargetInfo target)
         {
             var range = searcher.AttackVerb.verbProps.range;
-            target = searcher.Map.listerThings.ThingsInGroup(ThingRequestGroup.Projectile)
-                .Where(t => t is Projectile_Explosive && t.HostileTo(searcher) && t.Position.InHorDistOf(searcher.Position, range))
-                .OrderByDescending(t => t.Position.DistanceTo(searcher.Position))
-                .FirstOrDefault();
+            target = LocalTargetInfo.Invalid;
+            if (searcher.Opts.AtProjectiles)
+                target = searcher.Map.listerThings.ThingsInGroup(ThingRequestGroup.Projectile)
+                    .Where(t => t is Projectile_Explosive pe && pe.Launcher.HostileTo(searcher) && t.Position.InHorDistOf(searcher.Position, range))
+                    .OrderByDescending(t => t.Position.DistanceTo(searcher.Position))
+                    .FirstOrDefault();
+
             if (target.IsValid) return true;
-            target = searcher.Map.listerThings.ThingsInGroup(ThingRequestGroup.ActiveDropPod)
-                .Where(t => t is DropPodIncoming && t.HostileTo(searcher) && Mathf.Abs((t.DrawPos - searcher.DrawPos).magnitude) <= range).OrderByDescending(t =>
-                    Mathf.Abs((t.DrawPos - searcher.DrawPos).magnitude)).FirstOrDefault();
-            if (target.IsValid) return true;
+            if (searcher.Opts.AtPods)
+                target = searcher.Map.listerThings.ThingsInGroup(ThingRequestGroup.ActiveDropPod)
+                    .Where(t => t is DropPodIncoming pod && (pod.Contents.innerContainer.OfType<Pawn>().FirstOrDefault()?.HostileTo(searcher) ?? false) &&
+                                Mathf.Abs((t.DrawPos - searcher.DrawPos).magnitude) <= range)
+                    .OrderByDescending(t => Mathf.Abs((t.DrawPos - searcher.DrawPos).magnitude))
+                    .FirstOrDefault();
+            return target.IsValid;
+        }
+
+        public static bool TryShootProjectile(Building_TurretGun __instance, ref LocalTargetInfo ___currentTargetInt, ref int ___burstWarmupTicksLeft)
+        {
+            if (__instance is not Building_TurretPD pd) return true;
+
+            if (!TryFindPDTarget(pd, out var target)) return pd.Opts.AtPawns;
+            Log.Message($"Found PD target: {target}");
+            ___currentTargetInt = target;
+            ___burstWarmupTicksLeft = __instance.def.building.turretBurstWarmupTime > 0f ? __instance.def.building.turretBurstWarmupTime.SecondsToTicks() : 1;
+
             return false;
         }
 
-        public static bool TryShootProjectile(Building_TurretGun __instance, ref LocalTargetInfo ___currentTargetInt, bool canBeginBurstImmediately,
-            ref int ___burstWarmupTicksLeft)
+        public static void PreLaunch(ref LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget)
         {
-            if (__instance.def == VFEA_DefOf.VFEA_Turret_AncientPointDefense && TryFindPDTarget(__instance, out var target))
+            usedTarget = intendedTarget.Thing switch
             {
-                ___currentTargetInt = target;
-                if (__instance.def.building.turretBurstWarmupTime > 0f)
-                {
-                    ___burstWarmupTicksLeft = __instance.def.building.turretBurstWarmupTime.SecondsToTicks();
-                    return false;
-                }
-
-                ___burstWarmupTicksLeft = 1;
-                return false;
-            }
-
-            return true;
-        }
-
-        public static void PreLaunch(ref LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, Projectile __instance)
-        {
-            if (intendedTarget.Thing is Projectile_Explosive proj && Rand.Chance(0.75f) && proj.Spawned) usedTarget = proj;
-            if (intendedTarget.Thing is DropPodIncoming pod && pod.Spawned) usedTarget = pod;
+                Projectile_Explosive proj when Rand.Chance(0.75f) && proj.Spawned => proj,
+                DropPodIncoming {Spawned: true} pod => pod,
+                _ => usedTarget
+            };
         }
 
         public static bool PreImpactSomething(Projectile __instance)
@@ -77,10 +79,10 @@ namespace VFEAncients.HarmonyPatches
             var flag = false;
             switch (__instance.usedTarget.Thing)
             {
-                case Projectile_Explosive proj when proj.Spawned:
+                case Projectile_Explosive {Spawned: true} proj:
                     proj.Destroy();
                     break;
-                case DropPodIncoming pod when pod.Spawned:
+                case DropPodIncoming {Spawned: true} pod:
                     pod.Destroy();
                     break;
                 default:

@@ -7,7 +7,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SuperLearning</texPath>
         <statFactors><GlobalLearningFactor>3</GlobalLearningFactor></statFactors>
-		<effectDescription>Triple Skill gain.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ToxicResistance</defName>
@@ -16,7 +15,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_ToxicResistance</texPath>
         <statFactors><ToxicSensitivity>0</ToxicSensitivity></statFactors>
-		<effectDescription>100% Toxic resistance.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>PsychicResistance</defName>
@@ -25,7 +23,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_PsychicResistance</texPath>
         <statFactors><PsychicSensitivity>0</PsychicSensitivity></statFactors>
-		<effectDescription>100% Psychic resistance.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Regeneration</defName>
@@ -43,7 +40,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SuperSpeed</texPath>
         <statFactors><MoveSpeed>1.5</MoveSpeed></statFactors>
-		<effectDescription>+50% movement speed.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>GeniusIntellect</defName>
@@ -52,7 +48,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_GeniusIntellect</texPath>
         <statFactors><ResearchSpeed>3</ResearchSpeed></statFactors>
-		<effectDescription>Research speed tripled.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>WeaponExpert</defName>
@@ -64,7 +59,6 @@
             <AimingDelayFactor>0.5</AimingDelayFactor>
             <VFEAncients_RangedCooldownFactor>0.5</VFEAncients_RangedCooldownFactor>
         </statFactors>
-		<effectDescription>Weapon warmup and cooldown halved.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ColdResistance</defName>

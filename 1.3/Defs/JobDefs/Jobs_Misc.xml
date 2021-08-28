@@ -33,8 +33,8 @@
   
   <JobDef>
     <defName>VFEA_CarryToBioBatteryTank</defName>
-    <driverClass>VFEAncients.JobDriver_CarryToGeneTailoringPod</driverClass>
-    <reportString>hauling TargetA to bio-battery tank.</reportString>
-	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    <driverClass>VFEAncients.JobDriver_CarryToBioBattery</driverClass>
+    <reportString>carrying TargetA to bio-battery tank.</reportString>
+  	<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 </Defs>

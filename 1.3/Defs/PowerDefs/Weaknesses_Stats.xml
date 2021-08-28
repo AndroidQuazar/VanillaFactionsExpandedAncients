@@ -7,7 +7,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Unstable</texPath>
         <statOffsets><PsychicSensitivity>1</PsychicSensitivity></statOffsets>
-		<effectDescription>Psychic Sensitivity +100%.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ExtremelyFlammable</defName>
@@ -16,7 +15,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ExtremelyFlammable</texPath>
         <statFactors><Flammability>4</Flammability></statFactors>
-		<effectDescription>4x Flammability.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ToxinIntolerance</defName>
@@ -25,7 +23,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ToxinIntolerance</texPath>
         <statOffsets><ToxicSensitivity>1</ToxicSensitivity></statOffsets>
-		<effectDescription>Toxic Sensitivity +100%.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>HeatIntolerance</defName>
@@ -34,7 +31,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_HeatIntolerance</texPath>
         <statOffsets><ComfyTemperatureMax>-10</ComfyTemperatureMax></statOffsets>
-		<effectDescription>Max Comfortable Temperature -10 degrees.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ColdIntolerance</defName>
@@ -43,7 +39,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ColdIntolerance</texPath>
         <statOffsets><ComfyTemperatureMin>10</ComfyTemperatureMin></statOffsets>
-		<effectDescription>Min Comfortable Temperature +10 degrees.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ImmunologicalDisorder</defName>
@@ -51,8 +46,7 @@
         <description>The subject’s immune system has been ruined, requiring them to take frequent medicine and receive constant medical care, as even the sniffles could kill them.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ImmunologicalDisorder</texPath>
-        <statFactors><ImmunityGainSpeed>0.75</ImmunityGainSpeed></statFactors>
-		<effectDescription>Immunity gain speed reduced by 75%.</effectDescription>
+        <statFactors><ImmunityGainSpeed>0.25</ImmunityGainSpeed></statFactors>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Hypermetabolism</defName>
@@ -61,7 +55,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Hypermetabolism</texPath>
         <statFactors><HungerRateMultiplier>2</HungerRateMultiplier></statFactors>
-		<effectDescription>Pawn Hunger drops at 2x the speed.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Finicky</defName>
@@ -70,7 +63,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Finicky</texPath>
         <statFactors><WorkSpeedGlobal>0.3</WorkSpeedGlobal></statFactors>
-		<effectDescription>Global Work Speed 1/3rd.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Unsure</defName>
@@ -79,7 +71,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Unsure</texPath>
         <statFactors><AimingDelayFactor>2</AimingDelayFactor></statFactors>
-		<effectDescription>Weapon warmup speed doubled.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>AlwaysKnowsBetter</defName>
@@ -88,6 +79,5 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_AlwaysKnowsBetter</texPath>
         <statFactors><GlobalLearningFactor>0</GlobalLearningFactor></statFactors>
-		<effectDescription>Learning Speed 0%.</effectDescription>
     </VFEAncients.PowerDef>
 </Defs>

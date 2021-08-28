@@ -3,7 +3,7 @@
     <InteractionDef>
         <defName>VFEA_Intimidate</defName>
         <label>try to intimidate</label>
-        <symbol>Things/Mote/SpeechSymbols/Insult</symbol>
+        <symbol>UI/SocialInteractions/Intimidation</symbol>
         <initiatorXpGainSkill>Social</initiatorXpGainSkill>
         <initiatorXpGainAmount>45</initiatorXpGainAmount>
         <!-- TODO: Better writing -->

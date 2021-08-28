@@ -43,6 +43,6 @@
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_PainHypersensitivity</texPath>
         <hediffs><li>Power_PainHypersensitivity</li></hediffs>
-		<effectDescription>Pain capacity at 300%.</effectDescription>
+		<effectDescription>Pain multiplied by 300%.</effectDescription>
     </VFEAncients.PowerDef>
 </Defs>

@@ -6,7 +6,6 @@
         <description>The subject has become bigotted, believing the rule of their community is absolute and refuses to deal with prisoners unless they’re at the end of a knife or gun.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Bigot</texPath>
-        <effectDescription>Wardening disabled.</effectDescription>
         <disabledWorkTags><li>Social</li></disabledWorkTags>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
@@ -15,7 +14,6 @@
         <description>The subject has become incredibly conscientious and refuses to use weapons or even defend themselves in the face of violence.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_ConscientiousObjector</texPath>
-        <effectDescription>Pawn becomes incapable of violence and won’t equip weapons.</effectDescription>
         <disabledWorkTags><li>Violent</li></disabledWorkTags>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
@@ -24,7 +22,6 @@
         <description>The subject has developed a massive ego and refuses to do any and all work, viewing it as beneath them.</description>
         <powerType>Weakness</powerType>
         <texPath>Powers/Weaknesses/Weakness_Egotistical</texPath>
-        <effectDescription>Pawn is incapable of all work.</effectDescription>
         <disabledWorkTags><li>AllWork</li></disabledWorkTags>
     </VFEAncients.PowerDef>
 </Defs>

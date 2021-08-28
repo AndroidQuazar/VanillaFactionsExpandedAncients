@@ -3,7 +3,7 @@
     <InteractionDef>
         <defName>VFEA_InterrogatePrisoner</defName>
         <label>attempt interrogation</label>
-        <symbol>Things/Mote/SpeechSymbols/Insult</symbol>
+        <symbol>UI/SocialInteractions/Interrogation</symbol>
         <initiatorXpGainSkill>Social</initiatorXpGainSkill>
         <initiatorXpGainAmount>60</initiatorXpGainAmount>
         <workerClass>VFEAncients.InteractionWorker_Interrogate</workerClass>

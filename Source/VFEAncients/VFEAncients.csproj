@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
@@ -52,6 +55,9 @@
     <Compile Include="Abilities\Ability_Heal.cs" />
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
+    <Compile Include="Comps\CompBioBattery.cs" />
+    <Compile Include="Dialog_ChoosePowers.cs" />
+    <Compile Include="Jobs\JobDriver_CarryToBioBattery.cs" />
     <Compile Include="Things\Building_Cooler.cs" />
     <Compile Include="Things\Building_PipelineJunction.cs" />
     <Compile Include="Comps\CompNeedsContainment.cs" />
@@ -66,6 +72,7 @@
     <Compile Include="HarmonyPatches\BuildingPatches.cs" />
     <Compile Include="HarmonyPatches\PointDefensePatches.cs" />
     <Compile Include="HarmonyPatches\PreceptPatches.cs" />
+    <Compile Include="Things\Building_TurretPD.cs" />
     <Compile Include="Workers\IncidentWorker_SupplyDrop.cs" />
     <Compile Include="Workers\InteractionWorker_Interrogate.cs" />
     <Compile Include="Jobs\JobDriver_InterrogatePrisoner.cs" />

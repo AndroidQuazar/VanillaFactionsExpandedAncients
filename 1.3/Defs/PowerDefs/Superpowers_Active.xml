@@ -7,7 +7,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SuperJump</texPath>
         <abilities><li>VFEA_SuperJump</li></abilities>
-		<effectDescription>Jump over a short distance (10 cells) within line of sight to close the distance to the enemy.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Telepathy</defName>
@@ -24,7 +23,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_PsychicShock</texPath>
         <abilities><li>VFEA_PsychicShock</li></abilities>
-		<effectDescription>Fire a psychic shock on the enemy, rendering them unconscious.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Invisibility</defName>
@@ -33,7 +31,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Invisibility</texPath>
         <abilities><li>VFEA_Invisibility</li></abilities>
-		<effectDescription>Turns invisible for 60 seconds.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>SelfControl</defName>
@@ -42,7 +39,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SelfControl</texPath>
         <abilities><li>VFEA_SelfControl</li></abilities>
-		<effectDescription>When activated, immediately stop any mental breaks this pawn is under effect of.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Overshield</defName>
@@ -51,7 +47,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Overshield</texPath>
         <abilities><li>VFEA_Overshield</li></abilities>
-		<effectDescription>Generate an impenetrable shield around yourself that lasts 30 seconds.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>SummonLightning</defName>
@@ -60,7 +55,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SummonLightning</texPath>
         <abilities><li>VFEA_SummonLightning</li></abilities>
-		<effectDescription>Designate an area that will be blasted by lightning bolts.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>AnimalSpeech</defName>
@@ -69,7 +63,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_AnimalSpeech</texPath>
         <abilities><li>VFEA_AnimalSpeech</li></abilities>
-		<effectDescription>When cast on a man hunting animal, calms it. When cast on a wild animal, tame it.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Empathy</defName>
@@ -78,7 +71,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Empathy</texPath>
         <abilities><li>VFEA_Empathy</li></abilities>
-		<effectDescription>Cast on an ally to give them a strong mood buff lasting 24 hours.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>HealOthers</defName>
@@ -87,7 +79,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_HealOthers</texPath>
         <abilities><li>VFEA_Heal</li></abilities>
-		<effectDescription>Cast on an ally to cure them of all their wounds.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>GloryKill</defName>
@@ -96,7 +87,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_GloryKill</texPath>
         <abilities><li>VFEA_GloryKill</li></abilities>
-		<effectDescription>Kill a random enemy in 1 cell radius, spawning large amount of blood everywhere, and removing a random amount of their limbs.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ElectromagneticPulse</defName>
@@ -105,7 +95,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_ElectromagneticPulse</texPath>
         <abilities><li>VFEA_ElectromagneticPulse</li></abilities>
-		<effectDescription>Generate a large EMP explosion around yourself, disabling all electronics in radius.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>FireBreath</defName>
@@ -114,7 +103,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Firebreath</texPath>
         <abilities><li>VFEA_FireBreath</li></abilities>
-		<effectDescription>Spew fire up to 12 cells range in front of you, burning enemies and sending them running.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>IceBreath</defName>
@@ -123,7 +111,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Icebreath</texPath>
         <abilities><li>VFEA_IceBreath</li></abilities>
-		<effectDescription>Spew ice up to 12 cells range in front of you, slowing enemies and applying high hypothermia.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>LaserEyes</defName>
@@ -132,7 +119,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_LaserEyes</texPath>
         <abilities><li>VFEA_LaserEyes</li></abilities>
-		<effectDescription>Fire an incredibly powerful beam of energy from your eyes. Maximum range is 35.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>MatterPhasing</defName>
@@ -141,7 +127,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_MatterPhasing</texPath>
         <abilities><li>VFEA_MatterPhasing</li></abilities>
-		<effectDescription>Turn on to phase through walls for 10 seconds.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>ElectricityBlast</defName>
@@ -150,7 +135,6 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_ElectricityBlast</texPath>
         <abilities><li>VFEA_ElectricityBlast</li></abilities>
-		<effectDescription>Fire an arc of lightning that bounced between enemies, burning them and disabling any electronics.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>SpeedBurst</defName>
@@ -159,6 +143,5 @@
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_SpeedBurst</texPath>
         <abilities><li>VFEA_SpeedBurst</li></abilities>
-		<effectDescription>4x Movement speed. Melee cooldown halved. Lasts 30 seconds.</effectDescription>
     </VFEAncients.PowerDef>
 </Defs>

@@ -16,15 +16,15 @@ namespace VFEAncients
 {
     public class PowerDef : Def
     {
-        private static readonly List<Type> appliedPatches = new List<Type>();
+        private static readonly List<Type> appliedPatches = new();
         public List<AbilityDef> abilities;
         public WorkTags disabledWorkTags;
         public string effectDescription;
         public List<HediffDef> hediffs;
         public List<ThoughtDef> nullifiedThoughts;
         public PowerType powerType;
-        public List<StatModifier> statFactors = new List<StatModifier>();
-        public List<StatModifier> statOffsets = new List<StatModifier>();
+        public List<StatModifier> statFactors = new();
+        public List<StatModifier> statOffsets = new();
         public string texPath;
         public TickerType tickerType = TickerType.Never;
         public Type workerClass = typeof(PowerWorker);
@@ -71,15 +71,9 @@ namespace VFEAncients
         private static bool donePatches;
         public PowerDef def;
 
-        public PowerWorker(PowerDef def)
-        {
-            this.def = def;
-        }
+        public PowerWorker(PowerDef def) => this.def = def;
 
-        protected T GetData<T>() where T : WorkerData
-        {
-            return def.workerData as T;
-        }
+        protected T GetData<T>() where T : WorkerData => def.workerData as T;
 
         public virtual void Notify_Added(Pawn_PowerTracker parent)
         {
@@ -108,7 +102,11 @@ namespace VFEAncients
             var builder = new StringBuilder();
             if (def.abilities != null)
                 foreach (var ability in def.abilities)
+                {
                     builder.AppendLine("VFEAncients.Effect.AddAbility".Translate(ability.label));
+                    if (!ability.description.NullOrEmpty()) builder.AppendLine(ability.description);
+                }
+
             if (def.hediffs != null)
                 foreach (var hediff in def.hediffs)
                     builder.AppendLine("VFEAncients.Effect.AddHediff".Translate(hediff.label));
@@ -121,6 +119,9 @@ namespace VFEAncients
             if (def.nullifiedThoughts != null)
                 foreach (var thoughtDef in def.nullifiedThoughts)
                     builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label.Formatted("")));
+            if (def.disabledWorkTags != WorkTags.None)
+                foreach (var workTypeDef in DefDatabase<WorkTypeDef>.AllDefs.Where(work => (work.workTags & def.disabledWorkTags) != WorkTags.None))
+                    builder.AppendLine(workTypeDef.gerundLabel.CapitalizeFirst() + " " + "DisabledLower".Translate());
             if (!AdditionalEffects().NullOrEmpty()) builder.AppendLine(AdditionalEffects());
             if (!def.effectDescription.NullOrEmpty()) builder.AppendLine(def.effectDescription);
             if (builder.Length > 0) builder.Insert(0, "\n" + "VFEAncients.Effects".Translate() + "\n");
@@ -197,10 +198,7 @@ namespace VFEAncients
             return pawn.GetPowerTracker()?.AllPowers.FirstOrDefault(power => power.nullifiedThoughts?.Contains(def) ?? false);
         }
 
-        public virtual string AdditionalEffects()
-        {
-            return "";
-        }
+        public virtual string AdditionalEffects() => "";
 
         public static bool HasPower<T>(Thing caster) where T : PowerWorker
         {

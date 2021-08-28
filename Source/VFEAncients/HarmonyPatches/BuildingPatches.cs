@@ -21,7 +21,7 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(WorkGiver_DoBill), "TryFindBestBillIngredientsInSet"),
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(TryFindStuffIngredients)));
             harm.Patch(AccessTools.Method(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts)), new HarmonyMethod(typeof(BuildingPatches), nameof(RepairItem)));
-            harm.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), "AddHumanlikeOrders"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddCarryToPodJobs)));
+            harm.Patch(AccessTools.Method(typeof(FloatMenuMakerMap), "AddHumanlikeOrders"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddCarryJobs)));
             harm.Patch(AccessTools.Method(typeof(SteadyEnvironmentEffects), nameof(SteadyEnvironmentEffects.FinalDeteriorationRate),
                     new[] {typeof(Thing), typeof(bool), typeof(bool), typeof(bool), typeof(TerrainDef), typeof(List<string>)}),
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddDeterioration)));
@@ -36,12 +36,18 @@ namespace VFEAncients.HarmonyPatches
             }
         }
 
-        public static void AddCarryToPodJobs(List<FloatMenuOption> opts, Vector3 clickPos, Pawn pawn)
+        public static void AddCarryJobs(List<FloatMenuOption> opts, Vector3 clickPos, Pawn pawn)
         {
             foreach (var localTargetInfo4 in GenUI.TargetsAt(clickPos, TargetingParameters.ForCarryToBiosculpterPod(pawn), true))
             {
                 var target = localTargetInfo4.Pawn;
                 if (target.IsColonist && target.Downed || target.IsPrisonerOfColony) CompGeneTailoringPod.AddCarryToPodJobs(opts, pawn, target);
+            }
+
+            foreach (var info in GenUI.TargetsAt(clickPos, TargetingParameters.ForRescue(pawn)))
+            {
+                var target = info.Pawn;
+                if (target.Downed) CompBioBattery.AddCarryToBatteryJobs(opts, pawn, target);
             }
         }
 
