@@ -30,7 +30,7 @@ namespace VFEAncients
         public ThingOwner GetDirectlyHeldThings() => innerContainer;
 
         public float HeldPawnDrawPos_Y => parent.def.altitudeLayer.AltitudeFor(Altitudes.AltInc);
-        public float HeldPawnBodyAngle => parent.Rotation.Opposite.AsAngle;
+        public float HeldPawnBodyAngle => Rot4.North.AsAngle;
         public PawnPosture HeldPawnPosture => PawnPosture.LayingOnGroundFaceUp;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -63,6 +63,7 @@ namespace VFEAncients
             innerContainer.TryAddOrTransfer(pawn, false);
             massLeft = pawn.GetStatValue(StatDefOf.Mass);
             ticksTillConsume = 2500;
+            while (pawn.Downed) HealthUtility.FixWorstHealthCondition(pawn);
         }
 
         public static void AddCarryToBatteryJobs(List<FloatMenuOption> opts, Pawn pawn, Pawn target)
@@ -114,13 +115,13 @@ namespace VFEAncients
         public override void PostDraw()
         {
             base.PostDraw();
-            var s = new Vector3(parent.def.graphicData.drawSize.x * 0.6f, 1f, parent.def.graphicData.drawSize.y * 0.6f);
+            var s = new Vector3(parent.def.graphicData.drawSize.x, 1f, parent.def.graphicData.drawSize.y);
             var drawPos = parent.DrawPos;
             drawPos.y += Altitudes.AltInc * 2;
             Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(drawPos, parent.Rotation.AsQuat, s), TopMat, 0);
             if (Occupant is null) return;
             var drawLoc = parent.DrawPos;
-            Occupant.Drawer.renderer.RenderPawnAt(drawLoc, parent.Rotation, true);
+            Occupant.Drawer.renderer.RenderPawnAt(drawLoc, Rot4.South, true);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace VFEAncients.HarmonyPatches
             if (__instance is not Building_TurretPD pd) return true;
 
             if (!TryFindPDTarget(pd, out var target)) return pd.Opts.AtPawns;
-            Log.Message($"Found PD target: {target}");
+
             ___currentTargetInt = target;
             ___burstWarmupTicksLeft = __instance.def.building.turretBurstWarmupTime > 0f ? __instance.def.building.turretBurstWarmupTime.SecondsToTicks() : 1;
 
