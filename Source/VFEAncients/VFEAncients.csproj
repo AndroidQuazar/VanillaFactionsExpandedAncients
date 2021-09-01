@@ -56,7 +56,9 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Comps\CompBioBattery.cs" />
+    <Compile Include="Comps\CompQuestOnHacked.cs" />
     <Compile Include="Dialog_ChoosePowers.cs" />
+    <Compile Include="GenStep_PopulateVault.cs" />
     <Compile Include="Jobs\JobDriver_CarryToBioBattery.cs" />
     <Compile Include="Things\Building_Cooler.cs" />
     <Compile Include="Things\Building_PipelineJunction.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="HarmonyPatches\PointDefensePatches.cs" />
     <Compile Include="HarmonyPatches\PreceptPatches.cs" />
     <Compile Include="Things\Building_TurretPD.cs" />
+    <Compile Include="Things\Building_VaultDoor.cs" />
     <Compile Include="Workers\IncidentWorker_SupplyDrop.cs" />
     <Compile Include="Workers\InteractionWorker_Interrogate.cs" />
     <Compile Include="Jobs\JobDriver_InterrogatePrisoner.cs" />

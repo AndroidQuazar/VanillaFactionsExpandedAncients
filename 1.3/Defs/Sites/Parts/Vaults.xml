@@ -58,10 +58,17 @@
       <genStep Class="KCSG.GenStep_CustomStructureGen">
          <structureLayoutDefs>
             <li>VFEA_SealedVault1</li>
-            <li>VFEA_SealedVault2</li>
-            <li>VFEA_SealedVault3</li>
+            <!-- <li>VFEA_SealedVault2</li>
+            <li>VFEA_SealedVault3</li> -->
          </structureLayoutDefs>
          <shouldRuin>false</shouldRuin>
       </genStep>
+   </GenStepDef>
+
+   <GenStepDef>
+      <defName>VFEA_PopulateVaultSealed</defName>
+      <linkWithSite>VFEA_SealedVault</linkWithSite>
+      <order>1000</order>
+      <genStep Class="VFEAncients.GenStep_PopulateVault" />
    </GenStepDef>
 </Defs>

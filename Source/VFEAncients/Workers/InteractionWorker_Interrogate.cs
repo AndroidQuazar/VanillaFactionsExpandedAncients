@@ -42,7 +42,7 @@ namespace VFEAncients
         public float SuccessChance(Pawn initiator, Pawn recipient)
         {
             var fromSkill = Mathf.InverseLerp(0f, 25f, initiator.skills.GetSkill(SkillDefOf.Social).Level + 1f);
-            var fromPain = Mathf.LerpUnclamped(0.25f, 5f, recipient.health.hediffSet.PainTotal);
+            var fromPain = Mathf.LerpUnclamped(0.25f, 1.5f, recipient.health.hediffSet.PainTotal);
             Log.Message($"SuccessChance={fromSkill * fromPain},fromSkill={fromSkill},fromPain={fromPain}");
             return fromSkill * fromPain;
         }

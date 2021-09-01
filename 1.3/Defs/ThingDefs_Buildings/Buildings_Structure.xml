@@ -73,6 +73,7 @@
   <ThingDef ParentName="DoorBase">
     <defName>VFEA_VaultDoor</defName>
     <label>vault door</label>
+    <thingClass>VFEAncients.Building_VaultDoor</thingClass>
     <description>A thick vault auto-door, which takes a very long time to open and close, but is nearly indestructible.</description>
     <statBases>
       <WorkToBuild>1100</WorkToBuild>

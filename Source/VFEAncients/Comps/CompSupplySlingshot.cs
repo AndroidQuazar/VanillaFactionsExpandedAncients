@@ -9,7 +9,7 @@ namespace VFEAncients
     {
         private CompTransporter cachedCompTransporter;
 
-        public CompTransporter Transporter => cachedCompTransporter ?? (cachedCompTransporter = parent.GetComp<CompTransporter>());
+        public CompTransporter Transporter => cachedCompTransporter ??= parent.GetComp<CompTransporter>();
 
         public virtual int TicksToReturn => 60000 * 7;
 
@@ -55,7 +55,7 @@ namespace VFEAncients
 
             if (!Transporter.LoadingInProgressOrReadyToLaunch) return;
             Transporter.TryRemoveLord(parent.Map);
-            foreach (var compTransporter in transportersInGroup)
+            foreach (var compTransporter in transportersInGroup.ListFullCopy())
             {
                 Current.Game.GetComponent<GameComponent_Ancients>().SlingshotQueue.Enqueue(new GameComponent_Ancients.SlingshotInfo
                 {

@@ -121,6 +121,10 @@
           </shadowData>
         </graphicData>
       </li>
+      <li Class="VFEAncients.CompProperties_Quest">
+        <compClass>VFEAncients.CompQuestOnHacked</compClass>
+        <Quest>VFEA_OpportunitySite_SealedVault</Quest>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
