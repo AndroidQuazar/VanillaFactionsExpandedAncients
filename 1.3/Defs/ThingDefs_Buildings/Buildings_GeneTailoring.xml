@@ -521,18 +521,18 @@
     <label>nanite sampler</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Things/Building/Production/NanotechRetractor/NanotechRetractor</texPath>
+      <texPath>Things/Building/Production/NaniteSampler/NaniteSampler</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shadowData>
-        <volume>(3.9,0.5,3.9)</volume>
+        <volume>(2.9,0.5,2.9)</volume>
       </shadowData>
-      <drawSize>(4, 4)</drawSize>
+      <drawSize>(3, 3)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>400</MaxHitPoints>
       <Mass>75</Mass>
     </statBases>
-    <size>(4,4)</size>
+    <size>(3,3)</size>
     <costList>
       <Plasteel>150</Plasteel>
       <ComponentIndustrial>16</ComponentIndustrial>
