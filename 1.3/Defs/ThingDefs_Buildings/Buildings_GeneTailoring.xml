@@ -409,7 +409,7 @@
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_GenomeMacrothermometer</defName>
     <label>genome macrothermometer</label>
-    <description>An extension that was developed after several successful cases with the Gene-tailoring Pod, the Genome Macrothermometer was designed to further enhance successful super-soldiers. The primary function is for it to help prevent a thermal runaway, or fiery meat explosion, from occuring by having the super-nanites only interact with parts of the genomes that weren’t altered on the first three Transition Phases.\n\nAn add-on to gene-tailoring pod, this device needs to be placed in close proximity to it and will allow unlocking a 4th ability.</description>
+    <description>An extension that was developed after several successful cases with the Gene-tailoring Pod, the Genome Macrothermometer was designed to further enhance successful super-soldiers. The primary function is for it to help prevent a thermal runaway, or fiery meat explosion, from occuring by having the super-nanites only interact with parts of the genomes that weren’t altered on the first Transition Phases.\n\nAn add-on to gene-tailoring pod, this device needs to be placed in close proximity to it and will allow unlocking an additional ability over the limit of 3.</description>
     <graphicData>
       <texPath>Things/Building/Production/GenomeMacrothermometer/GenomeMacrothermometer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -446,7 +446,7 @@
   <ThingDef ParentName="GeneTailoringLinkableBase">
     <defName>VFEA_StabilisedMucusInducer</defName>
     <label>stabilised mucus inducer</label>
-    <description>Once a super-soldier patient has gone through gene therapy for the fourth time, with the help of a Genome Macrothermometer, it becomes incredibly difficult to alter any further without damaging or undoing what has already been successfully completed. Thus, this machine was designed to insert partitions in the form of stabilised mucus that is completely non-reactive and doesn’t cause rejection in the patient’s body, becoming a permanent part of their genomes.\n\nAn add-on to gene-tailoring pod, this device needs to be placed in close proximity to it and will allow unlocking a 5th ability.</description>
+    <description>Whilst regular Gene Tailoring works by altering the genes as a whole, some scientists managed to create a work-around by instead creating small, isolated environments within which the alterations can occur independently. Thus, this machine is designed to insert partitions in the form of stabilised mucus that is completely non-reactive and doesn’t cause rejection in the patient’s body, becoming a permanent part of their genomes.\n\nAn add-on to gene-tailoring pod, this device needs to be placed in close proximity to it and will allow unlocking an additional ability over the limit of 3.</description>
     <graphicData>
       <texPath>Things/Building/Production/StabilisedMucusInducer/StabilisedMucusInducer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -519,7 +519,7 @@
   <ThingDef ParentName="GeneTailoringLinkableBase">    <!-- needs some C# -->
     <defName>VFEA_NaniteSampler</defName>
     <label>nanite sampler</label>
-    <description>todo</description>
+    <description>A curious machine that neither harms nor aids the transformation process. Instead it runs sample simulations alongside the operation, using real-time data to provide actual data. When the conversion process is nearing success, it creates a binary choice for the user to select. Once selected, the machine then performs some minor alterations and creates a dominant and recessive gene. In layman’s terms, this allows a successful operation to decide on one of two sets of abilities.\n\nAn add-on to gene-tailoring pod, this device needs to be placed in close proximity to it and will allow to select between two sets of abilities upon succesfull operation.</description>
     <graphicData>
       <texPath>Things/Building/Production/NaniteSampler/NaniteSampler</texPath>
       <graphicClass>Graphic_Single</graphicClass>
