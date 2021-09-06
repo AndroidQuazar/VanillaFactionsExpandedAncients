@@ -67,6 +67,7 @@
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
@@ -214,7 +215,6 @@
         <basePowerConsumption>150</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
       <li Class="CompProperties_Refuelable">
         <fuelLabel>Shots until barrel change</fuelLabel>
         <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
@@ -230,6 +230,7 @@
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <building>
       <turretGunDef>VFEA_Gun_AncientPointDefenseTurret</turretGunDef>

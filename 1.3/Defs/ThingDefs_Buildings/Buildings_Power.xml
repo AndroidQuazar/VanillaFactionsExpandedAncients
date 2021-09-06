@@ -138,6 +138,7 @@
         <preExplosionSpawnChance>1</preExplosionSpawnChance>
         <wickTicks>70~150</wickTicks>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
@@ -196,6 +197,7 @@
       <li Class="CompProperties_TempControl">
         <energyPerSecond>96</energyPerSecond>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -262,6 +264,7 @@
         <shortCircuitInRain>false</shortCircuitInRain>
         <transmitsPower>true</transmitsPower>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
@@ -322,6 +325,7 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li><compClass>VFEAncients.CompBiobattery</compClass></li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>

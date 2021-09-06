@@ -64,6 +64,7 @@
         <glowRadius>3</glowRadius>
         <glowColor>(255,150,100,0)</glowColor>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
@@ -123,6 +124,7 @@
       <li Class="CompProperties_TempControl">
         <energyPerSecond>-42</energyPerSecond>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>

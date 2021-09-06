@@ -113,6 +113,7 @@
       <li>
         <compClass>VFEAncients.CompGeneTailoringPod</compClass>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <placeWorkers>
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -145,6 +146,7 @@
     </placeWorkers>
     <comps>
       <li Class="CompProperties_Flickable" />
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
   </ThingDef>
 

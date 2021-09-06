@@ -58,6 +58,7 @@
         <maxSimultaneous>1</maxSimultaneous>
         <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>

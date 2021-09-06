@@ -225,6 +225,7 @@
         <glowRadius>7</glowRadius>
         <glowColor>(370,370,370,0)</glowColor>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
@@ -285,6 +286,7 @@
         <compClass>CompHeatPusherPowered</compClass>
         <heatPerSecond>3</heatPerSecond>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <building>
       <isMealSource>true</isMealSource>
@@ -360,6 +362,7 @@
           <li>ToolCabinet</li>
         </linkableFacilities>
       </li>
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <building>
       <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
