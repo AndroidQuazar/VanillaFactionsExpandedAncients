@@ -74,7 +74,7 @@
     <defName>VFEA_VaultDoor</defName>
     <label>vault door</label>
     <thingClass>VFEAncients.Building_VaultDoor</thingClass>
-    <description>A thick vault auto-door, which takes a very long time to open and close, but is nearly indestructible.</description>
+    <description>A thick vault auto-door, which takes a very long time to open and close, but is nearly indestructible. If the power is cut, it will remain locked.</description>
     <statBases>
       <WorkToBuild>1100</WorkToBuild>
 	  <MaxHitPoints>10000</MaxHitPoints>

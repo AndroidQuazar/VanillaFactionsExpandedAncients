@@ -159,7 +159,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientHydroponicFarm</defName>
     <label>ancient hydroponic farm</label>
-    <description>An artificial nutrient bath for growing plants. The nutrients pumps must work continuously; the plants will die if power is cut.</description>
+    <description>An artificial nutrient bath for growing plants. The nutrients pumps must work continuously; the plants will die if power is cut. Contains a set of built-in sun lamps.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building_PlantGrower</thingClass>
     <graphicData>
       <texPath>Things/Building/Production/AncientHydroponicFarm/AncientHydroponicFarm</texPath>
@@ -233,7 +233,7 @@
   <ThingDef ParentName="BenchBase">
     <defName>VFEA_AncientCookingStation</defName>
     <label>ancient cooking station</label>
-    <description>A large stove and butchering station connected together to streamline the cooking process.</description>
+    <description>A large stove and butchering station connected together to streamline the cooking process.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building_WorkTable_HeatPush</thingClass>
     <graphicData>
       <texPath>Things/Building/Production/AncientCookingStation/AncientCookingStation</texPath>
@@ -307,7 +307,7 @@
   <ThingDef ParentName="BenchBase">
     <defName>VFEA_AncientWorkshop</defName>
     <label>ancient workshop</label>
-    <description>A large workshop containing machining systems with a simple furnace and smithy station.</description>
+    <description>A large workshop containing machining systems with a simple furnace and smithy station.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
       <texPath>Things/Building/Production/AncientWorkshop/AncientWorkshop</texPath>

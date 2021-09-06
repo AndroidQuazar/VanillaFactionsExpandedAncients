@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientSolarGenerator</defName>
     <label>ancient solar generator</label>
-    <description>This generator gathers power from solar flares. They are often used in the vaults to support the internal generators in the rare occurrences of solar storms.</description>
+    <description>This generator gathers power from solar flares. They are often used in the vaults to support the internal generators in the rare occurrences of solar storms.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -63,7 +63,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientChemfuelPoweredGenerator</defName>
     <label>ancient chemfuel powered generator</label>
-    <description>Produces a reliable stream of power by consuming chemfuel. Must be periodically refueled by hand.</description>
+    <description>Produces a reliable stream of power by consuming chemfuel. Must be periodically refueled by hand.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -148,7 +148,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientGeothermalPlant</defName>
     <label>ancient geothermal plant</label>
-    <description>Produces electricity from geothermal steam geysers. Often used in deep mountain vaults to provide the whole structure with power. It’s also capable of regulating the temperature inside the room, and can act as a heater or a freezer. Must be placed on a steam geyser.</description>
+    <description>Produces electricity from geothermal steam geysers. Often used in deep mountain vaults to provide the whole structure with power. It’s also capable of regulating the temperature inside the room, and can act as a heater or a freezer. Must be placed on a steam geyser.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
@@ -215,7 +215,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientBattery</defName>
     <label>ancient battery</label>
-    <description>An old, large battery commonly found in vaults, capable of sustaining the entire compound for a nearly infinite amount of time.</description>
+    <description>An old, large battery commonly found in vaults, capable of sustaining the entire compound for a nearly infinite amount of time.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <drawerType>MapMeshAndRealTime</drawerType>
     <thingClass>Building_Battery</thingClass>
     <graphicData>
@@ -273,7 +273,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientBioBatteryRank</defName>
     <label>ancient bio-battery tank</label>
-    <description>Produces a reliable stream of power by consuming biological material such as human or animal corpses. Must be periodically refueled with corpses.</description>
+    <description>Produces a reliable stream of power by consuming biological material such as human or animal corpses. Must be periodically refueled with corpses.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <thingClass>Building</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>

@@ -83,7 +83,7 @@
   <ThingDef ParentName="BedWithQualityBase">
     <defName>VFEA_AncientCryptosleepSuspender</defName>
     <label>ancient cryptosleep suspender</label>
-    <description>An ancient medical pod that uses partial cryptosleep to slow down the degredation of wounds and help the body heal, although with the same side effects of cryptosleep, albeit at a lesser severity.</description>
+    <description>An ancient medical pod that uses partial cryptosleep to slow down the degredation of wounds and help the body heal, although with the same side effects of cryptosleep, albeit at a lesser severity.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <!-- <thingClass>AOMoreMedical.Building_CryptoBed</thingClass> -->
     <graphicData>
       <texPath>Things/Building/Furniture/AncientCryptosleepSuspender/AncientCryptosleepSuspender</texPath>

@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientVitalsMonitor</defName>
     <label>ancient vitals monitor</label>
-    <description>An old set of monitors to check up on the healing progress of wounded soldiers.</description>
+    <description>An old set of monitors to check up on the healing progress of wounded soldiers.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <graphicData>
       <texPath>Things/Building/Misc/AncientVitalsMonitor/AncientVitalsMonitor</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -69,7 +69,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFEA_AncientCryptosleepSarcophagus</defName>
     <label>ancient cryptosleep sarcophagus</label>
-    <description>Ancient super-soldiers sleep in the ancient cryptosleep sarcophagi until they are awakened when their watch begins. These devices are a different variant to normal cryptosleep caskets - the process of hibernating is instant, but waking up from the sleep takes a long time.</description>
+    <description>Ancient super-soldiers sleep in the ancient cryptosleep sarcophagi until they are awakened when their watch begins. These devices are a different variant to normal cryptosleep caskets - the process of hibernating is instant, but waking up from the sleep takes a long time. Cannot be re-used once opened.</description>
     <thingClass>Building_AncientCryptosleepCasket</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>

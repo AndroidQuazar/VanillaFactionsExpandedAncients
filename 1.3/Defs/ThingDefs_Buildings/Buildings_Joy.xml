@@ -4,7 +4,7 @@
   <ThingDef ParentName="FurnitureWithQualityBase">
     <defName>VFEA_AncientEducator</defName>
     <label>ancient educator</label>
-    <description>A very old interactive machine that’s commonly used in the vaults to pass the time. Interested participants sit in front of it and get fed knowledge in random subjects, and then are required to pass a test. Successfully passing a test gives them a token to claim an extra portion of nutrient jelly.</description>
+    <description>A very old interactive machine that’s commonly used in the vaults to pass the time. Interested participants sit in front of it and get fed knowledge in random subjects, and then are required to pass a test. Successfully passing a test gives them a token to claim an extra portion of nutrient jelly.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <graphicData>
       <texPath>Things/Building/Joy/AncientEducator/AncientEducator</texPath>
       <graphicClass>Graphic_Multi</graphicClass>

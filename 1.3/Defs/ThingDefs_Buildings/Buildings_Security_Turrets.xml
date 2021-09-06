@@ -108,7 +108,7 @@
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>VFEA_Gun_AncientSecurityTurret</defName>
     <label>ancient security turret gun</label>
-    <description>A very reliable automatic gun made to be mounted on a turret.</description>
+    <description>A very reliable automatic gun made to be mounted on a turret.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <graphicData>
       <texPath>Things/Building/Security/AncientSecurityTurret/AncientSecurityTurret_Top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -191,7 +191,7 @@
   <ThingDef ParentName="AncientPointDefenseTurretBase">
     <defName>VFEA_Turret_AncientPointDefense</defName>
     <label>ancient point defense turret</label>
-    <description>A large turret often used to defend ancient complexes. Uses two miniguns to quickly dispose of enemies and explosive projectiles.</description>
+    <description>A large turret often used to defend ancient complexes. Uses two miniguns to quickly dispose of enemies and explosive projectiles.\n\nThis structure was built by a long forgotten civilisation and the technology can no longer be replicated. It will never suffer breakdowns, and it operates more efficiently during solar flare incidents.</description>
     <uiIconPath>Things/Building/Security/AncientPointDefenseTurret/AncientPointDefenseTurret_Top</uiIconPath>
     <statBases>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
