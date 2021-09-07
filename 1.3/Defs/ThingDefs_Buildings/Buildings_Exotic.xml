@@ -3,7 +3,7 @@
 
   <ThingDef ParentName="CrateBase">
     <defName>VFEA_LargeSupplyCrate</defName>
-    <label>large supply crate</label>
+    <label>large hermetic crate</label>
     <description>A large crate with some building resources and components. Hacking it takes a short time and there is no risk of danger.</description>
     <altitudeLayer>Building</altitudeLayer>
     <pathCost>50</pathCost>
@@ -249,7 +249,7 @@
   <ThingDef ParentName="CrateBase">
     <defName>VFEA_AncientSupplyCrate</defName>
     <label>ancient supply crate</label>
-    <description>An ancient crate with some building resources and components. Hacking it takes a short time and may cause a raid.</description>
+    <description>An ancient crate with some building resources and components that deployed using a parachute. Hacking it takes a short time and may cause a raid, but it's bound to contain ancient technology.</description>
     <altitudeLayer>Building</altitudeLayer>
     <pathCost>50</pathCost>
     <blockWind>true</blockWind>
