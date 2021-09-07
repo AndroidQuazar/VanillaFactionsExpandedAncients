@@ -262,6 +262,7 @@
       <MaxHitPoints>180</MaxHitPoints>
       <Flammability>1.0</Flammability>
 	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+	  <Mass>25</Mass>
     </statBases>
     <size>(3,2)</size>
     <designationCategory>VFEA_Ancients</designationCategory>
@@ -337,8 +338,10 @@
       <Flammability>1.0</Flammability>
       <Cleanliness>-2</Cleanliness>
 	  <WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+	  <Mass>50</Mass>
     </statBases>
     <size>(5,2)</size>
+	<minifiedDef>MinifiedThing</minifiedDef>
     <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
@@ -349,7 +352,6 @@
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
-    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>

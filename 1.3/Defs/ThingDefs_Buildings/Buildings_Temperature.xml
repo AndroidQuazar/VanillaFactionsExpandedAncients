@@ -86,6 +86,7 @@
       </damageData>
 	  <drawSize>(2,2)</drawSize>
     </graphicData>
+	<minifiedDef>MinifiedThing</minifiedDef>
 	<uiIconScale>0.90</uiIconScale>
 	<size>(2,2)</size>
     <altitudeLayer>Building</altitudeLayer>
@@ -101,7 +102,11 @@
       <WorkToBuild>1600</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>0.7</Flammability>
+	  <Mass>45</Mass>
     </statBases>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
     <tickerType>Rare</tickerType>
     <costList>
       <Steel>90</Steel>
