@@ -151,7 +151,9 @@
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>1600</WorkToBuild>
       <Flammability>0.5</Flammability>
+	  <Mass>100</Mass>
     </statBases>
+	<minifiedDef>MinifiedThing</minifiedDef>
     <costList>
       <Steel>150</Steel>
       <ComponentIndustrial>10</ComponentIndustrial>
