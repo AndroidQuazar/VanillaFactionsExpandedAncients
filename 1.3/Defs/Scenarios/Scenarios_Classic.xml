@@ -3,7 +3,7 @@
   
   <ScenarioDef Name="VFEA_NewVault">
     <defName>RE_NewVault</defName>
-    <label>New Vault</label>
+    <label>Sealed Vault</label>
     <description>With each passing day you stare at your fellow companions hibernating in cryptosleep sarcophagi. One day, when your life is nearing its end, you will wake your successor, and his watch will begin. Every day for the last hundreds of years your outpost was awaiting orders from High Command which may no longer exist. Will today be the day you not only wake up, but also open your eyes?
 	
 Note: Since you start alone with random superpowers and weaknesses, this is a difficult scenario.</description>
