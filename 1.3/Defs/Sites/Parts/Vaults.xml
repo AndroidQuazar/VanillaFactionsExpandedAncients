@@ -4,8 +4,8 @@
       <defName>VFEA_LootedVault</defName>
       <label>looted vault</label>
       <description>A recently-discovered looted vault.</description>
-      <siteTexture>UI/Map/QuestIcons/VaultLooted</siteTexture>
-      <expandingIconTexture>UI/Map/VaultExpanding</expandingIconTexture>
+      <siteTexture>UI/Map/VaultExpanding</siteTexture>
+      <expandingIconTexture>UI/Map/QuestIcons/VaultLooted</expandingIconTexture>
       <tags>
          <li>VFEA_LootedVault</li>
       </tags>
@@ -15,8 +15,8 @@
       <defName>VFEA_SealedVault</defName>
       <label>sealed vault</label>
       <description>A recently-discovered sealed vault.</description>
-      <siteTexture>UI/Map/QuestIcons/VaultSealed</siteTexture>
-      <expandingIconTexture>UI/Map/VaultExpanding</expandingIconTexture>
+      <siteTexture>UI/Map/VaultExpanding</siteTexture>
+      <expandingIconTexture>UI/Map/QuestIcons/VaultSealed</expandingIconTexture>
       <tags>
          <li>VFEA_SealedVault</li>
       </tags>
