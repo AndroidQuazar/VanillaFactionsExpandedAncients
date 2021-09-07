@@ -12,6 +12,6 @@
     <defName>VFEA_SupplyDrop</defName>
     <label>supply drop</label>
     <letterLabel>Supply Drop Incoming</letterLabel>
-    <letterText>A supply crate bound for an uknown location has accidentally landed here. You can hack it to open it, but this may trigger an enemy raid.</letterText>
+    <letterText>A supply crate bound for an uknown location has accidentally landed here. You can hack it to open it, but this may trigger an enemy raid.\n\nGuaranteed to contain resources, medicine or food, fuel and tons of ancient technology, these crates were often sent inbetween ancient complexes generations ago.</letterText>
   </IncidentDef>
 </Defs>
