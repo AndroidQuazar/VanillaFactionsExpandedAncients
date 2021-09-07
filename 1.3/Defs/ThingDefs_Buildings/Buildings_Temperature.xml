@@ -104,6 +104,9 @@
       <Flammability>0.7</Flammability>
 	  <Mass>45</Mass>
     </statBases>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
     <tickerType>Rare</tickerType>
     <costList>
       <Steel>90</Steel>
