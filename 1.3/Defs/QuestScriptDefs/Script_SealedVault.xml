@@ -27,7 +27,7 @@
                 <li>questDescription(askerIsNull==true)->We've intercepted messages about a sealed vault that contains ancient technologies not far from [map_definite].\n\nIt seems that [allSitePartsDescriptionsExceptFirst]</li>
 
                 <!-- Faction leader asker -->
-                <li>questDescription(asker_factionLeader==True)->[asker_label], [asker_faction_leaderTitle] of [asker_faction_name], has informed us of a sealed vault that may contain ancient technologies not far from us. Noone knows who the inhabitants are.\n\n[asker_label] says that [allSitePartsDescriptionsExceptFirst]</li>
+                <li>questDescription(asker_factionLeader==True)->[asker_label], [asker_faction_leaderTitle] of [asker_faction_name], has informed us of a sealed vault that may contain ancient technologies not far from us. Noone knows who the inhabitants are.</li>
             </rulesStrings>
         </questDescriptionRules>
         <root Class="QuestNode_Sequence">
