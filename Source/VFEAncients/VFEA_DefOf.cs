@@ -40,6 +40,6 @@ namespace VFEAncients
         public static PawnKindDef VFEA_PlayerAncientSoldierOneAbility;
         public static PawnKindDef VFEA_AncientSoldierOneAbility;
         public static PawnKindDef VFEA_AncientSoldierTwoAbilities;
-        public static ThingDef VFEA_LargeSupplyCrate;
+        public static HediffDef VFEA_MetaMorph;
     }
 }

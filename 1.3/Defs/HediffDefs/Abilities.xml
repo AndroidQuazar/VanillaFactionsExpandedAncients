@@ -55,4 +55,21 @@
       </li>
     </comps>
   </HediffDef>
+  
+  <HediffDef ParentName="PsycastHediffBase">
+    <defName>VFEA_MetaMorph</defName>
+    <label>metamorphosis</label>
+    <description>.</description>
+    <isBad>false</isBad>
+    <comps Inherit="False">
+      <li Class="HediffCompProperties">
+        <compClass>VFEAncients.HediffComp_MetaMorph</compClass>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>True</showRemainingTime>
+        <disappearsAfterTicks>3600~3600</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+    </comps>
+  </HediffDef>
 </Defs>

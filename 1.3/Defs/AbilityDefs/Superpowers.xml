@@ -318,4 +318,36 @@
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_MetamorphosisTurtle</defName>
+    <label>metamorphosis (turtle)</label>
+    <description>.</description>
+    <abilityClass>VFEAncients.Ability_MetaMorph</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_MetamorphosisTurtle</iconPath>
+    <cooldownTime>120000</cooldownTime>
+    <castTime>60</castTime>
+    <chance>0</chance>
+    <modExtensions>
+      <li Class="VFEAncients.AbilityExtension_MetaMorph">
+        <Target>Tortoise</Target>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_MetamorphosisWarg</defName>
+    <label>metamorphosis (warg)</label>
+    <description>.</description>
+    <abilityClass>VFEAncients.Ability_MetaMorph</abilityClass>
+    <targetMode>Self</targetMode>
+    <iconPath>Powers/Superpowers/Power_MetamorphosisWarg</iconPath>
+    <cooldownTime>120000</cooldownTime>
+    <castTime>60</castTime>
+    <chance>0</chance>
+    <modExtensions>
+      <li Class="VFEAncients.AbilityExtension_MetaMorph">
+        <Target>Warg</Target>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
 </Defs>
