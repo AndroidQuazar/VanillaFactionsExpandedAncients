@@ -284,4 +284,38 @@
     <chance>0</chance>
     <casterHediff>VFEA_SpeedBurst</casterHediff>
   </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_AcidBreath</defName>
+    <label>acid spitting</label>
+    <description>.</description>
+    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_AcidSpitting</iconPath>
+    <cooldownTime>3600</cooldownTime>
+    <castTime>15</castTime>
+    <chance>0</chance>
+    <range>12</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+        <projectile>VFEA_AcidSpit</projectile>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef>
+    <defName>VFEA_Fireball</defName>
+    <label>fireball</label>
+    <description>.</description>
+    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <targetMode>Pawn</targetMode>
+    <iconPath>Powers/Superpowers/Power_Fireball</iconPath>
+    <cooldownTime>1800</cooldownTime>
+    <castTime>15</castTime>
+    <chance>0</chance>
+    <range>12</range>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+        <projectile>VFEA_Fireball</projectile>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
 </Defs>

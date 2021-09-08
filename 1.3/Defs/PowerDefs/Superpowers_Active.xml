@@ -144,4 +144,20 @@
         <texPath>Powers/Superpowers/Power_SpeedBurst</texPath>
         <abilities><li>VFEA_SpeedBurst</li></abilities>
     </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>AcidSpitting</defName>
+        <label>acid spitting</label>
+        <description>.</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_AcidSpitting</texPath>
+        <abilities><li>VFEA_AcidBreath</li></abilities>
+    </VFEAncients.PowerDef>
+    <VFEAncients.PowerDef>
+        <defName>Fireball</defName>
+        <label>fireball</label>
+        <description>.</description>
+        <powerType>Superpower</powerType>
+        <texPath>Powers/Superpowers/Power_Fireball</texPath>
+        <abilities><li>VFEA_Fireball</li></abilities>
+    </VFEAncients.PowerDef>
 </Defs>

@@ -255,12 +255,14 @@
 <KCSG.SymbolDef>
   <defName>VFEA_AncientCryptosleepSarcophagus_West</defName>
   <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
   <rotation>West</rotation>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
   <defName>VFEA_AncientCryptosleepSarcophagus_East</defName>
   <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
   <rotation>East</rotation>
 </KCSG.SymbolDef>
 
@@ -371,6 +373,7 @@
 <KCSG.SymbolDef>
   <defName>VFEA_AncientCryptosleepSarcophagus_North</defName>
   <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
   <rotation>North</rotation>
 </KCSG.SymbolDef>
 
@@ -407,6 +410,7 @@
 <KCSG.SymbolDef>
   <defName>VFEA_AncientCryptosleepSarcophagus_South</defName>
   <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
   <rotation>South</rotation>
 </KCSG.SymbolDef>
 

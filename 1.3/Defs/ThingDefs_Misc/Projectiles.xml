@@ -32,8 +32,8 @@
 		<label>ice breath</label>
 		<thingClass>VFEAncients.IceProjectile</thingClass>
 		<graphicData>
-			<texPath>Projectile/FireBreath</texPath>
-			<texPathFadeOut>Projectile/FireBreathFadeOut</texPathFadeOut>
+			<texPath>Projectile/IceBreath</texPath>
+			<texPathFadeOut>Projectile/IceBreathFadeOut</texPathFadeOut>
 			<shaderType>MoteGlow</shaderType>
 		</graphicData>
 		<projectile>
@@ -45,7 +45,7 @@
 		<drawOffscreen>true</drawOffscreen>
 		<lifeTimeDuration>50</lifeTimeDuration>
 		<widthScaleFactor>0.85</widthScaleFactor>
-		<heightScaleFactor>1</heightScaleFactor>
+		<heightScaleFactor>2.5</heightScaleFactor>
 		<startingPositionOffset>(0, 0, -1)</startingPositionOffset>
 		<totalSizeScale>1.15</totalSizeScale>
 		<tickFrameRate>2</tickFrameRate>
@@ -56,7 +56,7 @@
 	</VFECore.ExpandableProjectileDef>
 	<ThingDef ParentName="BaseBullet">
 		<defName>VFEA_LaserEyeBeam</defName>
-		<label>reaper beam</label>
+		<label>laser eye beam</label>
 		<thingClass>VFEAncients.LaserEyeBeam</thingClass>
 		<graphicData>
 			<texPath>Projectile/LaserEyeBeam</texPath>
@@ -70,6 +70,40 @@
 			<armorPenetrationBase>5</armorPenetrationBase>
 			<speed>10000</speed>
 			<flyOverhead>true</flyOverhead>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VFEA_AcidSpit</defName>
+		<label>spit acid</label>
+		<graphicData>
+			<texPath>Projectile/AcidSpit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>VEF_SecondaryAcidBurn</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationBase>0.2</armorPenetrationBase>
+			<speed>100</speed>
+			<flyOverhead>false</flyOverhead>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VFEA_Fireball</defName>
+		<label>fireball</label>
+		<thingClass>Projectile_Explosive</thingClass>
+		<graphicData>
+			<texPath>Projectile/AcidSpit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<damageAmountBase>3</damageAmountBase>
+			<explosionRadius>1.9</explosionRadius>
+			<armorPenetrationBase>0.1</armorPenetrationBase>
+			<speed>200</speed>
+			<flyOverhead>false</flyOverhead>
 		</projectile>
 	</ThingDef>
 </Defs>
