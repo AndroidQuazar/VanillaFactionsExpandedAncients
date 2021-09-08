@@ -23,7 +23,8 @@
         </categories>
       </li>
     </backstoryFilters>
-    <factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+        <factionIconPath>World/WorldObjects/Expanding/PlayerVault</factionIconPath>
+        <settlementTexturePath>World/WorldObjects/PlayerVault</settlementTexturePath>
     <geneticVariance>1</geneticVariance>
     <startingResearchTags>
       <li>ClassicStart</li>
