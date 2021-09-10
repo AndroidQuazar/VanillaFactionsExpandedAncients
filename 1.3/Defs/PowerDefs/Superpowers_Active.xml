@@ -147,7 +147,7 @@
     <VFEAncients.PowerDef>
         <defName>AcidSpitting</defName>
         <label>acid spitting</label>
-        <description>.</description>
+        <description>The subject has developed sacs of concentrated chemicals in their chest. The sacs are connected via tubes to the corners of their mouth and can be squirted out by contracting their chest when spitting, reacting with oxygen and forming globs of caustic jelly.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_AcidSpitting</texPath>
         <abilities><li>VFEA_AcidBreath</li></abilities>
@@ -155,7 +155,7 @@
     <VFEAncients.PowerDef>
         <defName>Fireball</defName>
         <label>fireball</label>
-        <description>.</description>
+        <description>The subject has developed a sac of jellied chemfuel in the palm of their hand along with numerous glands. Once every 30 seconds, these glands extrude a glob of napalm into a closed fist which can then be tossed out to ignite with the air, before landing and setting a small area on fire.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Fireball</texPath>
         <abilities><li>VFEA_Fireball</li></abilities>
@@ -163,7 +163,7 @@
     <VFEAncients.PowerDef>
         <defName>Metamorphosis</defName>
         <label>metamorphosis</label>
-        <description>.</description>
+        <description>The subject is capable of temporarily exerting a psychic force which forces their body to take the shape of what the mind is convinced it should be.</description>
         <powerType>Superpower</powerType>
         <texPath>Powers/Superpowers/Power_Metamorphosis</texPath>
         <abilities><li>VFEA_MetamorphosisTurtle</li><li>VFEA_MetamorphosisWarg</li></abilities>
