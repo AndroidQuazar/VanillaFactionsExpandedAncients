@@ -341,6 +341,7 @@
         <projectile>VFEA_AcidSpit</projectile>
       </li>
     </modExtensions>
+	<castSound>VFEA_AcidSpit_Shot</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Fireball</defName>
