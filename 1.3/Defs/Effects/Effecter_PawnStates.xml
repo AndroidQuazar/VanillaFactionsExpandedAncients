@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <EffecterDef>
+    <defName>VFEA_MatterPhasing</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_DrifterEmoteChance</subEffecterClass>
+        <scale>0.7~0.9</scale>
+        <chancePerTick>0.08</chancePerTick>
+        <positionRadius>0</positionRadius>
+        <fleckDef>VFEA_Fleck_PsychicDistortion</fleckDef>
+        <speed>1.0~1.0</speed>
+      </li>
+    </children>
+  </EffecterDef>
+  
+</Defs>
