@@ -5,12 +5,12 @@
     <defName>VFEA_MatterPhasing</defName>
     <children>
       <li>
-        <subEffecterClass>SubEffecter_DrifterEmoteChance</subEffecterClass>
-        <scale>0.7~0.9</scale>
-        <chancePerTick>0.08</chancePerTick>
-        <positionRadius>0</positionRadius>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
         <fleckDef>VFEA_Fleck_PsychicDistortion</fleckDef>
-        <speed>1.0~1.0</speed>
+        <chancePerTick>0.035</chancePerTick>
+        <scale>0.9~1.3</scale>
+        <rotationRate>-1~1</rotationRate>
+        <speed>0.6~1.8</speed>
       </li>
     </children>
   </EffecterDef>
