@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace VFEAncients
 {
     public static class Utils
     {
-        public static Pawn_PowerTracker GetPowerTracker(this Pawn pawn)
-        {
-            return Pawn_PowerTracker.Get(pawn);
-        }
+        public static Pawn_PowerTracker GetPowerTracker(this Pawn pawn) => Pawn_PowerTracker.Get(pawn);
 
         public static void Split<T>(this IEnumerable<T> source, out List<T> truthy, out List<T> falsy, Func<T, bool> func)
         {
@@ -40,6 +38,11 @@ namespace VFEAncients
                 action(item);
                 yield return item;
             }
+        }
+
+        public static T TryGetComp<T>(this Storyteller storyteller) where T : StorytellerComp
+        {
+            return storyteller.storytellerComps.FirstOrFallback(comp => comp is T) as T;
         }
     }
 }

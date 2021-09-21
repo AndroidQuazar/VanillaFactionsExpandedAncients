@@ -21,6 +21,7 @@ namespace VFEAncients
             PreceptPatches.Do(Harm);
             PointDefensePatches.Do(Harm);
             MetaMorphPatches.Do(Harm);
+            StorytellerPatches.Do(Harm);
         }
     }
 }

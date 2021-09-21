@@ -200,6 +200,8 @@
         <incident>StrangerInBlackJoin</incident>
         <delayTicks>180</delayTicks>
       </li>
+      <li><compClass>VFEAncients.StorytellerComp_IncreaseRecruitDifficulty</compClass></li>
+      <li><compClass>VFEAncients.StorytellerComp_NoSkilLDecay</compClass></li>
     </comps>
   </StorytellerDef>
 
