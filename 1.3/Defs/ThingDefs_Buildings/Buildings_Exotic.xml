@@ -111,19 +111,17 @@
         <defence>7500</defence>  <!-- ~ 3 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
-      <li Class="CompProperties_EmptyStateGraphic">
-        <graphicData>
-         <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStationOpen</texPath>
-         <graphicClass>Graphic_Multi</graphicClass>
-         <drawSize>(3,3)</drawSize>
-         <shadowData>
-           <volume>(3.0, 1.0, 3.0)</volume>
-          </shadowData>
-        </graphicData>
-      </li>
       <li Class="VFEAncients.CompProperties_Quest">
         <compClass>VFEAncients.CompQuestOnHacked</compClass>
         <Quest>VFEA_OpportunitySite_SealedVault</Quest>
+        <hackedGraphic>
+          <texPath>Things/Building/Misc/AncientBroadcastStation/AncientBroadcastStationOpen</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>(3,3)</drawSize>
+          <shadowData>
+            <volume>(3.0, 1.0, 3.0)</volume>
+           </shadowData>
+        </hackedGraphic>
       </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
