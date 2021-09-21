@@ -64,27 +64,12 @@
                     <preferCloserTiles>true</preferCloserTiles>
                 </li>
 
-                <li Class="QuestNode_ViolentQuestsAllowed">
-                    <node Class="QuestNode_Set">
-                        <name>siteThreatChance</name>
-                        <value>0.85</value>
-                    </node>
-                    <elseNode Class="QuestNode_Set">
-                        <name>siteThreatChance</name>
-                        <value>0</value>
-                    </elseNode>
-                </li>
-
                 <li Class="QuestNode_GetSitePartDefsByTagsAndFaction">
                     <storeAs>sitePartDefs</storeAs>
                     <storeFactionAs>siteFaction</storeFactionAs>
                     <sitePartsTags>
                         <li>
-                            <tag>VFEM_CastleRuins</tag>
-                        </li>
-                        <li>
-                            <tag>VFEM_CastleRuinsQuestThreat</tag>
-                            <chance>$siteThreatChance</chance>
+                            <tag>VFEA_SealedVault</tag>
                         </li>
                     </sitePartsTags>
                 </li>
