@@ -21,7 +21,9 @@ namespace VFEAncients
         }
 
         private Pawn_PowerTracker SelPowerTracker => SelPawn?.GetPowerTracker();
-        public override bool IsVisible => (SelPowerTracker?.AllPowers.Any() ?? false) || SelPawn != null && Pawn_PowerTracker.CanGetPowers(SelPawn) && Prefs.DevMode;
+
+        public override bool IsVisible => (SelPowerTracker?.AllPowers.Any() ?? false) ||
+                                          SelPawn != null && Pawn_PowerTracker.CanGetPowers(SelPawn) && Prefs.DevMode && DebugSettings.godMode;
 
         protected override void FillTab()
         {
@@ -32,6 +34,7 @@ namespace VFEAncients
             DoPowersList(rect.BottomHalf(), weaknesses, PowerType.Weakness);
             Widgets.EndScrollView();
             if (Prefs.DevMode) Widgets.CheckboxLabeled(new Rect(rect.xMax - 100f, rect.yMin + 10f, 100f, 30f), "Edit mode", ref EditMode);
+            else EditMode = false;
         }
 
         public void DoPowersList(Rect inRect, List<PowerDef> powers, PowerType type)
