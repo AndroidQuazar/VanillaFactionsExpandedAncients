@@ -2,6 +2,13 @@
 <Defs>
 
 <KCSG.SymbolDef>
+  <defName>VFEA_AncientHermeticCrate_North</defName>
+  <thing>AncientHermeticCrate</thing>
+  <rotation>North</rotation>
+  <thingSetMakerDef>MapGen_AncientComplexRoomLoot_Default</thingSetMakerDef>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
   <defName>VFEA_AncientBrokenDefensiveTurret_North</defName>
   <thing>VFEA_AncientBrokenDefensiveTurret</thing>
   <rotation>North</rotation>
