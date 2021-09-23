@@ -9,7 +9,7 @@
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <defaultFactionType>VFEA_AncientSoldiers</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
-    <chemicalAddictionChance>0.08</chemicalAddictionChance>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
     <apparelMoney>0~3800</apparelMoney>
     <apparelTags>
       <li>IndustrialBasic</li>
@@ -55,7 +55,7 @@
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <defaultFactionType>VFEA_AncientSoldiers</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
-    <chemicalAddictionChance>0.08</chemicalAddictionChance>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
     <apparelMoney>0~3800</apparelMoney>
     <apparelTags>
       <li>IndustrialBasic</li>
