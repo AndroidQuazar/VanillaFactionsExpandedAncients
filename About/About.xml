@@ -23,5 +23,6 @@ This mod will expand on the ancient ruins in vanilla game, adding new ancient st
 		</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld.Ideology</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 	</loadAfter>
  </ModMetaData>
