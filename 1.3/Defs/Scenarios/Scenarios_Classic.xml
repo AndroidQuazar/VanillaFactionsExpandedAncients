@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
+
   <ScenarioDef Name="VFEA_NewVault">
     <defName>RE_NewVault</defName>
     <label>Sealed Vault</label>
@@ -31,11 +31,13 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
         <li Class="KCSG.ScenPart_AddStartingStructure">
           <def>VFEC_AddStartingStructure</def>
           <structureLabel>A sealed vault</structureLabel>
+          <spawnConduits>False</spawnConduits>
           <nearMapCenter>True</nearMapCenter>
+          <fullClear>True</fullClear>
           <chooseFrom>
             <li>VFEA_SealedVault1</li>
             <li>VFEA_SealedVault2</li>
-			<li>VFEA_SealedVault3</li>
+            <li>VFEA_SealedVault3</li>
           </chooseFrom>
         </li>
       </parts>
