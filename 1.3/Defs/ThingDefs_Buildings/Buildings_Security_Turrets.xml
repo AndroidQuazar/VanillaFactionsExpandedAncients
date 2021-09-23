@@ -161,6 +161,7 @@
     <altitudeLayer>Building</altitudeLayer>
     <stealable>false</stealable>
     <rotatable>false</rotatable>
+	<minifiedDef>MinifiedThing</minifiedDef>
     <size>(2,2)</size>
     <statBases>
       <MaxHitPoints>380</MaxHitPoints>
@@ -177,6 +178,9 @@
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
       <turretTopDrawSize>2.7</turretTopDrawSize>
