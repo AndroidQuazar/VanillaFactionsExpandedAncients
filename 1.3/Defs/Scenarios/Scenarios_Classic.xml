@@ -24,10 +24,6 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
           <pawnCount>1</pawnCount>
           <pawnChoiceCount>8</pawnChoiceCount>
         </li>
-        <li Class="ScenPart_PlayerPawnsArriveMethod">
-          <def>PlayerPawnsArriveMethod</def>
-          <method>Standing</method>
-        </li>
         <li Class="KCSG.ScenPart_AddStartingStructure">
           <def>VFEC_AddStartingStructure</def>
           <structureLabel>A sealed vault</structureLabel>
@@ -39,6 +35,8 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
             <li>VFEA_SealedVault2</li>
             <li>VFEA_SealedVault3</li>
           </chooseFrom>
+          <spawnTheStartingPawn>True</spawnTheStartingPawn>
+          <method>Standing</method>
         </li>
       </parts>
     </scenario>
