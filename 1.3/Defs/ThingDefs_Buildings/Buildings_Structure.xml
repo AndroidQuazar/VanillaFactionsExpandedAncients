@@ -59,6 +59,7 @@
       <blueprintGraphicData>
         <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+	  <deconstructible>false</deconstructible>
     </building>
     <comps>
       <li Class="CompProperties_MeditationFocus">
@@ -94,6 +95,9 @@
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
+    <building>
+	  <deconstructible>false</deconstructible>
+    </building>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
