@@ -111,6 +111,14 @@
       <WorkToBuild>2000</WorkToBuild>
       <Flammability>0.5</Flammability>
     </statBases>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+	</comps>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
 	<designationCategory>VFEA_Ancients</designationCategory>
