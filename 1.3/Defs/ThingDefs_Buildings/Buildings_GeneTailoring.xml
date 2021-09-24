@@ -302,7 +302,7 @@
       </li>
       <li Class="CompProperties_Facility">
         <statOffsets>
-          <VFEA_FailChance>-0.001</VFEA_FailChance>
+          <VFEA_FailChance>-0.01</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>10</maxSimultaneous>
       </li>
