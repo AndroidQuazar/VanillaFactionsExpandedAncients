@@ -282,7 +282,7 @@
     <graphicData>
       <texPath>Things/Building/Power/AncientBioBattery/BioBattery_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(4,4)</drawSize>
+      <drawSize>(4.5,4.5)</drawSize>
       <shadowData>
         <volume>(2.93,2,2.69)</volume>
         <offset>(-0.03,0,-0.1)</offset>
