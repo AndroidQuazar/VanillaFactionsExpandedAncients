@@ -102,6 +102,7 @@
         <volume>(2, 0.35, 3)</volume>
       </shadowData>
     </graphicData>
+	<tickerType>Normal</tickerType>
 	<costList>
 	    <Chemfuel>120</Chemfuel>
 	</costList>
