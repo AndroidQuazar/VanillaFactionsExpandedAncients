@@ -51,7 +51,7 @@
 	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
-  <ThingDef ParentName="StandingLampBase" >
+  <ThingDef ParentName="StandingLampBase" Name="VFEA_WallLampBase">
     <defName>VFEA_WallLamp</defName>
     <label>wall lamp</label>
     <description>An electrical wall lamp, ideal to light up corridors in a vault.</description>
@@ -78,6 +78,54 @@
 	  <li>VanillaFurnitureExpanded.PlaceWorker_OnWall</li>
     </placeWorkers>
 	<defaultPlacingRot>South</defaultPlacingRot>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFEA_WallLampBase">
+    <defName>VFEA_WallLamp_Red</defName>
+    <label>wall lamp (red)</label>
+    <description>An electrical red wall lamp, ideal to light up corridors in a vault.</description>
+    <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>12</glowRadius>
+        <glowColor>(217,80,80,0)</glowColor>
+      </li>
+    </comps>
+    <researchPrerequisites Inherit="False">
+      <li>ColoredLights</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFEA_WallLampBase">
+    <defName>VFEA_WallLamp_Green</defName>
+    <label>wall lamp (green)</label>
+    <description>An electrical green wall lamp, ideal to light up corridors in a vault.</description>
+    <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>12</glowRadius>
+        <glowColor>(80,217,80,0)</glowColor>
+      </li>
+    </comps>
+    <researchPrerequisites Inherit="False">
+      <li>ColoredLights</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFEA_WallLampBase">
+    <defName>VFEA_WallLamp_Blue</defName>
+    <label>wall lamp (blue)</label>
+    <description>An electrical blue wall lamp, ideal to light up corridors in a vault.</description>
+    <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>12</glowRadius>
+        <glowColor>(80,80,217,0)</glowColor>
+      </li>
+    </comps>
+    <researchPrerequisites Inherit="False">
+      <li>ColoredLights</li>
+    </researchPrerequisites>
   </ThingDef>
   
   <ThingDef ParentName="BedWithQualityBase">
