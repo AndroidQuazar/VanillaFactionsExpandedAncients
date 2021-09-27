@@ -48,7 +48,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>VFEAncients.CompAncientSolar</compClass>
-        <basePowerConsumption>-300</basePowerConsumption>
+        <basePowerConsumption>-1</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="VFEAncients.CompProperties_SolarPowerUp">
