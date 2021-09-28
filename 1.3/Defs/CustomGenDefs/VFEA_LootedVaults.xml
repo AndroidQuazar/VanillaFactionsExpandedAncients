@@ -406,6 +406,9 @@
     <li>.,.,.,.,.,.,.,.,.,1,1,1,1,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
   </roofGrid>
   <spawnConduits>false</spawnConduits>
+  <tags>
+    <li>VFEA_LootedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 <KCSG.StructureLayoutDef>
@@ -1040,6 +1043,9 @@
     <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
   </roofGrid>
   <spawnConduits>false</spawnConduits>
+  <tags>
+    <li>VFEA_LootedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 <KCSG.StructureLayoutDef>
@@ -1437,6 +1443,9 @@
     <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
   </roofGrid>
   <spawnConduits>false</spawnConduits>
+  <tags>
+    <li>VFEA_LootedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 </Defs>

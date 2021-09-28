@@ -31,9 +31,9 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
           <nearMapCenter>True</nearMapCenter>
           <fullClear>True</fullClear>
           <chooseFrom>
-            <li>VFEA_SealedVault1</li>
-            <li>VFEA_SealedVault2</li>
-            <li>VFEA_SealedVault3</li>
+            <li>VFEA_SealedVaultAlpha</li>
+            <li>VFEA_SealedVaultBravo</li>
+            <li>VFEA_SealedVaultCharlie</li>
           </chooseFrom>
           <spawnTheStartingPawn>True</spawnTheStartingPawn>
           <method>Standing</method>

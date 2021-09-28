@@ -483,6 +483,9 @@
   <spawnAt>
     <li>0,0</li>
   </spawnAt>
+  <tags>
+    <li>VFEA_SealedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 <KCSG.StructureLayoutDef>
@@ -773,6 +776,9 @@
   <spawnAt>
     <li>0,0</li>
   </spawnAt>
+  <tags>
+    <li>VFEA_SealedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 <KCSG.StructureLayoutDef>
@@ -1179,6 +1185,9 @@
   <spawnAt>
     <li>0,0</li>
   </spawnAt>
+  <tags>
+    <li>VFEA_SealedVault</li>
+  </tags>
 </KCSG.StructureLayoutDef>
 
 </Defs>
