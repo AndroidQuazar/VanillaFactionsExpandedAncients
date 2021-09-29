@@ -14,7 +14,7 @@ namespace VFEAncients
         public override void TickLong(Pawn_PowerTracker parent)
         {
             base.TickLong(parent);
-            if (Rand.Chance(0.05f))
+            if (parent.Pawn.Spawned && Rand.MTBEventOccurs(0.75f, 900000f, 2500f))
             {
                 var incident = DefDatabase<IncidentDef>.AllDefs.Where(d => d.Worker is IncidentWorker_DiseaseHuman).RandomElement();
                 var pawn = parent.Pawn;
@@ -25,10 +25,7 @@ namespace VFEAncients
                     TaleRecorder.RecordTale(TaleDefOf.IllnessRevealed, pawn, incident.diseaseIncident);
                     text += string.Format(incident.letterText, 1.ToString(), Faction.OfPlayer.def.pawnSingular, incident.diseaseIncident.label, $"  - {pawn.LabelNoCountColored}");
                 }
-                else if (hediffDef != null)
-                {
-                    text += "LetterDisease_Blocked".Translate(hediffDef.LabelCap, incident.diseaseIncident.label, pawn.LabelNoCountColored);
-                }
+                else if (hediffDef != null) text += "LetterDisease_Blocked".Translate(hediffDef.LabelCap, incident.diseaseIncident.label, pawn.LabelNoCountColored);
 
                 var letter = LetterMaker.MakeLetter(incident.letterLabel, text, incident.letterDef, new LookTargets(Gen.YieldSingle(pawn)));
                 letter.hyperlinkHediffDefs = new List<HediffDef> {incident.diseaseIncident};

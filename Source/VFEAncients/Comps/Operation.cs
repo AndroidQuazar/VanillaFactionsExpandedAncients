@@ -65,10 +65,10 @@ namespace VFEAncients
 
         public override void Success()
         {
-            DefDatabase<PowerDef>.AllDefs.Split(out var superpowers, out var weaknessess, def => def.powerType == PowerType.Superpower);
+            var tracker = Pod.Occupant.GetPowerTracker();
+            DefDatabase<PowerDef>.AllDefs.Except(tracker.AllPowers).Split(out var superpowers, out var weaknessess, def => def.powerType == PowerType.Superpower);
             Action<Tuple<PowerDef, PowerDef>> onPowers = powers =>
             {
-                var tracker = Pod.Occupant.GetPowerTracker();
                 tracker.AddPower(powers.Item1);
                 tracker.AddPower(powers.Item2);
                 Pod.EjectContents();

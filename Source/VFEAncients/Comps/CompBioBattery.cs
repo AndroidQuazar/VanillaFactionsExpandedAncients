@@ -50,7 +50,7 @@ namespace VFEAncients
                 ticksTillConsume = 2500;
             }
 
-            if (massLeft == 0)
+            if (massLeft <= 0f)
             {
                 innerContainer.ClearAndDestroyContents();
                 ticksTillConsume = -1;
@@ -66,12 +66,15 @@ namespace VFEAncients
             while (pawn.Downed) HealthUtility.FixWorstHealthCondition(pawn);
         }
 
+        public virtual bool CanAcceptPawn(Pawn pawn) => Occupant is null;
+
         public static void AddCarryToBatteryJobs(List<FloatMenuOption> opts, Pawn pawn, Pawn target)
         {
             if (!pawn.CanReserveAndReach(target, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, true)) return;
             foreach (var thing in FindBatteryFor(pawn, target))
             {
                 string text = "VFEAncients.CarryToBioBattery".Translate(target);
+                if (!thing.TryGetComp<CompBioBattery>(out var comp)) continue;
                 if (target.IsQuestLodger())
                 {
                     text += " (" + "CryptosleepCasketGuestsNotAllowed".Translate() + ")";
@@ -80,6 +83,11 @@ namespace VFEAncients
                 else if (target.GetExtraHostFaction() != null)
                 {
                     text += " (" + "CryptosleepCasketGuestPrisonersNotAllowed".Translate() + ")";
+                    opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
+                }
+                else if (!comp.CanAcceptPawn(target))
+                {
+                    text += " (" + "CryptosleepCasketOccupied".Translate() + ")";
                     opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
                 }
                 else

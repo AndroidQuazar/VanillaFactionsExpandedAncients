@@ -56,6 +56,7 @@
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_MetaMorph.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
+    <Compile Include="Comps\CompAncientSolar.cs" />
     <Compile Include="Comps\CompBioBattery.cs" />
     <Compile Include="Comps\CompQuestOnHacked.cs" />
     <Compile Include="Comps\StorytellerComps.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="HarmonyPatches\MetaMorphPatches.cs" />
     <Compile Include="HarmonyPatches\StorytellerPatches.cs" />
     <Compile Include="Jobs\JobDriver_CarryToBioBattery.cs" />
+    <Compile Include="PowerWorkers\PowerWorker.cs" />
+    <Compile Include="Things\Building_AncientCryptosleepSarchophagus.cs" />
     <Compile Include="Things\Building_Cooler.cs" />
     <Compile Include="Things\Building_PipelineJunction.cs" />
     <Compile Include="Comps\CompNeedsContainment.cs" />

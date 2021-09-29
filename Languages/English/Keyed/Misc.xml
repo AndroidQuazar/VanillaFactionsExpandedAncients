@@ -49,5 +49,6 @@
     <VFEAncients.PowerChoice>The process of injecting super-nanites has finished. Because your lab equipment includes a nanite sampler, you may now select between the two power and weakness pairs for {0} to obtain.</VFEAncients.PowerChoice>
     <VFEAncients.Select>Select</VFEAncients.Select>
     <VFEAncients.MassLeft>Mass Left: {0} / {1} ({2})</VFEAncients.MassLeft>
+    <VFEAncients.AlreadyMetaMorph>Already in an animal form</VFEAncients.AlreadyMetaMorph>
     <VFEAncients.ExperimentFailureWarning>Running this experiment has a {0} chance of failure. This is due to:{4}\n\nThis could be reduced by finding and installing some of these buildings:\n{1}\n\nThe experiment will take {2} and cannot be stopped once started. This is affected by:{3}</VFEAncients.ExperimentFailureWarning>
 </LanguageData>
