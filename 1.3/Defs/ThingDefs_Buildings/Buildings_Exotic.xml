@@ -231,6 +231,7 @@
     <building>
       <claimable>false</claimable>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+	  <deconstructible>false</deconstructible>
     </building>
     <comps>
       <li Class="CompProperties_Hackable">

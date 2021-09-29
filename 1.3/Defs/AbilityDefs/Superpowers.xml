@@ -328,7 +328,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_AcidBreath</defName>
     <label>acid spitting</label>
-    <description>.</description>
+    <description>The subject has developed sacs of concentrated chemicals in their chest. The sacs are connected via tubes to the corners of their mouth and can be squirted out by contracting their chest when spitting, reacting with oxygen and forming globs of caustic jelly.</description>
     <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_AcidSpitting</iconPath>
@@ -346,7 +346,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Fireball</defName>
     <label>fireball</label>
-    <description>.</description>
+    <description>The subject has developed a sac of jellied chemfuel in the palm of their hand along with numerous glands. Once every 30 seconds, these glands extrude a glob of napalm into a closed fist which can then be tossed out to ignite with the air, before landing and setting a small area on fire.</description>
     <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
     <targetMode>Pawn</targetMode>
     <iconPath>Powers/Superpowers/Power_Fireball</iconPath>
@@ -363,7 +363,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_MetamorphosisTurtle</defName>
     <label>metamorphosis (turtle)</label>
-    <description>.</description>
+    <description>The subject is capable of temporarily exerting a psychic force which forces their body to take the shape of what the mind is convinced it should be. In this case, they adopt the form of a tortoise, with the same health, size and abilities, before their body snaps back into its actual shape after 60 seconds.</description>
     <abilityClass>VFEAncients.Ability_MetaMorph</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_MetamorphosisTurtle</iconPath>
@@ -380,7 +380,7 @@
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_MetamorphosisWarg</defName>
     <label>metamorphosis (warg)</label>
-    <description>.</description>
+    <description>The subject is capable of temporarily exerting a psychic force which forces their body to take the shape of what the mind is convinced it should be. In this case, they adopt the form of a warg, with the same health, size and abilities, before their body snaps back into its actual shape after 60 seconds.</description>
     <abilityClass>VFEAncients.Ability_MetaMorph</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_MetamorphosisWarg</iconPath>

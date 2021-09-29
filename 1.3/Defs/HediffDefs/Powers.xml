@@ -15,7 +15,7 @@
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_Blind</defName>
         <label>blind</label>
-        <description>todo</description>
+        <description>The center in the subject’s brain that is responsible for processing optical data has been stunted, causing them to be fully blind despite having functional eyesight.</description>
         <stages>
             <li>
                 <capMods>
@@ -30,7 +30,7 @@
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_Deaf</defName>
         <label>deaf</label>
-        <description>todo</description>
+        <description>The center in the subject’s brain that is responsible for processing auditory data has been stunted, causing them to be fully deaf despite having functional inner ear canals.</description>
         <stages>
             <li>
                 <capMods>
@@ -45,7 +45,7 @@
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_Mute</defName>
         <label>mute</label>
-        <description>todo</description>
+        <description>The subject has developed a mental block and can no longer create sounds with their mouth or vocal chords, eliminating all forms of speech.</description>
         <stages>
             <li>
                 <capMods>
@@ -60,7 +60,7 @@
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_Paralysis</defName>
         <label>psychological paralysis</label>
-        <description>todo</description>
+        <description>The center of the subject’s brain responsible for motor control in the legs has become stunted, effectively rendering them a paraplegic.</description>
         <stages>
             <li>
                 <capMods>
@@ -75,7 +75,7 @@
     <HediffDef ParentName="WeaknessHediffBase">
         <defName>Power_PainHypersensitivity</defName>
         <label>pain hypersensitivity</label>
-        <description>todo</description>
+        <description>The center in the subject’s brain that is responsible for pain sensation has been overdeveloped, causing even a papercut to feel like their finger is being chewed on by a wild animal.</description>
         <stages>
             <li>
               <painFactor>3</painFactor>
@@ -86,7 +86,7 @@
     <HediffDef ParentName="SuperpowerHediffBase">
         <defName>Power_Unstoppable</defName>
         <label>unstoppable</label>
-        <description>todo</description>
+        <description>The subject’s brain is no longer able to process the sensation of pain. This allows them to accomplish more but stops their body from being able to shut down from suffering excessive damage until it is destroyed.</description>
         <stages>
           <li>
             <painFactor>0</painFactor>

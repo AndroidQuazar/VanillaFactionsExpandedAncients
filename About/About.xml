@@ -7,7 +7,9 @@
 		<li>1.3</li>
 	</supportedVersions>
 	<packageId>VanillaExpanded.VFEA</packageId>
-	<description>Cool description.</description>
+	<description>Uncover the ancient technology used long ago in a war almost no one remembers anymore. Collect remnants of the ancient tech to assemble a workshop made to inject your pawns with a mysterious strain of super nanites, granting them powers of super-humans with a risk of severe brain damage. Explore new ancient locations, including freshly unlocked ancient vaults, potentially guarded by super-soldiers who believe the war is still ongoing, awaiting every day for new commands for HQ that no longer exists.
+
+This mod will expand on the ancient ruins in vanilla game, adding new ancient structures, clutter, debris and much, much more. Alternatively, start a new scenario as these very supersoldiers guarding an ancient vault. Decide if you want to wake your fellow soldiers up despite the food shortage, or let them sleep in the cryptosleep caskets until the colony is prepared to take them in.</description>
         <modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Ideology</packageId>
@@ -21,5 +23,6 @@
 		</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld.Ideology</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
 	</loadAfter>
  </ModMetaData>
