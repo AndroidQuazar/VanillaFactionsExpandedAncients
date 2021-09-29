@@ -325,7 +325,9 @@
       </li>
       <li Class="CompProperties_Flickable" />
       <li><compClass>VFEAncients.CompBiobattery</compClass></li>
-	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp">
+      <PowerOutputSolarFlare>2400</PowerOutputSolarFlare>
+      </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>

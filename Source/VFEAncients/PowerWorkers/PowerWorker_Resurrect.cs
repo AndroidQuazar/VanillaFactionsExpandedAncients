@@ -7,7 +7,7 @@ namespace VFEAncients
 {
     public class PowerWorker_Resurrect : PowerWorker
     {
-        private static readonly Dictionary<Pawn, int> resses = new Dictionary<Pawn, int>();
+        private static readonly Dictionary<Pawn, int> resses = new();
 
         public PowerWorker_Resurrect(PowerDef def) : base(def)
         {
@@ -29,7 +29,7 @@ namespace VFEAncients
             base.Tick(parent);
             if (resses.ContainsKey(parent.Pawn) && Find.TickManager.TicksGame >= resses[parent.Pawn])
             {
-                if (!parent.Pawn.Destroyed)
+                if (!(parent.Pawn?.Corpse?.Destroyed ?? true))
                 {
                     ResurrectionUtility.Resurrect(parent.Pawn);
                     if (PawnUtility.ShouldSendNotificationAbout(parent.Pawn))

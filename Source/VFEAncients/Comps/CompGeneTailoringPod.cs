@@ -92,8 +92,7 @@ namespace VFEAncients
 
         public virtual void CompleteOperation()
         {
-            if (Rand.Chance(currentOperation.FailChanceOnPawn(Occupant)))
-                currentOperation.Failure();
+            if (Rand.Chance(currentOperation.FailChanceOnPawn(Occupant))) currentOperation.Failure();
             else currentOperation.Success();
             currentOperation = null;
             ticksTillDone = -1;
@@ -110,6 +109,7 @@ namespace VFEAncients
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             if (Occupant != null && HasFuel && PowerOn && ticksTillDone <= 0 && currentOperation == null)
+            {
                 yield return new Command_Action
                 {
                     action = () => Find.WindowStack.Add(new FloatMenu(possibleOperations.Where(op => op.CanRunOnPawn(Occupant))
@@ -124,6 +124,15 @@ namespace VFEAncients
                     defaultLabel = "VFEAncients.StartOperation".Translate(),
                     icon = StartOperationTex
                 };
+                yield return new Command_Action
+                {
+                    icon = CompBiosculpterPod.InterruptCycleIcon,
+                    action = () => EjectContents(),
+                    defaultLabel = "VFEAncients.CancelOp".Translate(),
+                    defaultDesc = "VFEAncients.CancelOpDesc".Translate(Occupant.Named("PAWN"))
+                };
+            }
+
             if (currentOperation != null)
                 yield return new Command_Action
                 {

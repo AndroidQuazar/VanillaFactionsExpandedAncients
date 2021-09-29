@@ -33,6 +33,7 @@ namespace VFEAncients
                 yield return new Command_Toggle
                 {
                     defaultLabel = "VFEAncients.FireAtPods".Translate(),
+                    defaultDesc = "VFEAncients.FireAtPodsDesc".Translate(),
                     icon = FireAtPodsTex,
                     isActive = () => Opts.AtPods,
                     toggleAction = () => Opts.AtPods = !Opts.AtPods
@@ -40,6 +41,7 @@ namespace VFEAncients
                 yield return new Command_Toggle
                 {
                     defaultLabel = "VFEAncients.FireAtPawns".Translate(),
+                    defaultDesc = "VFEAncients.FireAtPodsDesc".Translate(),
                     icon = FireAtPawnsTex,
                     isActive = () => Opts.AtPawns,
                     toggleAction = () => Opts.AtPawns = !Opts.AtPawns
@@ -47,6 +49,7 @@ namespace VFEAncients
                 yield return new Command_Toggle
                 {
                     defaultLabel = "VFEAncients.FireAtProjectiles".Translate(),
+                    defaultDesc = "VFEAncients.FireAtPodsDesc".Translate(),
                     icon = FireAtProjectilesTex,
                     isActive = () => Opts.AtProjectiles,
                     toggleAction = () => Opts.AtProjectiles = !Opts.AtProjectiles

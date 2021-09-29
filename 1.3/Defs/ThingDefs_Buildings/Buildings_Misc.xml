@@ -71,7 +71,7 @@
     <defName>VFEA_AncientCryptosleepSarcophagus</defName>
     <label>ancient cryptosleep sarcophagus</label>
     <description>Ancient super-soldiers sleep in the ancient cryptosleep sarcophagi until they are awakened when their watch begins. These devices are a different variant to normal cryptosleep caskets - the process of hibernating is instant, but waking up from the sleep takes a long time. Cannot be re-used once opened.</description>
-    <thingClass>Building_AncientCryptosleepCasket</thingClass>
+    <thingClass>VFEAncients.Building_AncientCryptosleepSarchophagus</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Building/Misc/AncientCryptosleepSarcophagusClosed/AncientCryptosleepSarcophagusClosed</texPath>
@@ -119,6 +119,10 @@
           <graphicClass>Graphic_Multi</graphicClass>
           <drawSize>(1, 2)</drawSize>
         </graphicData>
+      </li>
+      <li Class="CompProperties_Hackable">
+        <defence>15000</defence>  <!-- ~ 6 hours for 10 intellect hacker -->
+        <effectHacking>HackingTerminal</effectHacking>
       </li>
     </comps>
     <placeWorkers>

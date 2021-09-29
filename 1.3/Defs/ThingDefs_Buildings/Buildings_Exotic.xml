@@ -226,8 +226,7 @@
     <drawerType>MapMeshOnly</drawerType>
     <repairEffect>ConstructMetal</repairEffect>
     <forceDebugSpawnable>true</forceDebugSpawnable>
-    <hasInteractionCell>true</hasInteractionCell>
-    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <hasInteractionCell>false</hasInteractionCell>
     <building>
       <claimable>false</claimable>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>

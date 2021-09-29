@@ -25,6 +25,18 @@ namespace VFEAncients
                 FilthMaker.TryMakeFilth(pawn.Position + GenRadial.RadialPattern[Rand.Range(1, 12)], pawn.Map, ThingDefOf.Filth_AnimalFilth, 1,
                     FilthSourceFlags.Natural | FilthSourceFlags.Pawn);
         }
+
+        public override bool IsEnabledForPawn(out string reason)
+        {
+            if (!base.IsEnabledForPawn(out reason)) return false;
+            if (HediffComp_MetaMorph.MetamorphedPawns.Contains(pawn))
+            {
+                reason = "VFEAncients.AlreadyMetaMorph".Translate();
+                return false;
+            }
+
+            return true;
+        }
     }
 
     public class AbilityExtension_MetaMorph : AbilityExtension_AbilityMod

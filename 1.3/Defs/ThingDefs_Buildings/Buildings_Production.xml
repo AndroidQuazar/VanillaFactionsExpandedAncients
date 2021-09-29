@@ -225,7 +225,6 @@
         <glowRadius>7</glowRadius>
         <glowColor>(370,370,370,0)</glowColor>
       </li>
-	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
