@@ -46,6 +46,9 @@
     <VFEAncients.FireAtPods>Fire at drop pods</VFEAncients.FireAtPods>
     <VFEAncients.FireAtPawns>Fire at enemies</VFEAncients.FireAtPawns>
     <VFEAncients.FireAtProjectiles>Fire at explosive projectiles</VFEAncients.FireAtProjectiles>
+    <VFEAncients.FireAtPodsDesc>Allow the point-defense turret to fire at incoming drop pods that contain enemy raiders.</VFEAncients.FireAtPodsDesc>
+    <VFEAncients.FireAtPawnsDesc>Allow the point-defense turret to fire at enemy pawns within range, like a normal turret would.</VFEAncients.FireAtPawnsDesc>
+    <VFEAncients.FireAtProjectilesDesc>Allow the point-defense turret to fire at incoming explosive projectiles, such as rockets and mortar shells.</VFEAncients.FireAtProjectilesDesc>
     <VFEAncients.PowerChoice>The process of injecting super-nanites has finished. Because your lab equipment includes a nanite sampler, you may now select between the two power and weakness pairs for {0} to obtain.</VFEAncients.PowerChoice>
     <VFEAncients.Select>Select</VFEAncients.Select>
     <VFEAncients.MassLeft>Mass Left: {0} / {1} ({2})</VFEAncients.MassLeft>
