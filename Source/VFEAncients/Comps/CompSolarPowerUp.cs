@@ -5,6 +5,7 @@ namespace VFEAncients
 {
     public class CompSolarPowerUp : ThingComp
     {
+        private CompBioBattery batteryComp;
         private bool oldElectricityDisabled;
         private CompPowerTrader powerComp;
 
@@ -16,6 +17,7 @@ namespace VFEAncients
         {
             base.PostSpawnSetup(respawningAfterLoad);
             powerComp = parent.TryGetComp<CompPowerTrader>();
+            batteryComp = parent.TryGetComp<CompBioBattery>();
         }
 
         public override void CompTick()
@@ -30,7 +32,11 @@ namespace VFEAncients
                 else if (powerComp is CompPowerPlant plant)
                     plant.UpdateDesiredPowerOutput();
                 else
+                {
                     powerComp.SetUpPowerVars();
+                    if (batteryComp is not null)
+                        powerComp.PowerOutput = batteryComp.Occupant is not null ? 2400f : 0f;
+                }
         }
 
         public override void PostExposeData()

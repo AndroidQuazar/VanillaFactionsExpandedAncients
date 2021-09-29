@@ -42,7 +42,6 @@ namespace VFEAncients
         public override void CompTick()
         {
             base.CompTick();
-            powerTrader.PowerOutput = Occupant is null ? 0 : 2400;
             ticksTillConsume--;
             if (ticksTillConsume == 0)
             {

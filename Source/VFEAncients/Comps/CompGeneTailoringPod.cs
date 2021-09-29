@@ -92,8 +92,7 @@ namespace VFEAncients
 
         public virtual void CompleteOperation()
         {
-            if (Rand.Chance(currentOperation.FailChanceOnPawn(Occupant)))
-                currentOperation.Failure();
+            if (Rand.Chance(currentOperation.FailChanceOnPawn(Occupant))) currentOperation.Failure();
             else currentOperation.Success();
             currentOperation = null;
             ticksTillDone = -1;
