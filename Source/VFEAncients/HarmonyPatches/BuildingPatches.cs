@@ -31,15 +31,27 @@ namespace VFEAncients.HarmonyPatches
 
         public static IEnumerable<Toil> FixHacking(IEnumerable<Toil> toils, JobDriver_Hack __instance)
         {
-            var done = __instance.job.targetA.Thing.def.hasInteractionCell;
+            var idx = 0;
             foreach (var toil in toils)
             {
-                if (!done)
-                {
-                    toil.initAction = delegate { toil.actor.pather.StartPath(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch); };
-                    done = true;
-                }
+                if (!__instance.job.targetA.Thing.def.hasInteractionCell)
+                    switch (idx)
+                    {
+                        case 0:
+                            toil.initAction = delegate { toil.actor.pather.StartPath(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch); };
+                            break;
+                        case 1:
+                            toil.endConditions = new List<Func<JobCondition>>
+                            {
+                                () => toil.actor.CanReachImmediate(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch)
+                                    ? JobCondition.Ongoing
+                                    : JobCondition.Incompletable,
+                                () => toil.actor.jobs.curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<CompHackable>().IsHacked ? JobCondition.Succeeded : JobCondition.Ongoing
+                            };
+                            break;
+                    }
 
+                idx++;
                 yield return toil;
             }
         }

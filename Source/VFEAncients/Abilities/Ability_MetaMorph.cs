@@ -60,19 +60,7 @@ namespace VFEAncients
         {
             MetamorphedPawns.Add(Pawn);
 
-            var lifeStage = Target.lifeStages.Last();
-            Pawn.Drawer.renderer.graphics.nakedGraphic = Pawn.gender == Gender.Female && lifeStage.femaleGraphicData != null
-                ? lifeStage.femaleGraphicData.Graphic
-                : lifeStage.bodyGraphicData.Graphic;
-
-            Pawn.Drawer.renderer.graphics.rottingGraphic =
-                Pawn.Drawer.renderer.graphics.nakedGraphic.GetColoredVersion(ShaderDatabase.CutoutSkin, PawnGraphicSet.RottingColorDefault, PawnGraphicSet.RottingColorDefault);
-
-            Pawn.Drawer.renderer.graphics.dessicatedGraphic = (Pawn.gender == Gender.Female && lifeStage.femaleDessicatedBodyGraphicData != null
-                ? lifeStage.femaleDessicatedBodyGraphicData?.Graphic
-                : lifeStage.dessicatedBodyGraphicData?.Graphic) ?? Pawn.Drawer.renderer.graphics.dessicatedGraphic;
-
-            Pawn.Drawer.renderer.graphics.headGraphic = null;
+            Pawn.Drawer.renderer.graphics.ResolveAllGraphics();
 
             Pawn.meleeVerbs.Notify_PawnDespawned();
 
@@ -82,11 +70,14 @@ namespace VFEAncients
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
+
             MetamorphedPawns.Remove(Pawn);
 
             Pawn.Drawer.renderer.graphics.ResolveAllGraphics();
 
             Pawn.verbTracker.InitVerbsFromZero();
+
+            Pawn.meleeVerbs.Notify_PawnDespawned();
         }
 
         public override void CompExposeData()
