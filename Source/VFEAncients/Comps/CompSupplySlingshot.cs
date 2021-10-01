@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
@@ -25,17 +26,22 @@ namespace VFEAncients
                     alsoClickIfOtherInGroupClicked = false,
                     action = delegate
                     {
-                        if (Transporter.AnyInGroupHasAnythingLeftToLoad)
-                        {
-                            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
-                                "ConfirmSendNotCompletelyLoadedPods".Translate(Transporter.FirstThingLeftToLoadInGroup.LabelCapNoCount, Transporter.FirstThingLeftToLoadInGroup),
-                                TryLaunch));
-                            return;
-                        }
-
-                        TryLaunch();
+                        ConfirmIf(() => Transporter.innerContainer.Any(thing => thing is Pawn),
+                            "".Translate(Transporter.innerContainer.First(thing => thing is Pawn).Named("PAWN")), () =>
+                                ConfirmIf(() => Transporter.AnyInGroupHasAnythingLeftToLoad,
+                                    "ConfirmSendNotCompletelyLoadedPods".Translate(Transporter.FirstThingLeftToLoadInGroup.LabelCapNoCount,
+                                        Transporter.FirstThingLeftToLoadInGroup),
+                                    TryLaunch), true);
                     }
                 };
+        }
+
+        private static void ConfirmIf(Func<bool> predicate, string confirmStr, Action onConfirm, bool danger = false)
+        {
+            if (predicate())
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(confirmStr, onConfirm, danger));
+            else
+                onConfirm();
         }
 
         public void TryLaunch()
