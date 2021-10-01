@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <DamageDef>
+		<defName>VFEA_AcidBreath</defName>
+		<label>acid breath</label>
+		<workerClass>DamageWorker_AddInjury</workerClass>
+		<externalViolence>true</externalViolence>
+		<hediff>VEF_AcidBurn</hediff>
+		<defaultDamage>5</defaultDamage>
+
+		<deathMessage>{0} has been dissolved to nothing.</deathMessage>
+		<additionalHediffs>
+			<li>
+				<hediff>VEF_AcidBuildup</hediff>
+				<severityPerDamageDealt>0.01</severityPerDamageDealt>
+				<victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+			</li>
+		</additionalHediffs>
+
+		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+
+		<armorCategory>Heat</armorCategory>
+	</DamageDef>
+</Defs>
