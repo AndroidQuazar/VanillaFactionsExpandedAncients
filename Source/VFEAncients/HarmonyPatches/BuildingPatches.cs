@@ -184,13 +184,12 @@ namespace VFEAncients.HarmonyPatches
                 {
                     var item = tc.Thing;
                     var chosenDef = item.Stuff ?? NonStuffStuff(item.def);
-                    var countWanted = Mathf.RoundToInt((item.Stuff != null
-                                                           ? item.def.CostStuffCount
-                                                           : item.def.CostList != null && item.def.CostList.Any()
-                                                               ? item.CostListAdjusted().First(tdcc => tdcc.thingDef == chosenDef).count
-                                                               : item.MarketValue / 100) *
-                                                       bill.recipe.GetModExtension<RecipeExtension_Mend>().Fraction);
-                    Log.Message($"Want {countWanted}x {chosenDef.label}");
+                    var countWanted = Mathf.RoundToInt(Mathf.Clamp((item.Stuff != null
+                                                                       ? item.def.CostStuffCount
+                                                                       : item.def.CostList != null && item.def.CostList.Any()
+                                                                           ? item.CostListAdjusted().First(tdcc => tdcc.thingDef == chosenDef).count
+                                                                           : item.GetStatValue(StatDefOf.MarketValueIgnoreHp) / 100) *
+                                                                   bill.recipe.GetModExtension<RecipeExtension_Mend>().Fraction, 1f, 9999f));
                     foreach (var thing in availableThings.Where(thing => thing.def == chosenDef))
                     {
                         chosen.Add(new ThingCount(thing, countWanted));
