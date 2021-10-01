@@ -133,7 +133,8 @@ namespace VFEAncients
                 };
             }
 
-            if (currentOperation != null)
+            if (currentOperation != null && Prefs.DevMode)
+            {
                 yield return new Command_Action
                 {
                     action = () =>
@@ -142,8 +143,19 @@ namespace VFEAncients
                         currentOperation = null;
                         ticksTillDone = -1;
                     },
-                    defaultLabel = "DEV: Complete Instantly"
+                    defaultLabel = "DEV: Succeed Instantly"
                 };
+                yield return new Command_Action
+                {
+                    action = () =>
+                    {
+                        currentOperation.Failure();
+                        currentOperation = null;
+                        ticksTillDone = -1;
+                    },
+                    defaultLabel = "DEV: Fail Instantly"
+                };
+            }
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
