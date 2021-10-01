@@ -137,13 +137,20 @@ namespace VFEAncients
             {
                 yield return new Command_Action
                 {
+                    action = CompleteOperation,
+                    defaultLabel = "DEV: Complete Instantly",
+                    defaultDesc = "Instantly advance to complete, and roll for failure"
+                };
+                yield return new Command_Action
+                {
                     action = () =>
                     {
                         currentOperation.Success();
                         currentOperation = null;
                         ticksTillDone = -1;
                     },
-                    defaultLabel = "DEV: Succeed Instantly"
+                    defaultLabel = "DEV: Succeed Instantly",
+                    defaultDesc = "Instantly succeed, ignoring success chance"
                 };
                 yield return new Command_Action
                 {
@@ -153,7 +160,8 @@ namespace VFEAncients
                         currentOperation = null;
                         ticksTillDone = -1;
                     },
-                    defaultLabel = "DEV: Fail Instantly"
+                    defaultLabel = "DEV: Fail Instantly",
+                    defaultDesc = "Instantly fail, ignoring success chance"
                 };
             }
         }
