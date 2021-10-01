@@ -185,6 +185,7 @@
           <VFEA_InjectingTimeFactor>-0.065</VFEA_InjectingTimeFactor>
         </statOffsets>
         <maxSimultaneous>10</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -225,6 +226,7 @@
           <VFEA_FailChance>-0.05</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>2</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
     <defaultPlacingRot>South</defaultPlacingRot>
@@ -265,6 +267,7 @@
           <VFEA_FailChance>-0.05</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>2</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -305,6 +308,7 @@
           <VFEA_FailChance>-0.01</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>10</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
     <defaultPlacingRot>South</defaultPlacingRot>
@@ -345,6 +349,7 @@
           <VFEA_FailChance>-0.1</VFEA_FailChance>
         </statOffsets>
         <maxSimultaneous>2</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -441,6 +446,7 @@
       <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
         <unlockedLevels>1</unlockedLevels>
         <maxSimultaneous>1</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -478,6 +484,7 @@
       <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
         <unlockedLevels>1</unlockedLevels>
         <maxSimultaneous>1</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -514,6 +521,7 @@
       </li>
       <li Class="CompProperties_Facility">
         <maxSimultaneous>1</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>
@@ -550,6 +558,7 @@
       </li>
       <li Class="CompProperties_Facility">
         <maxSimultaneous>1</maxSimultaneous>
+		<maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>

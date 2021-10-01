@@ -28,9 +28,9 @@
       <order>450</order>
       <genStep Class="KCSG.GenStep_CustomStructureGen">
          <structureLayoutDefs>
-            <li>VFEA_LootedVault1</li>
-            <li>VFEA_LootedVault2</li>
-            <li>VFEA_LootedVault3</li>
+            <li>VFEA_LootedVaultAlpha</li>
+            <li>VFEA_LootedVaultBravo</li>
+            <li>VFEA_LootedVaultCharlie</li>
          </structureLayoutDefs>
          <shouldRuin>true</shouldRuin>
          <filthTypes>
@@ -57,9 +57,9 @@
       <order>450</order>
       <genStep Class="KCSG.GenStep_CustomStructureGen">
          <structureLayoutDefs>
-            <li>VFEA_SealedVault1</li>
-            <!-- <li>VFEA_SealedVault2</li>
-            <li>VFEA_SealedVault3</li> -->
+            <li>VFEA_SealedVaultAlpha</li>
+            <li>VFEA_SealedVaultBravo</li>
+            <li>VFEA_SealedVaultCharlie</li>
          </structureLayoutDefs>
          <shouldRuin>false</shouldRuin>
       </genStep>
