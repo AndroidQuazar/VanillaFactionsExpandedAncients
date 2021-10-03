@@ -123,6 +123,10 @@
            </shadowData>
         </hackedGraphic>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
