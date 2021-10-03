@@ -81,7 +81,7 @@
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
 		<projectile>
-			<damageDef>VEF_SecondaryAcidBurn</damageDef>
+			<damageDef>VFEA_AcidBreath</damageDef>
 			<damageAmountBase>15</damageAmountBase>
 			<armorPenetrationBase>0.2</armorPenetrationBase>
 			<speed>100</speed>

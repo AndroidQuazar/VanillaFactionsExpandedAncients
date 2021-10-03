@@ -54,6 +54,7 @@
     <VFEAncients.MassLeft>Mass Left: {0} / {1} ({2})</VFEAncients.MassLeft>
     <VFEAncients.AlreadyMetaMorph>Already in an animal form</VFEAncients.AlreadyMetaMorph>
     <VFEAncients.CancelOp>Cancel operation</VFEAncients.CancelOp>
+    <VFEAncients.ConfirmSendPawn>This supply slingshot contains the pawn {PAWN_labelShort}. You will not be able to get {PAWN_pronoun} back if you send {PAWN_pronoun} away. Launch anyway?</VFEAncients.ConfirmSendPawn>
     <VFEAncients.CancelOpDesc>Decide not to do an operation on {PAWN} and eject {PAWN_pronoun} from the gene-tailroing pod.</VFEAncients.CancelOpDesc>
     <VFEAncients.ExperimentFailureWarning>Running this experiment has a {0} chance of failure. This is due to:{4}\n\nThis could be reduced by finding and installing some of these buildings:\n{1}\n\nThe experiment will take {2} and cannot be stopped once started. This is affected by:{3}</VFEAncients.ExperimentFailureWarning>
 </LanguageData>

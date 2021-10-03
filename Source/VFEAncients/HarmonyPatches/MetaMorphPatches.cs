@@ -17,6 +17,8 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.VerbProperties)), new HarmonyMethod(typeof(MetaMorphPatches), nameof(MetaMorphAttacks)));
             harm.Patch(AccessTools.Method(typeof(PawnRenderer), nameof(PawnRenderer.RenderCache)),
                 new HarmonyMethod(typeof(MetaMorphPatches), nameof(CheckMetaMorphForDrawPortrait)));
+            harm.Patch(AccessTools.Method(typeof(PawnGraphicSet), nameof(PawnGraphicSet.ResolveAllGraphics)),
+                new HarmonyMethod(typeof(MetaMorphPatches), nameof(MetamorphedGraphics)));
         }
 
         public static void SaveMetamorphed(Pawn __instance)
@@ -24,6 +26,30 @@ namespace VFEAncients.HarmonyPatches
             var metamorped = HediffComp_MetaMorph.MetamorphedPawns.Contains(__instance);
             Scribe_Values.Look(ref metamorped, "metamorphed");
             if (Scribe.mode == LoadSaveMode.LoadingVars && metamorped) HediffComp_MetaMorph.MetamorphedPawns.Add(__instance);
+        }
+
+        public static bool MetamorphedGraphics(PawnGraphicSet __instance)
+        {
+            if (!HediffComp_MetaMorph.MetamorphedPawns.Contains(__instance.pawn)) return true;
+
+            var comp = __instance.pawn.health.hediffSet.GetAllComps().OfType<HediffComp_MetaMorph>().First();
+
+            var lifeStage = comp.Target.lifeStages.Last();
+            __instance.pawn.Drawer.renderer.graphics.nakedGraphic = __instance.pawn.gender == Gender.Female && lifeStage.femaleGraphicData != null
+                ? lifeStage.femaleGraphicData.Graphic
+                : lifeStage.bodyGraphicData.Graphic;
+
+            __instance.pawn.Drawer.renderer.graphics.rottingGraphic =
+                __instance.pawn.Drawer.renderer.graphics.nakedGraphic.GetColoredVersion(ShaderDatabase.CutoutSkin, PawnGraphicSet.RottingColorDefault,
+                    PawnGraphicSet.RottingColorDefault);
+
+            __instance.pawn.Drawer.renderer.graphics.dessicatedGraphic = (__instance.pawn.gender == Gender.Female && lifeStage.femaleDessicatedBodyGraphicData != null
+                ? lifeStage.femaleDessicatedBodyGraphicData?.Graphic
+                : lifeStage.dessicatedBodyGraphicData?.Graphic) ?? __instance.pawn.Drawer.renderer.graphics.dessicatedGraphic;
+
+            __instance.pawn.Drawer.renderer.graphics.headGraphic = null;
+
+            return false;
         }
 
         public static bool MetaMorphHealth(Pawn __instance, ref float __result)

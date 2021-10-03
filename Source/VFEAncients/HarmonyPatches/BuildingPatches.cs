@@ -31,15 +31,27 @@ namespace VFEAncients.HarmonyPatches
 
         public static IEnumerable<Toil> FixHacking(IEnumerable<Toil> toils, JobDriver_Hack __instance)
         {
-            var done = __instance.job.targetA.Thing.def.hasInteractionCell;
+            var idx = 0;
             foreach (var toil in toils)
             {
-                if (!done)
-                {
-                    toil.initAction = delegate { toil.actor.pather.StartPath(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch); };
-                    done = true;
-                }
+                if (!__instance.job.targetA.Thing.def.hasInteractionCell)
+                    switch (idx)
+                    {
+                        case 0:
+                            toil.initAction = delegate { toil.actor.pather.StartPath(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch); };
+                            break;
+                        case 1:
+                            toil.endConditions = new List<Func<JobCondition>>
+                            {
+                                () => toil.actor.CanReachImmediate(toil.actor.jobs.curJob.GetTarget(TargetIndex.A), PathEndMode.Touch)
+                                    ? JobCondition.Ongoing
+                                    : JobCondition.Incompletable,
+                                () => toil.actor.jobs.curJob.GetTarget(TargetIndex.A).Thing.TryGetComp<CompHackable>().IsHacked ? JobCondition.Succeeded : JobCondition.Ongoing
+                            };
+                            break;
+                    }
 
+                idx++;
                 yield return toil;
             }
         }
@@ -184,13 +196,12 @@ namespace VFEAncients.HarmonyPatches
                 {
                     var item = tc.Thing;
                     var chosenDef = item.Stuff ?? NonStuffStuff(item.def);
-                    var countWanted = Mathf.RoundToInt((item.Stuff != null
-                                                           ? item.def.CostStuffCount
-                                                           : item.def.CostList != null && item.def.CostList.Any()
-                                                               ? item.CostListAdjusted().First(tdcc => tdcc.thingDef == chosenDef).count
-                                                               : item.MarketValue / 100) *
-                                                       bill.recipe.GetModExtension<RecipeExtension_Mend>().Fraction);
-                    Log.Message($"Want {countWanted}x {chosenDef.label}");
+                    var countWanted = Mathf.RoundToInt(Mathf.Clamp((item.Stuff != null
+                                                                       ? item.def.CostStuffCount
+                                                                       : item.def.CostList != null && item.def.CostList.Any()
+                                                                           ? item.CostListAdjusted().First(tdcc => tdcc.thingDef == chosenDef).count
+                                                                           : item.GetStatValue(StatDefOf.MarketValueIgnoreHp) / 100) *
+                                                                   bill.recipe.GetModExtension<RecipeExtension_Mend>().Fraction, 1f, 9999f));
                     foreach (var thing in availableThings.Where(thing => thing.def == chosenDef))
                     {
                         chosen.Add(new ThingCount(thing, countWanted));

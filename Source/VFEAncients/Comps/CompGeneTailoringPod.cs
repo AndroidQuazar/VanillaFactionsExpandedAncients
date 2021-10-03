@@ -133,7 +133,14 @@ namespace VFEAncients
                 };
             }
 
-            if (currentOperation != null)
+            if (currentOperation != null && Prefs.DevMode)
+            {
+                yield return new Command_Action
+                {
+                    action = CompleteOperation,
+                    defaultLabel = "DEV: Complete Instantly",
+                    defaultDesc = "Instantly advance to complete, and roll for failure"
+                };
                 yield return new Command_Action
                 {
                     action = () =>
@@ -142,8 +149,21 @@ namespace VFEAncients
                         currentOperation = null;
                         ticksTillDone = -1;
                     },
-                    defaultLabel = "DEV: Complete Instantly"
+                    defaultLabel = "DEV: Succeed Instantly",
+                    defaultDesc = "Instantly succeed, ignoring success chance"
                 };
+                yield return new Command_Action
+                {
+                    action = () =>
+                    {
+                        currentOperation.Failure();
+                        currentOperation = null;
+                        ticksTillDone = -1;
+                    },
+                    defaultLabel = "DEV: Fail Instantly",
+                    defaultDesc = "Instantly fail, ignoring success chance"
+                };
+            }
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
