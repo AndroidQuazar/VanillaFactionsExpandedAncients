@@ -52,12 +52,10 @@
   <FactionDef ParentName="AncientSoldiersBase">
     <defName>VFEA_AncientSoldiers</defName>
     <label>ancient super-soldiers</label>
-  </FactionDef>
- 
-  <FactionDef ParentName="AncientSoldiersBase">
-    <defName>VFEA_AncientSoldiersHostile</defName>
-    <label>ancient super-soldiers</label>
-	<permanentEnemy>true</permanentEnemy>
+    <permanentEnemyToEveryoneExcept>
+      <li>VFEA_NewVault</li>
+      <li>Ancients</li>
+    </permanentEnemyToEveryoneExcept>
   </FactionDef>
 
 </Defs>
