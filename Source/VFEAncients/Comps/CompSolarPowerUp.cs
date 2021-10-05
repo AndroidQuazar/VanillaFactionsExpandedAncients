@@ -1,42 +1,41 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace VFEAncients
 {
     public class CompSolarPowerUp : ThingComp
     {
-        private CompBioBattery batteryComp;
+        public static HashSet<CompPower> SolarPoweredUp = new();
         private bool oldElectricityDisabled;
         private CompPowerTrader powerComp;
 
         public CompProperties_SolarPowerUp Props => props as CompProperties_SolarPowerUp;
 
         public static bool PowerUpActive(Thing parent) => parent.Spawned && parent.Map.GameConditionManager.ElectricityDisabled;
+        public static bool PowerUpActive(CompPower powerComp) => PowerUpActive(powerComp.parent) && SolarPoweredUp.Contains(powerComp);
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             powerComp = parent.TryGetComp<CompPowerTrader>();
-            batteryComp = parent.TryGetComp<CompBioBattery>();
+            if (powerComp is not null)
+                SolarPoweredUp.Add(powerComp);
+            if (parent.TryGetComp<CompPowerBattery>(out var battery)) SolarPoweredUp.Add(battery);
         }
 
         public override void CompTick()
         {
             base.CompTick();
-            if (powerComp != null)
-                if (PowerUpActive(parent))
+            if (powerComp != null && PowerUpActive(parent))
+            {
+                if (powerComp is CompPowerPlant plant)
                 {
-                    powerComp.PowerOutput = Props.PowerOutputSolarFlare;
-                    powerComp.PowerOn = true;
-                }
-                else if (powerComp is CompPowerPlant plant)
                     plant.UpdateDesiredPowerOutput();
-                else
-                {
-                    powerComp.SetUpPowerVars();
-                    if (batteryComp is not null)
-                        powerComp.PowerOutput = batteryComp.Occupant is not null ? 2400f : 0f;
+                    plant.PowerOutput *= Props.PowerPlantOutputMult;
                 }
+                else if (powerComp.PowerOutput > 0 && powerComp.PowerOutput == -powerComp.Props.basePowerConsumption) powerComp.PowerOutput *= Props.PowerPlantOutputMult;
+            }
         }
 
         public override void PostExposeData()
@@ -44,12 +43,18 @@ namespace VFEAncients
             base.PostExposeData();
             Scribe_Values.Look(ref oldElectricityDisabled, "oldElectricityDisabled");
         }
+
+        public override void PostDeSpawn(Map map)
+        {
+            SolarPoweredUp.Remove(powerComp);
+            base.PostDeSpawn(map);
+        }
     }
 
     public class CompProperties_SolarPowerUp : CompProperties
     {
-        public float PowerOutputSolarFlare;
-        public float SolarFlareWorkSpeedMult = 2f;
+        public float PowerPlantOutputMult = 1f;
+        public float WorkSpeedMult = 2f;
 
         public CompProperties_SolarPowerUp() => compClass = typeof(CompSolarPowerUp);
     }
@@ -59,13 +64,13 @@ namespace VFEAncients
         public override void TransformValue(StatRequest req, ref float val)
         {
             if (req.HasThing && req.Thing.Map.GameConditionManager.ElectricityDisabled && req.Thing.TryGetComp<CompSolarPowerUp>(out var solarPowerUp))
-                val *= solarPowerUp.Props.SolarFlareWorkSpeedMult;
+                val *= solarPowerUp.Props.WorkSpeedMult;
         }
 
         public override string ExplanationPart(StatRequest req)
         {
             if (req.HasThing && req.Thing.Map.GameConditionManager.ElectricityDisabled && req.Thing.TryGetComp<CompSolarPowerUp>(out var solarPowerUp))
-                return "VFEAncients.SolarPowerUp".Translate() + ": x" + solarPowerUp.Props.SolarFlareWorkSpeedMult.ToStringPercent();
+                return "VFEAncients.SolarPowerUp".Translate() + ": x" + solarPowerUp.Props.WorkSpeedMult.ToStringPercent();
             return "";
         }
     }

@@ -8,9 +8,9 @@ namespace VFEAncients
 {
     public class GameComponent_Ancients : GameComponent
     {
-        public Queue<SlingshotInfo> SlingshotQueue = new Queue<SlingshotInfo>();
+        public Queue<SlingshotInfo> SlingshotQueue = new();
 
-        public Dictionary<TickerType, List<(Pawn_PowerTracker, PowerDef)>> TickLists = new Dictionary<TickerType, List<(Pawn_PowerTracker, PowerDef)>>
+        public Dictionary<TickerType, List<(Pawn_PowerTracker, PowerDef)>> TickLists = new()
         {
             {TickerType.Normal, new List<(Pawn_PowerTracker, PowerDef)>()},
             {TickerType.Rare, new List<(Pawn_PowerTracker, PowerDef)>()},

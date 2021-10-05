@@ -18,7 +18,7 @@ namespace VFEAncients
         public override bool TryMakePreToilReservations(bool errorOnFailed) =>
             pawn.Reserve(Takee, job, 1, -1, null, errorOnFailed) && pawn.Reserve(Pod.parent, job, 1, -1, null, errorOnFailed);
 
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDestroyedOrNull(TakeeInd);
             this.FailOnDestroyedOrNull(BatteryInd);

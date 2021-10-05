@@ -103,6 +103,7 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
       </li>
+      <li Class="VFEAncients.CompProperties_SolarPowerUp"/>
     </comps>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 	<designationCategory>VFEA_Ancients</designationCategory>

@@ -7,9 +7,6 @@ namespace VFEAncients
     {
         public PowerDef Power;
 
-        protected override bool Satisfied(Pawn pawn)
-        {
-            return pawn?.GetPowerTracker()?.HasPower(Power) ?? false;
-        }
+        public override bool Satisfied(Pawn pawn) => pawn?.GetPowerTracker()?.HasPower(Power) ?? false;
     }
 }

@@ -7,7 +7,7 @@ namespace VFEAncients
 {
     public class JobDriver_SitFacingBuilding_Learning : JobDriver_SitFacingBuilding
     {
-        protected override void ModifyPlayToil(Toil toil)
+        public override void ModifyPlayToil(Toil toil)
         {
             base.ModifyPlayToil(toil);
             toil.AddPreTickAction(() => pawn.skills.Learn(pawn.skills.skills.Select(sk => sk.def).RandomElement(), 0.1f));

@@ -9,7 +9,7 @@ namespace VFEAncients
         {
         }
 
-        protected override void Impact(Thing hitThing)
+        public override void Impact(Thing hitThing)
         {
             base.Impact(null);
             var graphic = (LaserEyeBeamDraw) ThingMaker.MakeThing(VFEA_DefOf.VFEA_LaserEyeBeamDraw);

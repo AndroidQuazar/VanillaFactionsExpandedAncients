@@ -27,6 +27,14 @@ namespace VFEAncients.HarmonyPatches
                     new[] {typeof(Thing), typeof(bool), typeof(bool), typeof(bool), typeof(TerrainDef), typeof(List<string>)}),
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddDeterioration)));
             harm.Patch(AccessTools.Method(typeof(JobDriver_Hack), "MakeNewToils"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(FixHacking)));
+            harm.Patch(AccessTools.Method(typeof(PowerNet), nameof(PowerNet.PowerNetTick)), new HarmonyMethod(typeof(BuildingPatches), nameof(PowerNetOnSolarFlare)));
+        }
+
+        public static bool PowerNetOnSolarFlare(PowerNet __instance)
+        {
+            if (!__instance.Map.GameConditionManager.ElectricityDisabled) return true;
+            __instance.PowerNetTickSolarFlare();
+            return false;
         }
 
         public static IEnumerable<Toil> FixHacking(IEnumerable<Toil> toils, JobDriver_Hack __instance)

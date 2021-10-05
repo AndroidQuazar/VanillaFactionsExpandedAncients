@@ -72,11 +72,4 @@
       <pointMultiplier>1.2</pointMultiplier>
     </genStep>
   </GenStepDef>
-
-  <!-- <GenStepDef>
-      <defName>VFEA_PopulateVaultSealed</defName>
-      <linkWithSite>VFEA_SealedVault</linkWithSite>
-      <order>1000</order>
-      <genStep Class="VFEAncients.GenStep_PopulateVault" />
-   </GenStepDef> -->
 </Defs>

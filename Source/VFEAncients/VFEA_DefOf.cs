@@ -37,9 +37,7 @@ namespace VFEAncients
         public static RulePackDef VFEA_InterrogationRefused;
         public static RulePackDef VFEA_InterrogationSuccess;
         public static ThingDef VFEA_NaniteSampler;
-        public static PawnKindDef VFEA_PlayerAncientSoldierOneAbility;
-        public static PawnKindDef VFEA_AncientSoldierOneAbility;
-        public static PawnKindDef VFEA_AncientSoldierTwoAbilities;
         public static HediffDef VFEA_MetaMorph;
+        public static FactionDef VFEA_NewVault;
     }
 }

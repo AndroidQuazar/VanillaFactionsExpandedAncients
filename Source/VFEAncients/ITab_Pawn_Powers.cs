@@ -25,7 +25,7 @@ namespace VFEAncients
         public override bool IsVisible => (SelPowerTracker?.AllPowers.Any() ?? false) ||
                                           SelPawn != null && Pawn_PowerTracker.CanGetPowers(SelPawn) && Prefs.DevMode && DebugSettings.godMode;
 
-        protected override void FillTab()
+        public override void FillTab()
         {
             SelPowerTracker.AllPowers.Split(out var superpowers, out var weaknesses, def => def.powerType == PowerType.Superpower);
             var rect = new Rect(0, 0, size.x, size.y).ContractedBy(10f);

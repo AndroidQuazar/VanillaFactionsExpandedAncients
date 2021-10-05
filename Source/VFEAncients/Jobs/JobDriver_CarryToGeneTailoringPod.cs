@@ -15,12 +15,10 @@ namespace VFEAncients
 
         private CompGeneTailoringPod Pod => job.GetTarget(PodInd).Thing.TryGetComp<CompGeneTailoringPod>();
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return pawn.Reserve(Takee, job, 1, -1, null, errorOnFailed) && pawn.Reserve(Pod.parent, job, 1, -1, null, errorOnFailed);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) =>
+            pawn.Reserve(Takee, job, 1, -1, null, errorOnFailed) && pawn.Reserve(Pod.parent, job, 1, -1, null, errorOnFailed);
 
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDestroyedOrNull(TakeeInd);
             this.FailOnDestroyedOrNull(PodInd);

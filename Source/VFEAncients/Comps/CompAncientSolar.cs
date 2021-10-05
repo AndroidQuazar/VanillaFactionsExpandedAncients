@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -14,16 +13,7 @@ namespace VFEAncients
         private static readonly Material POWER_PLANT_SOLAR_BAR_SUPER_MAT = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.45f, 0.1f, 0.9f));
 
         private static readonly Material POWER_PLANT_SOLAR_BAR_UNFILLED_MAT = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.15f, 0.15f, 0.15f));
-        protected override float DesiredPowerOutput => Mathf.Lerp(0f, -Props.basePowerConsumption, parent.Map.skyManager.CurSkyGlow) * RoofedPowerOutputFactor;
-
-        private float RoofedPowerOutputFactor
-        {
-            get
-            {
-                var cells = parent.OccupiedRect().ToList();
-                return cells.Count(cell => !parent.Map.roofGrid.Roofed(cell)) / (float) cells.Count;
-            }
-        }
+        public override float DesiredPowerOutput => Mathf.Lerp(0f, -Props.basePowerConsumption, parent.Map.skyManager.CurSkyGlow) * RoofedPowerOutputFactor;
 
         public override void PostDraw()
         {

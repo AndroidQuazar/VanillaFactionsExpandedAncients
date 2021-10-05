@@ -7,7 +7,7 @@ namespace VFEAncients
 {
     public class JobGiver_Hallucinations : ThinkNode_JobGiver
     {
-        protected override Job TryGiveJob(Pawn pawn)
+        public override Job TryGiveJob(Pawn pawn)
         {
             var verb = pawn.CurrentEffectiveVerb;
             if (verb != null && Rand.Chance(0.25f) && GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, verb.verbProps.range, false).Where(t => verb.CanHitTarget(t))

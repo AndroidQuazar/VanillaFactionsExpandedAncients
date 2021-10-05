@@ -52,7 +52,7 @@
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="VFEAncients.CompProperties_SolarPowerUp">
-        <PowerOutputSolarFlare>3000</PowerOutputSolarFlare>
+        <PowerPlantOutputMult>10</PowerPlantOutputMult>
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -139,7 +139,7 @@
         <wickTicks>70~150</wickTicks>
       </li>
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
-	    <PowerOutputSolarFlare>8000</PowerOutputSolarFlare>
+	    <PowerPlantOutputMult>2</PowerPlantOutputMult>
 	  </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -200,7 +200,7 @@
         <energyPerSecond>96</energyPerSecond>
       </li>
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
-	    <PowerOutputSolarFlare>13600</PowerOutputSolarFlare>
+	    <PowerPlantOutputMult>2</PowerPlantOutputMult>
 	  </li>
     </comps>
     <rotatable>false</rotatable>
@@ -323,14 +323,13 @@
     </thingCategories>
     <comps>
       <li Class="CompProperties_Power">
-        <compClass>CompPowerPlant</compClass>
+        <compClass>VFEAncients.CompBiobattery</compClass>
         <basePowerConsumption>-2400</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li><compClass>VFEAncients.CompBiobattery</compClass></li>
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp">
-      <PowerOutputSolarFlare>2400</PowerOutputSolarFlare>
+      <PowerPlantOutputMult>2</PowerPlantOutputMult>
       </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>

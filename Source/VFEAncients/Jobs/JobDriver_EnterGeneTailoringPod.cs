@@ -7,12 +7,9 @@ namespace VFEAncients
 {
     public class JobDriver_EnterGeneTailoringPod : JobDriver
     {
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
 
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOn(() => !job.targetA.Thing.TryGetComp<CompGeneTailoringPod>().CanAccept(GetActor()));

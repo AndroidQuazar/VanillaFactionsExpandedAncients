@@ -3,11 +3,9 @@ using Verse;
 
 namespace VFEAncients
 {
-    internal class ThoughtWorker_OutsideParanoid : ThoughtWorker
+    public class ThoughtWorker_OutsideParanoid : ThoughtWorker
     {
-        protected override ThoughtState CurrentStateInternal(Pawn p)
-        {
-            return (p.GetPowerTracker()?.HasPower(VFEA_DefOf.Paranoid) ?? false) && !(p.MapHeld?.areaManager.Home[p.Position] ?? false);
-        }
+        public override ThoughtState CurrentStateInternal(Pawn p) =>
+            (p.GetPowerTracker()?.HasPower(VFEA_DefOf.Paranoid) ?? false) && !(p.MapHeld?.areaManager.Home[p.Position] ?? false);
     }
 }

@@ -5,12 +5,9 @@ namespace VFEAncients
 {
     public class IncidentWorker_SupplyDrop : IncidentWorker
     {
-        protected override bool CanFireNowSub(IncidentParms parms)
-        {
-            return base.CanFireNowSub(parms) && parms.target is Map;
-        }
+        public override bool CanFireNowSub(IncidentParms parms) => base.CanFireNowSub(parms) && parms.target is Map;
 
-        protected override bool TryExecuteWorker(IncidentParms parms)
+        public override bool TryExecuteWorker(IncidentParms parms)
         {
             var crate = (Building_Crate) ThingMaker.MakeThing(VFEA_DefOf.VFEA_AncientSupplyCrate);
             foreach (var thing in VFEA_DefOf.VFEA_Contents_SuuplyDrop.root.Generate()) crate.TryAcceptThing(thing, false);

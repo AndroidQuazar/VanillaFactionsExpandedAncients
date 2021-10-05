@@ -16,12 +16,12 @@ namespace VFEAncients
             foreach (var choice in choices) choice.ResolveReferences();
         }
 
-        protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
+        public override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
         {
             outThings.AddRange(choices.InRandomOrder().Take(count).SelectMany(choice => choice.Generate(parms)));
         }
 
-        protected override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms)
+        public override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms)
         {
             return choices.SelectMany(choice => choice.AllGeneratableThingsDebug(parms));
         }

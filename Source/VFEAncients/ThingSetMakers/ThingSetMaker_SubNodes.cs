@@ -9,17 +9,17 @@ namespace VFEAncients
     {
         public List<ThingSetMaker> subNodes;
 
-        protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
+        public override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
         {
             outThings.AddRange(subNodes.SelectMany(maker => maker.Generate(parms)));
         }
 
-        protected override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms)
+        public override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms)
         {
             return subNodes.SelectMany(maker => maker.AllGeneratableThingsDebug(parms));
         }
 
-        protected override bool CanGenerateSub(ThingSetMakerParams parms)
+        public override bool CanGenerateSub(ThingSetMakerParams parms)
         {
             return base.CanGenerateSub(parms) && subNodes.All(maker => maker.CanGenerate(parms));
         }

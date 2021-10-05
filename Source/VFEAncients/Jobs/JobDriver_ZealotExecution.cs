@@ -9,12 +9,9 @@ namespace VFEAncients
     {
         protected Pawn Victim => (Pawn) job.targetA.Thing;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return pawn.Reserve(Victim, job, 1, -1, null, errorOnFailed);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(Victim, job, 1, -1, null, errorOnFailed);
 
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnAggroMentalState(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.A);

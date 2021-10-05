@@ -8,15 +8,12 @@ namespace VFEAncients
 {
     public class JobDriver_InterrogatePrisoner : JobDriver
     {
-        public static IntRange CountRange = new IntRange(2, 5);
+        public static IntRange CountRange = new(2, 5);
         protected Pawn Interrogatee => job.targetA.Pawn;
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
-        {
-            return pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
-        }
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
 
-        protected override IEnumerable<Toil> MakeNewToils()
+        public override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
             this.FailOnMentalState(TargetIndex.A);

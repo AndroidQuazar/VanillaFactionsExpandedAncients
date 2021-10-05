@@ -11,16 +11,13 @@ namespace VFEAncients
 
         public ThingDef def;
 
-        protected override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
+        public override void Generate(ThingSetMakerParams parms, List<Thing> outThings)
         {
             var t = ThingMaker.MakeThing(def, GenStuff.RandomStuffByCommonalityFor(def));
             t.stackCount = countRange.min != 0 && countRange.max != 0 ? countRange.RandomInRange : count;
             outThings.Add(t);
         }
 
-        protected override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms)
-        {
-            return Gen.YieldSingle(def);
-        }
+        public override IEnumerable<ThingDef> AllGeneratableThingsDebugSub(ThingSetMakerParams parms) => Gen.YieldSingle(def);
     }
 }

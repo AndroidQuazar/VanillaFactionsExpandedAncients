@@ -19,6 +19,20 @@ namespace VFEAncients
                 else falsy.Add(t);
         }
 
+        public static bool TryPeek<T>(this Queue<T> queue, out T res)
+        {
+            try
+            {
+                res = queue.Peek();
+                return true;
+            }
+            catch (InvalidOperationException)
+            {
+                res = default;
+                return false;
+            }
+        }
+
         public static bool TryGetComp<T>(this Thing t, out T comp) where T : ThingComp
         {
             comp = t.TryGetComp<T>();

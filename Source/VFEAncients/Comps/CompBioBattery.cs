@@ -8,17 +8,17 @@ using Verse.AI;
 namespace VFEAncients
 {
     [StaticConstructorOnStartup]
-    public class CompBioBattery : ThingComp, IThingHolderWithDrawnPawn, ISuspendableThingHolder
+    public class CompBioBattery : CompPowerPlant, IThingHolderWithDrawnPawn, ISuspendableThingHolder
     {
         public static Material TopMat = MaterialPool.MatFrom("Things/Building/Power/AncientBioBattery/BioBattery_Top");
         private ThingOwner innerContainer;
         private float massLeft = -1;
-        private CompPowerTrader powerTrader;
         private int ticksTillConsume = -1;
 
         public CompBioBattery() => innerContainer = new ThingOwner<Thing>(this);
 
         public Pawn Occupant => innerContainer.OfType<Pawn>().FirstOrDefault();
+        public override float DesiredPowerOutput => Occupant is null ? 0 : base.DesiredPowerOutput;
 
         public bool IsContentsSuspended => true;
 
@@ -32,12 +32,6 @@ namespace VFEAncients
         public float HeldPawnDrawPos_Y => parent.def.altitudeLayer.AltitudeFor(Altitudes.AltInc);
         public float HeldPawnBodyAngle => Rot4.North.AsAngle;
         public PawnPosture HeldPawnPosture => PawnPosture.LayingOnGroundFaceUp;
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            powerTrader = parent.GetComp<CompPowerTrader>();
-        }
 
         public override void CompTick()
         {
@@ -107,10 +101,10 @@ namespace VFEAncients
             Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         }
 
-        public override string CompInspectStringExtra() => Occupant is not null
-            ? "VFEAncients.MassLeft".Translate(massLeft.ToStringMass(), Occupant.GetStatValue(StatDefOf.Mass).ToStringMass(), (
+        public override string CompInspectStringExtra() => base.CompInspectStringExtra() + (Occupant is not null
+            ? "\n" + "VFEAncients.MassLeft".Translate(massLeft.ToStringMass(), Occupant.GetStatValue(StatDefOf.Mass).ToStringMass(), (
                 massLeft / Occupant.GetStatValue(StatDefOf.Mass)).ToStringPercent()) + "\n" + "Contains".Translate() + ": " + Occupant.NameShortColored.Resolve()
-            : "";
+            : "");
 
         public static IEnumerable<Thing> FindBatteryFor(Pawn pawn, Pawn target)
         {
