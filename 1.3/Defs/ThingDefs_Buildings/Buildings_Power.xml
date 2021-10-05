@@ -139,7 +139,7 @@
         <wickTicks>70~150</wickTicks>
       </li>
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
-	    <PowerOutputSolarFlare>4000</PowerOutputSolarFlare>
+	    <PowerOutputSolarFlare>8000</PowerOutputSolarFlare>
 	  </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -200,7 +200,7 @@
         <energyPerSecond>96</energyPerSecond>
       </li>
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
-	    <PowerOutputSolarFlare>6800</PowerOutputSolarFlare>
+	    <PowerOutputSolarFlare>13600</PowerOutputSolarFlare>
 	  </li>
     </comps>
     <rotatable>false</rotatable>
