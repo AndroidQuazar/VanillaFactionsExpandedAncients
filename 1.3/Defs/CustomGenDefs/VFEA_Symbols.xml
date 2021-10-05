@@ -2,13 +2,6 @@
 <Defs>
 
 <KCSG.SymbolDef>
-  <defName>VFEA_AncientHermeticCrate_North</defName>
-  <thing>AncientHermeticCrate</thing>
-  <rotation>North</rotation>
-  <thingSetMakerDef>MapGen_AncientComplexRoomLoot_Default</thingSetMakerDef>
-</KCSG.SymbolDef>
-
-<KCSG.SymbolDef>
   <defName>VFEA_AncientBrokenDefensiveTurret_North</defName>
   <thing>VFEA_AncientBrokenDefensiveTurret</thing>
   <rotation>North</rotation>
@@ -174,12 +167,6 @@
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>VFEA_LargeSupplyCrate_North</defName>
-  <thing>VFEA_LargeSupplyCrate</thing>
-  <rotation>North</rotation>
-</KCSG.SymbolDef>
-
-<KCSG.SymbolDef>
   <defName>VFEA_AncientSupplySlingshot</defName>
   <thing>VFEA_AncientSupplySlingshot</thing>
 </KCSG.SymbolDef>
@@ -257,22 +244,6 @@
   <defName>VFEA_AncientBed_South</defName>
   <thing>VFEA_AncientBed</thing>
   <rotation>South</rotation>
-</KCSG.SymbolDef>
-
-<KCSG.SymbolDef>
-  <defName>VFEA_AncientCryptosleepSarcophagus_West</defName>
-  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
-  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
-  <rotation>West</rotation>
-</KCSG.SymbolDef>
-
-<KCSG.SymbolDef>
-  <defName>VFEA_AncientCryptosleepSarcophagus_East</defName>
-  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
-  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
-  <rotation>East</rotation>
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
@@ -380,14 +351,6 @@
 </KCSG.SymbolDef>
 
 <KCSG.SymbolDef>
-  <defName>VFEA_AncientCryptosleepSarcophagus_North</defName>
-  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
-  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
-  <rotation>North</rotation>
-</KCSG.SymbolDef>
-
-<KCSG.SymbolDef>
   <defName>VFEA_AncientEducator_South</defName>
   <thing>VFEA_AncientEducator</thing>
   <rotation>South</rotation>
@@ -417,12 +380,79 @@
   <rotation>West</rotation>
 </KCSG.SymbolDef>
 
+<!-- Casket & crates --> 
 <KCSG.SymbolDef>
   <defName>VFEA_AncientCryptosleepSarcophagus_South</defName>
   <thing>VFEA_AncientCryptosleepSarcophagus</thing>
-  <containPawnKindForPlayer>VFEA_PlayerAncientSoldierOneAbility</containPawnKindForPlayer>
+  <containPawnKindAnyOf>
+    <li>VFEA_AncientSoldierOneAbility</li>
+    <li>VFEA_AncientSoldierTwoAbilities</li>
+  </containPawnKindAnyOf>
+  <containPawnKindForPlayerAnyOf>
+    <li>VFEA_PlayerAncientSoldierOneAbility</li>
+  </containPawnKindForPlayerAnyOf>
   <chanceToContainPawn>0.1</chanceToContainPawn>
+  <spawnPartOfFaction>true</spawnPartOfFaction>
   <rotation>South</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCryptosleepSarcophagus_North</defName>
+  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindAnyOf>
+    <li>VFEA_AncientSoldierOneAbility</li>
+    <li>VFEA_AncientSoldierTwoAbilities</li>
+  </containPawnKindAnyOf>
+  <containPawnKindForPlayerAnyOf>
+    <li>VFEA_PlayerAncientSoldierOneAbility</li>
+  </containPawnKindForPlayerAnyOf>
+  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <spawnPartOfFaction>true</spawnPartOfFaction>
+  <rotation>North</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCryptosleepSarcophagus_West</defName>
+  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindAnyOf>
+    <li>VFEA_AncientSoldierOneAbility</li>
+    <li>VFEA_AncientSoldierTwoAbilities</li>
+  </containPawnKindAnyOf>
+  <containPawnKindForPlayerAnyOf>
+    <li>VFEA_PlayerAncientSoldierOneAbility</li>
+  </containPawnKindForPlayerAnyOf>
+  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <spawnPartOfFaction>true</spawnPartOfFaction>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCryptosleepSarcophagus_East</defName>
+  <thing>VFEA_AncientCryptosleepSarcophagus</thing>
+  <containPawnKindAnyOf>
+    <li>VFEA_AncientSoldierOneAbility</li>
+    <li>VFEA_AncientSoldierTwoAbilities</li>
+  </containPawnKindAnyOf>
+  <containPawnKindForPlayerAnyOf>
+    <li>VFEA_PlayerAncientSoldierOneAbility</li>
+  </containPawnKindForPlayerAnyOf>
+  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <spawnPartOfFaction>true</spawnPartOfFaction>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientHermeticCrate_North</defName>
+  <thing>AncientHermeticCrate</thing>
+  <rotation>North</rotation>
+  <thingSetMakerDef>MapGen_AncientComplex_SecurityCrate</thingSetMakerDef>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_LargeSupplyCrate_North</defName>
+  <thing>VFEA_LargeSupplyCrate</thing>
+  <rotation>North</rotation>
+  <thingSetMakerDef>MapGen_AncientComplex_SecurityCrate</thingSetMakerDef>
 </KCSG.SymbolDef>
 
 </Defs>

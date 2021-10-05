@@ -1,74 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-   <SitePartDef>
-      <defName>VFEA_LootedVault</defName>
-      <label>looted vault</label>
-      <description>A recently-discovered looted vault.</description>
-      <siteTexture>UI/Map/VaultExpanding</siteTexture>
-      <expandingIconTexture>UI/Map/QuestIcons/VaultLooted</expandingIconTexture>
-      <tags>
-         <li>VFEA_LootedVault</li>
-      </tags>
-   </SitePartDef>
-  
-   <SitePartDef>
-      <defName>VFEA_SealedVault</defName>
-      <label>sealed vault</label>
-      <description>A recently-discovered sealed vault.</description>
-      <siteTexture>UI/Map/VaultExpanding</siteTexture>
-      <expandingIconTexture>UI/Map/QuestIcons/VaultSealed</expandingIconTexture>
-      <tags>
-         <li>VFEA_SealedVault</li>
-      </tags>
-   </SitePartDef>
-   
-   <GenStepDef>
-      <defName>VFEA_LootedVault</defName>
-      <linkWithSite>VFEA_LootedVault</linkWithSite>
-      <order>450</order>
-      <genStep Class="KCSG.GenStep_CustomStructureGen">
-         <structureLayoutDefs>
-            <li>VFEA_LootedVaultAlpha</li>
-            <li>VFEA_LootedVaultBravo</li>
-            <li>VFEA_LootedVaultCharlie</li>
-         </structureLayoutDefs>
-         <shouldRuin>true</shouldRuin>
-         <filthTypes>
-            <li>Filth_Dirt</li>
-            <li>Filth_Trash</li>
-            <li>Filth_RubbleBuilding</li>
-         </filthTypes>
-         <ruinSymbolResolvers>
-            <li>kcsg_randomdamage</li>
-            <li>kcsg_randomfilth</li>
-            <li>kcsg_randomterrainremoval</li>
-            <li>kcsg_randomroofremoval</li>
-            <li>kcsg_randomitemremoval</li>
-            <li>kcsg_removeperishable</li>
-            <li>kcsg_destroyrefuelablelightsource</li>
-            <li>kcsg_scatterstuffaround</li>
-         </ruinSymbolResolvers>
-      </genStep>
-   </GenStepDef>
-   
-   <GenStepDef>
-      <defName>VFEA_SealedVault</defName>
-      <linkWithSite>VFEA_SealedVault</linkWithSite>
-      <order>450</order>
-      <genStep Class="KCSG.GenStep_CustomStructureGen">
-         <structureLayoutDefs>
-            <li>VFEA_SealedVaultAlpha</li>
-            <li>VFEA_SealedVaultBravo</li>
-            <li>VFEA_SealedVaultCharlie</li>
-         </structureLayoutDefs>
-         <shouldRuin>false</shouldRuin>
-      </genStep>
-   </GenStepDef>
+  <SitePartDef>
+    <defName>VFEA_LootedVault</defName>
+    <label>looted vault</label>
+    <description>A recently-discovered looted vault.</description>
+    <siteTexture>UI/Map/VaultExpanding</siteTexture>
+    <expandingIconTexture>UI/Map/QuestIcons/VaultLooted</expandingIconTexture>
+    <tags>
+      <li>VFEA_LootedVault</li>
+    </tags>
+  </SitePartDef>
 
-   <GenStepDef>
+  <SitePartDef>
+    <defName>VFEA_SealedVault</defName>
+    <label>sealed vault</label>
+    <description>A recently-discovered sealed vault.</description>
+    <siteTexture>UI/Map/VaultExpanding</siteTexture>
+    <expandingIconTexture>UI/Map/QuestIcons/VaultSealed</expandingIconTexture>
+    <tags>
+      <li>VFEA_SealedVault</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFEA_LootedVault</defName>
+    <linkWithSite>VFEA_LootedVault</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>VFEA_LootedVaultAlpha</li>
+        <li>VFEA_LootedVaultBravo</li>
+        <li>VFEA_LootedVaultCharlie</li>
+      </structureLayoutDefs>
+      <shouldRuin>true</shouldRuin>
+      <filthTypes>
+        <li>Filth_Dirt</li>
+        <li>Filth_Trash</li>
+        <li>Filth_RubbleBuilding</li>
+      </filthTypes>
+      <ruinSymbolResolvers>
+        <li>kcsg_randomdamage</li>
+        <li>kcsg_randomfilth</li>
+        <li>kcsg_randomterrainremoval</li>
+        <li>kcsg_randomroofremoval</li>
+        <li>kcsg_randomitemremoval</li>
+        <li>kcsg_removeperishable</li>
+        <li>kcsg_destroyrefuelablelightsource</li>
+      </ruinSymbolResolvers>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>VFEA_SealedVault</defName>
+    <linkWithSite>VFEA_SealedVault</linkWithSite>
+    <order>450</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>VFEA_SealedVaultAlpha</li>
+        <li>VFEA_SealedVaultBravo</li>
+        <li>VFEA_SealedVaultCharlie</li>
+      </structureLayoutDefs>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>Custom_EnnemiesPresence</defName>
+    <linkWithSite>VFEA_SealedVault</linkWithSite>
+    <order>440</order>
+    <genStep Class="KCSG.GenStep_EnnemiesPresence">
+      <forcedfaction>VFEA_AncientSoldiers</forcedfaction>
+      <pointMultiplier>1.2</pointMultiplier>
+    </genStep>
+  </GenStepDef>
+
+  <!-- <GenStepDef>
       <defName>VFEA_PopulateVaultSealed</defName>
       <linkWithSite>VFEA_SealedVault</linkWithSite>
       <order>1000</order>
       <genStep Class="VFEAncients.GenStep_PopulateVault" />
-   </GenStepDef>
+   </GenStepDef> -->
 </Defs>
