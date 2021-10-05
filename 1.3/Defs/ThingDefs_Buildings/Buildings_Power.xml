@@ -138,7 +138,9 @@
         <preExplosionSpawnChance>1</preExplosionSpawnChance>
         <wickTicks>70~150</wickTicks>
       </li>
-	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
+	    <PowerOutputSolarFlare>4000</PowerOutputSolarFlare>
+	  </li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>VFEA_Ancients</designationCategory>
@@ -197,7 +199,9 @@
       <li Class="CompProperties_TempControl">
         <energyPerSecond>96</energyPerSecond>
       </li>
-	  <li Class="VFEAncients.CompProperties_SolarPowerUp" />
+	  <li Class="VFEAncients.CompProperties_SolarPowerUp"> 
+	    <PowerOutputSolarFlare>6800</PowerOutputSolarFlare>
+	  </li>
     </comps>
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
