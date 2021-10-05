@@ -14,6 +14,8 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(InteractionWorker_RecruitAttempt), nameof(InteractionWorker_RecruitAttempt.Interacted)),
                 transpiler: new HarmonyMethod(typeof(StorytellerPatches), nameof(IncreaseRecruitDifficulty)));
             harm.Patch(AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Interval)), new HarmonyMethod(typeof(StorytellerPatches), nameof(NoSkillDecay)));
+            harm.Patch(AccessTools.Method(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow)),
+                new HarmonyMethod(typeof(StorytellerPatches), nameof(AdditionalIncidentReqs)));
         }
 
         public static IEnumerable<CodeInstruction> IncreaseRecruitDifficulty(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -38,5 +40,15 @@ namespace VFEAncients.HarmonyPatches
         }
 
         public static bool NoSkillDecay() => Find.Storyteller.TryGetComp<StorytellerComp_NoSkilLDecay>() == null;
+
+        public static bool AdditionalIncidentReqs(IncidentWorker __instance, IncidentParms parms, ref bool __result)
+        {
+            if (parms.forced) return true;
+            if (Faction.OfPlayer.ideos.PrimaryIdeo is not { } ideo) return true;
+            if (ideo.precepts.SelectMany(precept => precept.def.comps).OfType<PreceptComp_DisableIncident>()
+                .Any(disableIncident => disableIncident.Incident == __instance.def)) return __result = false;
+
+            return true;
+        }
     }
 }

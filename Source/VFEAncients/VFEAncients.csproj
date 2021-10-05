@@ -50,12 +50,15 @@
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule_publicized">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\publicized_assemblies\UnityEngine.IMGUIModule_publicized.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VFECore">
       <HintPath>..\..\..\VanillaExpandedFramework\1.3\Assemblies\VFECore.dll</HintPath>
@@ -78,6 +81,7 @@
     <Compile Include="Comps\CompAncientSolar.cs" />
     <Compile Include="Comps\CompBioBattery.cs" />
     <Compile Include="Comps\CompQuestOnHacked.cs" />
+    <Compile Include="Comps\PreceptComp_DisableIncident.cs" />
     <Compile Include="Comps\StorytellerComps.cs" />
     <Compile Include="Dialog_ChoosePowers.cs" />
     <Compile Include="HarmonyPatches\MetaMorphPatches.cs" />

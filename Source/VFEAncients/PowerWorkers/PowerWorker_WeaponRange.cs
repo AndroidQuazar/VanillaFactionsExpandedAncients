@@ -12,7 +12,7 @@ namespace VFEAncients
 {
     public class PowerWorker_WeaponRange : PowerWorker
     {
-        private static readonly Dictionary<Verb, VerbProperties> originalProps = new Dictionary<Verb, VerbProperties>();
+        private static readonly Dictionary<Verb, VerbProperties> originalProps = new();
 
         public PowerWorker_WeaponRange(PowerDef def) : base(def)
         {
@@ -22,7 +22,7 @@ namespace VFEAncients
         {
             base.DoPatches(harm);
             harm.Patch(AccessTools.Method(typeof(Pawn_EquipmentTracker), nameof(Pawn_EquipmentTracker.Notify_EquipmentAdded)),
-                postfix: new HarmonyMethod(GetType(), nameof(ModifyRanges)));
+                new HarmonyMethod(GetType(), nameof(ModifyRanges)));
             harm.Patch(AccessTools.Method(typeof(Pawn_EquipmentTracker), nameof(Pawn_EquipmentTracker.Notify_EquipmentRemoved)),
                 postfix: new HarmonyMethod(GetType(), nameof(ResetRanges)));
         }

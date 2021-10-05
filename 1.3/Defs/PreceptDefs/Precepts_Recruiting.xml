@@ -36,6 +36,12 @@
       <li Class="PreceptComp_UnwillingToDo">
         <eventDef>VFEA_RecruitAttempt</eventDef>
       </li>
+      <li Class="VFEAncients.PreceptComp_DisableIncident">
+        <Incident>WandererJoin</Incident>
+      </li>
+      <li Class="VFEAncients.PreceptComp_DisableIncident" MayRequire="Ludeon.RimWorld.Royalty">
+        <Incident>WandererJoinAbasia</Incident>
+      </li>
     </comps>
   </PreceptDef>
   
