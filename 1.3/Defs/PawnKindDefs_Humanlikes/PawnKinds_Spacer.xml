@@ -3,7 +3,7 @@
 
   <PawnKindDef>
     <defName>VFEA_AncientSoldierOneAbility</defName>
-    <label>ancient soldier</label>
+    <label>ancient super-soldier</label>
     <race>Human</race>
     <combatPower>85</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
@@ -49,7 +49,7 @@
   
   <PawnKindDef>
     <defName>VFEA_AncientSoldierTwoAbilities</defName>
-    <label>ancient soldier</label>
+    <label>ancient super-soldier</label>
     <race>Human</race>
     <combatPower>85</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>

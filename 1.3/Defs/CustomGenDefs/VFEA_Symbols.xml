@@ -455,4 +455,49 @@
   <thingSetMakerDef>MapGen_AncientComplex_SecurityCrate</thingSetMakerDef>
 </KCSG.SymbolDef>
 
+<KCSG.SymbolDef>
+  <defName>VFEA_GenomeMacrothermometer</defName>
+  <thing>VFEA_GenomeMacrothermometer</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientMonitorBank_West</defName>
+  <thing>VFEA_AncientMonitorBank</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCooler_East</defName>
+  <thing>VFEA_AncientCooler</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_NaniteSampler</defName>
+  <thing>VFEA_NaniteSampler</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCookingStation_North</defName>
+  <thing>VFEA_AncientCookingStation</thing>
+  <rotation>North</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientInputTerminal_West</defName>
+  <thing>VFEA_AncientInputTerminal</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientBioBatteryTank</defName>
+  <thing>VFEA_AncientBioBatteryTank</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientWorkshop_North</defName>
+  <thing>VFEA_AncientWorkshop</thing>
+  <rotation>North</rotation>
+</KCSG.SymbolDef>
+
 </Defs>
