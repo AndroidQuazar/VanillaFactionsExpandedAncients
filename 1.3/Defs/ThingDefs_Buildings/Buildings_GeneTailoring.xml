@@ -22,6 +22,7 @@
     <blockWind>true</blockWind>
     <fillPercent>0.5</fillPercent>
     <canOverlapZones>false</canOverlapZones>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>28000</WorkToBuild>
@@ -138,6 +139,7 @@
     <minifiedDef>MinifiedThing</minifiedDef>
     <neverMultiSelect>false</neverMultiSelect>
 	<rotatable>false</rotatable>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <thingCategories>
       <li>BuildingsMisc</li>
     </thingCategories>
