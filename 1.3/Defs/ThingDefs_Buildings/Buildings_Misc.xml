@@ -124,6 +124,10 @@
         <defence>15000</defence>  <!-- ~ 6 hours for 10 intellect hacker -->
         <effectHacking>HackingTerminal</effectHacking>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(0,235,31,0)</glowColor>
+      </li>
     </comps>
     <placeWorkers>
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>

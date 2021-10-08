@@ -58,6 +58,10 @@
           </shadowData>
         </graphicData>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(0,235,31,0)</glowColor>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
@@ -191,6 +195,10 @@
           </shadowData>
         </graphicData>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(0,235,31,0)</glowColor>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
@@ -242,6 +250,10 @@
         <effectHacking>HackingTerminal</effectHacking>
       </li>
       <li><compClass>VFEAncients.CompDisappearOnHacked</compClass></li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(0,235,31,0)</glowColor>
+      </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
@@ -297,6 +309,10 @@
       <li Class="VFEAncients.CompProperties_SupplyCrate">
         <raidChance>0.5</raidChance>
         <expiryTicks>120000</expiryTicks>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(0,235,31,0)</glowColor>
       </li>
     </comps>
 	<designationCategory>VFEA_Ancients</designationCategory>
