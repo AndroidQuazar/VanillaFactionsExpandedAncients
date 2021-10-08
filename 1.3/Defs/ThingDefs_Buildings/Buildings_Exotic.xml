@@ -224,7 +224,7 @@
       </shadowData>
     </graphicData>
     <statBases>
-      <MaxHitPoints>3000</MaxHitPoints>
+      <MaxHitPoints>20000</MaxHitPoints>
       <Flammability>0</Flammability>
     </statBases>
     <killedLeavings>
