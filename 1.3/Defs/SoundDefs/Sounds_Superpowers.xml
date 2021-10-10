@@ -106,7 +106,7 @@
             <clipFolderPath>Invisibility</clipFolderPath>
           </li>
         </grains>
-        <volumeRange>30~30</volumeRange>
+        <volumeRange>40~40</volumeRange>
         <pitchRange>0.9~1.1</pitchRange>
       </li>
     </subSounds>
