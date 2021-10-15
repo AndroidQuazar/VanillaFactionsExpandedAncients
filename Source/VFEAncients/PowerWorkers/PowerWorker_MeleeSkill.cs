@@ -28,11 +28,17 @@ namespace VFEAncients
             return true;
         }
 
-        public static bool ForceDodge(LocalTargetInfo target, ref float __result)
+        public static bool ForceDodge(LocalTargetInfo target, Verb_MeleeAttack __instance, ref float __result)
         {
             if (HasPower<PowerWorker_MeleeSkill>(target.Thing))
             {
                 __result = 1f;
+                return false;
+            }
+
+            if (HasPower<PowerWorker_MeleeSkill>(__instance.Caster))
+            {
+                __result = 0f;
                 return false;
             }
 

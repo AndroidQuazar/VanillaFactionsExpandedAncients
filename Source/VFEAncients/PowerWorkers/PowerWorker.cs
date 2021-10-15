@@ -59,6 +59,9 @@ namespace VFEAncients
             if (def.statOffsets != null)
                 foreach (var factor in def.statOffsets)
                     builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.ValueToStringAsOffset}");
+            if (def.setStats != null)
+                foreach (var factor in def.setStats)
+                    builder.AppendLine($"{factor.stat.LabelForFullStatListCap}: {factor.stat.ValueToString(factor.value)}");
             if (def.nullifiedThoughts != null)
                 foreach (var thoughtDef in def.nullifiedThoughts)
                     builder.AppendLine("VFEAncients.Effect.NullThought".Translate(thoughtDef.Label.Formatted("")));
@@ -114,12 +117,12 @@ namespace VFEAncients
 
         public static void AddCauseDisable(Pawn pawn, WorkTags workTag, ref List<object> __result)
         {
-            if (pawn.GetPowerTracker() is Pawn_PowerTracker tracker) __result.AddRange(tracker.AllPowers.Where(power => (power.disabledWorkTags & workTag) != WorkTags.None));
+            if (pawn.GetPowerTracker() is { } tracker) __result.AddRange(tracker.AllPowers.Where(power => (power.disabledWorkTags & workTag) != WorkTags.None));
         }
 
         public static void DisableWork(Pawn __instance, ref WorkTags __result)
         {
-            if (__instance.GetPowerTracker() is Pawn_PowerTracker tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
+            if (__instance.GetPowerTracker() is { } tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
         }
 
         public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)

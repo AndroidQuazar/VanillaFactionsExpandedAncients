@@ -10,7 +10,7 @@ namespace VFEAncients
             base.Cast(target);
             if (def.TryGetModExtension<AbilityExtension_Explosion>(out var ext))
                 GenExplosion.DoExplosion(ext.onCaster ? pawn.Position : target.Cell, pawn.Map, ext.explosionRadius, ext.explosionDamageDef, pawn, ext.explosionDamageAmount,
-                    intendedTarget: ext.onCaster ? null : target.Thing, ignoredThings: new List<Thing> {pawn});
+                    ignoredThings: new List<Thing> {pawn});
         }
     }
 

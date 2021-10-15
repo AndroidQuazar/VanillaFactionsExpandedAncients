@@ -13,10 +13,7 @@ namespace VFEAncients.HarmonyPatches
 {
     public static class Helpers
     {
-        public static bool HasPower(this Pawn pawn, PowerDef power)
-        {
-            return pawn.GetPowerTracker()?.HasPower(power) ?? false;
-        }
+        public static bool HasPower(this Pawn pawn, PowerDef power) => pawn.GetPowerTracker()?.HasPower(power) ?? false;
     }
 
     public static class PowerPatches
@@ -106,11 +103,13 @@ namespace VFEAncients.HarmonyPatches
 
         public static void PowerModifyStat(Pawn pawn, ref float val, StatDef stat)
         {
-            if (pawn.GetPowerTracker() is Pawn_PowerTracker tracker)
+            if (pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
                 {
                     if (power.statFactors != null) val *= power.statFactors.GetStatFactorFromList(stat);
                     if (power.statOffsets != null) val += power.statOffsets.GetStatOffsetFromList(stat);
+                    if (power.setStats != null && !float.IsNaN(power.setStats.GetStatValueFromList(stat, float.NaN)))
+                        val = power.setStats.GetStatValueFromList(stat, stat.defaultBaseValue);
                 }
         }
 
@@ -136,7 +135,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static void PowerModifyExplanation(Pawn pawn, StringBuilder builder, StatDef stat, StatWorker worker)
         {
-            if (pawn.GetPowerTracker() is Pawn_PowerTracker tracker)
+            if (pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
                 {
                     if (power.statFactors != null)
@@ -151,6 +150,13 @@ namespace VFEAncients.HarmonyPatches
                         var offset = power.statOffsets.GetStatOffsetFromList(stat);
                         if (offset != 0f)
                             builder.AppendLine(power.LabelCap + ": " + worker.ValueToString(offset, false, ToStringNumberSense.Offset));
+                    }
+
+                    if (power.setStats != null)
+                    {
+                        var set = power.statOffsets.GetStatValueFromList(stat, float.NaN);
+                        if (!float.IsNaN(set))
+                            builder.AppendLine(power.LabelCap + ": " + worker.ValueToString(set, false));
                     }
                 }
         }

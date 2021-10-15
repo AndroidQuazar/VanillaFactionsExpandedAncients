@@ -32,6 +32,12 @@ namespace VFEAncients
                 : Pod.parent.GetStatValue(VFEA_DefOf.VFEA_FailChance) + pawn.GetPowerTracker().AllPowers.Count(power => power.powerType == PowerType.Superpower) * 0.1f;
         }
 
+        public virtual string FailChanceExplainOnPawn(Pawn pawn)
+        {
+            if (pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)) return VFEA_DefOf.PromisingCandidate.LabelCap;
+            return pawn.GetPowerTracker().AllPowers.Select(power => $"{power.LabelCap}: +10%").ToLineList();
+        }
+
         public virtual void Failure()
         {
             var failType = typeof(Fail).AllSubclassesNonAbstract().RandomElement();
@@ -98,7 +104,7 @@ namespace VFEAncients
         public override float FailChanceOnPawn(Pawn pawn)
         {
             if (pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)) return 0f;
-            return base.FailChanceOnPawn(pawn) + 0.5f;
+            return base.FailChanceOnPawn(pawn) + 0.3f;
         }
 
         public override bool CanRunOnPawn(Pawn pawn)
@@ -106,6 +112,8 @@ namespace VFEAncients
             return base.CanRunOnPawn(pawn) && Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.Any(t => t.def == VFEA_DefOf.VFEA_NanotechRetractor) &&
                    pawn.GetPowerTracker().AllPowers.Any(power => power.powerType == PowerType.Weakness);
         }
+
+        public override string FailChanceExplainOnPawn(Pawn pawn) => base.FailChanceExplainOnPawn(pawn) + $"\n{Label}: +30%";
 
         public override void Success()
         {

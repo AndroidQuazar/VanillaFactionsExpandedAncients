@@ -18,6 +18,7 @@ namespace VFEAncients
         public List<HediffDef> hediffs;
         public List<ThoughtDef> nullifiedThoughts;
         public PowerType powerType;
+        public List<StatModifier> setStats = new();
         public List<StatModifier> statFactors = new();
         public List<StatModifier> statOffsets = new();
         public string texPath;

@@ -14,12 +14,12 @@ namespace VFEAncients
         {
             base.SpawnSetup(map, respawningAfterLoad);
             compHackable = this.TryGetComp<CompHackable>();
-            compHackable.progress = compHackable.defence;
+            if (compHackable is not null) compHackable.progress = compHackable.defence;
         }
 
         public override bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
         {
-            compHackable.progress = 0f;
+            if (compHackable is not null) compHackable.progress = 0f;
             return base.TryAcceptThing(thing, allowSpecialEffects);
         }
 
