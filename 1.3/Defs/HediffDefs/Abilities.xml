@@ -32,9 +32,6 @@
         <disappearsAfterTicks>600~600</disappearsAfterTicks>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
-      <li Class="HediffCompProperties_Effecter">
-        <stateEffecter>VFEA_MatterPhasing</stateEffecter>
-      </li>
     </comps>
   </HediffDef>
   

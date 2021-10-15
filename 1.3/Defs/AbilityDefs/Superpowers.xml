@@ -18,6 +18,24 @@
       <drawSize>2.5</drawSize>
     </graphicData>
   </FleckDef>
+  
+  <FleckDef ParentName="FleckGlowDistortBackground">
+    <defName>RE_Fleck_MatterDistortion</defName>
+    <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+      <fadeInTime>1.13</fadeInTime>
+      <fadeOutTime>1.15</fadeOutTime>
+      <solidTime>3.8</solidTime>
+      <growthRate>1.5</growthRate>
+    <graphicData>
+      <texPath>Things/Mote/Black</texPath>
+      <shaderParameters>
+        <_distortionIntensity>0.05</_distortionIntensity>
+        <_brightnessMultiplier>1.1</_brightnessMultiplier>      
+      </shaderParameters>
+      <drawSize>2.5</drawSize>
+    </graphicData>
+  </FleckDef>
 
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SuperJump</defName>
@@ -286,6 +304,8 @@
     <cooldownTime>3600</cooldownTime>
     <castTime>0</castTime>
     <chance>0</chance>
+	<castFleck>RE_Fleck_MatterDistortion</castFleck>
+	<castSound>VFEA_MatterPhasing_Sustainer</castSound>
     <casterHediff>VFEA_Phasing</casterHediff>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
