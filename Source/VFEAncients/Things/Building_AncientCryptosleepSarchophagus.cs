@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace VFEAncients
@@ -27,11 +28,19 @@ namespace VFEAncients
         {
             if (hasOpened) return false;
             if (compHackable is not null) compHackable.progress = 0f;
+            if (!Spawned && thing.Faction is {IsPlayer: true} && Faction.IsPlayer) thing.SetFactionDirect(Faction.OfAncients);
             return base.TryAcceptThing(thing, allowSpecialEffects);
         }
 
         public override void Open()
         {
+            if (Faction.IsPlayer && ContainedThing is Pawn pawn)
+            {
+                var pawn2 = Map.mapPawns.FreeColonists.OrderBy(p => p.Position.DistanceTo(Position)).FirstOrDefault();
+                if (pawn2 is null) pawn.SetFaction(Faction);
+                else InteractionWorker_RecruitAttempt.DoRecruit(pawn2, pawn, out _, out _);
+            }
+
             base.Open();
             hasOpened = true;
         }

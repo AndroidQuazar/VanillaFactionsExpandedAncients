@@ -19,7 +19,7 @@ namespace VFEAncients
     }
 
     [StaticConstructorOnStartup]
-    internal class LaserEyeBeamDraw : ThingWithComps
+    public class LaserEyeBeamDraw : ThingWithComps
     {
         private const int LIFETIME = 30;
 

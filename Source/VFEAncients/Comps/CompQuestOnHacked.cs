@@ -45,10 +45,17 @@ namespace VFEAncients
         public override void CompTick()
         {
             base.CompTick();
-            if (!parent.Faction.IsPlayer && Faction.OfPlayer.def == VFEA_DefOf.VFEA_NewVault)
+            if (!parent.Faction.IsPlayer && Faction.OfPlayer.def == VFEA_DefOf.VFEA_NewVault && parent.Spawned)
             {
                 var faction = parent.Faction;
-                foreach (var thing in parent.Map.listerThings.AllThings.Where(t => t.Faction == faction)) thing.SetFactionDirect(Faction.OfPlayer);
+                foreach (var pawn in parent.Map.mapPawns.FreeHumanlikesSpawnedOfFaction(parent.Faction))
+                {
+                    var pawn2 = parent.Map.mapPawns.FreeColonists.OrderBy(p => p.Position.DistanceTo(pawn.Position)).FirstOrDefault();
+                    if (pawn2 is null) pawn.SetFaction(Faction.OfPlayer);
+                    else InteractionWorker_RecruitAttempt.DoRecruit(pawn2, pawn, out _, out _);
+                }
+
+                foreach (var thing in parent.Map.listerThings.AllThings.Where(t => t.Faction == faction && t is not Pawn)) thing.SetFaction(Faction.OfPlayer);
             }
         }
     }
