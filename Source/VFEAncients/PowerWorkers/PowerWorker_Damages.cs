@@ -31,7 +31,7 @@ namespace VFEAncients
 
     public class WorkerData_Damages : WorkerData
     {
-        public List<DamageMultiplier> Multipliers;
-        public List<DamageDef> Resist;
+        public List<DamageMultiplier> Multipliers = new();
+        public List<DamageDef> Resist = new();
     }
 }
