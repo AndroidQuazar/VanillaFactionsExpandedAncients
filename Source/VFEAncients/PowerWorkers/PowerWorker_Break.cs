@@ -11,7 +11,8 @@ namespace VFEAncients
         public override void TickLong(Pawn_PowerTracker parent)
         {
             base.TickLong(parent);
-            if (Rand.Chance(GetData<WorkerData_Break>().BreakChance)) GetData<WorkerData_Break>().Break.Worker.TryStart(parent.Pawn, null, false);
+            if (parent.Pawn is not null && GetData<WorkerData_Break>() is {BreakChance: var chance, Break: { } breakDef} && Rand.Chance(chance))
+                breakDef.Worker.TryStart(parent.Pawn, null, false);
         }
     }
 }
