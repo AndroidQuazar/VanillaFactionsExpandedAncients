@@ -69,7 +69,7 @@
 			<explosionRadius>5.9</explosionRadius>
 			<armorPenetrationBase>5</armorPenetrationBase>
 			<speed>10000</speed>
-			<flyOverhead>true</flyOverhead>
+			<flyOverhead>false</flyOverhead>
 		</projectile>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
