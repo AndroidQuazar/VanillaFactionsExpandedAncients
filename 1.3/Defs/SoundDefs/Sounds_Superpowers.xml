@@ -146,7 +146,6 @@
   
   <SoundDef>
     <defName>VFEA_MatterPhasing_Sustainer</defName>
-    <sustain>True</sustain>
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
     <maxSimultaneous>1</maxSimultaneous>
