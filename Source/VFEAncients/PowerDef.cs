@@ -13,7 +13,7 @@ namespace VFEAncients
     {
         private static readonly List<Type> appliedPatches = new();
         public List<AbilityDef> abilities;
-        public WorkTags disabledWorkTags;
+        public WorkTags disabledWorkTags = WorkTags.None;
         public string effectDescription;
         public List<HediffDef> hediffs;
         public List<ThoughtDef> nullifiedThoughts;
