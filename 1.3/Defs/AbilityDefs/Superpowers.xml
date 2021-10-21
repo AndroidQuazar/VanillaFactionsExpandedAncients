@@ -236,6 +236,7 @@
       <li Class="VFEAncients.AbilityExtension_Explosion">
         <explosionDamageDef>EMP</explosionDamageDef>
         <explosionRadius>39.9</explosionRadius>
+        <explosionDamageAmount>50</explosionDamageAmount>
         <onCaster>true</onCaster>
       </li>
     </modExtensions>
