@@ -107,6 +107,7 @@
     <Compile Include="HarmonyPatches\PreceptPatches.cs" />
     <Compile Include="Things\Building_TurretPD.cs" />
     <Compile Include="Things\Building_VaultDoor.cs" />
+    <Compile Include="Things\SuperJumpingPawn.cs" />
     <Compile Include="Workers\IncidentWorker_SupplyDrop.cs" />
     <Compile Include="Workers\InteractionWorker_Interrogate.cs" />
     <Compile Include="Jobs\JobDriver_InterrogatePrisoner.cs" />

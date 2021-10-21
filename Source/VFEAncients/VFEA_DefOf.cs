@@ -39,5 +39,6 @@ namespace VFEAncients
         public static ThingDef VFEA_NaniteSampler;
         public static HediffDef VFEA_MetaMorph;
         public static FactionDef VFEA_NewVault;
+        public static ThingDef VFEA_SuperJumpingPawn;
     }
 }
