@@ -94,7 +94,7 @@
         </stages>
       </HediffDef>
   
-  <HediffDef ParentName="AddedBodyPartBase">
+  <HediffDef ParentName="ImplantHediffBase">
     <defName>VFEA_PlasteelClaw</defName>
     <label>plasteel claw</label>
     <labelNoun>a plasteel claw</labelNoun>
@@ -123,7 +123,6 @@
     <addedPartProps>
       <isGoodWeapon>true</isGoodWeapon>
       <solid>true</solid>
-      <partEfficiency>1.00</partEfficiency>
       <betterThanNatural>true</betterThanNatural>
     </addedPartProps>
   </HediffDef>
