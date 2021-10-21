@@ -31,6 +31,10 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
                 postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
             harm.Patch(AccessTools.Method(typeof(PawnGenerator), "TryGenerateNewPawnInternal"), postfix: new HarmonyMethod(typeof(PowerPatches), nameof(AddPowers)));
+            harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.FinalizeValue)),
+                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(SetStat)));
+            harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationFull)),
+                new HarmonyMethod(typeof(PowerPatches), nameof(SetStatExplain)));
         }
 
         public static void AddPowers(Pawn __result, PawnGenerationRequest request)
@@ -108,8 +112,6 @@ namespace VFEAncients.HarmonyPatches
                 {
                     if (power.statFactors != null) val *= power.statFactors.GetStatFactorFromList(stat);
                     if (power.statOffsets != null) val += power.statOffsets.GetStatOffsetFromList(stat);
-                    if (power.setStats != null && !float.IsNaN(power.setStats.GetStatValueFromList(stat, float.NaN)))
-                        val = power.setStats.GetStatValueFromList(stat, stat.defaultBaseValue);
                 }
         }
 
@@ -151,14 +153,33 @@ namespace VFEAncients.HarmonyPatches
                         if (offset != 0f)
                             builder.AppendLine(power.LabelCap + ": " + worker.ValueToString(offset, false, ToStringNumberSense.Offset));
                     }
+                }
+        }
 
+        public static void SetStat(StatRequest req, ref float val, StatWorker __instance)
+        {
+            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetPowerTracker() is { } tracker)
+                foreach (var power in tracker.AllPowers)
+                    if (power.setStats != null && !float.IsNaN(power.setStats.GetStatValueFromList(__instance.stat, float.NaN)))
+                        val = power.setStats.GetStatValueFromList(__instance.stat, __instance.stat.defaultBaseValue);
+        }
+
+        public static bool SetStatExplain(StatRequest req, ToStringNumberSense numberSense, StatWorker __instance, ref string __result)
+        {
+            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetPowerTracker() is { } tracker)
+                foreach (var power in tracker.AllPowers)
                     if (power.setStats != null)
                     {
-                        var set = power.statOffsets.GetStatValueFromList(stat, float.NaN);
+                        var set = power.setStats.GetStatValueFromList(__instance.stat, float.NaN);
                         if (!float.IsNaN(set))
-                            builder.AppendLine(power.LabelCap + ": " + worker.ValueToString(set, false));
+                        {
+                            __result = "StatsReport_FinalValue".Translate() + ": " + power.LabelCap + ": " +
+                                       __instance.stat.ValueToString(set, numberSense);
+                            return false;
+                        }
                     }
-                }
+
+            return true;
         }
     }
 }
