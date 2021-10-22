@@ -85,7 +85,7 @@
     <defName>VFEA_PsychicShock</defName>
     <label>psychic shock</label>
     <description>Fire a psychic shock on the enemy, rendering them unconscious.</description>
-    <abilityClass>VFEAncients.Ability</abilityClass>
+    <abilityClass>VFEAncients.Ability_Psychic</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
     <iconPath>Powers/Superpowers/Power_PsychicShock</iconPath>

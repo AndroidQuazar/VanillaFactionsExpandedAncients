@@ -40,5 +40,11 @@ namespace VFEAncients
         public static HediffDef VFEA_MetaMorph;
         public static FactionDef VFEA_NewVault;
         public static ThingDef VFEA_SuperJumpingPawn;
+        public static SoundDef VFEA_GloryKill_Music;
+
+        static VFEA_DefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(VFEA_DefOf));
+        }
     }
 }

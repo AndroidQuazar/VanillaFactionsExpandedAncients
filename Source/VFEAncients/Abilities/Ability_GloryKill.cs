@@ -2,6 +2,7 @@
 using System.Linq;
 using RimWorld;
 using Verse;
+using Verse.Sound;
 
 namespace VFEAncients
 {
@@ -14,6 +15,7 @@ namespace VFEAncients
             base.Cast(target);
             if (PossibleTargets.TryRandomElement(out var pawn))
             {
+                VFEA_DefOf.VFEA_GloryKill_Music.PlayOneShot(pawn);
                 var limbs = AllLimbs(pawn).ToList();
                 foreach (var part in limbs.InRandomOrder().Take(new IntRange(1, limbs.Count - 1).RandomInRange)) pawn.health.AddHediff(HediffDefOf.MissingBodyPart, part);
 
@@ -34,10 +36,8 @@ namespace VFEAncients
             return false;
         }
 
-        public static IEnumerable<BodyPartRecord> AllLimbs(Pawn pawn)
-        {
-            return pawn.health.hediffSet.GetNotMissingParts(tag: BodyPartTagDefOf.MovingLimbCore)
+        public static IEnumerable<BodyPartRecord> AllLimbs(Pawn pawn) =>
+            pawn.health.hediffSet.GetNotMissingParts(tag: BodyPartTagDefOf.MovingLimbCore)
                 .Concat(pawn.health.hediffSet.GetNotMissingParts(tag: BodyPartTagDefOf.ManipulationLimbCore));
-        }
     }
 }

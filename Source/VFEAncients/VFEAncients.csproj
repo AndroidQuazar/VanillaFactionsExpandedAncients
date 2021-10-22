@@ -85,6 +85,7 @@
     <Compile Include="Comps\CompAncientSolar.cs" />
     <Compile Include="Comps\CompBioBattery.cs" />
     <Compile Include="Comps\CompQuestOnHacked.cs" />
+    <Compile Include="Comps\HediffComp_SoundOnRemove.cs" />
     <Compile Include="Comps\PreceptComp_DisableIncident.cs" />
     <Compile Include="Comps\StorytellerComps.cs" />
     <Compile Include="Dialog_ChoosePowers.cs" />

@@ -15,6 +15,9 @@
         <disappearsAfterTicks>3600~3600</disappearsAfterTicks>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="VFEAncients.HediffCompProperties_SoundOnRemove">
+        <sound>VFEA_InvisibilityOver</sound>
+      </li>
     </comps>
   </HediffDef>
   
