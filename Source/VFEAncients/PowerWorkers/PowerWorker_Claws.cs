@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using RimWorld;
+using Verse;
 
 namespace VFEAncients
 {
@@ -12,14 +13,32 @@ namespace VFEAncients
         public override void Notify_Added(Pawn_PowerTracker parent)
         {
             base.Notify_Added(parent);
-            foreach (var part in parent.Pawn.RaceProps.body.AllParts.Where(part => part.def == BodyPartDefOf.Hand))
-                parent.Pawn.health.AddHediff(VFEA_DefOf.VFEA_PlasteelClaw, part);
+            AddClaws(parent.Pawn);
         }
 
         public override void Notify_Removed(Pawn_PowerTracker parent)
         {
             base.Notify_Removed(parent);
-            parent.Pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == VFEA_DefOf.VFEA_PlasteelClaw);
+            RemoveClaws(parent.Pawn);
+        }
+
+        public override void TickLong(Pawn_PowerTracker parent)
+        {
+            base.TickLong(parent);
+            AddClaws(parent.Pawn);
+        }
+
+        private static void AddClaws(Pawn pawn)
+        {
+            foreach (var part in pawn.RaceProps.body.AllParts
+                .Except(pawn.health.hediffSet.hediffs.Where(hediff => hediff.def == VFEA_DefOf.VFEA_PlasteelClaw).Select(hediff => hediff.Part))
+                .Where(part => part.def == BodyPartDefOf.Hand))
+                pawn.health.AddHediff(VFEA_DefOf.VFEA_PlasteelClaw, part);
+        }
+
+        private static void RemoveClaws(Pawn pawn)
+        {
+            pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == VFEA_DefOf.VFEA_PlasteelClaw);
         }
     }
 }

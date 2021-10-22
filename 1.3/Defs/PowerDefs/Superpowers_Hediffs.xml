@@ -8,6 +8,7 @@
         <texPath>Powers/Superpowers/Power_PlasteelClaws</texPath>
         <workerClass>VFEAncients.PowerWorker_Claws</workerClass>
         <effectDescription>Powerful, retractable claws. Deal high damage in melee combat.</effectDescription>
+        <tickerType>Long</tickerType>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Unstoppable</defName>
