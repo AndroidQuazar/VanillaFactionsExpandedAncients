@@ -22,7 +22,6 @@
             <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
         </setStats>
         <workerClass>VFEAncients.PowerWorker_ForceHit</workerClass>
-        <effectDescription>100% accuracy on ranged weapons.</effectDescription>
     </VFEAncients.PowerDef>
     <VFEAncients.PowerDef>
         <defName>Assassin</defName>

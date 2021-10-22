@@ -16,6 +16,9 @@ namespace VFEAncients
             foreach (var info in typeof(DamageWorker_AddInjury).AllSubclassesNonAbstract().Select(type => AccessTools.Method(type, "ChooseHitPart"))
                 .Append(AccessTools.Method(typeof(DamageWorker_AddInjury), "ChooseHitPart")).Where(info => info != null && info.IsDeclaredMember()))
                 harm.Patch(info, new HarmonyMethod(GetType(), nameof(ChooseHitPart_Prefix)));
+            if (VFEAncientsMod.YayosCombat)
+                harm.Patch(AccessTools.Method(AccessTools.TypeByName("yayoCombat.patch_DamageWorker_AddInjury"), "ChooseHitPart"),
+                    new HarmonyMethod(GetType(), nameof(ChooseHitPart_Prefix)));
         }
 
         public static bool ChooseHitPart_Prefix(DamageInfo dinfo, Pawn pawn, ref BodyPartRecord __result)

@@ -6,11 +6,13 @@ namespace VFEAncients
 {
     public class VFEAncientsMod : Mod
     {
-        public static ModSettings Settings;
         public static Harmony Harm;
+
+        public static bool YayosCombat;
 
         public VFEAncientsMod(ModContentPack content) : base(content)
         {
+            if (ModLister.HasActiveModWithName("Yayo's Combat 3 [Adopted]")) YayosCombat = true;
             Harm = new Harmony("VanillaExpanded.VFEA");
             // Harmony.DEBUG = true;
             PowerPatches.Do(Harm);

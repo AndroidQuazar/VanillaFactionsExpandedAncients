@@ -20,6 +20,11 @@ namespace VFEAncients
             harm.Patch(AccessTools.Method(typeof(Verb_LaunchProjectile), "TryCastShot"), transpiler: new HarmonyMethod(GetType(), nameof(TryCastShot_Transpile)));
             harm.Patch(AccessTools.Method(typeof(TooltipUtility), nameof(TooltipUtility.ShotCalculationTipString)), transpiler: new HarmonyMethod(GetType(), nameof(
                 ShotCalculationTipString_Transpile)));
+            if (VFEAncientsMod.YayosCombat)
+            {
+                var info = AccessTools.Method(AccessTools.Inner(AccessTools.TypeByName("yayoCombat.yyShotReport"), "yayoTryCastShot"), "Prefix");
+                harm.Patch(info, transpiler: new HarmonyMethod(GetType(), nameof(TryCastShot_Transpile_Yayos)));
+            }
         }
 
         public static IEnumerable<CodeInstruction> ShotCalculationTipString_Transpile(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -59,6 +64,37 @@ namespace VFEAncients
                 AddForceHitLogic(list, idx1);
             }
 
+            return list;
+        }
+
+        public static IEnumerable<CodeInstruction> TryCastShot_Transpile_Yayos(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var list = instructions.ToList();
+            var idx1 = list.FindLastIndex(ins => ins.opcode == OpCodes.Ldloc_S && ins.operand is LocalBuilder {LocalIndex: 15});
+            var label1 = generator.DefineLabel();
+            list[idx1 + 1].labels.Add(label1);
+            list.InsertRange(idx1 + 1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Brfalse, label1),
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldc_R4, 0f)
+            });
+            var info = AccessTools.PropertyGetter(typeof(ShotReport), nameof(ShotReport.PassCoverChance));
+            var idx2 = list.FindIndex(ins => ins.Calls(info));
+            var label2 = generator.DefineLabel();
+            list[idx2 + 1].labels.Add(label2);
+            list.InsertRange(idx2 + 1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Brfalse, label2),
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldc_R4, 1f)
+            });
             return list;
         }
 
