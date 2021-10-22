@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
@@ -12,9 +13,15 @@ namespace VFEAncients
     public class PowerWorker
     {
         private static bool donePatches;
+
+        private static readonly FieldInfo permanentOnly =
+            AccessTools.Field(AccessTools.FirstInner(typeof(Pawn), type => AccessTools.Field(type, "permanentOnly") is not null), "permanentOnly");
+
         public PowerDef def;
 
         public PowerWorker(PowerDef def) => this.def = def;
+
+        public virtual IEnumerable<WorkTypeDef> DisabledWorkTypes => DefDatabase<WorkTypeDef>.AllDefs.Where(wtd => !AllowsWorkType(wtd));
 
         protected T GetData<T>() where T : WorkerData => def.workerData as T;
 
@@ -74,6 +81,10 @@ namespace VFEAncients
             return builder.ToString();
         }
 
+        private bool AllowsWorkType(WorkTypeDef workType) => (def.disabledWorkTags & workType.workTags) == WorkTags.None;
+
+        private bool AllowsWorkGiver(WorkGiverDef workGiver) => (def.disabledWorkTags & workGiver.workTags) == WorkTags.None;
+
         public virtual void DoPatches(Harmony harm)
         {
             if (donePatches) return;
@@ -85,6 +96,8 @@ namespace VFEAncients
             harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisableCauses"), postfix: new HarmonyMethod(GetType(), nameof(AddCauseDisable)));
             harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisabledCausedBy"),
                 transpiler: new HarmonyMethod(GetType(), nameof(AddCauseDisableExplain)));
+            harm.Patch(AccessTools.GetDeclaredMethods(typeof(Pawn)).First(info => info.Name.Contains("GetDisabledWorkTypes") && info.Name.Contains("FillList")),
+                postfix: new HarmonyMethod(GetType(), nameof(AddDisabledWorkTypes)));
             donePatches = true;
         }
 
@@ -123,6 +136,14 @@ namespace VFEAncients
         public static void DisableWork(Pawn __instance, ref WorkTags __result)
         {
             if (__instance.GetPowerTracker() is { } tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
+        }
+
+        public static void AddDisabledWorkTypes(Pawn __instance, List<WorkTypeDef> list, object __1)
+        {
+            if (__instance.GetPowerTracker() is { } tracker && !(bool) permanentOnly.GetValue(__1))
+                foreach (var power in tracker.AllPowers)
+                foreach (var workType in power.Worker.DisabledWorkTypes.Except(list))
+                    list.Add(workType);
         }
 
         public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
