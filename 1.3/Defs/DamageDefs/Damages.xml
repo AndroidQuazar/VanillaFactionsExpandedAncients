@@ -20,5 +20,12 @@
 		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
 
 		<armorCategory>Heat</armorCategory>
+		<explosionAffectOutsidePartsOnly>true</explosionAffectOutsidePartsOnly>
+		<explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+		<explosionCellFleck>BlastDry</explosionCellFleck>
+		<explosionColorCenter>(0.224, 1.0, 0.078)</explosionColorCenter>
+		<explosionColorEdge>(0.133, 0.545, 0.133)</explosionColorEdge>
+		<soundExplosion>VFEA_AcidSpit_Shot</soundExplosion>
+		<combatLogRules>Damage_Bomb</combatLogRules>
 	</DamageDef>
 </Defs>

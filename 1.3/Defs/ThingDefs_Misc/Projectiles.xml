@@ -75,6 +75,7 @@
 	<ThingDef ParentName="BaseBullet">
 		<defName>VFEA_AcidSpit</defName>
 		<label>spit acid</label>
+		<thingClass>Projectile_Explosive</thingClass>
 		<graphicData>
 			<texPath>Projectile/AcidSpit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -82,8 +83,9 @@
 		</graphicData>
 		<projectile>
 			<damageDef>VFEA_AcidBreath</damageDef>
-			<damageAmountBase>15</damageAmountBase>
-			<armorPenetrationBase>0.2</armorPenetrationBase>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationBase>2</armorPenetrationBase>
+			<explosionRadius>1.9</explosionRadius>
 			<speed>100</speed>
 			<flyOverhead>false</flyOverhead>
 		</projectile>
