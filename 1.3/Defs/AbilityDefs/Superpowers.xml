@@ -208,7 +208,7 @@
     <chance>0</chance>
     <range>14.9</range>
 	<castSound>DispensePaste</castSound>
-	<castFleck>HealingCross</castFleck>
+	<castFleck>VFEA_Fleck_HealSmoke</castFleck>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_GloryKill</defName>
