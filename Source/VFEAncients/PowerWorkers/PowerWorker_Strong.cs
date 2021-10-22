@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using HarmonyLib;
+using HeavyWeapons;
 using RimWorld;
 using Verse;
 
@@ -19,6 +20,8 @@ namespace VFEAncients
             harm.Patch(AccessTools.Method(typeof(MassUtility), nameof(MassUtility.Capacity)),
                 postfix: new HarmonyMethod(GetType(), nameof(AddCapacity)) {priority = Priority.Last});
             harm.Patch(AccessTools.Method(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply"), postfix: new HarmonyMethod(GetType(), nameof(AddDamage)));
+            harm.Patch(AccessTools.Method(typeof(Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix),
+                nameof(Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix.CanEquip)), new HarmonyMethod(GetType(), nameof(ForceCanEquip)));
         }
 
         public static void AddCapacity(Pawn p, ref float __result, StringBuilder explanation = null)
@@ -38,6 +41,13 @@ namespace VFEAncients
                 if (isStrong) dinfo.SetAmount(dinfo.Amount * 2);
                 yield return dinfo;
             }
+        }
+
+        public static bool ForceCanEquip(Pawn pawn, ref bool __result)
+        {
+            if (!HasPower<PowerWorker_Strong>(pawn)) return true;
+            __result = true;
+            return false;
         }
     }
 }
