@@ -26,10 +26,10 @@
         <questDescriptionRules>
             <rulesStrings>
                 <!-- No asker -->
-                <li>questDescription(askerIsNull==true)->We've intercepted messages about an abandoned vault ruins not far from [map_definite].\n\nIt seems that [allSitePartsDescriptionsExceptFirst]</li>
+                <li>questDescription(askerIsNull==true)->We've intercepted messages about an abandoned vault ruins not far from [map_definite].\n\nIt seems that [allSitePartsDescriptionsExceptFirst]</li> 
 
                 <!-- Faction leader asker -->
-                <li>questDescription(asker_factionLeader==True)->[asker_label], [asker_faction_leaderTitle] of [asker_faction_name], has informed us of some abandoned vault ruins not far from us. Noone knows what happened to previous inhabitants, but we might still be able to scavenge what's left over.</li>
+                <li>questDescription(asker_factionLeader==True)->[asker_label], [asker_faction_leaderTitle] of [asker_faction_name], has informed us of abandoned vault ruins not far from us. It might still be possible to scavenge what's left over.\n\n[asker_label] says that [allSitePartsDescriptionsExceptFirst]</li>
             </rulesStrings>
         </questDescriptionRules>
         <root Class="QuestNode_Sequence">

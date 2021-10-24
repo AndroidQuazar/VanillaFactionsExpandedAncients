@@ -9,7 +9,7 @@
         <defaultChallengeRating>1</defaultChallengeRating>
         <questNameRules>
             <rulesStrings>
-                <li>questName(priority=1)->[asker_nameDef]'s [journey] to the [ruins]</li>
+                <li>questName(priority=1)->[journey] to the [ruins]</li>
                 <li>journey->Journey</li>
                 <li>journey->Expedition</li>
                 <li>journey->Treasure hunt</li>
@@ -23,8 +23,8 @@
         </questNameRules>
         <questDescriptionRules>
             <rulesStrings>
-                <!-- Faction leader asker -->
-                <li>questDescription(asker_factionLeader==True)->[asker_label], [asker_faction_leaderTitle] of [asker_faction_name], has informed us of a sealed vault that may contain ancient technologies not far from us. Noone knows who the inhabitants are.</li>
+                <!-- No asker since it can be acquired only using broadcast station -->
+                <li>questDescription(askerIsNull==true)->We've intercepted messages about a sealed vault not far from [map_definite]. The site is full of ancient technology and relics.\n\nIt seems that it is still defended by ancient soldiers.</li>
             </rulesStrings>
         </questDescriptionRules>
         <root Class="QuestNode_Sequence">
@@ -37,15 +37,18 @@
                 </li>
                 <li Class="QuestNode_GetMap" />
 
-                <li Class="QuestNode_IsSet">
-                    <name>asker</name>
-                    <elseNode Class="QuestNode_GetPawn">
-                        <storeAs>asker</storeAs>
-                        <mustBeFactionLeader>true</mustBeFactionLeader>
-                        <mustBeNonHostileToPlayer>true</mustBeNonHostileToPlayer>
-                        <selectionWeight>0.6</selectionWeight>
-                    </elseNode>
-                </li>
+        <li Class="QuestNode_IsSet">
+          <name>asker</name>
+          <elseNode Class="QuestNode_RandomNode">
+            <nodes>
+              <li Class="QuestNode_Set">
+                <name>askerIsNull</name>
+                <value>true</value>
+                <selectionWeight>0.4</selectionWeight>
+              </li>
+            </nodes>
+          </elseNode>
+        </li>
 
                 <li Class="QuestNode_GetSiteTile">
                     <storeAs>siteTile</storeAs>
