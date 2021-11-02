@@ -91,7 +91,7 @@ namespace VFEAncients.HarmonyPatches
         public static IEnumerable<CodeInstruction> ExtraValidation(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
             var list = instructions.ToList();
-            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Bge_Un_S);
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Brfalse_S);
             var label1 = generator.DefineLabel();
             var label2 = generator.DefineLabel();
             var label3 = (Label) list[idx1].operand;
@@ -104,7 +104,7 @@ namespace VFEAncients.HarmonyPatches
             var getBill = list[idx1 + 1];
             list.InsertRange(idx1, new[]
             {
-                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldloc_0),
                 getBill.Clone(),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
                 new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
@@ -127,7 +127,7 @@ namespace VFEAncients.HarmonyPatches
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
                 new CodeInstruction(OpCodes.Bge, label3),
-                new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label5),
+                new CodeInstruction(OpCodes.Ldloc_0).WithLabels(label5),
                 getBill.Clone(),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeDef), nameof(RecipeDef.ingredients))),
@@ -135,7 +135,7 @@ namespace VFEAncients.HarmonyPatches
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<IngredientCount>), "get_Item", new[] {typeof(int)})),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(IngredientCount), nameof(IngredientCount.filter))),
                 new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingFilter), nameof(ThingFilter.AllowedThingDefs))),
-                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(IsStuffIngredient))),
                 new CodeInstruction(OpCodes.Call, typeof(Enumerable).GetMethods(BindingFlags.Public | BindingFlags.Static)
                     .FirstOrDefault(meth => meth.Name == "Any" && meth.GetParameters().Length == 2)
