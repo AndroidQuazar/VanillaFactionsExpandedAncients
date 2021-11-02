@@ -9,12 +9,12 @@ namespace VFEAncients
         private CompHackable compHackable;
         private bool hasOpened;
         public override bool CanOpen => base.CanOpen && compHackable.IsHacked;
-        public override bool Accepts(Thing thing) => base.Accepts(thing) && !hasOpened;
+        public override bool Accepts(Thing thing) => !hasOpened && base.Accepts(thing);
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            if (!hasOpened) hasOpened = true;
+            if (!respawningAfterLoad && !hasOpened) hasOpened = true;
         }
 
         public override void PostPostMake()

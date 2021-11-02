@@ -34,7 +34,7 @@ namespace VFEAncients
                 foreach (var hediff in def.hediffs)
                     parent.Pawn.health.AddHediff(hediff);
             if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Ancients>().TickLists[def.tickerType].Add((parent, def));
-            if (def.disabledWorkTags != WorkTags.None) parent.Pawn.cachedDisabledWorkTypes.Clear();
+            if (def.disabledWorkTags != WorkTags.None) parent.Pawn.cachedDisabledWorkTypes?.Clear();
         }
 
         public virtual void Notify_Removed(Pawn_PowerTracker parent)
@@ -46,7 +46,7 @@ namespace VFEAncients
                 foreach (var hediff in parent.Pawn.health.hediffSet.hediffs.Where(hd => hd.Part == null && def.hediffs.Contains(hd.def)).ToList())
                     parent.Pawn.health.RemoveHediff(hediff);
             if (def.tickerType != TickerType.Never) Current.Game.GetComponent<GameComponent_Ancients>().TickLists[def.tickerType].Remove((parent, def));
-            if (def.disabledWorkTags != WorkTags.None) parent.Pawn.cachedDisabledWorkTypes.Clear();
+            if (def.disabledWorkTags != WorkTags.None) parent.Pawn.cachedDisabledWorkTypes?.Clear();
         }
 
         public string EffectString()

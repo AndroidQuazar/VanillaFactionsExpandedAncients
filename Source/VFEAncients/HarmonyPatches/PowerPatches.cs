@@ -39,7 +39,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static void AddPowers(Pawn __result, PawnGenerationRequest request)
         {
-            if (request.KindDef != null && request.KindDef.TryGetModExtension<PawnKindExtension_Powers>(out var ext) && __result?.GetPowerTracker() is Pawn_PowerTracker tracker)
+            if (request.KindDef != null && request.KindDef.TryGetModExtension<PawnKindExtension_Powers>(out var ext) && __result?.GetPowerTracker() is { } tracker)
             {
                 if (ext.forcePowers != null)
                     foreach (var power in ext.forcePowers)
