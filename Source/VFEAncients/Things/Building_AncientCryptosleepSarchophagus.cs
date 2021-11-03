@@ -28,7 +28,7 @@ namespace VFEAncients
         {
             if (hasOpened) return false;
             if (compHackable is not null) compHackable.progress = 0f;
-            if (!Spawned && thing.Faction is {IsPlayer: true} && Faction.IsPlayer) thing.SetFactionDirect(Faction.OfAncients);
+            if (!Spawned && thing.Faction is {IsPlayer: true}) thing.SetFactionDirect(Faction.OfAncients);
             return base.TryAcceptThing(thing, allowSpecialEffects);
         }
 
