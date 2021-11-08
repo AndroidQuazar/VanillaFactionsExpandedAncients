@@ -80,9 +80,14 @@
 	<uiIconPath>Things/Building/Furniture/VFEWallLamp/VFEWallLamp_MenuIcon</uiIconPath>
 	<rotatable>true</rotatable>
     <comps>
-      <li Class="CompProperties_Glower">
-        <glowRadius>12</glowRadius>
-        <glowColor>(217,217,208,0)</glowColor>
+      <li Class="VanillaFurnitureExpanded.CompProperties_GlowerExtended">
+        <spawnGlowerInFacedCell>true</spawnGlowerInFacedCell>
+        <colorOptions>
+            <li>
+                <glowRadius>12</glowRadius>
+                <glowColor>(252,187,113,0)</glowColor>
+            </li>
+        </colorOptions>
       </li>
 	  <li Class="VanillaFurnitureExpanded.CompProperties_MountableOnWall"/>
     </comps>
