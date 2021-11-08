@@ -109,9 +109,14 @@
     <description>An electrical red wall lamp, ideal to light up corridors in a vault.</description>
     <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
     <comps>
-      <li Class="CompProperties_Glower">
-        <glowRadius>12</glowRadius>
-        <glowColor>(217,80,80,0)</glowColor>
+      <li Class="VanillaFurnitureExpanded.CompProperties_GlowerExtended">
+        <spawnGlowerInFacedCell>true</spawnGlowerInFacedCell>
+        <colorOptions>
+            <li>
+                <glowRadius>12</glowRadius>
+                <glowColor>(217,80,80,0)</glowColor>
+            </li>
+        </colorOptions>
       </li>
     </comps>
     <researchPrerequisites Inherit="False">
@@ -125,9 +130,14 @@
     <description>An electrical green wall lamp, ideal to light up corridors in a vault.</description>
     <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
     <comps>
-      <li Class="CompProperties_Glower">
-        <glowRadius>12</glowRadius>
-        <glowColor>(80,217,80,0)</glowColor>
+      <li Class="VanillaFurnitureExpanded.CompProperties_GlowerExtended">
+        <spawnGlowerInFacedCell>true</spawnGlowerInFacedCell>
+        <colorOptions>
+            <li>
+                <glowRadius>12</glowRadius>
+                <glowColor>(80,217,80,0)</glowColor>
+            </li>
+        </colorOptions>
       </li>
     </comps>
     <researchPrerequisites Inherit="False">
@@ -141,9 +151,14 @@
     <description>An electrical blue wall lamp, ideal to light up corridors in a vault.</description>
     <designatorDropdown>VFEA_WallLampColoured</designatorDropdown>
     <comps>
-      <li Class="CompProperties_Glower">
-        <glowRadius>12</glowRadius>
-        <glowColor>(80,80,217,0)</glowColor>
+      <li Class="VanillaFurnitureExpanded.CompProperties_GlowerExtended">
+        <spawnGlowerInFacedCell>true</spawnGlowerInFacedCell>
+        <colorOptions>
+            <li>
+                <glowRadius>12</glowRadius>
+                <glowColor>(80,80,217,0)</glowColor>
+            </li>
+        </colorOptions>
       </li>
     </comps>
     <researchPrerequisites Inherit="False">
