@@ -63,7 +63,6 @@
         <glowColor>(0,235,31,0)</glowColor>
       </li>
     </comps>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
@@ -132,7 +131,6 @@
         <glowColor>(217,112,33,0)</glowColor>
       </li>
     </comps>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
@@ -200,7 +198,6 @@
         <glowColor>(0,235,31,0)</glowColor>
       </li>
     </comps>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
   
@@ -255,7 +252,6 @@
         <glowColor>(0,235,31,0)</glowColor>
       </li>
     </comps>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
@@ -315,7 +311,6 @@
         <glowColor>(0,235,31,0)</glowColor>
       </li>
     </comps>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<uiIconScale>0.8</uiIconScale>
   </ThingDef>
 

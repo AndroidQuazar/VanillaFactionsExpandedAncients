@@ -50,7 +50,6 @@
     <neverMultiSelect>true</neverMultiSelect>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <holdsRoof>true</holdsRoof>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <staticSunShadowHeight>1.0</staticSunShadowHeight>
     <blockLight>true</blockLight>
     <canOverlapZones>false</canOverlapZones>

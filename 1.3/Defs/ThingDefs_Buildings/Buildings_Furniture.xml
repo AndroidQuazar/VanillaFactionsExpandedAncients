@@ -48,7 +48,6 @@
     <castEdgeShadows>True</castEdgeShadows>
     <techLevel>Industrial</techLevel>
     <uiIconScale>0.90</uiIconScale>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef Abstract="True" Name="VFEA_WallLampBaseA" ParentName="LampBase">
@@ -225,7 +224,6 @@
     </researchPrerequisites>
     <techLevel>Spacer</techLevel>
     <uiIconScale>1</uiIconScale>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </ThingDef>
 

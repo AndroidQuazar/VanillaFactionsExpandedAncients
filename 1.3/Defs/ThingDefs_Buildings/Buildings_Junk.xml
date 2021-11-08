@@ -27,7 +27,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
   
@@ -57,7 +56,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -85,7 +83,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -122,7 +119,6 @@
 	</comps>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -151,7 +147,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
   
@@ -181,7 +176,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -211,7 +205,6 @@
     <passability>PassThroughOnly</passability>
 	<rotatable>false</rotatable>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -240,7 +233,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -269,7 +261,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
   </ThingDef>
   
@@ -299,7 +290,6 @@
     </statBases>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
 
 </Defs>

@@ -78,7 +78,6 @@
       <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
       <combatPower>45</combatPower>   <!-- same as a scavenger -->

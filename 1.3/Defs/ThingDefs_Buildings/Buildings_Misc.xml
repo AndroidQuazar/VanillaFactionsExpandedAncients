@@ -37,7 +37,6 @@
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -130,7 +129,6 @@
     </placeWorkers>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
@@ -149,7 +147,6 @@
     <passability>PassThroughOnly</passability>
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>

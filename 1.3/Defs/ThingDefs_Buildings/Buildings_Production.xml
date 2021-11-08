@@ -228,7 +228,6 @@
       <li Class="VFEAncients.CompProperties_SolarPowerUp"/>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="BenchBase">
@@ -265,7 +264,6 @@
 	  <Mass>25</Mass>
     </statBases>
     <size>(3,2)</size>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <hasInteractionCell>True</hasInteractionCell>
@@ -342,7 +340,6 @@
     </statBases>
     <size>(5,2)</size>
 	<minifiedDef>MinifiedThing</minifiedDef>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <hasInteractionCell>True</hasInteractionCell>

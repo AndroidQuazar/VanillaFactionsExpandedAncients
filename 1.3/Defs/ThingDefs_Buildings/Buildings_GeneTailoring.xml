@@ -71,7 +71,6 @@
         </filter>
       </defaultStorageSettings>
     </building>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
     <neverMultiSelect>true</neverMultiSelect>
     <thingCategories>
@@ -135,7 +134,6 @@
     <blockWind>false</blockWind>
     <fillPercent>0.5</fillPercent>
     <canOverlapZones>false</canOverlapZones>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
     <neverMultiSelect>false</neverMultiSelect>
 	<rotatable>false</rotatable>

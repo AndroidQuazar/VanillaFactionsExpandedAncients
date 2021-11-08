@@ -41,7 +41,6 @@
 	</costList>
     <pathCost>30</pathCost>
     <passability>PassThroughOnly</passability>
-    <designationCategory>VFEA_Ancients</designationCategory>
 	<defaultPlacingRot>South</defaultPlacingRot>
   <hasInteractionCell>true</hasInteractionCell>
   <interactionCellOffset>(0,0,1)</interactionCellOffset>
@@ -85,7 +84,6 @@
     </costList>
     <pathCost>42</pathCost>
     <passability>PassThroughOnly</passability>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <canOverlapZones>false</canOverlapZones>
     <placeWorkers>
       <li>PlaceWorker_NeverAdjacentUnstandable</li>
