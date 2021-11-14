@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace VFEAncients
 {
@@ -32,6 +35,17 @@ namespace VFEAncients
             return base.TryAcceptThing(thing, allowSpecialEffects);
         }
 
+        public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn myPawn)
+        {
+            foreach (var opt in base.GetFloatMenuOptions(myPawn))
+            {
+                if (opt.Label == "EnterCryptosleepCasket".Translate())
+                {
+                    continue;
+                }
+                yield return opt;
+            }
+        }
         public override void Open()
         {
             if (Faction.IsPlayer && ContainedThing is Pawn pawn)
