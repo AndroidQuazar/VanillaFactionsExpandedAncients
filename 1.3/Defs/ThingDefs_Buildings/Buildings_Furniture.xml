@@ -48,6 +48,7 @@
     <castEdgeShadows>True</castEdgeShadows>
     <techLevel>Industrial</techLevel>
     <uiIconScale>0.90</uiIconScale>
+    <designationCategory inherit="False"/>
   </ThingDef>
   
   <ThingDef Abstract="True" Name="VFEA_WallLampBaseA" ParentName="LampBase">
@@ -66,6 +67,7 @@
         <basePowerConsumption>30</basePowerConsumption>
       </li>
     </comps>
+	<designationCategory inherit="False"/>
   </ThingDef>
   
   <ThingDef ParentName="VFEA_WallLampBaseA" Name="VFEA_WallLampBase">

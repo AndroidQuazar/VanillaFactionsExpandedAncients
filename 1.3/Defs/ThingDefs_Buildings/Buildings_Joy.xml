@@ -44,6 +44,7 @@
 	<defaultPlacingRot>South</defaultPlacingRot>
   <hasInteractionCell>true</hasInteractionCell>
   <interactionCellOffset>(0,0,1)</interactionCellOffset>
+  <designationCategory inherit="False"/>
   </ThingDef>
   
   <ThingDef ParentName="FurnitureWithQualityBase">
@@ -89,6 +90,7 @@
       <li>PlaceWorker_NeverAdjacentUnstandable</li>
     </placeWorkers>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	<designationCategory inherit="False"/>
   </ThingDef>
   
 </Defs>
