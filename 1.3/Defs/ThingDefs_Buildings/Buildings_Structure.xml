@@ -105,7 +105,6 @@
       <li Class="VFEAncients.CompProperties_SolarPowerUp"/>
     </comps>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-	<designationCategory>VFEA_Ancients</designationCategory>
   </ThingDef>
 
 </Defs>
