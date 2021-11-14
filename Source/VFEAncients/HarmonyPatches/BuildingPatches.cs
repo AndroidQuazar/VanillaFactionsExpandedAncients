@@ -90,59 +90,99 @@ namespace VFEAncients.HarmonyPatches
 
         public static IEnumerable<CodeInstruction> ExtraValidation(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
-            var list = instructions.ToList();
-            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Brfalse_S);
-            var label1 = generator.DefineLabel();
-            var label2 = generator.DefineLabel();
-            var label3 = (Label) list[idx1].operand;
-            var label4 = generator.DefineLabel();
-            var label5 = generator.DefineLabel();
-            idx1++;
-            var idx2 = list.FindIndex(idx1, ins => ins.opcode == OpCodes.Call) + 2;
-            list[idx1].labels.Add(label2);
-            list[idx2].labels.Add(label1);
-            var getBill = list[idx1 + 1];
-            list.InsertRange(idx1, new[]
+            // new transpiler here 
+
+            var codes = instructions.ToList();
+            var isFixedOrAllowedIngredientMeth = AccessTools.Method(typeof(Bill), nameof(Bill.IsFixedOrAllowedIngredient), new Type[] {typeof(Thing) });
+            for (var i = 0; i < codes.Count; i++)
             {
-                new CodeInstruction(OpCodes.Ldloc_0),
-                getBill.Clone(),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
-                new CodeInstruction(OpCodes.Brfalse, label2),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsWeapon))),
-                new CodeInstruction(OpCodes.Brtrue, label4),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsApparel))),
-                new CodeInstruction(OpCodes.Brtrue, label4),
-                new CodeInstruction(OpCodes.Br, label5),
-                new CodeInstruction(OpCodes.Ldarg_1).WithLabels(label4),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(ThingDef), nameof(ThingDef.useHitPoints))),
-                new CodeInstruction(OpCodes.Brfalse, label3),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.HitPoints))),
-                new CodeInstruction(OpCodes.Ldarg_1),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
-                new CodeInstruction(OpCodes.Bge, label3),
-                new CodeInstruction(OpCodes.Ldloc_0).WithLabels(label5),
-                getBill.Clone(),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeDef), nameof(RecipeDef.ingredients))),
-                new CodeInstruction(OpCodes.Ldc_I4_0),
-                new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<IngredientCount>), "get_Item", new[] {typeof(int)})),
-                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(IngredientCount), nameof(IngredientCount.filter))),
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingFilter), nameof(ThingFilter.AllowedThingDefs))),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(IsStuffIngredient))),
-                new CodeInstruction(OpCodes.Call, typeof(Enumerable).GetMethods(BindingFlags.Public | BindingFlags.Static)
-                    .FirstOrDefault(meth => meth.Name == "Any" && meth.GetParameters().Length == 2)
-                    ?.MakeGenericMethod(typeof(ThingDef))),
-                new CodeInstruction(OpCodes.Brtrue, label1)
-            });
-            return list;
+                var code = codes[i];
+                yield return code;
+                if (i > 1 && code.opcode == OpCodes.Brfalse_S && codes[i - 1].Calls(isFixedOrAllowedIngredientMeth))
+                {
+                    var billField = AccessTools.Field(typeof(WorkGiver_DoBill).GetNestedTypes(AccessTools.all)
+                                    .First(c => c.Name.Contains("c__DisplayClass20_0")), "bill");
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, billField);
+                    yield return new CodeInstruction(OpCodes.Ldloc_0);
+                    var thingField = AccessTools.Field(typeof(WorkGiver_DoBill).GetNestedTypes(AccessTools.all)
+                                    .First(c => c.Name.Contains("c__DisplayClass20_1")), "t");
+                    yield return new CodeInstruction(OpCodes.Ldfld, thingField);
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(BuildingPatches.ExtraVerificationCheck)));
+                    yield return new CodeInstruction(OpCodes.Brfalse_S, code.operand);
+                }
+            }
+
+            // old transpiler below
+
+            //var list = instructions.ToList();
+            //var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Brfalse_S);
+            //var label1 = generator.DefineLabel();
+            //var label2 = generator.DefineLabel();
+            //var label3 = (Label) list[idx1].operand;
+            //var label4 = generator.DefineLabel();
+            //var label5 = generator.DefineLabel();
+            //idx1++;
+            //var idx2 = list.FindIndex(idx1, ins => ins.opcode == OpCodes.Call) + 2;
+            //list[idx1].labels.Add(label2);
+            //list[idx2].labels.Add(label1);
+            //var getBill = list[idx1 + 1];
+            //list.InsertRange(idx1, new[]
+            //{
+            //    new CodeInstruction(OpCodes.Ldloc_0),
+            //    getBill.Clone(),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Def), nameof(Def.HasModExtension), generics: new[] {typeof(RecipeExtension_Mend)})),
+            //    new CodeInstruction(OpCodes.Brfalse, label2),
+            //    new CodeInstruction(OpCodes.Ldarg_1),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsWeapon))),
+            //    new CodeInstruction(OpCodes.Brtrue, label4),
+            //    new CodeInstruction(OpCodes.Ldarg_1),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.IsApparel))),
+            //    new CodeInstruction(OpCodes.Brtrue, label4),
+            //    new CodeInstruction(OpCodes.Br, label5),
+            //    new CodeInstruction(OpCodes.Ldarg_1).WithLabels(label4),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Thing), nameof(Thing.def))),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(ThingDef), nameof(ThingDef.useHitPoints))),
+            //    new CodeInstruction(OpCodes.Brfalse, label3),
+            //    new CodeInstruction(OpCodes.Ldarg_1),
+            //    new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.HitPoints))),
+            //    new CodeInstruction(OpCodes.Ldarg_1),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))),
+            //    new CodeInstruction(OpCodes.Bge, label3),
+            //    new CodeInstruction(OpCodes.Ldloc_0).WithLabels(label5),
+            //    getBill.Clone(),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Bill), nameof(Bill.recipe))),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(RecipeDef), nameof(RecipeDef.ingredients))),
+            //    new CodeInstruction(OpCodes.Ldc_I4_0),
+            //    new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<IngredientCount>), "get_Item", new[] {typeof(int)})),
+            //    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(IngredientCount), nameof(IngredientCount.filter))),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(ThingFilter), nameof(ThingFilter.AllowedThingDefs))),
+            //    new CodeInstruction(OpCodes.Ldarg_0),
+            //    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(IsStuffIngredient))),
+            //    new CodeInstruction(OpCodes.Call, typeof(Enumerable).GetMethods(BindingFlags.Public | BindingFlags.Static)
+            //        .FirstOrDefault(meth => meth.Name == "Any" && meth.GetParameters().Length == 2)
+            //        ?.MakeGenericMethod(typeof(ThingDef))),
+            //    new CodeInstruction(OpCodes.Brtrue, label1)
+            //});
+            //return list;
+        }
+
+        private static bool ExtraVerificationCheck(Bill bill, Thing t)
+        {
+            try
+            {
+                return (!bill.recipe?.HasModExtension<RecipeExtension_Mend>() ?? false)
+                || ((!t.def.IsWeapon && !t.def.IsApparel) || (t.def.useHitPoints && t.HitPoints < t.MaxHitPoints))
+                && !bill.recipe.ingredients[0].filter.AllowedThingDefs.Any(BuildingPatches.IsStuffIngredient(t));
+            }
+            catch (Exception ex)
+            {
+                Log.Error("VEF Ancients exception: " + ex.ToString());
+                return true;
+            }
         }
 
         public static bool RepairItem(RecipeDef recipeDef, List<Thing> ingredients, ref IEnumerable<Thing> __result)
