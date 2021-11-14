@@ -268,7 +268,6 @@
 	  <li Class="VFEAncients.CompProperties_SolarPowerUp"/>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>

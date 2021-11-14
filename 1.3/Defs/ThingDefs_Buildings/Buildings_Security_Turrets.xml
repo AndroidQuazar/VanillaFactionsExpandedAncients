@@ -175,7 +175,6 @@
     <fillPercent>0.5</fillPercent>
     <hasTooltip>true</hasTooltip>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>VFEA_Ancients</designationCategory>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <thingCategories>
       <li>BuildingsSecurity</li>
