@@ -67,7 +67,7 @@
         <basePowerConsumption>30</basePowerConsumption>
       </li>
     </comps>
-	<designationCategory inherit="False"/>
+	<designationCategory>Furniture</designationCategory>
   </ThingDef>
   
   <ThingDef ParentName="VFEA_WallLampBaseA" Name="VFEA_WallLampBase">
