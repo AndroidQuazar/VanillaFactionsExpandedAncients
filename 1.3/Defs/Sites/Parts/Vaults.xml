@@ -63,12 +63,26 @@
     </genStep>
   </GenStepDef>
 
+  <SitePartDef>
+    <defName>VFEA_AncientSoldierHostile</defName>
+    <label>ennemies presence</label>
+    <description>Ennemies are present in this place.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/Ambush</expandingIconTexture>
+    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+    <wantsThreatPoints>true</wantsThreatPoints>
+    <tags>
+      <li>VFEA_AncientSoldierHostile</li>
+    </tags>
+  </SitePartDef>
+
   <GenStepDef>
-    <defName>Custom_EnnemiesPresence</defName>
-    <linkWithSite>VFEA_SealedVault</linkWithSite>
-    <order>440</order>
+    <defName>VFEA_AncientSoldierHostile</defName>
+    <linkWithSite>VFEA_AncientSoldierHostile</linkWithSite>
+    <order>900</order>
     <genStep Class="KCSG.GenStep_EnnemiesPresence">
       <forcedfaction>VFEA_AncientSoldiers</forcedfaction>
+      <defaultPointsRange>1150,1600</defaultPointsRange> <!-- Settlement alike -->
       <pointMultiplier>1.2</pointMultiplier>
     </genStep>
   </GenStepDef>
