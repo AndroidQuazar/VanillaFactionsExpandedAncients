@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -64,33 +65,32 @@ namespace VFEAncients
         public static void AddCarryToBatteryJobs(List<FloatMenuOption> opts, Pawn pawn, Pawn target)
         {
             if (!pawn.CanReserveAndReach(target, PathEndMode.OnCell, Danger.Deadly, 1, -1, null, true)) return;
-            foreach (var thing in FindBatteryFor(pawn, target))
+            var label = "";
+            Action action = null;
+            foreach (var thing in BatteriesFor(pawn, target))
             {
-                string text = "VFEAncients.CarryToBioBattery".Translate(target);
+                label = "VFEAncients.CarryToBioBattery".Translate(target);
                 if (!thing.TryGetComp<CompBioBattery>(out var comp)) continue;
                 if (target.IsQuestLodger())
-                {
-                    text += " (" + "CryptosleepCasketGuestsNotAllowed".Translate() + ")";
-                    opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
-                }
+                    label += " (" + "CryptosleepCasketGuestsNotAllowed".Translate() + ")";
                 else if (target.GetExtraHostFaction() != null)
-                {
-                    text += " (" + "CryptosleepCasketGuestPrisonersNotAllowed".Translate() + ")";
-                    opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
-                }
+                    label += " (" + "CryptosleepCasketGuestPrisonersNotAllowed".Translate() + ")";
                 else if (!comp.CanAcceptPawn(target))
-                {
-                    text += " (" + "CryptosleepCasketOccupied".Translate() + ")";
-                    opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, null), pawn, thing));
-                }
+                    label += " (" + "CryptosleepCasketOccupied".Translate() + ")";
                 else
-                    opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, () =>
+                {
+                    var pod = thing;
+                    action = () =>
                     {
-                        var job = JobMaker.MakeJob(VFEA_DefOf.VFEA_CarryToBioBatteryTank, target, thing);
+                        var job = JobMaker.MakeJob(VFEA_DefOf.VFEA_CarryToBioBatteryTank, target, pod);
                         job.count = 1;
                         pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                    }), pawn, target));
+                    };
+                    break;
+                }
             }
+
+            if (!label.NullOrEmpty()) opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, action), pawn, target));
         }
 
         public override void PostExposeData()
@@ -106,11 +106,10 @@ namespace VFEAncients
                 massLeft / Occupant.GetStatValue(StatDefOf.Mass)).ToStringPercent()) + "\n" + "Contains".Translate() + ": " + Occupant.NameShortColored.Resolve()
             : "");
 
-        public static IEnumerable<Thing> FindBatteryFor(Pawn pawn, Pawn target)
+        public static IEnumerable<Thing> BatteriesFor(Pawn pawn, Pawn target)
         {
-            return DefDatabase<ThingDef>.AllDefs.Where(def => def.comps.Any(comp => comp.compClass == typeof(CompBioBattery))).Select(batteryDef =>
-                GenClosest.ClosestThingReachable(target.Position, pawn.Map, ThingRequest.ForDef(batteryDef), PathEndMode.InteractionCell,
-                    TraverseParms.For(pawn))).Where(thing => thing != null);
+            return DefDatabase<ThingDef>.AllDefs.Where(def => def.comps.Any(comp => comp.compClass == typeof(CompBioBattery))).SelectMany(batteryDef =>
+                pawn.Map.listerThings.ThingsOfDef(batteryDef)).Where(thing => thing is not null && pawn.CanReach(thing, PathEndMode.InteractionCell, Danger.Some));
         }
 
         public override void PostDraw()

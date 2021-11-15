@@ -27,19 +27,19 @@ namespace VFEAncients
                     action = delegate
                     {
                         ConfirmIf(() => Transporter.innerContainer.Any(thing => thing is Pawn),
-                            "".Translate(Transporter.innerContainer.First(thing => thing is Pawn).Named("PAWN")), () =>
+                            () => "VFEAncients.ConfirmSendPawn".Translate(Transporter.innerContainer.First(thing => thing is Pawn).Named("PAWN")), () =>
                                 ConfirmIf(() => Transporter.AnyInGroupHasAnythingLeftToLoad,
-                                    "ConfirmSendNotCompletelyLoadedPods".Translate(Transporter.FirstThingLeftToLoadInGroup.LabelCapNoCount,
+                                    () => "ConfirmSendNotCompletelyLoadedPods".Translate(Transporter.FirstThingLeftToLoadInGroup.LabelCapNoCount,
                                         Transporter.FirstThingLeftToLoadInGroup),
                                     TryLaunch), true);
                     }
                 };
         }
 
-        private static void ConfirmIf(Func<bool> predicate, string confirmStr, Action onConfirm, bool danger = false)
+        private static void ConfirmIf(Func<bool> predicate, Func<string> confirmStr, Action onConfirm, bool danger = false)
         {
             if (predicate())
-                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(confirmStr, onConfirm, danger));
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(confirmStr(), onConfirm, danger));
             else
                 onConfirm();
         }
