@@ -406,7 +406,7 @@
   <containPawnKindForPlayerAnyOf>
     <li>VFEA_PlayerAncientSoldierOneAbility</li>
   </containPawnKindForPlayerAnyOf>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <chanceToContainPawn>0.2</chanceToContainPawn>
   <spawnPartOfFaction>true</spawnPartOfFaction>
   <rotation>North</rotation>
 </KCSG.SymbolDef>
@@ -421,7 +421,7 @@
   <containPawnKindForPlayerAnyOf>
     <li>VFEA_PlayerAncientSoldierOneAbility</li>
   </containPawnKindForPlayerAnyOf>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <chanceToContainPawn>0.2</chanceToContainPawn>
   <spawnPartOfFaction>true</spawnPartOfFaction>
   <rotation>West</rotation>
 </KCSG.SymbolDef>
@@ -436,7 +436,7 @@
   <containPawnKindForPlayerAnyOf>
     <li>VFEA_PlayerAncientSoldierOneAbility</li>
   </containPawnKindForPlayerAnyOf>
-  <chanceToContainPawn>0.1</chanceToContainPawn>
+  <chanceToContainPawn>0.2</chanceToContainPawn>
   <spawnPartOfFaction>true</spawnPartOfFaction>
   <rotation>East</rotation>
 </KCSG.SymbolDef>
