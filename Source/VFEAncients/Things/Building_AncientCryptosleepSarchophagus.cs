@@ -19,6 +19,13 @@ namespace VFEAncients
             base.SpawnSetup(map, respawningAfterLoad);
             compHackable = this.TryGetComp<CompHackable>();
             if (!respawningAfterLoad && !hasOpened) hasOpened = true;
+            if (!respawningAfterLoad)
+            {
+                if (this.innerContainer.Count == 0)
+                {
+                    compHackable.progress = compHackable.Props.defence;
+                }
+            }
         }
 
         public override void PostPostMake()

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
   <ThingDef ParentName="BenchBase">
@@ -216,7 +216,7 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Schedule">
         <!-- Match plant growing times -->
-        <startTime>0.25</startTime>
+        <startTime>0.2</startTime>
         <endTime>0.8</endTime>
         <offMessage>Off for plant resting period</offMessage>
       </li>

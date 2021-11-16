@@ -87,6 +87,7 @@
     <Compile Include="Jobs\JobDriver_CarryToBioBattery.cs" />
     <Compile Include="PowerWorkers\PowerWorker.cs" />
     <Compile Include="PowerWorkers\PowerWorker_Damages.cs" />
+    <Compile Include="ScenPart_ReconnectAllPowerBuildings.cs" />
     <Compile Include="Things\Building_AncientCryptosleepSarchophagus.cs" />
     <Compile Include="Things\Building_Cooler.cs" />
     <Compile Include="Things\Building_PipelineJunction.cs" />

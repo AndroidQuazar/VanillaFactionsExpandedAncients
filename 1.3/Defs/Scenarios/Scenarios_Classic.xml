@@ -40,7 +40,18 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
           <spawnTheStartingPawn>True</spawnTheStartingPawn>
           <method>Standing</method>
         </li>
+        <li Class="VFEAncients.ScenPart_ReconnectAllPowerBuildings">
+			<def>VFEC_ReconnectAllPowerBuildings</def>
+		</li>
       </parts>
     </scenario>
   </ScenarioDef>
+  
+  <ScenPartDef>
+    <defName>VFEC_ReconnectAllPowerBuildings</defName>
+    <label>reconnect all power buildings in the starting map</label>
+    <category>Misc</category>
+    <scenPartClass>VFEAncients.ScenPart_ReconnectAllPowerBuildings</scenPartClass>
+    <maxUses>1</maxUses>
+  </ScenPartDef>
 </Defs>
