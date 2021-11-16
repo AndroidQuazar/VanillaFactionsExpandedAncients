@@ -26,7 +26,7 @@
     <VFEAncients.Empowered.Label>Experiment Success: {0}</VFEAncients.Empowered.Label>
     <VFEAncients.Empowered.Text>The experiment in the gene-tailoring pod has been a success! {0} has gained the power {1}. However, they have also gained the weakness {2}.</VFEAncients.Empowered.Text>
     <VFEAncients.RemoveWeakness.Label>Experiment Success: {0}</VFEAncients.RemoveWeakness.Label>
-    <VFEAncients.RemoveWeakness.Text>The experiment in the gene-tailoring pod has been a success! {0} has l0st the weakness {1}.</VFEAncients.RemoveWeakness.Text>
+    <VFEAncients.RemoveWeakness.Text>The experiment in the gene-tailoring pod has been a success! {0} has lost the weakness {1}.</VFEAncients.RemoveWeakness.Text>
     <VFEAncients.StartOperation>Start Operation</VFEAncients.StartOperation>
     <VFEAncients.CurrentOperation>Current operation</VFEAncients.CurrentOperation>
     <VFEAncients.ExperimentFailed>Experiment failed</VFEAncients.ExperimentFailed>
