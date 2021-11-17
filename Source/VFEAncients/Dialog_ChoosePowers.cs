@@ -20,6 +20,7 @@ namespace VFEAncients
             this.choices = choices;
             this.pawn = pawn;
             this.onChosen = onChosen;
+            this.forcePause = true;
         }
 
         public override Vector2 InitialSize => new(500f, 300f);
@@ -36,8 +37,6 @@ namespace VFEAncients
                 var buttonRect = new Rect(rect.x + 5f, rect.y + 170f, 70f, 30f);
                 GUI.DrawTexture(superpowerRect, SuperpowerBackgroundTex);
                 GUI.DrawTexture(weaknessRect, WeaknessBackgroundTex);
-                Widgets.DrawHighlightIfMouseover(superpowerRect);
-                Widgets.DrawHighlightIfMouseover(weaknessRect);
                 GUI.DrawTexture(superpowerRect, superpower.Icon);
                 TooltipHandler.TipRegion(superpowerRect, new TipSignal($"{superpower.LabelCap}\n\n{superpower.description}\n{superpower.Worker.EffectString()}"));
                 GUI.DrawTexture(weaknessRect, weakness.Icon);

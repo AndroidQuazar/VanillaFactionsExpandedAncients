@@ -18,6 +18,10 @@ namespace VFEAncients
             geyser.harvester = (Building) parent;
 
             compTempControl = parent.GetComp<CompTempControl>();
+            if (compTempControl is null)
+            {
+                Log.Error(this + " is missing CompTempControl. Perhaps another mod removed it. The building won't work.");
+            }
         }
 
         public override void CompTickRare()

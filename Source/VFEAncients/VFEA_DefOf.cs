@@ -39,6 +39,7 @@ namespace VFEAncients
         public static ThingDef VFEA_NaniteSampler;
         public static HediffDef VFEA_MetaMorph;
         public static FactionDef VFEA_NewVault;
+        public static FactionDef VFEA_AncientSoldiers;
         public static ThingDef VFEA_SuperJumpingPawn;
         public static SoundDef VFEA_GloryKill_Music;
 

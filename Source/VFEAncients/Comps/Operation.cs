@@ -27,15 +27,20 @@ namespace VFEAncients
 
         public virtual float FailChanceOnPawn(Pawn pawn)
         {
-            return pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)
+            var powerTracker = pawn.GetPowerTracker();
+            if (powerTracker is null)
+            {
+                return 1f;
+            }
+            return powerTracker.HasPower(VFEA_DefOf.PromisingCandidate)
                 ? 0f
-                : Pod.parent.GetStatValue(VFEA_DefOf.VFEA_FailChance) + pawn.GetPowerTracker().AllPowers.Count(power => power.powerType == PowerType.Superpower) * 0.1f;
+                : Pod.parent.GetStatValue(VFEA_DefOf.VFEA_FailChance) + powerTracker.AllPowers.Count(power => power.powerType == PowerType.Superpower) * 0.1f;
         }
 
         public virtual string FailChanceExplainOnPawn(Pawn pawn)
         {
             if (pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)) return VFEA_DefOf.PromisingCandidate.LabelCap;
-            return pawn.GetPowerTracker().AllPowers.Select(power => $"{power.LabelCap}: +10%").ToLineList();
+            return pawn.GetPowerTracker()?.AllPowers.Select(power => $"{power.LabelCap}: +10%").ToLineList();
         }
 
         public virtual void Failure()
@@ -66,7 +71,7 @@ namespace VFEAncients
 
         public override bool CanRunOnPawn(Pawn pawn)
         {
-            return base.CanRunOnPawn(pawn) && pawn.GetPowerTracker().AllPowers.Count(power => power.powerType == PowerType.Superpower) < MaxPowerLevel;
+            return base.CanRunOnPawn(pawn) && pawn.GetPowerTracker()?.AllPowers.Count(power => power.powerType == PowerType.Superpower) < MaxPowerLevel;
         }
 
         public override void Success()
@@ -83,11 +88,13 @@ namespace VFEAncients
             };
             GenDebug.LogList(Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading);
             if (Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.Any(t => t.def == VFEA_DefOf.VFEA_NaniteSampler))
+            {
                 Find.WindowStack.Add(new Dialog_ChoosePowers(new List<Tuple<PowerDef, PowerDef>>
                 {
                     new(superpowers.RandomElement(), weaknessess.RandomElement()),
                     new(superpowers.RandomElement(), weaknessess.RandomElement())
                 }, Pod.Occupant, onPowers));
+            }
             else
                 onPowers(new Tuple<PowerDef, PowerDef>(superpowers.RandomElement(), weaknessess.RandomElement()));
         }

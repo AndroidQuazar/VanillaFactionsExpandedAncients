@@ -16,6 +16,8 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Interval)), new HarmonyMethod(typeof(StorytellerPatches), nameof(NoSkillDecay)));
             harm.Patch(AccessTools.Method(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow)),
                 new HarmonyMethod(typeof(StorytellerPatches), nameof(AdditionalIncidentReqs)));
+            harm.Patch(AccessTools.Method(typeof(IncidentWorker_PawnsArrive), nameof(IncidentWorker_PawnsArrive.FactionCanBeGroupSource)),
+                new HarmonyMethod(typeof(StorytellerPatches), nameof(AncientsShouldNotArrive)));
         }
 
         public static IEnumerable<CodeInstruction> IncreaseRecruitDifficulty(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -49,6 +51,14 @@ namespace VFEAncients.HarmonyPatches
                 .Any(disableIncident => disableIncident.Incident == __instance.def)) return __result = false;
 
             return true;
+        }
+
+        public static void AncientsShouldNotArrive(ref bool __result, Faction f, Map map, bool desperate = false)
+        {
+            if (f != null && f.def == VFEA_DefOf.VFEA_AncientSoldiers)
+            {
+                __result = false;
+            }
         }
     }
 }

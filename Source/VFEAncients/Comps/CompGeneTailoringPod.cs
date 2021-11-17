@@ -13,7 +13,6 @@ namespace VFEAncients
     public class CompGeneTailoringPod : ThingComp, IThingHolder, ISuspendableThingHolder, IThingHolderWithDrawnPawn
     {
         public static Material BackgroundMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.082f, 0.078f, 0.063f));
-
         public static Texture2D StartOperationTex = ContentFinder<Texture2D>.Get("UI/Gizmos/GeneTailoringInitiate");
         private readonly List<Operation> possibleOperations;
         private Operation currentOperation;
@@ -70,7 +69,9 @@ namespace VFEAncients
         {
             currentOperation = op;
             parent.GetComp<CompRefuelable>().ConsumeFuel(1f);
-            ticksTillDone = currentOperation.StartOnPawnGetDuration();
+            var allPods = this.parent.Map.listerThings.ThingsOfDef(this.parent.def);
+
+            ticksTillDone = currentOperation.StartOnPawnGetDuration() + allPods.IndexOf(this.parent);
         }
 
         public override void CompTick()

@@ -56,13 +56,12 @@ namespace VFEAncients
         }
         public override void Open()
         {
-            if (Faction.IsPlayer && ContainedThing is Pawn pawn)
+            if ((Faction?.IsPlayer ?? false) && ContainedThing is Pawn pawn)
             {
                 var pawn2 = Map.mapPawns.FreeColonists.OrderBy(p => p.Position.DistanceTo(Position)).FirstOrDefault();
                 if (pawn2 is null) pawn.SetFaction(Faction);
                 else InteractionWorker_RecruitAttempt.DoRecruit(pawn2, pawn, out _, out _);
             }
-
             base.Open();
             hasOpened = true;
         }

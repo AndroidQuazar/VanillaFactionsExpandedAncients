@@ -6,6 +6,14 @@ namespace VFEAncients
 {
     public class Building_Cooler : Building_TempControl
     {
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            if (compTempControl is null)
+            {
+                Log.Error(this + " is missing CompTempControl. Perhaps another mod removed it. The building won't work.");
+            }
+        }
         public override void TickRare()
         {
             if (compPowerTrader.PowerOn)

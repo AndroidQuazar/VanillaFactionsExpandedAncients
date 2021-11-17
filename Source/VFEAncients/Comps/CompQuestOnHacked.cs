@@ -45,7 +45,7 @@ namespace VFEAncients
         public override void CompTick()
         {
             base.CompTick();
-            if (!parent.Faction.IsPlayer && Faction.OfPlayer.def == VFEA_DefOf.VFEA_NewVault && parent.Spawned)
+            if (parent.Faction != null && !parent.Faction.IsPlayer && Faction.OfPlayer.def == VFEA_DefOf.VFEA_NewVault && parent.Spawned)
             {
                 var faction = parent.Faction;
                 foreach (var pawn in parent.Map.mapPawns.FreeHumanlikesSpawnedOfFaction(parent.Faction))
