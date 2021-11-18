@@ -57,7 +57,7 @@ namespace VFEAncients
             innerContainer.TryAddOrTransfer(pawn, false);
             massLeft = pawn.GetStatValue(StatDefOf.Mass);
             ticksTillConsume = 2500;
-            while (pawn.Downed) HealthUtility.FixWorstHealthCondition(pawn);
+            while (HealthUtility.FixWorstHealthCondition(pawn) != null);
         }
 
         public virtual bool CanAcceptPawn(Pawn pawn) => Occupant is null;
