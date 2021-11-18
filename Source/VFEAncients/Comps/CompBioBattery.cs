@@ -58,6 +58,24 @@ namespace VFEAncients
             massLeft = pawn.GetStatValue(StatDefOf.Mass);
             ticksTillConsume = 2500;
             while (HealthUtility.FixWorstHealthCondition(pawn) != null);
+            if (pawn.Downed)
+            {
+                var hediffs = pawn.health?.hediffSet?.hediffs;
+                if (hediffs != null)
+                {
+                    for (var i = hediffs.Count - 1; i >= 0; i--)
+                    {
+                        var capMod = hediffs[i].CapMods?.FirstOrDefault(x => x.capacity == PawnCapacityDefOf.Consciousness);
+                        if (capMod != null)
+                        {
+                            if (capMod.setMax < 1 || capMod.offset < 0)
+                            {
+                                pawn.health.RemoveHediff(hediffs[i]);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public virtual bool CanAcceptPawn(Pawn pawn) => Occupant is null;
