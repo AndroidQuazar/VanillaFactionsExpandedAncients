@@ -28,18 +28,12 @@ namespace VFEAncients
         public virtual float FailChanceOnPawn(Pawn pawn)
         {
             var powerTracker = pawn.GetPowerTracker();
-            if (powerTracker is null)
-            {
-                return 1f;
-            }
-            return powerTracker.HasPower(VFEA_DefOf.PromisingCandidate)
-                ? 0f
-                : Pod.parent.GetStatValue(VFEA_DefOf.VFEA_FailChance) + powerTracker.AllPowers.Count(power => power.powerType == PowerType.Superpower) * 0.1f;
+            if (powerTracker is null) return 1f;
+            return Pod.parent.GetStatValue(VFEA_DefOf.VFEA_FailChance) + powerTracker.AllPowers.Count(power => power.powerType == PowerType.Superpower) * 0.1f;
         }
 
         public virtual string FailChanceExplainOnPawn(Pawn pawn)
         {
-            if (pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)) return VFEA_DefOf.PromisingCandidate.LabelCap;
             return pawn.GetPowerTracker()?.AllPowers.Select(power => $"{power.LabelCap}: +10%").ToLineList();
         }
 
@@ -88,13 +82,11 @@ namespace VFEAncients
             };
             GenDebug.LogList(Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading);
             if (Pod.parent.GetComp<CompAffectedByFacilities>().LinkedFacilitiesListForReading.Any(t => t.def == VFEA_DefOf.VFEA_NaniteSampler))
-            {
                 Find.WindowStack.Add(new Dialog_ChoosePowers(new List<Tuple<PowerDef, PowerDef>>
                 {
                     new(superpowers.RandomElement(), weaknessess.RandomElement()),
                     new(superpowers.RandomElement(), weaknessess.RandomElement())
                 }, Pod.Occupant, onPowers));
-            }
             else
                 onPowers(new Tuple<PowerDef, PowerDef>(superpowers.RandomElement(), weaknessess.RandomElement()));
         }
@@ -108,11 +100,7 @@ namespace VFEAncients
 
         public override string Label => "VFEAncients.RemoveWeakness".Translate();
 
-        public override float FailChanceOnPawn(Pawn pawn)
-        {
-            if (pawn.GetPowerTracker().HasPower(VFEA_DefOf.PromisingCandidate)) return 0f;
-            return base.FailChanceOnPawn(pawn) + 0.3f;
-        }
+        public override float FailChanceOnPawn(Pawn pawn) => base.FailChanceOnPawn(pawn) + 0.3f;
 
         public override bool CanRunOnPawn(Pawn pawn)
         {

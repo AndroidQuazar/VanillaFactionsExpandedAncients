@@ -38,14 +38,14 @@ namespace VFEAncients.HarmonyPatches
             var threat = pawn?.mindState?.meleeThreat;
             if (__result != null && threat != null && pawn.IsPrisoner && pawn.HostFaction == threat.Faction && pawn.guest.interactionMode == VFEA_DefOf.VFEA_Interrogate &&
                 threat.CurJobDef == VFEA_DefOf.VFEA_PrisonerInterrogate && RestraintsUtility.InRestraints(pawn) &&
-                pawn.GetRoom() is Room room && room.IsPrisonCell) __result = JobMaker.MakeJob(JobDefOf.FleeAndCower, room.Cells?.RandomElement() ?? pawn.Position, threat);
+                pawn.GetRoom() is {IsPrisonCell: true} room) __result = JobMaker.MakeJob(JobDefOf.FleeAndCower, room.Cells?.RandomElement() ?? pawn.Position, threat);
         }
 
         public static void ShouldTakeCareOfPrisoner_Postfix(Pawn warden, Thing prisoner, ref bool __result)
         {
             if (__result && prisoner is Pawn pawn && pawn.guest?.interactionMode != null && warden.Ideo != null)
             {
-                if (PrisonerHistory[pawn.guest.interactionMode] is HistoryEventDef eventDef)
+                if (PrisonerHistory[pawn.guest.interactionMode] is { } eventDef)
                 {
                     var ev = new HistoryEvent(eventDef, warden.Named(HistoryEventArgsNames.Doer), pawn.Named(HistoryEventArgsNames.Victim),
                         pawn.Faction.Named(HistoryEventArgsNames.AffectedFaction));
@@ -53,8 +53,8 @@ namespace VFEAncients.HarmonyPatches
                     if (!ev.VictimWillingToDo()) __result = false;
                 }
 
-                if (pawn.guest.interactionMode.GetModExtension<RequirePrecept>() is RequirePrecept rp && rp.precept != null)
-                    if (!warden.Ideo.HasPrecept(rp.precept))
+                if (pawn.guest.interactionMode.GetModExtension<RequirePrecept>() is {precept: var precept})
+                    if (!warden.Ideo.HasPrecept(precept))
                         __result = false;
             }
         }
@@ -70,10 +70,8 @@ namespace VFEAncients.HarmonyPatches
             return true;
         }
 
-        public static bool InteractionValidOn(PrisonerInteractionModeDef def, Pawn pawn)
-        {
-            return new HistoryEvent(PrisonerHistory[def], pawn.Named(HistoryEventArgsNames.Victim)).VictimWillingToDo();
-        }
+        public static bool InteractionValidOn(PrisonerInteractionModeDef def, Pawn pawn) =>
+            new HistoryEvent(PrisonerHistory[def], pawn.Named(HistoryEventArgsNames.Victim)).VictimWillingToDo();
 
         public static IEnumerable<CodeInstruction> FixInteractionList(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {

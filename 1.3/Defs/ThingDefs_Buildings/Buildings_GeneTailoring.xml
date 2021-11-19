@@ -484,7 +484,7 @@
       <li Class="VFEAncients.CompProperties_Facility_PowerUnlock">
         <unlockedLevels>1</unlockedLevels>
         <maxSimultaneous>1</maxSimultaneous>
-		<maxDistance>16</maxDistance>
+		    <maxDistance>16</maxDistance>
       </li>
     </comps>
   </ThingDef>

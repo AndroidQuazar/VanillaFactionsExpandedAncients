@@ -83,12 +83,12 @@ namespace VFEAncients
             foreach (var info in infos) SlingshotQueue.Enqueue(info);
         }
 
-        public struct SlingshotInfo : IExposable
+        public class SlingshotInfo : IExposable
         {
+            public IntVec3 Cell;
+            public Map Map;
             public int ReturnTick;
             public float Wealth;
-            public Map Map;
-            public IntVec3 Cell;
 
             public void ExposeData()
             {

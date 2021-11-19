@@ -18,7 +18,12 @@ namespace VFEAncients
 
         public static void ChangeType(Pawn __instance, ref DamageInfo dinfo)
         {
-            if (HasPower<PowerWorker_Blunt>(__instance)) dinfo.Def = DamageDefOf.Blunt;
+            if (HasPower<PowerWorker_Blunt>(__instance))
+            {
+                dinfo.Def = DamageDefOf.Blunt;
+                dinfo.SetBodyRegion(depth: BodyPartDepth.Outside);
+                dinfo.SetAllowDamagePropagation(false);
+            }
         }
     }
 }

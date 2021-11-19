@@ -46,7 +46,9 @@ namespace VFEAncients
             get
             {
                 var builder = new StringBuilder();
+                if (Occupant.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false) return $"\n{VFEA_DefOf.PromisingCandidate.LabelCap}: 0%";
                 parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_FailChance, builder);
+                builder.Append(currentOperation.FailChanceExplainOnPawn(Occupant));
                 return builder.ToString();
             }
         }
@@ -69,9 +71,9 @@ namespace VFEAncients
         {
             currentOperation = op;
             parent.GetComp<CompRefuelable>().ConsumeFuel(1f);
-            var allPods = this.parent.Map.listerThings.ThingsOfDef(this.parent.def);
+            var allPods = parent.Map.listerThings.ThingsOfDef(parent.def);
 
-            ticksTillDone = currentOperation.StartOnPawnGetDuration() + allPods.IndexOf(this.parent);
+            ticksTillDone = currentOperation.StartOnPawnGetDuration() + allPods.IndexOf(parent);
         }
 
         public override void CompTick()
@@ -93,7 +95,8 @@ namespace VFEAncients
 
         public virtual void CompleteOperation()
         {
-            if (Rand.Chance(currentOperation.FailChanceOnPawn(Occupant))) currentOperation.Failure();
+            if (!(Occupant?.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false) && Rand.Chance(currentOperation.FailChanceOnPawn(Occupant)))
+                currentOperation.Failure();
             else currentOperation.Success();
             currentOperation = null;
             ticksTillDone = -1;
@@ -116,7 +119,8 @@ namespace VFEAncients
                     action = () => Find.WindowStack.Add(new FloatMenu(possibleOperations.Where(op => op.CanRunOnPawn(Occupant))
                         .Select(op => new FloatMenuOption(op.Label,
                             () => Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("VFEAncients.ExperimentFailureWarning".Translate(
-                                    op.FailChanceOnPawn(Occupant).ToStringPercent().Colorize(ColoredText.ThreatColor),
+                                    (Occupant?.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false ? 0f : op.FailChanceOnPawn(Occupant)).ToStringPercent()
+                                    .Colorize(ColoredText.ThreatColor),
                                     parent.def.GetCompProperties<CompProperties_AffectedByFacilities>().linkableFacilities.Where(def =>
                                             def.GetCompProperties<CompProperties_Facility>()?.statOffsets?.Any(statMod => statMod.stat == VFEA_DefOf.VFEA_FailChance) ?? false)
                                         .Select(def => def.label).ToLineList("  - "), op.TicksRequired.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor),
