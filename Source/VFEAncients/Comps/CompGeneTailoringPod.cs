@@ -45,10 +45,10 @@ namespace VFEAncients
         {
             get
             {
-                var builder = new StringBuilder();
                 if (Occupant.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false) return $"\n{VFEA_DefOf.PromisingCandidate.LabelCap}: 0%";
+                var builder = new StringBuilder();
                 parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_FailChance, builder);
-                builder.Append(currentOperation.FailChanceExplainOnPawn(Occupant));
+                if (currentOperation is not null) builder.Append(currentOperation.FailChanceExplainOnPawn(Occupant));
                 return builder.ToString();
             }
         }
