@@ -82,7 +82,7 @@
     <order>400</order>
     <genStep Class="KCSG.GenStep_EnnemiesPresence">
       <forcedfaction>VFEA_AncientSoldiers</forcedfaction>
-      <defaultPointsRange>300~900</defaultPointsRange> <!-- Settlement alike -->
+      <defaultPointsRange>90~90</defaultPointsRange> <!-- Settlement alike -->
     </genStep>
   </GenStepDef>
 </Defs>
