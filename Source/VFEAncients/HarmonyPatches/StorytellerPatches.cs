@@ -17,7 +17,7 @@ namespace VFEAncients.HarmonyPatches
             harm.Patch(AccessTools.Method(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow)),
                 new HarmonyMethod(typeof(StorytellerPatches), nameof(AdditionalIncidentReqs)));
             harm.Patch(AccessTools.Method(typeof(IncidentWorker_PawnsArrive), nameof(IncidentWorker_PawnsArrive.FactionCanBeGroupSource)),
-                new HarmonyMethod(typeof(StorytellerPatches), nameof(AncientsShouldNotArrive)));
+                null, new HarmonyMethod(typeof(StorytellerPatches), nameof(AncientsShouldNotArrive)));
         }
 
         public static IEnumerable<CodeInstruction> IncreaseRecruitDifficulty(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
