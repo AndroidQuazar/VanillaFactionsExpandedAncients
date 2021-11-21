@@ -25,7 +25,6 @@ namespace VFEAncients
         {
             base.PostSpawnSetup(respawningAfterLoad);
             ticksTillGone = Props.expiryTicks;
-            Log.Message("Spawning crate");
         }
 
         public override void CompTick()
