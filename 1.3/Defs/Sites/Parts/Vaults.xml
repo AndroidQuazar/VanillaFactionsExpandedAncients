@@ -59,6 +59,8 @@
         <li>VFEA_SealedVaultAlpha</li>
         <li>VFEA_SealedVaultBravo</li>
         <li>VFEA_SealedVaultCharlie</li>
+        <li>VFEA_SealedVaultDelta</li>
+        <li>VFEA_SealedVaultEpsilon</li>
       </structureLayoutDefs>
     </genStep>
   </GenStepDef>
