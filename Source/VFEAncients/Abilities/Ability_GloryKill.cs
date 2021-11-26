@@ -15,7 +15,10 @@ namespace VFEAncients
             base.Cast(target);
             if (PossibleTargets.TryRandomElement(out var pawn))
             {
-                VFEA_DefOf.VFEA_GloryKill_Music.PlayOneShot(pawn);
+                if (VFEAncientsMod.settings.enableGloryKillMusic)
+                {
+                    VFEA_DefOf.VFEA_GloryKill_Music.PlayOneShot(pawn);
+                }
                 var limbs = AllLimbs(pawn).ToList();
                 foreach (var part in limbs.InRandomOrder().Take(new IntRange(1, limbs.Count - 1).RandomInRange)) pawn.health.AddHediff(HediffDefOf.MissingBodyPart, part);
 
