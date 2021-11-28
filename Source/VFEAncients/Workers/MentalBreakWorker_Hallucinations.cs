@@ -7,7 +7,7 @@ namespace VFEAncients
     {
         public override bool TryStart(Pawn pawn, string reason, bool causedByMood)
         {
-            return pawn.mindState.mentalStateHandler.TryStartMentalState(def.mentalState, reason, true, causedByMood, null, true);
+            return pawn?.mindState?.mentalStateHandler?.TryStartMentalState(def.mentalState, reason, true, causedByMood, null, true) ?? false;
         }
     }
 }

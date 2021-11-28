@@ -8,6 +8,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using static RimWorld.FleshTypeDef;
 
 namespace VFEAncients.HarmonyPatches
 {
@@ -27,7 +28,9 @@ namespace VFEAncients.HarmonyPatches
                     new[] {typeof(Thing), typeof(bool), typeof(bool), typeof(bool), typeof(TerrainDef), typeof(List<string>)}),
                 postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(AddDeterioration)));
             harm.Patch(AccessTools.Method(typeof(JobDriver_Hack), "MakeNewToils"), postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(FixHacking)));
-            harm.Patch(AccessTools.Method(typeof(PowerNet), nameof(PowerNet.PowerNetTick)), new HarmonyMethod(typeof(BuildingPatches), nameof(PowerNetOnSolarFlare)));
+            harm.Patch(AccessTools.Method(typeof(PowerNet), nameof(PowerNet.PowerNetTick)), 
+                transpiler: new HarmonyMethod(typeof(BuildingPatches), nameof(PowerNetOnSolarFlareTranspiler)), 
+                postfix: new HarmonyMethod(typeof(BuildingPatches), nameof(PowerNetOnSolarFlarePostfix)));
         }
 
         private static void Debug(Thing t, ref bool __result)
@@ -35,9 +38,36 @@ namespace VFEAncients.HarmonyPatches
             // Log.Message($"ValidateIngredient: {t} -> {__result}");
         }
 
-        public static void PowerNetOnSolarFlare(PowerNet __instance)
+        public static IEnumerable<CodeInstruction> PowerNetOnSolarFlareTranspiler(IEnumerable<CodeInstruction> codeInstructions)
         {
-            if (__instance.Map.GameConditionManager.ElectricityDisabled) __instance.PowerNetTickSolarFlare();
+            var get_PowerOn = AccessTools.Method(typeof(CompPowerTrader), "get_PowerOn");
+            var powerCompsField = AccessTools.Field(typeof(PowerNet), "powerComps");
+            bool found = false;
+            var codes = codeInstructions.ToList();
+            for (var i = 0; i < codes.Count; i++)
+            {
+                var code = codes[i];
+                yield return code;
+                if (!found && i > 4 && code.opcode == OpCodes.Brfalse_S && codes[i - 1].Calls(get_PowerOn) && codes[i - 4].LoadsField(powerCompsField))
+                {
+                    found = true;
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);
+                    yield return new CodeInstruction(OpCodes.Ldfld, powerCompsField);
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 8);
+                    yield return new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<CompPowerTrader>), "get_Item"));
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildingPatches), nameof(IsSolarFlareProof)));
+                    yield return new CodeInstruction(OpCodes.Brtrue_S, code.operand);
+                }
+            }
+        }
+
+        public static bool IsSolarFlareProof(CompPowerTrader compPower)
+        {
+            return compPower.parent.TryGetComp<CompSolarPowerUp>() != null;
+        }
+        public static void PowerNetOnSolarFlarePostfix(PowerNet __instance)
+        {
+            __instance.PowerNetTickSolarFlare();
         }
 
         public static IEnumerable<Toil> FixHacking(IEnumerable<Toil> toils, JobDriver_Hack __instance)

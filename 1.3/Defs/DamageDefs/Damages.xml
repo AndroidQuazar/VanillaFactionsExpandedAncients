@@ -28,4 +28,5 @@
 		<soundExplosion>VFEA_AcidSpit_Shot</soundExplosion>
 		<combatLogRules>Damage_Bomb</combatLogRules>
 	</DamageDef>
+	
 </Defs>

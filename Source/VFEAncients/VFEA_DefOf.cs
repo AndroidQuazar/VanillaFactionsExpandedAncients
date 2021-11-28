@@ -42,7 +42,7 @@ namespace VFEAncients
         public static FactionDef VFEA_AncientSoldiers;
         public static ThingDef VFEA_SuperJumpingPawn;
         public static SoundDef VFEA_GloryKill_Music;
-
+        public static PowerDef PsychologicalParalysis;
         static VFEA_DefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(VFEA_DefOf));

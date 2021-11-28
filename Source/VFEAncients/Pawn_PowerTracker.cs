@@ -56,11 +56,12 @@ namespace VFEAncients
 
         public static Pawn_PowerTracker Get(Pawn pawn)
         {
-            if (TRACKERS.TryGetValue(pawn, out var tracker)) return tracker;
+            if (pawn is null) return null;
+            if (TRACKERS.TryGetValue(pawn, out var tracker) && tracker != null) return tracker;
             if (CanGetPowers(pawn))
             {
                 tracker = new Pawn_PowerTracker(pawn);
-                TRACKERS.Add(pawn, tracker);
+                TRACKERS.SetOrAdd(pawn, tracker);
                 return tracker;
             }
 

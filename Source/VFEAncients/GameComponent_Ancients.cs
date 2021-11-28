@@ -63,10 +63,9 @@ namespace VFEAncients
                 if (info.Map == null || info.Map.Index < 0)
                 {
                     info.Map = Find.AnyPlayerHomeMap;
-                    info.Cell = DropCellFinder.TryFindSafeLandingSpotCloseToColony(info.Map, info.Map.Size.ToIntVec2, Faction.OfAncients);
                 }
 
-                info.Cell = DropCellFinder.TryFindDropSpotNear(info.Cell, info.Map, out var cell, false, false, false) ? cell : DropCellFinder.TradeDropSpot(info.Map);
+                info.Cell = DropCellFinder.TryFindDropSpotNear(info.Cell, info.Map, out var cell, false, false, false, VFEA_DefOf.VFEA_SupplyCrateIncoming.size) ? cell : DropCellFinder.TradeDropSpot(info.Map);
                 var things = ThingSetMakerDefOf.Reward_ItemsStandard.root.Generate(new ThingSetMakerParams
                     {podContentsType = PodContentsType.AncientFriendly, totalMarketValueRange = new FloatRange(info.Wealth, info.Wealth)});
                 var skyfaller = SkyfallerMaker.SpawnSkyfaller(VFEA_DefOf.VFEA_SupplyCrateIncoming, things, info.Cell, info.Map);

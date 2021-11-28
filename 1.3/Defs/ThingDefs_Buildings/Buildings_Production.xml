@@ -214,12 +214,6 @@
         <basePowerConsumption>700</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Schedule">
-        <!-- Match plant growing times -->
-        <startTime>0.2</startTime>
-        <endTime>0.8</endTime>
-        <offMessage>Off for plant resting period</offMessage>
-      </li>
       <li Class="CompProperties_Glower">
         <overlightRadius>3.0</overlightRadius>
         <glowRadius>7</glowRadius>

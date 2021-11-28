@@ -13,65 +13,48 @@ namespace VFEAncients.HarmonyPatches
 
         public static float EnergyGainRateSolarFlare(this PowerNet net) =>
             DebugSettings.unlimitedPower ? 100000f : PowerTradersSolarFlare(net).Where(pc => pc.PowerOn).Sum(pc => pc.EnergyOutputPerTick);
-
         public static float CurrentStoredEnergySolarFlare(this PowerNet net) => net.BatteriesSolarFlare().Sum(batt => batt.StoredEnergy);
-
         public static IEnumerable<CompPowerBattery> BatteriesSolarFlare(this PowerNet net) => net.batteryComps.Where(CompSolarPowerUp.PowerUpActive);
-
         public static void PowerNetTickSolarFlare(this PowerNet net)
         {
-            var num = net.EnergyGainRateSolarFlare();
-            var num2 = net.CurrentStoredEnergySolarFlare();
-            if (num2 + num >= -1E-07f)
+            if (net.Map.gameConditionManager.ElectricityDisabled)
             {
-                float num3;
-                if (net.BatteriesSolarFlare().Any() && num2 >= 0.1f)
-                    num3 = num2 - 5f;
-                else
-                    num3 = num2;
-                if (num3 + num >= 0f)
+                var num = net.EnergyGainRateSolarFlare();
+                var num2 = net.CurrentStoredEnergySolarFlare();
+                if (num2 + num >= -1E-07f)
                 {
-                    PowerNet.partsWantingPowerOn.Clear();
-                    foreach (var t in net.PowerTradersSolarFlare())
-                        if (!t.PowerOn && FlickUtility.WantsToBeOn(t.parent) && !t.parent.IsBrokenDown())
-                            PowerNet.partsWantingPowerOn.Add(t);
-
-                    if (PowerNet.partsWantingPowerOn.Count > 0)
+                    float num3;
+                    if (net.BatteriesSolarFlare().Any() && num2 >= 0.1f)
+                        num3 = num2 - 5f;
+                    else
+                        num3 = num2;
+                    if (num3 + num >= 0f)
                     {
-                        var num4 = 200 / PowerNet.partsWantingPowerOn.Count;
-                        if (num4 < 30) num4 = 30;
-                        if (Find.TickManager.TicksGame % num4 == 0)
+                        PowerNet.partsWantingPowerOn.Clear();
+                        foreach (var t in net.PowerTradersSolarFlare())
+                            if (!t.PowerOn && FlickUtility.WantsToBeOn(t.parent) && !t.parent.IsBrokenDown())
+                                PowerNet.partsWantingPowerOn.Add(t);
+
+                        if (PowerNet.partsWantingPowerOn.Count > 0)
                         {
-                            var num5 = Mathf.Max(1, Mathf.RoundToInt(PowerNet.partsWantingPowerOn.Count * 0.05f));
-                            for (var j = 0; j < num5; j++)
+                            var num4 = 200 / PowerNet.partsWantingPowerOn.Count;
+                            if (num4 < 30) num4 = 30;
+                            if (Find.TickManager.TicksGame % num4 == 0)
                             {
-                                var compPowerTrader = PowerNet.partsWantingPowerOn.RandomElement();
-                                if (!compPowerTrader.PowerOn && num + num2 >= -(compPowerTrader.EnergyOutputPerTick + 1E-07f))
+                                var num5 = Mathf.Max(1, Mathf.RoundToInt(PowerNet.partsWantingPowerOn.Count * 0.05f));
+                                for (var j = 0; j < num5; j++)
                                 {
-                                    compPowerTrader.PowerOn = true;
-                                    num += compPowerTrader.EnergyOutputPerTick;
+                                    var compPowerTrader = PowerNet.partsWantingPowerOn.RandomElement();
+                                    if (!compPowerTrader.PowerOn && num + num2 >= -(compPowerTrader.EnergyOutputPerTick + 1E-07f))
+                                    {
+                                        compPowerTrader.PowerOn = true;
+                                        num += compPowerTrader.EnergyOutputPerTick;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-
-                net.ChangeStoredEnergySolarFlare(num);
-            }
-
-            if (Find.TickManager.TicksGame % 20 == 0)
-            {
-                PowerNet.potentialShutdownParts.Clear();
-                foreach (var trader in net.powerComps.Where(pc => !CompSolarPowerUp.PowerUpActive(pc) && pc.PowerOn && pc.EnergyOutputPerTick < 0f))
-                    PowerNet.potentialShutdownParts.Add(trader);
-                if (num2 + num < -1E-07f)
-                    foreach (var t in net.PowerTradersSolarFlare().Where(t => t.PowerOn && t.EnergyOutputPerTick < 0f))
-                        PowerNet.potentialShutdownParts.Add(t);
-
-                if (PowerNet.potentialShutdownParts.Count > 0)
-                {
-                    var num6 = Mathf.Max(1, Mathf.RoundToInt(PowerNet.potentialShutdownParts.Count * 0.05f));
-                    for (var l = 0; l < num6; l++) PowerNet.potentialShutdownParts.RandomElement().PowerOn = false;
+                    net.ChangeStoredEnergySolarFlare(num);
                 }
             }
         }

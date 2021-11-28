@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using UnityEngine;
+using UnityEngine.Analytics;
 using Verse;
 
 namespace VFEAncients
@@ -14,7 +15,10 @@ namespace VFEAncients
             base.PostSpawnSetup(respawningAfterLoad);
 
             geyser = (Building_SteamGeyser) parent.Map.thingGrid.ThingAt(parent.Position, ThingDefOf.SteamGeyser);
-
+            if (geyser == null)
+            {
+                geyser = GenSpawn.Spawn(ThingDefOf.SteamGeyser, parent.Position, parent.Map) as Building_SteamGeyser;
+            }
             geyser.harvester = (Building) parent;
 
             compTempControl = parent.GetComp<CompTempControl>();

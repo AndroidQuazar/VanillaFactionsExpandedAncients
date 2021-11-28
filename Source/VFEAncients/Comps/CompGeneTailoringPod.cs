@@ -104,8 +104,8 @@ namespace VFEAncients
 
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
+            currentOperation?.Failure();
             if (mode is DestroyMode.Deconstruct or DestroyMode.KillFinalize) EjectContents(previousMap);
-
             innerContainer.ClearAndDestroyContents();
             base.PostDestroy(mode, previousMap);
         }
@@ -177,10 +177,35 @@ namespace VFEAncients
                 yield return new FloatMenuOption("CannotUseReason".Translate("CryptosleepCasketGuestsNotAllowed".Translate()), null);
             else if (!selPawn.CanReach(parent, PathEndMode.InteractionCell, Danger.Deadly))
                 yield return new FloatMenuOption("CannotUseNoPath".Translate(), null);
-            else if (CanAccept(selPawn))
-                yield return FloatMenuUtility.DecoratePrioritizedTask(
-                    new FloatMenuOption("VFEAncients.EnterGeneTailoringPod".Translate(),
-                        () => { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFEA_DefOf.VFEA_EnterGeneTailoringPod, parent), JobTag.Misc); }), selPawn, parent);
+            else
+            {
+                if (!PowerOn)
+                {
+                    yield return new FloatMenuOption("CannotUseNoPower".Translate(), null);
+                }
+                else if (!HasFuel)
+                {
+                    yield return new FloatMenuOption("CannotUseReason".Translate("VFEAncient.GeneTailorNoFuel".Translate()), null);
+                }
+                else if (!Pawn_PowerTracker.CanGetPowers(selPawn))
+                {
+                    yield return new FloatMenuOption("CannotUseReason".Translate("VFEAncient.MustBeHumanlike".Translate()), null);
+                }
+                else if (Occupant != null)
+                {
+                    yield return new FloatMenuOption("CannotUseReason".Translate("VFEAncient.GeneTailorOccupied".Translate()), null);
+                }
+                else if (!possibleOperations.Any(op => op.CanRunOnPawn(selPawn)))
+                {
+                    yield return new FloatMenuOption("CannotUseReason".Translate("VFEAncient.AvailableOperationsCannotBeApplied".Translate()), null);
+                }
+                else
+                {
+                    yield return FloatMenuUtility.DecoratePrioritizedTask(
+                        new FloatMenuOption("VFEAncients.EnterGeneTailoringPod".Translate(),
+                            () => { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFEA_DefOf.VFEA_EnterGeneTailoringPod, parent), JobTag.Misc); }), selPawn, parent);
+                }
+            }
         }
 
         public static void AddCarryToPodJobs(List<FloatMenuOption> opts, Pawn pawn, Pawn target)
@@ -233,12 +258,6 @@ namespace VFEAncients
                 if (parent.Rotation == Rot4.East) drawLoc.x += 0.3f;
                 Occupant.Drawer.renderer.RenderPawnAt(drawLoc, parent.Rotation, true);
             }
-        }
-
-        public override void PostDeSpawn(Map map)
-        {
-            currentOperation?.Failure();
-            EjectContents(map);
         }
 
         public bool CanAccept(Pawn pawn)

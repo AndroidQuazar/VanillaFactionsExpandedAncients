@@ -150,7 +150,7 @@ namespace VFEAncients
 
         public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
         {
-            if (!__result && NullifyingPower(def, pawn) != null) __result = true;
+            if (!__result && pawn != null && NullifyingPower(def, pawn) != null) __result = true;
         }
 
         public static void ThoughtNullifiedMessage_Postfix(Pawn pawn, ThoughtDef def, ref string __result)
