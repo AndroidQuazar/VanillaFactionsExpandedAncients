@@ -21,7 +21,7 @@ namespace VFEAncients
         {
         }
 
-        public virtual bool CanRunOnPawn(Pawn pawn) => pawn.GetPowerTracker() != null;
+        public virtual bool CanRunOnPawn(Pawn pawn) => pawn.GetPowerTracker() != null && Pod != null;
 
         public virtual int StartOnPawnGetDuration() => TicksRequired;
 
@@ -43,10 +43,7 @@ namespace VFEAncients
             var fail = (Fail) Activator.CreateInstance(failType);
             var pawn = Pod.Occupant;
             Pod.EjectContents();
-            if (pawn != null)
-            {
-                fail.RunOnPawn(pawn);
-            }
+            if (pawn != null) fail.RunOnPawn(pawn);
         }
 
         public abstract void Success();
