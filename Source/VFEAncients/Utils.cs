@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -57,6 +59,18 @@ namespace VFEAncients
         public static T TryGetComp<T>(this Storyteller storyteller) where T : StorytellerComp
         {
             return storyteller.storytellerComps.FirstOrFallback(comp => comp is T) as T;
+        }
+
+        public static string TrimLines(this string input, int start = 0, int end = 0)
+        {
+            var arr = input.Split('\n');
+            var c = arr.Length;
+            return arr.Skip(start).Take(c - end - start).Join(delimiter: "\n");
+        }
+
+        public static string TrimEmptyLines(this string input)
+        {
+            return input.Split('\n').Where(str => !str.NullOrEmpty()).Join(delimiter: "\n");
         }
     }
 }

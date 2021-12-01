@@ -31,27 +31,9 @@ namespace VFEAncients
 
         public Pawn Occupant => innerContainer.OfType<Pawn>().FirstOrDefault();
 
-        public string TimeExplain
-        {
-            get
-            {
-                var builder = new StringBuilder();
-                parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_InjectingTimeFactor, builder);
-                return builder.ToString();
-            }
-        }
-
-        public string FailChanceExplain
-        {
-            get
-            {
-                if (Occupant.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false) return $"\n{VFEA_DefOf.PromisingCandidate.LabelCap}: 0%";
-                var builder = new StringBuilder();
-                parent.GetComp<CompAffectedByFacilities>().GetStatsExplanation(VFEA_DefOf.VFEA_FailChance, builder);
-                if (currentOperation is not null) builder.Append(currentOperation.FailChanceExplainOnPawn(Occupant));
-                return builder.ToString();
-            }
-        }
+        public string TimeExplain =>
+            VFEA_DefOf.VFEA_InjectingTimeFactor.Worker.GetExplanationFull(new StatRequest {thingInt = parent, defInt = parent.def}, ToStringNumberSense.Absolute,
+                parent.GetStatValue(VFEA_DefOf.VFEA_InjectingTimeFactor)).TrimEmptyLines().TrimEndNewlines().TrimLines(1, 1);
 
         public bool IsContentsSuspended => true;
 
@@ -66,6 +48,22 @@ namespace VFEAncients
         public float HeldPawnBodyAngle => parent.Rotation.Opposite.AsAngle;
 
         public PawnPosture HeldPawnPosture => PawnPosture.LayingOnGroundFaceUp;
+
+        public string FailChanceExplain(Operation op)
+        {
+            if (Occupant.GetPowerTracker()?.HasPower(VFEA_DefOf.PromisingCandidate) ?? false) return $"\n{VFEA_DefOf.PromisingCandidate.LabelCap}: 0%";
+            var builder = new StringBuilder();
+            builder.AppendLine();
+            builder.AppendLine(VFEA_DefOf.VFEA_FailChance.Worker.GetExplanationFull(new StatRequest {thingInt = parent, defInt = parent.def}, ToStringNumberSense.Absolute,
+                parent.GetStatValue(VFEA_DefOf.VFEA_FailChance)).TrimEndNewlines().TrimLines(0, op is not null ? 1 : 0));
+            if (op is not null)
+            {
+                builder.AppendLine(op.FailChanceExplainOnPawn(Occupant));
+                builder.Append("StatsReport_FinalValue".Translate() + ": " + op.FailChanceOnPawn(Occupant).ToStringByStyle(ToStringStyle.PercentZero));
+            }
+
+            return builder.ToString().TrimEmptyLines().TrimEndNewlines();
+        }
 
         public virtual void StartOperation(Operation op)
         {
@@ -124,7 +122,7 @@ namespace VFEAncients
                                     parent.def.GetCompProperties<CompProperties_AffectedByFacilities>().linkableFacilities.Where(def =>
                                             def.GetCompProperties<CompProperties_Facility>()?.statOffsets?.Any(statMod => statMod.stat == VFEA_DefOf.VFEA_FailChance) ?? false)
                                         .Select(def => def.label).ToLineList("  - "), op.TicksRequired.ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor),
-                                    TimeExplain, FailChanceExplain),
+                                    TimeExplain, FailChanceExplain(op)),
                                 () => StartOperation(op), true)))).ToList())),
                     defaultLabel = "VFEAncients.StartOperation".Translate(),
                     icon = StartOperationTex
