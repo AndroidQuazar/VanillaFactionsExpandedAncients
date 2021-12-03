@@ -36,6 +36,11 @@ Note: Since you start alone with random superpowers and weaknesses, this is a di
             <li>VFEA_SealedVaultCharlie</li>
             <li>VFEA_SealedVaultDelta</li>
             <li>VFEA_SealedVaultEpsilon</li>
+            <li>VFEA_SealedVaultF</li>
+            <li>VFEA_SealedVaultG</li>
+            <li>VFEA_SealedVaultH</li>
+            <li>VFEA_SealedVaultI</li>
+            <li>VFEA_SealedVaultJ</li>
           </chooseFrom>
           <spawnTheStartingPawn>True</spawnTheStartingPawn>
           <method>Standing</method>

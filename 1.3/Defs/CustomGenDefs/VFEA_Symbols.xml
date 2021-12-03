@@ -547,4 +547,64 @@
   <rotation>East</rotation>
 </KCSG.SymbolDef>
 
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCryptosleepSuspender_East</defName>
+  <thing>VFEA_AncientCryptosleepSuspender</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientVitalsMonitor_West</defName>
+  <thing>VFEA_AncientVitalsMonitor</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientBattery_West</defName>
+  <thing>VFEA_AncientBattery</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientSupplyCrate_North</defName>
+  <thing>VFEA_AncientSupplyCrate</thing>
+  <rotation>North</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientWorkshop_West</defName>
+  <thing>VFEA_AncientWorkshop</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientFuelTank_West</defName>
+  <thing>VFEA_AncientFuelTank</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientCooler_West</defName>
+  <thing>VFEA_AncientCooler</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_SuperNaniteDialyzer_North</defName>
+  <thing>VFEA_SuperNaniteDialyzer</thing>
+  <rotation>North</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_AncientMonitorBank_East</defName>
+  <thing>VFEA_AncientMonitorBank</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFEA_SuperNaniteDialyzer_East</defName>
+  <thing>VFEA_SuperNaniteDialyzer</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
 </Defs>

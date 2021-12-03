@@ -31,6 +31,13 @@
         <li>VFEA_LootedVaultAlpha</li>
         <li>VFEA_LootedVaultBravo</li>
         <li>VFEA_LootedVaultCharlie</li>
+        <li>VFEA_LootedVaultDelta</li>
+        <li>VFEA_LootedVaultEpsilon</li>
+        <li>VFEA_LootedVaultF</li>
+        <li>VFEA_LootedVaultG</li>
+        <li>VFEA_LootedVaultH</li>
+        <li>VFEA_LootedVaultI</li>
+        <li>VFEA_LootedVaultJ</li>
       </structureLayoutDefs>
       <shouldRuin>true</shouldRuin>
       <filthTypes>
@@ -61,6 +68,11 @@
         <li>VFEA_SealedVaultCharlie</li>
         <li>VFEA_SealedVaultDelta</li>
         <li>VFEA_SealedVaultEpsilon</li>
+        <li>VFEA_SealedVaultF</li>
+        <li>VFEA_SealedVaultG</li>
+        <li>VFEA_SealedVaultH</li>
+        <li>VFEA_SealedVaultI</li>
+        <li>VFEA_SealedVaultJ</li>
       </structureLayoutDefs>
     </genStep>
   </GenStepDef>
