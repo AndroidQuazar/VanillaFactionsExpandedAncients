@@ -33,7 +33,6 @@ namespace VFEAncients
         public override IEnumerable<string> ConfigErrors()
         {
             foreach (var error in base.ConfigErrors()) yield return error;
-            Log.Message("TEST");
             if (workerClass == null) yield return "Worker class cannot be null";
             if (!typeof(PowerWorker).IsAssignableFrom(workerClass)) yield return "Worker class must be subclass of PowerWorker";
         }
