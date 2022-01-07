@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -19,7 +20,7 @@ namespace VFEAncients
 
         public static void ForceSocialFight(Pawn ___pawn, ref float __result)
         {
-            if (__result > 0f && HasPower<PowerWorker_AlwaysSocialFight>(___pawn)) __result = 1.1f;
+            if (__result > 0f && ___pawn.HasPower<PowerWorker_AlwaysSocialFight>()) __result = 1.1f;
         }
     }
 }

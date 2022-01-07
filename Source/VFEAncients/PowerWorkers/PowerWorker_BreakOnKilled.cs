@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -35,9 +36,9 @@ namespace VFEAncients
 
         public static void OnKilled(Pawn killer, Pawn killed)
         {
-            if (HasPower<PowerWorker_BreakOnKilled>(killer))
+            if (killer.HasPower<PowerWorker_BreakOnKilled>())
             {
-                var data = GetData<WorkerData_Break>(killer);
+                var data = killer.GetData<WorkerData_Break>();
                 if (data != null && Rand.Chance(data.BreakChance)) data.Break.Worker.TryStart(killer, "VFEAncients.Reason.KilledSomeone".Translate(), false);
             }
         }

@@ -2,6 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -19,10 +20,10 @@ namespace VFEAncients
 
         public static void ChangeDamage(ref DamageInfo dinfo, Thing __instance)
         {
-            if (HasPower<PowerWorker_Damages>(__instance))
+            if (__instance.HasPower<PowerWorker_Damages>())
             {
                 var def = dinfo.Def;
-                var data = GetData<WorkerData_Damages>(__instance);
+                var data = __instance.GetData<WorkerData_Damages>();
                 if (data.Resist.Contains(def)) dinfo.SetAmount(0f);
                 if (data.Multipliers.FirstOrDefault(m => m.damageDef == def) is {multiplier: var mult}) dinfo.SetAmount(dinfo.Amount * mult);
             }

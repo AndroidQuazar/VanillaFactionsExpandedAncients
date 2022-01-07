@@ -2,6 +2,7 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -20,7 +21,7 @@ namespace VFEAncients
 
         public static void AddLevels(ref QualityCategory __result, Pawn pawn, SkillDef relevantSkill)
         {
-            if (relevantSkill == SkillDefOf.Crafting && HasPower<PowerWorker_Craft>(pawn) && GetData<WorkerData_Craft>(pawn) is WorkerData_Craft data)
+            if (relevantSkill == SkillDefOf.Crafting && pawn.HasPower<PowerWorker_Craft>() && pawn.GetData<WorkerData_Craft>() is WorkerData_Craft data)
                 __result = (QualityCategory) Mathf.Min((int) (__result + (byte) data.LevelBonus), 6);
         }
     }

@@ -3,6 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -21,13 +22,13 @@ namespace VFEAncients
 
         public static void StoreOpts(List<FloatMenuOption> opts, ref List<FloatMenuOption> __state, Pawn pawn)
         {
-            if (HasPower<PowerWorker_NoPrioritize>(pawn))
+            if (pawn.HasPower<PowerWorker_NoPrioritize>())
                 __state = opts.ListFullCopy();
         }
 
         public static void DisableOpts(List<FloatMenuOption> opts, List<FloatMenuOption> __state, Pawn pawn)
         {
-            if (HasPower<PowerWorker_NoPrioritize>(pawn))
+            if (pawn.HasPower<PowerWorker_NoPrioritize>())
                 foreach (var option in opts.Except(__state).Where(opt => !opt.Disabled))
                 {
                     option.action = null;

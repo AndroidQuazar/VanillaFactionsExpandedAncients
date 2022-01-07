@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
     public class PowerWorker_Resurrect : PowerWorker
     {
-        private static readonly Dictionary<Pawn, int> resses = new();
+        public const int TicksToResurrect = 180000;
 
         public PowerWorker_Resurrect(PowerDef def) : base(def)
         {
@@ -16,27 +16,25 @@ namespace VFEAncients
         public override void DoPatches(Harmony harm)
         {
             base.DoPatches(harm);
-            harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill)), postfix: new HarmonyMethod(GetType(), nameof(Notify_Died)));
+            harm.Patch(AccessTools.Method(typeof(Corpse), nameof(Corpse.TickRare)), postfix: new HarmonyMethod(GetType(), nameof(CorpseTick)));
+            harm.Patch(AccessTools.Method(typeof(Corpse), nameof(Corpse.GetInspectString)), postfix: new HarmonyMethod(GetType(), nameof(AddResInfo)));
         }
 
-        public static void Notify_Died(Pawn __instance)
+        public static void AddResInfo(Corpse __instance, ref string __result)
         {
-            if (HasPower<PowerWorker_Resurrect>(__instance)) resses.Add(__instance, Find.TickManager.TicksGame + 180000); // 3 days
+            if (__instance.InnerPawn.HasPower<PowerWorker_Resurrect>())
+                __result +=
+                    $"\n{"VFEAncients.ResurrectsIn".Translate()} {(TicksToResurrect - (Find.TickManager.TicksGame - __instance.timeOfDeath)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor)}";
         }
 
-        public override void Tick(Pawn_PowerTracker parent)
+        public static void CorpseTick(Corpse __instance)
         {
-            base.Tick(parent);
-            if (resses.ContainsKey(parent.Pawn) && Find.TickManager.TicksGame >= resses[parent.Pawn])
+            var pawn = __instance.InnerPawn;
+            if (pawn.HasPower<PowerWorker_Resurrect>() && Find.TickManager.TicksGame - __instance.timeOfDeath >= TicksToResurrect)
             {
-                if (!(parent.Pawn?.Corpse?.Destroyed ?? true))
-                {
-                    ResurrectionUtility.Resurrect(parent.Pawn);
-                    if (PawnUtility.ShouldSendNotificationAbout(parent.Pawn))
-                        Messages.Message("MessagePawnResurrected".Translate(parent.Pawn), parent.Pawn, MessageTypeDefOf.PositiveEvent);
-                }
-
-                resses.Remove(parent.Pawn);
+                ResurrectionUtility.Resurrect(pawn);
+                if (PawnUtility.ShouldSendNotificationAbout(pawn))
+                    Messages.Message("MessagePawnResurrected".Translate(pawn), pawn, MessageTypeDefOf.PositiveEvent);
             }
         }
     }

@@ -11,12 +11,13 @@ namespace VFEAncients
 {
     public class PowerDef : Def
     {
-        private static readonly List<Type> appliedPatches = new();
+        private static readonly HashSet<Type> appliedPatches = new();
         public List<AbilityDef> abilities;
         public WorkTags disabledWorkTags = WorkTags.None;
         public string effectDescription;
         public List<HediffDef> hediffs;
         public List<ThoughtDef> nullifiedThoughts;
+
         public PowerType powerType;
         public List<StatModifier> setStats = new();
         public List<StatModifier> statFactors = new();

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -23,7 +24,7 @@ namespace VFEAncients
 
         public static bool ChooseHitPart_Prefix(DamageInfo dinfo, Pawn pawn, ref BodyPartRecord __result)
         {
-            if (HasPower<PowerWorker_VitalHits>(dinfo.Instigator))
+            if (dinfo.Instigator.HasPower<PowerWorker_VitalHits>())
             {
                 var vitalParts = pawn.health.hediffSet.GetNotMissingParts(dinfo.Height, BodyPartDepth.Inside).Where(part => part.def.tags.Any(tag => tag.vital)).ToList();
                 if (vitalParts.TryRandomElementByWeight(x => x.coverageAbs * x.def.GetHitChanceFactorFor(dinfo.Def), out __result)) return false;

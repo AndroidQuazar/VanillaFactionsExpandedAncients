@@ -29,6 +29,8 @@ namespace VFEAncients.HarmonyPatches
                     new[] {typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode), typeof(TraverseParms)}), new HarmonyMethod(typeof(PhasingPatches), nameof(AllReachable)));
             harm.Patch(AccessTools.Method(typeof(Pawn_PathFollower), nameof(Pawn_PathFollower.StartPath)),
                 new HarmonyMethod(typeof(PhasingPatches), nameof(StartPath_Prefix)), new HarmonyMethod(typeof(PhasingPatches), nameof(StartPath_Postfix)));
+            harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.SpawnSetup)), postfix: new HarmonyMethod(typeof(PhasingPatches), nameof(CheckPhasing)));
+            harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.DeSpawn)), postfix: new HarmonyMethod(typeof(PhasingPatches), nameof(Despawn_Postfix)));
         }
 
         public static void UnfogEnteredCells(Pawn_PathFollower __instance, Pawn ___pawn)
@@ -73,7 +75,6 @@ namespace VFEAncients.HarmonyPatches
         {
             if (pawn.IsPhasing())
             {
-                // __result = !c.Fogged(pawn.Map);
                 __result = true;
                 return false;
             }
@@ -130,13 +131,22 @@ namespace VFEAncients.HarmonyPatches
 
             return true;
         }
+
+        public static void CheckPhasing(Pawn __instance)
+        {
+            if (__instance.IsPhasingSlow()) PhasingUtils.PhasingPawns.Add(__instance);
+        }
+
+        public static void Despawn_Postfix(Pawn __instance)
+        {
+            if (PhasingUtils.PhasingPawns.Contains(__instance)) PhasingUtils.PhasingPawns.Remove(__instance);
+        }
     }
 
     public static class PhasingUtils
     {
-        public static bool IsPhasing(this Pawn p)
-        {
-            return p.health.hediffSet.GetAllComps().OfType<HediffComp_Phasing>().Any();
-        }
+        public static HashSet<Pawn> PhasingPawns = new();
+        public static bool IsPhasing(this Pawn p) => PhasingPawns.Contains(p);
+        public static bool IsPhasingSlow(this Pawn p) => p.health.hediffSet.GetAllComps().OfType<HediffComp_Phasing>().Any();
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace VFEAncients
 {
     public class Pawn_PowerTracker : IExposable
     {
-        private static readonly Dictionary<Pawn, Pawn_PowerTracker> TRACKERS = new Dictionary<Pawn, Pawn_PowerTracker>();
-        private HashSet<PowerDef> powers = new HashSet<PowerDef>();
+        private static readonly Dictionary<Pawn, Pawn_PowerTracker> TRACKERS = new();
+        public HashSet<ThoughtDef> AllNullifiedThoughts = new();
+        private HashSet<PowerDef> powers = new();
 
-        public Pawn_PowerTracker(Pawn pawn)
-        {
-            Pawn = pawn;
-        }
+        public Pawn_PowerTracker(Pawn pawn) => Pawn = pawn;
 
         public Pawn Pawn { get; }
         public IEnumerable<PowerDef> AllPowers => powers;
@@ -28,10 +27,7 @@ namespace VFEAncients
             }
         }
 
-        public bool HasPower(PowerDef power)
-        {
-            return powers.Contains(power);
-        }
+        public bool HasPower(PowerDef power) => powers.Contains(power);
 
         public void AddPower(PowerDef power)
         {
@@ -68,9 +64,6 @@ namespace VFEAncients
             return null;
         }
 
-        public static bool CanGetPowers(Pawn pawn)
-        {
-            return pawn.RaceProps.intelligence >= Intelligence.Humanlike;
-        }
+        public static bool CanGetPowers(Pawn pawn) => pawn.RaceProps.intelligence >= Intelligence.Humanlike;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -18,7 +19,7 @@ namespace VFEAncients
 
         public static void Double(Pawn otherPawn, ref int __result)
         {
-            if (HasPower<PowerWorker_Celebrity>(otherPawn)) __result *= 2;
+            if (otherPawn.HasPower<PowerWorker_Celebrity>()) __result *= 2;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Verse;
 using Verse.AI;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -11,7 +12,7 @@ namespace VFEAncients
 
         public static void CommonalityIncrease(MentalBreakWorker __instance, Pawn pawn, ref float __result)
         {
-            if (__instance.def.defName.Contains("Tantrum") && HasPower<PowerWorker_Tantrum>(pawn)) __result *= 5f;
+            if (__instance.def.defName.Contains("Tantrum") && pawn.HasPower<PowerWorker_Tantrum>()) __result *= 5f;
         }
     }
 }

@@ -2,6 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -20,7 +21,7 @@ namespace VFEAncients
 
         public static bool HungerArrow(Need_Food __instance, ref int __result, Pawn ___pawn)
         {
-            if (HasPower<PowerWorker_Hunger>(___pawn))
+            if (___pawn.HasPower<PowerWorker_Hunger>())
             {
                 __result = Math.Abs(__instance.CurLevel - __instance.MaxLevel) < 0.009f ? 0 : 1;
                 return false;
@@ -31,7 +32,7 @@ namespace VFEAncients
 
         public static void Interval(Need_Food __instance, Pawn ___pawn)
         {
-            if (HasPower<PowerWorker_Hunger>(___pawn)) __instance.CurLevel += __instance.FoodFallPerTick * 300f;
+            if (___pawn.HasPower<PowerWorker_Hunger>()) __instance.CurLevel += __instance.FoodFallPerTick * 300f;
         }
     }
 }

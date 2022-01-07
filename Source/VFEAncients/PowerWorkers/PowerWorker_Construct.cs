@@ -3,6 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -20,8 +21,7 @@ namespace VFEAncients
 
         public static void Refund(Frame __instance, Pawn worker)
         {
-            if (HasPower<PowerWorker_Construct>(worker) &&
-                GetData<WorkerData_Construct>(worker) is WorkerData_Construct data && Rand.Chance(data.RefundChance))
+            if (worker.HasPower<PowerWorker_Construct>() && worker.GetData<WorkerData_Construct>() is WorkerData_Construct data && Rand.Chance(data.RefundChance))
                 if (data.RefundAmount >= 1f)
                     __instance.resourceContainer.TryDropAll(__instance.Position, __instance.Map, ThingPlaceMode.Near);
                 else

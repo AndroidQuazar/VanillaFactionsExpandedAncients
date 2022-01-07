@@ -21,22 +21,13 @@ namespace VFEAncients.HarmonyPatches
             foreach (var gizmo in gizmos) yield return gizmo;
 
             if (__instance.IsColonist && !__instance.IsColonistPlayerControlled && __instance.TryGetComp<CompAbilities>(out var comp))
-                foreach (var ability in comp.LearnedAbilities.Where(ab => ab is IForceGizmo))
-                    if (ability.ShowGizmoOnPawn())
-                        yield return ability.GetGizmo();
+                foreach (var ability in comp.LearnedAbilities.Where(ability => ability.ShowGizmoOnPawn()))
+                    yield return ability.GetGizmo();
         }
 
         public static void WantsToBeCarriedPostfix(Pawn p, ref bool __result)
         {
-            if (p.HasPower(VFEA_DefOf.PsychologicalParalysis))
-            {
-                __result = true;
-            }
+            if (p.HasPower(VFEA_DefOf.PsychologicalParalysis)) __result = true;
         }
-    }
-
-    public interface IForceGizmo
-    {
-        bool ShowGizmoOnPawn();
     }
 }

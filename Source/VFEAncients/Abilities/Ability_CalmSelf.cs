@@ -1,14 +1,10 @@
 ﻿using Verse;
-using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
-    public class Ability_CalmSelf : Ability, IForceGizmo
+    public class Ability_CalmSelf : Ability
     {
-        public override bool ShowGizmoOnPawn()
-        {
-            return base.ShowGizmoOnPawn() || pawn.Faction.IsPlayer && pawn.InMentalState;
-        }
+        public override bool ShowGizmoOnPawn() => base.ShowGizmoOnPawn() || pawn.Faction.IsPlayer && pawn.InMentalState;
 
         public override void Cast(LocalTargetInfo target)
         {

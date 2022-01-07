@@ -81,6 +81,8 @@
     <Compile Include="Comps\PreceptComp_DisableIncident.cs" />
     <Compile Include="Comps\StorytellerComps.cs" />
     <Compile Include="Dialog_ChoosePowers.cs" />
+    <Compile Include="HarmonyPatches\Helpers.cs" />
+    <Compile Include="HarmonyPatches\MendingPatches.cs" />
     <Compile Include="HarmonyPatches\MetaMorphPatches.cs" />
     <Compile Include="HarmonyPatches\SolarFlarePowerNet.cs" />
     <Compile Include="HarmonyPatches\StorytellerPatches.cs" />

@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -22,7 +23,7 @@ namespace VFEAncients
         {
             var pawn = __instance.pawn;
             part ??= hediff.Part;
-            return hediff is not Hediff_Injury || dinfo is not {Def: {hediffSolid: var hediffDef}} || hediffDef != hediff.def || !HasPower<PowerWorker_Bones>(pawn) ||
+            return hediff is not Hediff_Injury || dinfo is not {Def: {hediffSolid: var hediffDef}} || hediffDef != hediff.def || !pawn.HasPower<PowerWorker_Bones>() ||
                    !part.def.IsSolid(part, pawn.health.hediffSet.hediffs) || pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part);
         }
     }

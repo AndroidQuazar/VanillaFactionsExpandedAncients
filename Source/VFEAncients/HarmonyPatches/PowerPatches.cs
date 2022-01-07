@@ -6,35 +6,44 @@ using System.Reflection.Emit;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
-using UnityEngine.Assertions;
 using Verse;
 
 namespace VFEAncients.HarmonyPatches
 {
-    public static class Helpers
-    {
-        public static bool HasPower(this Pawn pawn, PowerDef power) => pawn.GetPowerTracker()?.HasPower(power) ?? false;
-    }
-
     public static class PowerPatches
     {
+        private static readonly FieldInfo permanentOnly =
+            AccessTools.Field(AccessTools.FirstInner(typeof(Pawn), type => AccessTools.Field(type, "permanentOnly") is not null), "permanentOnly");
+
+        public new static Type GetType() => typeof(PowerPatches);
+
         public static void Do(Harmony harm)
         {
             harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.ExposeData)), postfix: new HarmonyMethod(typeof(Pawn_PowerTracker), nameof(Pawn_PowerTracker.Save)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetValueUnfinalized)),
-                transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(StatGetValueTranspile)));
+                transpiler: new HarmonyMethod(GetType(), nameof(StatGetValueTranspile)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationUnfinalized)),
-                transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(StatExplanationTranspile)));
+                transpiler: new HarmonyMethod(GetType(), nameof(StatExplanationTranspile)));
             harm.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractRandomly"), transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(ForceInteraction)));
             harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(Thing)}),
-                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
+                postfix: new HarmonyMethod(GetType(), nameof(ApplyStat)));
             harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
-                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(ApplyStat)));
+                postfix: new HarmonyMethod(GetType(), nameof(ApplyStat)));
             harm.Patch(AccessTools.Method(typeof(PawnGenerator), "TryGenerateNewPawnInternal"), postfix: new HarmonyMethod(typeof(PowerPatches), nameof(AddPowers)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.FinalizeValue)),
-                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(SetStat)));
+                postfix: new HarmonyMethod(GetType(), nameof(SetStat)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationFull)),
-                new HarmonyMethod(typeof(PowerPatches), nameof(SetStatExplain)));
+                new HarmonyMethod(GetType(), nameof(SetStatExplain)));
+            harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullified)),
+                postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullified_Postfix)));
+            harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullifiedMessage)),
+                postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullifiedMessage_Postfix)));
+            harm.Patch(AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.CombinedDisabledWorkTags)), postfix: new HarmonyMethod(GetType(), nameof(DisableWork)));
+            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisableCauses"), postfix: new HarmonyMethod(GetType(), nameof(AddCauseDisable)));
+            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisabledCausedBy"),
+                transpiler: new HarmonyMethod(GetType(), nameof(AddCauseDisableExplain)));
+            harm.Patch(AccessTools.GetDeclaredMethods(typeof(Pawn)).First(info => info.Name.Contains("GetDisabledWorkTypes") && info.Name.Contains("FillList")),
+                postfix: new HarmonyMethod(GetType(), nameof(AddDisabledWorkTypes)));
         }
 
         public static void AddPowers(Pawn __result, PawnGenerationRequest request)
@@ -63,8 +72,7 @@ namespace VFEAncients.HarmonyPatches
         public static IEnumerable<CodeInstruction> ForceInteraction(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
             var list = instructions.ToList();
-            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Call && ins.operand is MethodInfo mi && mi.Name == "TryRandomElementByWeight") + 2;
-            Assert.AreEqual(list[idx1].opcode, OpCodes.Ldarg_0);
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Call && ins.operand is MethodInfo {Name: "TryRandomElementByWeight"}) + 2;
             var label1 = generator.DefineLabel();
             var label2 = generator.DefineLabel();
             list[idx1].labels.Add(label1);
@@ -73,14 +81,14 @@ namespace VFEAncients.HarmonyPatches
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
                 new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.Lustful))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
+                new CodeInstruction(OpCodes.Call, Helpers.HasPowerDef),
                 new CodeInstruction(OpCodes.Brfalse, label2),
                 new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.VFEA_RomanceAttempt_Lustful))),
                 new CodeInstruction(OpCodes.Stloc, 4),
                 new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label2),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_InteractionsTracker), "pawn")),
                 new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.Celebrity))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Helpers), nameof(Helpers.HasPower))),
+                new CodeInstruction(OpCodes.Call, Helpers.HasPowerDef),
                 new CodeInstruction(OpCodes.Brfalse, label1),
                 new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFEA_DefOf), nameof(VFEA_DefOf.KindWords))),
                 new CodeInstruction(OpCodes.Stloc, 4)
@@ -180,6 +188,70 @@ namespace VFEAncients.HarmonyPatches
                     }
 
             return true;
+        }
+
+        public static void AddPowerExplain(StringBuilder builder, object power)
+        {
+            builder.AppendLine("VFEAncients.IncapableOfTooltipPower".Translate(((PowerDef) power).label));
+        }
+
+        public static void AddCauseDisable(Pawn pawn, WorkTags workTag, ref List<object> __result)
+        {
+            if (pawn.GetPowerTracker() is { } tracker) __result.AddRange(tracker.AllPowers.Where(power => (power.disabledWorkTags & workTag) != WorkTags.None));
+        }
+
+        public static void DisableWork(Pawn __instance, ref WorkTags __result)
+        {
+            if (__instance.GetPowerTracker() is { } tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
+        }
+
+        public static void AddDisabledWorkTypes(Pawn __instance, List<WorkTypeDef> list, object __1)
+        {
+            if (__instance.GetPowerTracker() is { } tracker && !(bool) permanentOnly.GetValue(__1))
+                foreach (var power in tracker.AllPowers)
+                foreach (var workType in power.Worker.DisabledWorkTypes.Except(list))
+                    list.Add(workType);
+        }
+
+        public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
+        {
+            if (!__result && pawn != null && (pawn.GetPowerTracker()?.AllNullifiedThoughts.Contains(def) ?? false)) __result = true;
+        }
+
+        public static void ThoughtNullifiedMessage_Postfix(Pawn pawn, ThoughtDef def, ref string __result)
+        {
+            if (__result.NullOrEmpty() && !ThoughtUtility.NeverNullified(def, pawn))
+            {
+                var power = NullifyingPower(def, pawn);
+                if (power != null) __result = "ThoughtNullifiedBy".Translate().CapitalizeFirst() + ": " + power.LabelCap;
+            }
+        }
+
+        public static PowerDef NullifyingPower(ThoughtDef def, Pawn pawn)
+        {
+            return pawn.GetPowerTracker()?.AllPowers.FirstOrDefault(power => power.nullifiedThoughts?.Contains(def) ?? false);
+        }
+
+        public static IEnumerable<CodeInstruction> AddCauseDisableExplain(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var list = instructions.ToList();
+            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Ldloca_S);
+            var idx2 = list.FindIndex(idx1 + 1, ins => ins.opcode == OpCodes.Ldloca_S);
+            var idx3 = list.FindLastIndex(ins => ins.opcode == OpCodes.Brfalse_S);
+            var label1 = generator.DefineLabel();
+            var label2 = list[idx3].operand;
+            list[idx3].operand = label1;
+            list.InsertRange(idx2, new[]
+            {
+                new CodeInstruction(OpCodes.Br, label2),
+                new CodeInstruction(OpCodes.Ldloc_2).WithLabels(label1),
+                new CodeInstruction(OpCodes.Isinst, typeof(PowerDef)),
+                new CodeInstruction(OpCodes.Brfalse, label2),
+                new CodeInstruction(OpCodes.Ldloc_0),
+                new CodeInstruction(OpCodes.Ldloc_2),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerPatches), nameof(AddPowerExplain)))
+            });
+            return list;
         }
     }
 }

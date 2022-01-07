@@ -1,7 +1,4 @@
 ﻿using HarmonyLib;
-using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 using VFEAncients.HarmonyPatches;
@@ -15,6 +12,7 @@ namespace VFEAncients
         public static bool YayosCombat;
 
         public static VFEAncientsSettings settings;
+
         public VFEAncientsMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<VFEAncientsSettings>();
@@ -29,6 +27,7 @@ namespace VFEAncients
             PointDefensePatches.Do(Harm);
             MetaMorphPatches.Do(Harm);
             StorytellerPatches.Do(Harm);
+            MendingPatches.Do(Harm);
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
@@ -36,15 +35,14 @@ namespace VFEAncients
             base.DoSettingsWindowContents(inRect);
             settings.DoSettingsWindowContents(inRect);
         }
-        public override string SettingsCategory()
-        {
-            return this.Content.Name;
-        }
+
+        public override string SettingsCategory() => Content.Name;
     }
 
     public class VFEAncientsSettings : ModSettings
     {
         public bool enableGloryKillMusic = true;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -53,8 +51,8 @@ namespace VFEAncients
 
         public void DoSettingsWindowContents(Rect inRect)
         {
-            Rect rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
-            Listing_Standard listingStandard = new Listing_Standard();
+            var rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
+            var listingStandard = new Listing_Standard();
             listingStandard.Begin(rect);
             listingStandard.CheckboxLabeled("VFEAncients.EnableGloryKillMusic".Translate(), ref enableGloryKillMusic);
             listingStandard.End();

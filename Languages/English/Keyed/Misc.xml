@@ -63,4 +63,7 @@
 	<VFEAncient.MustBeHumanlike>Must be human</VFEAncient.MustBeHumanlike>
 	<VFEAncient.GeneTailorOccupied>Gene-tailoring pod is occupied.</VFEAncient.GeneTailorOccupied>
 	<VFEAncient.AvailableOperationsCannotBeApplied>Available operations cannot be applied on</VFEAncient.AvailableOperationsCannotBeApplied>
+    <VFEAncients.RepairMat>Repair item</VFEAncients.RepairMat>
+    <VFEAncients.MatForRepair>What material must be used to repair this at a mending table.</VFEAncients.MatForRepair>
+    <VFEAncients.ResurrectsIn>Resurrects in</VFEAncients.ResurrectsIn>
 </LanguageData>

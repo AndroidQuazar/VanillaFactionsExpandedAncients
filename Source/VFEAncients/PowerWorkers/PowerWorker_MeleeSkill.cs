@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -19,7 +20,7 @@ namespace VFEAncients
 
         public static bool ForceHit(Verb_MeleeAttack __instance, ref float __result)
         {
-            if (HasPower<PowerWorker_MeleeSkill>(__instance.Caster))
+            if (__instance.Caster.HasPower<PowerWorker_MeleeSkill>())
             {
                 __result = 1f;
                 return false;
@@ -30,13 +31,13 @@ namespace VFEAncients
 
         public static bool ForceDodge(LocalTargetInfo target, Verb_MeleeAttack __instance, ref float __result)
         {
-            if (HasPower<PowerWorker_MeleeSkill>(target.Thing))
+            if (target.Thing.HasPower<PowerWorker_MeleeSkill>())
             {
                 __result = 1f;
                 return false;
             }
 
-            if (HasPower<PowerWorker_MeleeSkill>(__instance.Caster))
+            if (__instance.Caster.HasPower<PowerWorker_MeleeSkill>())
             {
                 __result = 0f;
                 return false;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace VFEAncients
@@ -27,14 +28,24 @@ namespace VFEAncients
         public override void CompTick()
         {
             base.CompTick();
-            if (powerComp != null && PowerUpActive(parent))
+            if (powerComp is null) return;
+            if (PowerUpActive(parent))
             {
                 if (powerComp is CompPowerPlant plant)
                 {
                     plant.UpdateDesiredPowerOutput();
                     plant.PowerOutput *= Props.PowerPlantOutputMult;
                 }
-                else if (powerComp.PowerOutput > 0 && powerComp.PowerOutput == -powerComp.Props.basePowerConsumption) powerComp.PowerOutput *= Props.PowerPlantOutputMult;
+                else if (Mathf.Approximately(powerComp.PowerOutput, -powerComp.Props.basePowerConsumption))
+                {
+                    if (powerComp.PowerOutput > 0) powerComp.PowerOutput *= Props.PowerPlantOutputMult;
+                    else powerComp.PowerOutput = 0;
+                }
+            }
+            else
+            {
+                if (powerComp is CompPowerPlant plant) plant.UpdateDesiredPowerOutput();
+                else powerComp.SetUpPowerVars();
             }
         }
 

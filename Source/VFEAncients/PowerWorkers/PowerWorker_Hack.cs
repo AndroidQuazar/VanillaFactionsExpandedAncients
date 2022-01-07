@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -18,7 +19,7 @@ namespace VFEAncients
 
         public static void InstantHack(ref float amount, Pawn hacker, CompHackable __instance)
         {
-            if (HasPower<PowerWorker_Hack>(hacker)) amount = __instance.defence + 1f;
+            if (hacker.HasPower<PowerWorker_Hack>()) amount = __instance.defence + 1f;
         }
     }
 }

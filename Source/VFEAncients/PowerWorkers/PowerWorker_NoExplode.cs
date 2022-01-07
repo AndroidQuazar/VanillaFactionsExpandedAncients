@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -15,9 +16,6 @@ namespace VFEAncients
             harm.Patch(AccessTools.Method(typeof(DamageWorker), "ExplosionDamageThing"), new HarmonyMethod(GetType(), nameof(Immunity)));
         }
 
-        public static bool Immunity(Thing t)
-        {
-            return !HasPower<PowerWorker_NoExplode>(t);
-        }
+        public static bool Immunity(Thing t) => !t.HasPower<PowerWorker_NoExplode>();
     }
 }

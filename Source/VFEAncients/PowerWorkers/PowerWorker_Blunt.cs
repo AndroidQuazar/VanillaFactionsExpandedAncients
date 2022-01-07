@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -19,7 +20,7 @@ namespace VFEAncients
 
         public static void SurfaceOnly(Pawn __instance, ref DamageInfo dinfo)
         {
-            if (dinfo.Def != DamageDefOf.Blunt && dinfo.Def.armorCategory == DamageArmorCategoryDefOf.Sharp && HasPower<PowerWorker_Blunt>(__instance))
+            if (dinfo.Def != DamageDefOf.Blunt && dinfo.Def.armorCategory == DamageArmorCategoryDefOf.Sharp && __instance.HasPower<PowerWorker_Blunt>())
             {
                 dinfo.SetBodyRegion(depth: BodyPartDepth.Outside);
                 dinfo.SetAllowDamagePropagation(false);
@@ -28,7 +29,7 @@ namespace VFEAncients
 
         public static void ChangeType(Pawn pawn, ref DamageDef damageDef)
         {
-            if (damageDef != DamageDefOf.Blunt && damageDef.armorCategory == DamageArmorCategoryDefOf.Sharp && HasPower<PowerWorker_Blunt>(pawn)) damageDef = DamageDefOf.Blunt;
+            if (damageDef != DamageDefOf.Blunt && damageDef.armorCategory == DamageArmorCategoryDefOf.Sharp && pawn.HasPower<PowerWorker_Blunt>()) damageDef = DamageDefOf.Blunt;
         }
     }
 }

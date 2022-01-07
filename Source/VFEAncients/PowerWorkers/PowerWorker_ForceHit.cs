@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -38,7 +39,7 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldloc_2),
                 new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Verb), "caster")),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Call, typeof(PowerWorker_ForceHit).HasPowerType()),
                 new CodeInstruction(OpCodes.Brfalse, label1),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldstr, "VFEAncients.MarksmanshipTooltip"),
@@ -77,7 +78,7 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Call, typeof(PowerWorker_ForceHit).HasPowerType()),
                 new CodeInstruction(OpCodes.Brfalse, label1),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldc_R4, 0f)
@@ -90,7 +91,7 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Call, typeof(PowerWorker_ForceHit).HasPowerType()),
                 new CodeInstruction(OpCodes.Brfalse, label2),
                 new CodeInstruction(OpCodes.Pop),
                 new CodeInstruction(OpCodes.Ldc_R4, 1f)
@@ -105,7 +106,7 @@ namespace VFEAncients
             {
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Verb), nameof(Verb.Caster))),
-                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(PowerWorker), nameof(HasPower), generics: new[] {typeof(PowerWorker_ForceHit)})),
+                new CodeInstruction(OpCodes.Call, typeof(PowerWorker_ForceHit).HasPowerType()),
                 new CodeInstruction(OpCodes.Brtrue, label)
             });
         }

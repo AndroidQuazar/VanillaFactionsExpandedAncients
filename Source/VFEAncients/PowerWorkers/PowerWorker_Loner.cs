@@ -4,12 +4,13 @@ using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
     public class PowerWorker_Loner : PowerWorker
     {
-        private static readonly Dictionary<Pawn, bool> aloneInRoom = new Dictionary<Pawn, bool>();
+        private static readonly Dictionary<Pawn, bool> aloneInRoom = new();
         private readonly MethodInfo isFrozen = AccessTools.PropertyGetter(typeof(Need), "IsFrozen");
 
         public PowerWorker_Loner(PowerDef def) : base(def)
@@ -32,7 +33,7 @@ namespace VFEAncients
 
         public static void GainingAlone(Pawn ___pawn, ref bool __result)
         {
-            if (HasPower<PowerWorker_Loner>(___pawn) && aloneInRoom.TryGetValue(___pawn, out var alone) && alone) __result = true;
+            if (___pawn.HasPower<PowerWorker_Loner>() && aloneInRoom.TryGetValue(___pawn, out var alone) && alone) __result = true;
         }
     }
 }

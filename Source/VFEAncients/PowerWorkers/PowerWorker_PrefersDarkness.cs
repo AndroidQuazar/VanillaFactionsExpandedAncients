@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -18,7 +19,7 @@ namespace VFEAncients
 
         public static void Glow_ActiveFor_Postfix(Thing t, ref bool __result)
         {
-            if (__result && HasPower<PowerWorker_PrefersDarkness>(t)) __result = false;
+            if (__result && t.HasPower<PowerWorker_PrefersDarkness>()) __result = false;
         }
     }
 }

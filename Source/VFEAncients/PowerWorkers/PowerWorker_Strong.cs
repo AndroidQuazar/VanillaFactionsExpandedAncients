@@ -5,6 +5,7 @@ using HarmonyLib;
 using HeavyWeapons;
 using RimWorld;
 using Verse;
+using VFEAncients.HarmonyPatches;
 
 namespace VFEAncients
 {
@@ -26,7 +27,7 @@ namespace VFEAncients
 
         public static void AddCapacity(Pawn p, ref float __result, StringBuilder explanation = null)
         {
-            if (HasPower<PowerWorker_Strong>(p))
+            if (p.HasPower<PowerWorker_Strong>())
             {
                 __result *= 2;
                 explanation?.Append($"{p.GetPowerTracker().AllPowers.First(power => power.Worker is PowerWorker_Strong).label.CapitalizeFirst()}: x{2f.ToStringPercent()}");
@@ -35,7 +36,7 @@ namespace VFEAncients
 
         public static IEnumerable<DamageInfo> AddDamage(IEnumerable<DamageInfo> dinfos, Verb_MeleeAttackDamage __instance)
         {
-            var isStrong = HasPower<PowerWorker_Strong>(__instance.Caster);
+            var isStrong = __instance.Caster.HasPower<PowerWorker_Strong>();
             foreach (var dinfo in dinfos)
             {
                 if (isStrong) dinfo.SetAmount(dinfo.Amount * 2);
@@ -45,7 +46,7 @@ namespace VFEAncients
 
         public static bool ForceCanEquip(Pawn pawn, ref bool __result)
         {
-            if (!HasPower<PowerWorker_Strong>(pawn)) return true;
+            if (!pawn.HasPower<PowerWorker_Strong>()) return true;
             __result = true;
             return false;
         }
