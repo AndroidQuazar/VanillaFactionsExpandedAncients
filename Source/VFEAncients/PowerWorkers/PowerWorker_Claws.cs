@@ -30,9 +30,9 @@ namespace VFEAncients
 
         private static void AddClaws(Pawn pawn)
         {
-            foreach (var part in pawn.RaceProps.body.AllParts
+            foreach (var part in pawn.health.hediffSet.GetNotMissingParts()
                 .Except(pawn.health.hediffSet.hediffs.Where(hediff => hediff.def == VFEA_DefOf.VFEA_PlasteelClaw).Select(hediff => hediff.Part))
-                .Where(part => part.def == BodyPartDefOf.Hand))
+                .Where(part => part is {def: var bodyPartDef} && bodyPartDef == BodyPartDefOf.Hand))
                 pawn.health.AddHediff(VFEA_DefOf.VFEA_PlasteelClaw, part);
         }
 
