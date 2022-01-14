@@ -42,7 +42,7 @@ namespace VFEAncients.HarmonyPatches
                 result = bill.IsFixedOrAllowedIngredient(t) &&
                          bill.recipe.ingredients.Any(ingNeed =>
                              ingNeed.filter.Allows(t));
-            else if (!t.def.useHitPoints) result = bill.recipe.ingredients[0].filter.AllowedThingDefs.Any(IsStuffIngredient(t));
+            else if (!t.def.useHitPoints || !(t.def.IsWeapon || t.def.IsApparel)) result = bill.recipe.ingredients[0].filter.AllowedThingDefs.Any(IsStuffIngredient(t));
             else result = bill.IsFixedOrAllowedIngredient(t) && t.HitPoints < t.MaxHitPoints;
             return result;
         }
