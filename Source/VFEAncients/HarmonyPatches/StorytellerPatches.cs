@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -22,23 +23,83 @@ namespace VFEAncients.HarmonyPatches
 
         public static IEnumerable<CodeInstruction> IncreaseRecruitDifficulty(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
-            var list = instructions.ToList();
-            var idx1 = list.FindIndex(ins => ins.opcode == OpCodes.Stloc_S && ins.operand is LocalBuilder {LocalIndex: 8});
-            var idx2 = list.FindLastIndex(idx1 - 1, ins => ins.opcode == OpCodes.Stloc_S && ins.operand is LocalBuilder {LocalIndex: 7});
-            var label1 = generator.DefineLabel();
-            list[idx2 + 1].labels.Add(label1);
-            list.InsertRange(idx2 + 1, new[]
+            var instructionsList = instructions.ToList();
+
+            FieldInfo fGuest = AccessTools.Field(
+                typeof(Pawn),
+                nameof(Pawn.guest)
+            );
+            FieldInfo fResistance = AccessTools.Field(
+                typeof(Pawn_GuestTracker),
+                nameof(Pawn_GuestTracker.resistance)
+            );
+
+            MethodInfo mMin = AccessTools.Method(
+                typeof(UnityEngine.Mathf),
+                nameof(UnityEngine.Mathf.Min),
+                new Type[] { typeof(float), typeof(float) }
+            );
+
+            MethodInfo pStoryTeller = AccessTools.PropertyGetter(
+                typeof(Find),
+                nameof(Find.Storyteller)
+            );
+
+            MethodInfo mTryGetStorytellerComp = AccessTools.Method(
+                typeof(Utils),
+                nameof(Utils.TryGetComp),
+                new[] { typeof(Storyteller) }, new[] { typeof(StorytellerComp_IncreaseRecruitDifficulty) }
+            );
+
+            for (int i = 0; i < instructionsList.Count; i++)
             {
-                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(Find), nameof(Find.Storyteller))),
-                new CodeInstruction(OpCodes.Call,
-                    AccessTools.Method(typeof(Utils), nameof(Utils.TryGetComp), new[] {typeof(Storyteller)}, new[] {typeof(StorytellerComp_IncreaseRecruitDifficulty)})),
-                new CodeInstruction(OpCodes.Brfalse, label1),
-                new CodeInstruction(OpCodes.Ldloc, 7),
-                new CodeInstruction(OpCodes.Ldc_R4, 5f),
-                new CodeInstruction(OpCodes.Div),
-                new CodeInstruction(OpCodes.Stloc, 7)
-            });
-            return list;
+                CodeInstruction curInstr = instructionsList[i];
+
+                // Apply a factor of 0.2 to the calculated resistance reduction if the current
+                // storyteller has the increased recruitment difficulty tenet.
+                // NB.: Interacted() will limit this calculated reduction to not exceed the remaining
+                // resistance of the prisoner, so ensure this factor is applied before that,
+                // to avoid a situation where it becomes impossible to reduce the resistance to 0.
+                if (
+                    curInstr.IsLdloc() &&
+                    instructionsList[i + 1].IsLdarg() &&
+                    instructionsList[i + 2].LoadsField(fGuest) &&
+                    instructionsList[i + 3].LoadsField(fResistance) &&
+                    instructionsList[i + 4].Calls(mMin)
+                )
+                {
+                    Label doesNotHaveIncreasedRecruitDifficulty = generator.DefineLabel();
+                    curInstr.labels.Add(doesNotHaveIncreasedRecruitDifficulty);
+
+                    yield return new CodeInstruction(
+                        OpCodes.Call,
+                        pStoryTeller
+                    );
+                    yield return new CodeInstruction(
+                        OpCodes.Call,
+                        mTryGetStorytellerComp
+                    );
+                    yield return new CodeInstruction(
+                        OpCodes.Brfalse_S,
+                        doesNotHaveIncreasedRecruitDifficulty
+                    );
+                    yield return new CodeInstruction(
+                        OpCodes.Ldloc,
+                        curInstr.operand
+                    );
+                    yield return new CodeInstruction(
+                        OpCodes.Ldc_R4,
+                        5f
+                    );
+                    yield return new CodeInstruction(OpCodes.Div);
+                    yield return new CodeInstruction(
+                        OpCodes.Stloc,
+                        curInstr.operand
+                    );
+                }
+
+                yield return curInstr;
+            }
         }
 
         public static bool NoSkillDecay() => Find.Storyteller.TryGetComp<StorytellerComp_NoSkilLDecay>() == null;
