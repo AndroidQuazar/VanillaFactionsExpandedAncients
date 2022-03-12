@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace VFEAncients.HarmonyPatches
@@ -25,35 +25,35 @@ namespace VFEAncients.HarmonyPatches
         {
             var instructionsList = instructions.ToList();
 
-            FieldInfo fGuest = AccessTools.Field(
+            var fGuest = AccessTools.Field(
                 typeof(Pawn),
                 nameof(Pawn.guest)
             );
-            FieldInfo fResistance = AccessTools.Field(
+            var fResistance = AccessTools.Field(
                 typeof(Pawn_GuestTracker),
                 nameof(Pawn_GuestTracker.resistance)
             );
 
-            MethodInfo mMin = AccessTools.Method(
-                typeof(UnityEngine.Mathf),
-                nameof(UnityEngine.Mathf.Min),
-                new Type[] { typeof(float), typeof(float) }
+            var mMin = AccessTools.Method(
+                typeof(Mathf),
+                nameof(Mathf.Min),
+                new[] {typeof(float), typeof(float)}
             );
 
-            MethodInfo pStoryTeller = AccessTools.PropertyGetter(
+            var pStoryTeller = AccessTools.PropertyGetter(
                 typeof(Find),
                 nameof(Find.Storyteller)
             );
 
-            MethodInfo mTryGetStorytellerComp = AccessTools.Method(
+            var mTryGetStorytellerComp = AccessTools.Method(
                 typeof(Utils),
                 nameof(Utils.TryGetComp),
-                new[] { typeof(Storyteller) }, new[] { typeof(StorytellerComp_IncreaseRecruitDifficulty) }
+                new[] {typeof(Storyteller)}, new[] {typeof(StorytellerComp_IncreaseRecruitDifficulty)}
             );
 
-            for (int i = 0; i < instructionsList.Count; i++)
+            for (var i = 0; i < instructionsList.Count; i++)
             {
-                CodeInstruction curInstr = instructionsList[i];
+                var curInstr = instructionsList[i];
 
                 // Apply a factor of 0.2 to the calculated resistance reduction if the current
                 // storyteller has the increased recruitment difficulty tenet.
@@ -68,7 +68,7 @@ namespace VFEAncients.HarmonyPatches
                     instructionsList[i + 4].Calls(mMin)
                 )
                 {
-                    Label doesNotHaveIncreasedRecruitDifficulty = generator.DefineLabel();
+                    var doesNotHaveIncreasedRecruitDifficulty = generator.DefineLabel();
                     curInstr.labels.Add(doesNotHaveIncreasedRecruitDifficulty);
 
                     yield return new CodeInstruction(
@@ -116,10 +116,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static void AncientsShouldNotArrive(ref bool __result, Faction f, Map map, bool desperate = false)
         {
-            if (f != null && f.def == VFEA_DefOf.VFEA_AncientSoldiers)
-            {
-                __result = false;
-            }
+            if (f != null && f.def == VFEA_DefOf.VFEA_AncientSoldiers) __result = false;
         }
     }
 }
