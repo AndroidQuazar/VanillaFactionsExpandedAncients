@@ -43,6 +43,8 @@ namespace VFEAncients
         public static ThingDef VFEA_SuperJumpingPawn;
         public static SoundDef VFEA_GloryKill_Music;
         public static PowerDef PsychologicalParalysis;
+        public static ThingDef VFEA_SlingshotDropOffSpot;
+
         static VFEA_DefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(VFEA_DefOf));

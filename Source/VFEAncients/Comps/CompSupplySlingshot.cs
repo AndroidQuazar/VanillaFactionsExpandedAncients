@@ -8,6 +8,7 @@ namespace VFEAncients
 {
     public class CompSupplySlingshot : ThingComp
     {
+        private static ValueTuple<Map, Designator_Build> designator;
         private CompTransporter cachedCompTransporter;
 
         public CompTransporter Transporter => cachedCompTransporter ??= parent.GetComp<CompTransporter>();
@@ -34,6 +35,9 @@ namespace VFEAncients
                                     TryLaunch), true);
                     }
                 };
+
+            if (designator.Item1 != Find.CurrentMap) designator = (Find.CurrentMap, new Designator_Build(VFEA_DefOf.VFEA_SlingshotDropOffSpot));
+            yield return designator.Item2;
         }
 
         private static void ConfirmIf(Func<bool> predicate, Func<string> confirmStr, Action onConfirm, bool danger = false)
@@ -65,7 +69,10 @@ namespace VFEAncients
             {
                 Current.Game.GetComponent<GameComponent_Ancients>().SlingshotQueue.Enqueue(new GameComponent_Ancients.SlingshotInfo
                 {
-                    Cell = parent.Position,
+                    Cell = parent.Map.listerThings
+                        .ThingsOfDef(VFEA_DefOf.VFEA_SlingshotDropOffSpot)?
+                        .OrderBy(t => t.Position.DistanceTo(parent.Position))
+                        .FirstOrDefault()?.Position ?? parent.Position,
                     Map = parent.Map,
                     ReturnTick = Find.TickManager.TicksGame + TicksToReturn,
                     Wealth = compTransporter.innerContainer.Sum(item => item.MarketValue * item.stackCount)
@@ -74,8 +81,6 @@ namespace VFEAncients
                 compTransporter.CancelLoad(parent.Map);
                 SkyfallerMaker.SpawnSkyfaller(VFEA_DefOf.VFEA_SupplyCrateLeaving, compTransporter.parent.Position, parent.Map);
             }
-
-            CameraJumper.TryHideWorld();
         }
     }
 }
