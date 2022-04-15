@@ -12,6 +12,7 @@ namespace VFEAncients
     public class PowerDef : Def
     {
         private static readonly HashSet<Type> appliedPatches = new();
+        public static HashSet<ThoughtDef> GlobalNullifiedThoughts = new();
         public List<AbilityDef> abilities;
         public WorkTags disabledWorkTags = WorkTags.None;
         public string effectDescription;
@@ -47,6 +48,8 @@ namespace VFEAncients
                 Worker.DoPatches(VFEAncientsMod.Harm);
                 appliedPatches.Add(workerClass);
             }
+
+            if (!nullifiedThoughts.NullOrEmpty()) GlobalNullifiedThoughts.AddRange(nullifiedThoughts);
 
             LongEventHandler.ExecuteWhenFinished(() => Icon = ContentFinder<Texture2D>.Get(texPath));
         }

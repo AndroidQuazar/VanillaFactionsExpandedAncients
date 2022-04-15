@@ -19,17 +19,22 @@ namespace VFEAncients.HarmonyPatches
 
         public static void Do(Harmony harm)
         {
-            harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.ExposeData)), postfix: new HarmonyMethod(typeof(Pawn_PowerTracker), nameof(Pawn_PowerTracker.Save)));
+            harm.Patch(AccessTools.Method(typeof(Pawn), nameof(Pawn.ExposeData)),
+                postfix: new HarmonyMethod(typeof(Pawn_PowerTracker), nameof(Pawn_PowerTracker.Save)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetValueUnfinalized)),
                 transpiler: new HarmonyMethod(GetType(), nameof(StatGetValueTranspile)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationUnfinalized)),
                 transpiler: new HarmonyMethod(GetType(), nameof(StatExplanationTranspile)));
-            harm.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractRandomly"), transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(ForceInteraction)));
+            harm.Patch(AccessTools.Method(typeof(Pawn_InteractionsTracker), "TryInteractRandomly"),
+                transpiler: new HarmonyMethod(typeof(PowerPatches), nameof(ForceInteraction)));
             harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(Thing)}),
                 postfix: new HarmonyMethod(GetType(), nameof(ApplyStat)));
-            harm.Patch(AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown), new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
+            harm.Patch(
+                AccessTools.Method(typeof(VerbProperties), nameof(VerbProperties.AdjustedCooldown),
+                    new[] {typeof(Tool), typeof(Pawn), typeof(ThingDef), typeof(ThingDef)}),
                 postfix: new HarmonyMethod(GetType(), nameof(ApplyStat)));
-            harm.Patch(AccessTools.Method(typeof(PawnGenerator), "TryGenerateNewPawnInternal"), postfix: new HarmonyMethod(typeof(PowerPatches), nameof(AddPowers)));
+            harm.Patch(AccessTools.Method(typeof(PawnGenerator), "TryGenerateNewPawnInternal"),
+                postfix: new HarmonyMethod(typeof(PowerPatches), nameof(AddPowers)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.FinalizeValue)),
                 postfix: new HarmonyMethod(GetType(), nameof(SetStat)));
             harm.Patch(AccessTools.Method(typeof(StatWorker), nameof(StatWorker.GetExplanationFull)),
@@ -38,8 +43,10 @@ namespace VFEAncients.HarmonyPatches
                 postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullified_Postfix)));
             harm.Patch(AccessTools.Method(typeof(ThoughtUtility), nameof(ThoughtUtility.ThoughtNullifiedMessage)),
                 postfix: new HarmonyMethod(GetType(), nameof(ThoughtNullifiedMessage_Postfix)));
-            harm.Patch(AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.CombinedDisabledWorkTags)), postfix: new HarmonyMethod(GetType(), nameof(DisableWork)));
-            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisableCauses"), postfix: new HarmonyMethod(GetType(), nameof(AddCauseDisable)));
+            harm.Patch(AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.CombinedDisabledWorkTags)),
+                postfix: new HarmonyMethod(GetType(), nameof(DisableWork)));
+            harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisableCauses"),
+                postfix: new HarmonyMethod(GetType(), nameof(AddCauseDisable)));
             harm.Patch(AccessTools.Method(typeof(CharacterCardUtility), "GetWorkTypeDisabledCausedBy"),
                 transpiler: new HarmonyMethod(GetType(), nameof(AddCauseDisableExplain)));
             harm.Patch(AccessTools.GetDeclaredMethods(typeof(Pawn)).First(info => info.Name.Contains("GetDisabledWorkTypes") && info.Name.Contains("FillList")),
@@ -48,7 +55,8 @@ namespace VFEAncients.HarmonyPatches
 
         public static void AddPowers(Pawn __result, PawnGenerationRequest request)
         {
-            if (request.KindDef != null && request.KindDef.TryGetModExtension<PawnKindExtension_Powers>(out var ext) && __result?.GetPowerTracker() is { } tracker)
+            if (request.KindDef != null && request.KindDef.TryGetModExtension<PawnKindExtension_Powers>(out var ext) &&
+                __result?.GetPowerTracker() is { } tracker)
             {
                 if (ext.forcePowers != null)
                     foreach (var power in ext.forcePowers)
@@ -115,7 +123,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static void PowerModifyStat(Pawn pawn, ref float val, StatDef stat)
         {
-            if (pawn.GetPowerTracker() is { } tracker)
+            if (PowerWorker.TouchStat(stat) && pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
                 {
                     if (power.statFactors != null) val *= power.statFactors.GetStatFactorFromList(stat);
@@ -145,7 +153,7 @@ namespace VFEAncients.HarmonyPatches
 
         public static void PowerModifyExplanation(Pawn pawn, StringBuilder builder, StatDef stat, StatWorker worker)
         {
-            if (pawn.GetPowerTracker() is { } tracker)
+            if (PowerWorker.TouchStat(stat) && pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
                 {
                     if (power.statFactors != null)
@@ -166,15 +174,18 @@ namespace VFEAncients.HarmonyPatches
 
         public static void SetStat(StatRequest req, ref float val, StatWorker __instance)
         {
-            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetPowerTracker() is { } tracker)
+            if (req.Thing is Pawn pawn && PowerWorker.TouchStat(__instance.stat) && pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
-                    if (power.setStats != null && !float.IsNaN(power.setStats.GetStatValueFromList(__instance.stat, float.NaN)))
+                {
+                    var value = power.setStats.GetStatValueFromList(__instance.stat, float.NaN);
+                    if (power.setStats != null && !float.IsNaN(value))
                         val = power.setStats.GetStatValueFromList(__instance.stat, __instance.stat.defaultBaseValue);
+                }
         }
 
         public static bool SetStatExplain(StatRequest req, ToStringNumberSense numberSense, StatWorker __instance, ref string __result)
         {
-            if (req.HasThing && req.Thing is Pawn pawn && pawn.GetPowerTracker() is { } tracker)
+            if (req.Thing is Pawn pawn && PowerWorker.TouchStat(__instance.stat) && pawn.GetPowerTracker() is { } tracker)
                 foreach (var power in tracker.AllPowers)
                     if (power.setStats != null)
                     {
@@ -202,7 +213,8 @@ namespace VFEAncients.HarmonyPatches
 
         public static void DisableWork(Pawn __instance, ref WorkTags __result)
         {
-            if (__instance.GetPowerTracker() is { } tracker) __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
+            if (__instance.GetPowerTracker() is { } tracker)
+                __result = tracker.AllPowers.Aggregate(__result, (current, power) => current | power.disabledWorkTags);
         }
 
         public static void AddDisabledWorkTypes(Pawn __instance, List<WorkTypeDef> list, object __1)
@@ -215,7 +227,8 @@ namespace VFEAncients.HarmonyPatches
 
         public static void ThoughtNullified_Postfix(Pawn pawn, ThoughtDef def, ref bool __result)
         {
-            if (!__result && pawn != null && (pawn.GetPowerTracker()?.AllNullifiedThoughts.Contains(def) ?? false)) __result = true;
+            if (!__result && pawn != null && PowerDef.GlobalNullifiedThoughts.Contains(def) &&
+                (pawn.GetPowerTracker()?.AllNullifiedThoughts.Contains(def) ?? false)) __result = true;
         }
 
         public static void ThoughtNullifiedMessage_Postfix(Pawn pawn, ThoughtDef def, ref string __result)

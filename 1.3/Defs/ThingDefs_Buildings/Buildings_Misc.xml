@@ -172,7 +172,7 @@
       <li Class="CompProperties_Transporter">
         <massCapacity>5000</massCapacity>
         <max1PerGroup>true</max1PerGroup>
-        <canChangeAssignedThingsAfterStarting>true</canChangeAssignedThingsAfterStarting>
+        <canChangeAssignedThingsAfterStarting>false</canChangeAssignedThingsAfterStarting>
         <showOverallStats>false</showOverallStats>
       </li>
       <li><compClass>VFEAncients.CompSupplySlingshot</compClass></li>

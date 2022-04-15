@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using HarmonyLib;
 using RimWorld;
@@ -10,13 +11,20 @@ using VFECore.Abilities;
 
 namespace VFEAncients
 {
+    [StaticConstructorOnStartup]
     public class PowerWorker
     {
+        private static byte[] cachedStatsToTouch;
         public PowerDef def;
+
+        static PowerWorker() => LongEventHandler.ExecuteWhenFinished(() => cachedStatsToTouch = new byte[DefDatabase<StatDef>.DefCount]);
 
         public PowerWorker(PowerDef def) => this.def = def;
 
         public virtual IEnumerable<WorkTypeDef> DisabledWorkTypes => DefDatabase<WorkTypeDef>.AllDefs.Where(wtd => !AllowsWorkType(wtd));
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TouchStat(StatDef stat) => cachedStatsToTouch[stat.index] > 0;
 
         public T GetData<T>() where T : WorkerData => def.workerData as T;
 
@@ -33,6 +41,7 @@ namespace VFEAncients
             if (Helpers.workerTypesByPawn.TryGetValue(parent.Pawn, out var types)) types.Add(GetType());
             else Helpers.workerTypesByPawn.Add(parent.Pawn, new HashSet<Type> {GetType()});
             if (!def.nullifiedThoughts.NullOrEmpty()) parent.AllNullifiedThoughts.AddRange(def.nullifiedThoughts);
+            foreach (var statDef in def.statFactors.Concat(def.statOffsets).Concat(def.setStats).Select(sm => sm.stat)) cachedStatsToTouch[statDef.index]++;
         }
 
         public virtual void Notify_Removed(Pawn_PowerTracker parent)
@@ -53,6 +62,8 @@ namespace VFEAncients
                     if (!powerDef.nullifiedThoughts.NullOrEmpty())
                         parent.AllNullifiedThoughts.AddRange(powerDef.nullifiedThoughts);
             }
+
+            foreach (var statDef in def.statFactors.Concat(def.statOffsets).Concat(def.setStats).Select(sm => sm.stat)) cachedStatsToTouch[statDef.index]--;
         }
 
         public string EffectString()
