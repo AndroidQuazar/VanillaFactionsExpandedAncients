@@ -49,9 +49,13 @@ namespace VFEAncients
                 appliedPatches.Add(workerClass);
             }
 
-            if (!nullifiedThoughts.NullOrEmpty()) GlobalNullifiedThoughts.AddRange(nullifiedThoughts);
-
-            LongEventHandler.ExecuteWhenFinished(() => Icon = ContentFinder<Texture2D>.Get(texPath));
+            LongEventHandler.ExecuteWhenFinished(() =>
+            {
+                Icon = ContentFinder<Texture2D>.Get(texPath);
+                if (nullifiedThoughts != null)
+                    foreach (var def in nullifiedThoughts)
+                        GlobalNullifiedThoughts.Add(def);
+            });
         }
     }
 

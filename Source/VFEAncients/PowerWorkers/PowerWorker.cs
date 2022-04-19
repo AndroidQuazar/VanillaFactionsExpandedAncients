@@ -24,7 +24,7 @@ namespace VFEAncients
         public virtual IEnumerable<WorkTypeDef> DisabledWorkTypes => DefDatabase<WorkTypeDef>.AllDefs.Where(wtd => !AllowsWorkType(wtd));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TouchStat(StatDef stat) => cachedStatsToTouch[stat.index] > 0;
+        public static bool TouchStat(StatDef stat) => stat.index > cachedStatsToTouch.Length || cachedStatsToTouch[stat.index] > 0;
 
         public T GetData<T>() where T : WorkerData => def.workerData as T;
 
