@@ -55,6 +55,7 @@
     <graphicData>
       <texPath>Things/Building/Furniture/LampStanding</texPath>
     </graphicData>
+    <tradeability>None</tradeability>
     <costList>
       <Steel>20</Steel>
     </costList>
