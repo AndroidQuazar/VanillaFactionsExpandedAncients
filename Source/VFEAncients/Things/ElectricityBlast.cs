@@ -43,7 +43,7 @@ namespace VFEAncients
         public Thing Holder;
 
         private int numBounces;
-        private List<Thing> prevTargets = new List<Thing>();
+        private List<Thing> prevTargets = new();
 
         public AbilityExtension_ElectricityBlast Props;
 
@@ -62,7 +62,8 @@ namespace VFEAncients
             }
 
             Graphics.DrawMesh(MeshPool.plane10,
-                Matrix4x4.TRS(vec2 + (vec1 - vec2) / 2, Quaternion.AngleAxis(vec1.AngleToFlat(vec2) + 90f, Vector3.up), new Vector3(1f, 1f, (vec1 - vec2).magnitude)),
+                Matrix4x4.TRS(vec2 + (vec1 - vec2) / 2, Quaternion.AngleAxis(vec1.AngleToFlat(vec2) + 90f, Vector3.up),
+                    new Vector3(1f, 1f, (vec1 - vec2).magnitude)),
                 Graphic.MatSingle, 0);
         }
 

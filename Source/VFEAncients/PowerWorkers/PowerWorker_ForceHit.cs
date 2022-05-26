@@ -18,9 +18,10 @@ namespace VFEAncients
         public override void DoPatches(Harmony harm)
         {
             base.DoPatches(harm);
-            harm.Patch(AccessTools.Method(typeof(Verb_LaunchProjectile), "TryCastShot"), transpiler: new HarmonyMethod(GetType(), nameof(TryCastShot_Transpile)));
-            harm.Patch(AccessTools.Method(typeof(TooltipUtility), nameof(TooltipUtility.ShotCalculationTipString)), transpiler: new HarmonyMethod(GetType(), nameof(
-                ShotCalculationTipString_Transpile)));
+            harm.Patch(AccessTools.Method(typeof(Verb_LaunchProjectile), "TryCastShot"),
+                transpiler: new HarmonyMethod(GetType(), nameof(TryCastShot_Transpile)));
+            harm.Patch(AccessTools.Method(typeof(TooltipUtility), nameof(TooltipUtility.ShotCalculationTipString)),
+                transpiler: new HarmonyMethod(GetType(), nameof(ShotCalculationTipString_Transpile)) {after = new[] {"drumad.rimworld.nightvision"}});
             if (VFEAncientsMod.YayosCombat)
             {
                 var info = AccessTools.Method(AccessTools.Inner(AccessTools.TypeByName("yayoCombat.yyShotReport"), "yayoTryCastShot"), "Prefix");
