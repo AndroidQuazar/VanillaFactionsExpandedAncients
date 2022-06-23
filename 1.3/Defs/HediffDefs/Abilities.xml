@@ -33,7 +33,7 @@
     <description>Out of phase with normal reality, allowing walking through solid matter.</description>
     <comps>
       <li Class="HediffCompProperties">
-        <compClass>VFECore.HediffComp_Phasing</compClass>
+        <compClass>VFEAncients.HediffComp_Phasing</compClass>
       </li>
       <li Class="HediffCompProperties_Disappears">
         <showRemainingTime>True</showRemainingTime>

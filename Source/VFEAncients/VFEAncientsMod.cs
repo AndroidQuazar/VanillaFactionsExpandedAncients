@@ -21,6 +21,7 @@ namespace VFEAncients
             // Harmony.DEBUG = true;
             PowerPatches.Do(Harm);
             AbilityPatches.Do(Harm);
+            PhasingPatches.Do(Harm);
             BuildingPatches.Do(Harm);
             PreceptPatches.Do(Harm);
             PointDefensePatches.Do(Harm);
