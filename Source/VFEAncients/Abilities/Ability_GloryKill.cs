@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.Sound;
 
@@ -8,27 +9,35 @@ namespace VFEAncients
 {
     public class Ability_GloryKill : Ability
     {
-        public IEnumerable<Pawn> PossibleTargets => GenAdj.CellsAdjacent8Way(pawn).SelectMany(c => c.GetThingList(pawn.Map)).Where(t => t.HostileTo(pawn)).OfType<Pawn>();
+        public IEnumerable<Pawn> PossibleTargets =>
+            GenAdj.CellsAdjacent8Way(pawn).SelectMany(c => c.GetThingList(pawn.Map)).Where(t => t.HostileTo(pawn)).OfType<Pawn>();
 
-        public override void Cast(LocalTargetInfo target)
+        public override void Cast(params GlobalTargetInfo[] targets)
         {
-            base.Cast(target);
-            if (PossibleTargets.TryRandomElement(out var pawn))
+            base.Cast(targets);
+
+            if (VFEAncientsMod.settings.enableGloryKillMusic) VFEA_DefOf.VFEA_GloryKill_Music.PlayOneShot(pawn);
+
+            foreach (var target in targets)
             {
-                if (VFEAncientsMod.settings.enableGloryKillMusic)
-                {
-                    VFEA_DefOf.VFEA_GloryKill_Music.PlayOneShot(pawn);
-                }
-                var limbs = AllLimbs(pawn).ToList();
-                foreach (var part in limbs.InRandomOrder().Take(new IntRange(1, limbs.Count - 1).RandomInRange)) pawn.health.AddHediff(HediffDefOf.MissingBodyPart, part);
+                if (target.Thing is not Pawn p) continue;
+                var limbs = AllLimbs(p).ToList();
+                foreach (var part in limbs.InRandomOrder().Take(new IntRange(1, limbs.Count - 1).RandomInRange))
+                    p.health.AddHediff(HediffDefOf.MissingBodyPart, part);
 
                 var blood = new IntRange(25, 50).RandomInRange;
                 for (var i = 0; i < blood; i++)
-                    FilthMaker.TryMakeFilth(GenRadial.RadialCellsAround(pawn.PositionHeld, 2.9f, true).RandomElement(), pawn.MapHeld, pawn.RaceProps.BloodDef,
-                        pawn.LabelIndefinite());
+                    FilthMaker.TryMakeFilth(GenRadial.RadialCellsAround(p.PositionHeld, 2.9f, true).RandomElement(), p.MapHeld, p.RaceProps.BloodDef,
+                        p.LabelIndefinite());
 
-                pawn.Kill(null);
+                p.Kill(null);
             }
+        }
+
+        public override void ModifyTargets(ref GlobalTargetInfo[] targets)
+        {
+            base.ModifyTargets(ref targets);
+            targets = PossibleTargets.Select(p => (GlobalTargetInfo) p).ToArray();
         }
 
         public override bool IsEnabledForPawn(out string reason)

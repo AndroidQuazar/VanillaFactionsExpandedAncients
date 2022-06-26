@@ -5,33 +5,33 @@
     <defName>VFEA_Fleck_PsychicDistortion</defName>
     <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
-      <fadeInTime>0.03</fadeInTime>
-      <fadeOutTime>0.05</fadeOutTime>
-      <solidTime>0.15</solidTime>
-      <growthRate>1.5</growthRate>
+    <fadeInTime>0.03</fadeInTime>
+    <fadeOutTime>0.05</fadeOutTime>
+    <solidTime>0.15</solidTime>
+    <growthRate>1.5</growthRate>
     <graphicData>
       <texPath>Things/Mote/Black</texPath>
       <shaderParameters>
         <_distortionIntensity>0.05</_distortionIntensity>
-        <_brightnessMultiplier>1.1</_brightnessMultiplier>      
+        <_brightnessMultiplier>1.1</_brightnessMultiplier>
       </shaderParameters>
       <drawSize>2.5</drawSize>
     </graphicData>
   </FleckDef>
-  
+
   <FleckDef ParentName="FleckGlowDistortBackground">
     <defName>RE_Fleck_MatterDistortion</defName>
     <fleckSystemClass>FleckSystemThrown</fleckSystemClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
-      <fadeInTime>1.13</fadeInTime>
-      <fadeOutTime>1.15</fadeOutTime>
-      <solidTime>3.8</solidTime>
-      <growthRate>1.5</growthRate>
+    <fadeInTime>1.13</fadeInTime>
+    <fadeOutTime>1.15</fadeOutTime>
+    <solidTime>3.8</solidTime>
+    <growthRate>1.5</growthRate>
     <graphicData>
       <texPath>Things/Mote/Black</texPath>
       <shaderParameters>
         <_distortionIntensity>0.05</_distortionIntensity>
-        <_brightnessMultiplier>1.1</_brightnessMultiplier>      
+        <_brightnessMultiplier>1.1</_brightnessMultiplier>
       </shaderParameters>
       <drawSize>2.5</drawSize>
     </graphicData>
@@ -60,7 +60,7 @@
     <cooldownTime>3600</cooldownTime>
     <castTime>15</castTime>
     <chance>0</chance>
-	<castSound>PsychicShockLanceCast</castSound>
+    <castSound>PsychicShockLanceCast</castSound>
     <targetFlecks>
       <li>VFEA_Fleck_PsychicDistortion</li>
     </targetFlecks>
@@ -76,7 +76,7 @@
     <cooldownTime>3600</cooldownTime>
     <castTime>15</castTime>
     <chance>0</chance>
-	<castSound>PsychicSoothePulserCast</castSound>
+    <castSound>PsychicSoothePulserCast</castSound>
     <targetFlecks>
       <li>VFEA_Fleck_PsychicDistortion</li>
     </targetFlecks>
@@ -85,22 +85,24 @@
     <defName>VFEA_PsychicShock</defName>
     <label>psychic shock</label>
     <description>Fire a psychic shock on the enemy, rendering them unconscious.</description>
-    <abilityClass>VFEAncients.Ability_Psychic</abilityClass>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
     <targetMode>Pawn</targetMode>
     <range>19.9</range>
     <iconPath>Powers/Superpowers/Power_PsychicShock</iconPath>
     <cooldownTime>3600</cooldownTime>
     <castTime>15</castTime>
     <chance>0</chance>
+    <durationTime>7500</durationTime>
     <modExtensions>
       <li Class="VFECore.Abilities.AbilityExtension_Hediff">
         <hediff>PsychicShock</hediff>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
     <targetFlecks>
       <li>VFEA_Fleck_PsychicDistortion</li>
     </targetFlecks>
-	<castSound>PsychicShockLanceCast</castSound>
+    <castSound>PsychicShockLanceCast</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Invisibility</defName>
@@ -113,19 +115,19 @@
     <castTime>15</castTime>
     <chance>0</chance>
     <casterHediff>VFEA_Invisiblity</casterHediff>
-	<castSound>VFEA_Invisibility</castSound>
+    <castSound>VFEA_Invisibility</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SelfControl</defName>
     <label>self-control</label>
     <description>When activated, immediately stop any mental breaks this pawn is under effect of.</description>
-    <abilityClass>VFEAncients.Ability_CalmSelf</abilityClass>
+    <abilityClass>VFEAncients.Ability_Calm</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_SelfControl</iconPath>
     <cooldownTime>120000</cooldownTime>
     <castTime>60</castTime>
     <chance>0</chance>
-	<castSound>PsychicSoothePulserCast</castSound>
+    <castSound>PsychicSoothePulserCast</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Overshield</defName>
@@ -144,7 +146,7 @@
         <shieldTexPath>Other/ShieldBubble</shieldTexPath>
       </li>
     </modExtensions>
-	<castSound>VFEA_OvershieldCast</castSound>
+    <castSound>VFEA_OvershieldCast</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_SummonLightning</defName>
@@ -176,7 +178,7 @@
     <castTime>120</castTime>
     <chance>0</chance>
     <range>29.9</range>
-	<castSound>VFEA_AnimalSpeech</castSound>
+    <castSound>VFEA_AnimalSpeech</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Empathy</defName>
@@ -194,7 +196,7 @@
         <targetThought>VFEA_EmpathyCast</targetThought>
       </li>
     </modExtensions>
-	<castSound>VFEA_Empathy_Cast</castSound>
+    <castSound>VFEA_Empathy_Cast</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Heal</defName>
@@ -207,8 +209,8 @@
     <castTime>120</castTime>
     <chance>0</chance>
     <range>14.9</range>
-	<castSound>DispensePaste</castSound>
-	<castFleck>VFEA_Fleck_HealSmoke</castFleck>
+    <castSound>DispensePaste</castSound>
+    <castFleck>VFEA_Fleck_HealSmoke</castFleck>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_GloryKill</defName>
@@ -220,20 +222,20 @@
     <cooldownTime>300000</cooldownTime>
     <castTime>0</castTime>
     <chance>0</chance>
-	<castSound>VFEA_GloryKill_Cast</castSound>
+    <castSound>VFEA_GloryKill_Cast</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_ElectromagneticPulse</defName>
     <label>electro-magnetic pulse</label>
     <description>Generate a large EMP explosion around yourself, disabling all electronics in radius.</description>
-    <abilityClass>VFEAncients.Ability_Explode</abilityClass>
+    <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
     <targetMode>Self</targetMode>
     <iconPath>Powers/Superpowers/Power_ElectromagneticPulse</iconPath>
     <cooldownTime>3600</cooldownTime>
     <castTime>15</castTime>
     <chance>0</chance>
     <modExtensions>
-      <li Class="VFEAncients.AbilityExtension_Explosion">
+      <li Class="VFECore.Abilities.AbilityExtension_Explosion">
         <explosionDamageDef>EMP</explosionDamageDef>
         <explosionRadius>39.9</explosionRadius>
         <explosionDamageAmount>50</explosionDamageAmount>
@@ -257,7 +259,7 @@
         <projectile>VFEA_FireBreath</projectile>
       </li>
     </modExtensions>
-	<castSound>VFEA_IceBreath_Shot</castSound>
+    <castSound>VFEA_IceBreath_Shot</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_IceBreath</defName>
@@ -293,7 +295,7 @@
         <projectile>VFEA_LaserEyeBeam</projectile>
       </li>
     </modExtensions>
-	<castSound>VFEA_LaserEyes_Shot</castSound>
+    <castSound>VFEA_LaserEyes_Shot</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_MatterPhasing</defName>
@@ -305,8 +307,8 @@
     <cooldownTime>3600</cooldownTime>
     <castTime>0</castTime>
     <chance>0</chance>
-	<castFleck>RE_Fleck_MatterDistortion</castFleck>
-	<castSound>VFEA_MatterPhasing_Sustainer</castSound>
+    <castFleck>RE_Fleck_MatterDistortion</castFleck>
+    <castSound>VFEA_MatterPhasing_Sustainer</castSound>
     <casterHediff>VFEA_Phasing</casterHediff>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
@@ -346,7 +348,7 @@
     <castTime>0</castTime>
     <chance>0</chance>
     <casterHediff>VFEA_SpeedBurst</casterHediff>
-	<castSound>VFEA_SpeedBurst</castSound>
+    <castSound>VFEA_SpeedBurst</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_AcidBreath</defName>
@@ -364,7 +366,7 @@
         <projectile>VFEA_AcidSpit</projectile>
       </li>
     </modExtensions>
-	<castSound>VFEA_AcidSpit_Shot</castSound>
+    <castSound>VFEA_AcidSpit_Shot</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Fireball</defName>
@@ -398,7 +400,7 @@
         <Target>Tortoise</Target>
       </li>
     </modExtensions>
-	<castSound>VFEA_Metamorphosis</castSound>
+    <castSound>VFEA_Metamorphosis</castSound>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_MetamorphosisWarg</defName>
@@ -415,6 +417,6 @@
         <Target>Warg</Target>
       </li>
     </modExtensions>
-	<castSound>VFEA_Metamorphosis</castSound>
+    <castSound>VFEA_Metamorphosis</castSound>
   </VFECore.Abilities.AbilityDef>
 </Defs>

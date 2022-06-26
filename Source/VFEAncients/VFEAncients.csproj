@@ -66,13 +66,10 @@
     <Compile Include="Abilities\Ability_Animal.cs" />
     <Compile Include="Abilities\Ability_Berserk.cs" />
     <Compile Include="Abilities\Ability_Calm.cs" />
-    <Compile Include="Abilities\Ability_CalmSelf.cs" />
-    <Compile Include="Abilities\Ability_Explode.cs" />
     <Compile Include="Abilities\Ability_GloryKill.cs" />
     <Compile Include="Abilities\Ability_Heal.cs" />
     <Compile Include="Abilities\Ability_Jump.cs" />
     <Compile Include="Abilities\Ability_MetaMorph.cs" />
-    <Compile Include="Abilities\Ability_Psychic.cs" />
     <Compile Include="Abilities\Ability_Thought.cs" />
     <Compile Include="Comps\CompAncientSolar.cs" />
     <Compile Include="Comps\CompBioBattery.cs" />
