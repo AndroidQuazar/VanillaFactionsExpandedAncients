@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using VFECore.Abilities;
 
@@ -10,9 +11,9 @@ namespace VFEAncients
     {
         public PawnKindDef Target => AbilityModExtensions.OfType<AbilityExtension_MetaMorph>().FirstOrDefault()?.Target;
 
-        public override void Cast(LocalTargetInfo target)
+        public override void Cast(params GlobalTargetInfo[] targets)
         {
-            base.Cast(target);
+            base.Cast(targets);
 
             var hediff = HediffMaker.MakeHediff(VFEA_DefOf.VFEA_MetaMorph, pawn);
             if (hediff.TryGetComp<HediffComp_MetaMorph>() is { } comp) comp.Target = Target;

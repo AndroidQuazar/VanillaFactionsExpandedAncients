@@ -114,7 +114,7 @@ namespace VFEAncients
         private Thing NextTarget()
         {
             var things = GenRadial.RadialDistinctThingsAround(Holder.Position, Map, Ability.range, false)
-                .Where(t => Ability.targetingParameters.CanTarget(new TargetInfo(t)) &&
+                .Where(t => Ability.targetingParametersList[0].CanTarget(new TargetInfo(t)) &&
                             (Props.targetFriendly || t.HostileTo(Caster))).Except(new[] {this, Target});
             if (!Props.allowRepeat) things = things.Except(prevTargets);
             switch (Props.bouncePriority)

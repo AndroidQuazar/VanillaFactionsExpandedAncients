@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace VFEAncients
@@ -24,16 +25,20 @@ namespace VFEAncients
             return true;
         }
 
-        public override void Cast(LocalTargetInfo target)
+
+        public override void Cast(params GlobalTargetInfo[] targets)
         {
-            base.Cast(target);
-            if (!(target.HasThing && target.Thing is Pawn)) return;
-            if (!target.Pawn.AnimalOrWildMan()) return;
-            if (target.Pawn.MentalState != null &&
-                (target.Pawn.MentalState.def == MentalStateDefOf.Manhunter || target.Pawn.MentalState.def == MentalStateDefOf.ManhunterPermanent))
-                target.Pawn.MentalState.RecoverFromState();
-            else
-                InteractionWorker_RecruitAttempt.DoRecruit(pawn, target.Pawn);
+            base.Cast(targets);
+            foreach (var target in targets)
+            {
+                if (target.Thing is not Pawn p) continue;
+                if (!p.AnimalOrWildMan()) continue;
+                if (p.MentalState != null &&
+                    (p.MentalState.def == MentalStateDefOf.Manhunter || p.MentalState.def == MentalStateDefOf.ManhunterPermanent))
+                    p.MentalState.RecoverFromState();
+                else
+                    InteractionWorker_RecruitAttempt.DoRecruit(pawn, p);
+            }
         }
     }
 }
