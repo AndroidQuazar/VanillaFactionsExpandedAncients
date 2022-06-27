@@ -98,6 +98,9 @@
         <hediff>PsychicShock</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
+      <li Class="VFECore.Abilities.AbilityExtension_ClassMigration">
+        <oldClass>VFEAncients.Ability_Psychic</oldClass>
+      </li>
     </modExtensions>
     <targetFlecks>
       <li>VFEA_Fleck_PsychicDistortion</li>
@@ -128,6 +131,11 @@
     <castTime>60</castTime>
     <chance>0</chance>
     <castSound>PsychicSoothePulserCast</castSound>
+    <modExtensions>
+      <li Class="VFECore.Abilities.AbilityExtension_ClassMigration">
+        <oldClass>VFEAncients.Ability_CalmSelf</oldClass>
+      </li>
+    </modExtensions>
   </VFECore.Abilities.AbilityDef>
   <VFECore.Abilities.AbilityDef>
     <defName>VFEA_Overshield</defName>
@@ -240,6 +248,9 @@
         <explosionRadius>39.9</explosionRadius>
         <explosionDamageAmount>50</explosionDamageAmount>
         <onCaster>true</onCaster>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_ClassMigration">
+        <oldClass>VFEAncients.Ability_Explode</oldClass>
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>
